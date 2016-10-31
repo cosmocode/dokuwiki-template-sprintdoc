@@ -1,35 +1,63 @@
+<!DOCTYPE html>
 <?php
+
 /**
- * DokuWiki Starter Template
+ * DokuWiki sprintDoc Template
  *
- * @link     http://dokuwiki.org/template:starter
- * @author   Anika Henke <anika@selfthinker.org>
+ * @link     FIXME
+ * @author   Jana Deutschlaender <deutschlaender@cosmocode.de>
  * @license  GPL 2 (http://www.gnu.org/licenses/gpl.html)
  */
 
-if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
-@require_once(dirname(__FILE__).'/tpl_functions.php'); /* include hook for template functions */
+if (!defined('DOKU_INC')) die();                        /* must be run from within DokuWiki */
+@require_once(dirname(__FILE__).'/tpl_functions.php');  /* include hook for template functions */
 header('X-UA-Compatible: IE=edge,chrome=1');
 
 $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && !empty($_SERVER['REMOTE_USER']) );
 $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
-?><!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $conf['lang'] ?>"
-  lang="<?php echo $conf['lang'] ?>" dir="<?php echo $lang['direction'] ?>" class="no-js">
-<head>
-    <meta charset="UTF-8" />
-    <title><?php tpl_pagetitle() ?> [<?php echo strip_tags($conf['title']) ?>]</title>
-    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
-    <?php tpl_metaheaders() ?>
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <?php echo tpl_favicon(array('favicon', 'mobile')) ?>
-    <?php tpl_includeFile('meta.html') ?>
-</head>
 
+?>
+<!--[if lt IE 9]> <html class="no-js lt-ie10 lt-ie9" lang="<?php echo $conf['lang'] ?>" dir="<?php echo $lang['direction'] ?>"> <![endif]-->
+<!--[if IE 9]> <html class="no-js lt-ie10 ie-9" lang="<?php echo $conf['lang'] ?>" dir="<?php echo $lang['direction'] ?>"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="edge no-js" lang="<?php echo $conf['lang'] ?>" dir="<?php echo $lang['direction'] ?>"> <!--<![endif]-->
+<head>
+
+<?php
+
+/* + + + + + + + + + + + + + +  meta and link relations  + + + + + + + + + + + + + + */
+?>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<?php tpl_metaheaders() ?>
+<?php
+
+/* + + + + + + + + + + + + + +  IE8 support HTML5 / media queries  + + + + + + + + + */
+?>
+<!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+
+<?php
+
+/* + + + + + + + + + + + + + + page title  + + + + + + + + + + + + + + + + + + + + + */
+?>
+<title><?php tpl_pagetitle() ?> [<?php echo strip_tags($conf['title']) ?>]</title>
+
+<script type="text/javascript">(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+
+<?php
+
+/* + + + + + + + + + + + + + +  favicons   + + + + + + + + + + + + + + + + + + + + + */
+?>
+<?php echo tpl_favicon(array('favicon', 'mobile')) ?> <?php /* DokuWiki: favicon.ico, apple-touch-icon.png  */ ?>
+<?php /* FIXME: additional favicons */ ?>
+
+<?php
+
+/* + + + + + + + + + + + + + +  Include Hook: meta.html  + + + + + + + + + + + + + + */
+?>
+<?php tpl_includeFile('meta.html') ?>
+</head>
 <body>
-    <?php /* with these Conditional Comments you can better address IE issues in CSS files,
-             precede CSS rules by #IE8 for IE8 (div closes at the bottom) */ ?>
-    <!--[if lte IE 8 ]><div id="IE8"><![endif]-->
+
 
     <?php /* the "dokuwiki__top" id is needed somewhere at the top, because that's where the "back to top" button/link links to */ ?>
     <?php /* tpl_classes() provides useful CSS classes; if you choose not to use it, the 'dokuwiki' class at least
@@ -173,6 +201,6 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
     </div></div><!-- /site -->
 
     <div class="no"><?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?></div>
-    <!--[if lte IE 8 ]></div><![endif]-->
+
 </body>
 </html>
