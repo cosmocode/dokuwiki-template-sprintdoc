@@ -24,20 +24,26 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 
 <?php
 
-/* + + + + + + + + + + + + + +  meta and link relations  + + + + + + + + + + + + + + */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* meta and link relations */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 ?>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <?php tpl_metaheaders() ?>
 <?php
 
-/* + + + + + + + + + + + + + +  IE8 support HTML5 / media queries  + + + + + + + + + */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* IE8 support HTML5 / media queries */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 ?>
 <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
 
 <?php
 
-/* + + + + + + + + + + + + + + page title  + + + + + + + + + + + + + + + + + + + + + */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* page title */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 ?>
 <title><?php tpl_pagetitle() ?> [<?php echo strip_tags($conf['title']) ?>]</title>
 
@@ -45,30 +51,101 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 
 <?php
 
-/* + + + + + + + + + + + + + +  favicons   + + + + + + + + + + + + + + + + + + + + + */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* favicons */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 ?>
-<?php echo tpl_favicon(array('favicon', 'mobile')) ?> <?php /* DokuWiki: favicon.ico, apple-touch-icon.png  */ ?>
-<?php /* FIXME: additional favicons */ ?>
+<?php echo tpl_favicon(array('favicon')) ?> <?php /* DokuWiki: favicon.ico  */ ?>
 
+<link rel="apple-touch-icon" sizes="57x57" href="<?php echo tpl_getMediaFile(array(':wiki:apple-touch-icon-57x57.png', 'images/fav/apple-touch-icon-57x57.png')); ?>">
+<link rel="apple-touch-icon" sizes="60x60" href="<?php echo tpl_getMediaFile(array(':wiki:apple-touch-icon-60x60.png', 'images/fav/apple-touch-icon-60x60.png')); ?>">
+<link rel="apple-touch-icon" sizes="72x72" href="<?php echo tpl_getMediaFile(array(':wiki:apple-touch-icon-72x72.png', 'images/fav/apple-touch-icon-72x72.png')); ?>">
+<link rel="apple-touch-icon" sizes="76x76" href="<?php echo tpl_getMediaFile(array(':wiki:apple-touch-icon-76x76.png', 'images/fav/apple-touch-icon-76x76.png')); ?>">
+<link rel="apple-touch-icon" sizes="114x114" href="<?php echo tpl_getMediaFile(array(':wiki:apple-touch-icon-114x114.png', 'images/fav/apple-touch-icon-114x114.png')); ?>">
+<link rel="apple-touch-icon" sizes="120x120" href="<?php echo tpl_getMediaFile(array(':wiki:apple-touch-icon-120x120.png', 'images/fav/apple-touch-icon-120x120.png')); ?>">
+<link rel="apple-touch-icon" sizes="144x144" href="<?php echo tpl_getMediaFile(array(':wiki:apple-touch-icon-144x144.png', 'images/fav/apple-touch-icon-144x144.png')); ?>">
+<link rel="apple-touch-icon" sizes="152x152" href="<?php echo tpl_getMediaFile(array(':wiki:apple-touch-icon-152x152.png', 'images/fav/apple-touch-icon-152x152.png')); ?>">
+<link rel="apple-touch-icon" sizes="180x180" href="<?php echo tpl_getMediaFile(array(':wiki:apple-touch-icon-180x180.png', 'images/fav/apple-touch-icon-180x180.png')); ?>">
+
+<link rel="icon" type="image/png" href="<?php echo tpl_getMediaFile(array(':wiki:favicon-32x32.png', 'images/fav/favicon-32x32.png')); ?>" sizes="32x32">
+<link rel="icon" type="image/png" href="<?php echo tpl_getMediaFile(array(':wiki:favicon-96x96.png', 'images/fav/favicon-96x96.png')); ?>" sizes="96x96">
+<link rel="icon" type="image/png" href="<?php echo tpl_getMediaFile(array(':wiki:android-chrome-192x192.png', 'images/fav/android-chrome-192x192.png')); ?>" sizes="192x192">
+
+<meta name="msapplication-square70x70logo" content="<?php echo tpl_getMediaFile(array(':wiki:smalltile.png', 'images/fav/smalltile.png')); ?>" />
+<meta name="msapplication-square150x150logo" content="<?php echo tpl_getMediaFile(array(':wiki:mediumtile.png', 'images/fav/mediumtile.png')); ?>" />
+<meta name="msapplication-wide310x150logo" content="<?php echo tpl_getMediaFile(array(':wiki:widetile.png', 'images/fav/widetile.png')); ?>" />
+<meta name="msapplication-square310x310logo" content="<?php echo tpl_getMediaFile(array(':wiki:largetile.png', 'images/fav/largetile.png')); ?>" />
 <?php
 
-/* + + + + + + + + + + + + + +  Include Hook: meta.html  + + + + + + + + + + + + + + */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Include Hook: meta.html */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 ?>
 <?php tpl_includeFile('meta.html') ?>
 </head>
-<body>
+<?php /* #dokuwiki__top used as anchor for "back to top" button/link links */ ?>
+<body id="dokuwiki__top" class="<?php echo tpl_classes(); ?>">
 
 
-    <?php /* the "dokuwiki__top" id is needed somewhere at the top, because that's where the "back to top" button/link links to */ ?>
-    <?php /* tpl_classes() provides useful CSS classes; if you choose not to use it, the 'dokuwiki' class at least
-             should always be in one of the surrounding elements (e.g. plugins and templates depend on it) */ ?>
-    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site <?php echo tpl_classes(); ?> <?php
-        echo ($showSidebar) ? 'hasSidebar' : ''; ?>">
-        <?php html_msgarea() /* occasional error and info messages on top of the page */ ?>
-        <?php tpl_includeFile('header.html') ?>
+    <div id="dokuwiki__site">
+        <?php
 
-        <!-- ********** HEADER ********** -->
-        <div id="dokuwiki__header"><div class="pad">
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* nav-direct */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+        ?>
+
+        <div id="dokuwiki_direct" class="nav-direct no-print">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+
+                        <p>
+                            <span class="sr-out"><?php echo tpl_getLang('direct_prefix'); ?>: </span>
+                            <span class="skip">
+                                <a href="#content"><?php echo tpl_getLang('direct_content_main'); ?></a><span class="sr-out"> /</span>
+                                <a href="#nav-main"><?php echo tpl_getLang('direct_menu_main');  ?></a>
+                            </span>
+                        </p>
+
+                    </div><!-- .col -->
+                </div><!-- .row -->
+            </div><!-- .container -->
+        </div><!-- .nav-direct -->
+
+
+        <div class="page-wrapper <?php echo ($showSidebar) ? 'hasSidebar' : ''; ?>">
+            <?php
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Message AREA */
+/* FIXME: position of error + info messages. Does it have to be on top of the page? */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+            html_msgarea();
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Include Hook: header.html */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+            tpl_includeFile('header.html');
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* MagicMatcher */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+            ?>
+
+            <div id="dokuwiki_magic-matcher" class="magic-matcher no-print">
+                <div class="container">
+                </div><!-- .container -->
+            </div><!-- .magic-matcher -->
+            <?php
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Header */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+            ?>
+
+            <div id="dokuwiki__header" class="header no-print">
+                <div class="container">
+                </div><!-- .container -->
 
             <div class="headings">
                 <h1><?php tpl_link(wl(),$conf['title'],'accesskey="h" title="[H]"') ?></h1>
