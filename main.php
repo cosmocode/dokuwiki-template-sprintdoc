@@ -24,6 +24,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 
 <?php
 
+
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* meta and link relations */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
@@ -33,6 +34,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 <?php tpl_metaheaders() ?>
 <?php
 
+
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* IE8 support HTML5 / media queries */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
@@ -40,6 +42,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
 
 <?php
+
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* page title */
@@ -50,6 +53,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 <script type="text/javascript">(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
 
 <?php
+
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* favicons */
@@ -77,6 +81,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 <meta name="msapplication-square310x310logo" content="<?php echo tpl_getMediaFile(array(':wiki:largetile.png', 'images/fav/largetile.png')); ?>" />
 <?php
 
+
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* Include Hook: meta.html */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
@@ -89,6 +94,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 
     <div id="dokuwiki__site">
         <?php
+
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* nav-direct */
@@ -117,16 +123,19 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
         <div class="page-wrapper <?php echo ($showSidebar) ? 'hasSidebar' : ''; ?>">
             <?php
 
+
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* Message AREA */
 /* FIXME: position of error + info messages. Does it have to be on top of the page? */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
             html_msgarea();
 
+
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* Include Hook: header.html */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
             tpl_includeFile('header.html');
+
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* MagicMatcher */
@@ -138,6 +147,8 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
                 </div><!-- .container -->
             </div><!-- .magic-matcher -->
             <?php
+
+
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* Header */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
@@ -275,7 +286,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
         </div></div><!-- /footer -->
 
         <?php tpl_includeFile('footer.html') ?>
-    </div></div><!-- /site -->
+    </div><!-- .dokuwiki__site -->
 
     <div class="no"><?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?></div>
 
