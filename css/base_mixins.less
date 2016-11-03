@@ -1,0 +1,55 @@
+/**
+ * This file provides less mixins for all other style modules
+ *
+ * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
+ */
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Fonts */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+.setLocalFontFace(@fontFamily,@fontWeight,@localFontName,@localFontNameVar,@filename){
+    @font-face {
+        font-family: @fontFamily;
+        font-style: normal;
+        font-weight: @fontWeight;
+        src: ~"local('@{localFontName}'), local("~"'@{localFontNameVar}'), url("~"@{filename}.eot)";
+        src: ~"url("~"@{filename}.eot?#iefix') format('embedded-opentype'), url("~"@{filename}.woff') format('woff')";
+    }
+}
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Screenreader / Hide */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+.sr-out() {
+    display: block;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    top: -200000em;
+    left: -200000em;
+}
+
+.sr-only(){
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+.sr-only-focusable() {
+    &:active,
+    &:focus {
+        position: static;
+        width: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        clip: auto;
+    }
+}

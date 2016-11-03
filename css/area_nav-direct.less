@@ -1,0 +1,52 @@
+/**
+ * This file provides the design styles for the direct / menu jump links.
+ *
+ * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
+ */
+
+.nav-direct {
+    background-color: __nav_direct_background__;
+    margin-top: -1px;
+
+    p {
+        box-sizing: border-box;
+        text-align: center;
+        position: absolute;
+        left: 0;
+        top: -1px;
+        width: 100%;
+        height: 1px;
+        z-index: 200;
+
+        a:link,
+        a:visited {
+            .sr-out();
+
+            box-shadow: __box_shadow__;
+            display: block;
+            width: 100%;
+            background-color: __nav_direct_background__;
+            border-bottom: 1px solid __shadow_color__;
+            color: __nav_direct_color__;
+            line-height: @line-height-default;
+            text-decoration: none;
+            padding: 1em;
+            box-sizing: border-box;
+            border-radius: 0;
+        }
+
+        a:focus,
+        a:hover,
+        a:active {
+            top: 0;
+            left: 0;
+            text-decoration: underline;
+            min-height: 50px;
+        }
+
+        a:hover,
+        a:active {
+            text-decoration: none;
+        }
+    }
+}

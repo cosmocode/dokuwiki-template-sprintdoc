@@ -1,0 +1,45 @@
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* all media */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + */
+/* magic matcher bar with form on top of page */
+
+#dokuwiki_magic-matcher{
+    #magicmatcher__context{
+        box-sizing: border-box;
+        background-color: __nav_direct_background__;
+        box-shadow: __box_shadow__;
+        border-radius: 0 0 __default_border_radius__ __default_border_radius__;
+        position: relative;
+        z-index: 100;
+        left: .25%;
+        width: 99.5%;
+        min-height: 50px;
+        padding: .8em 1em .5em;
+
+        .chosen-container-single .chosen-single span{
+            line-height: @line-height-bigger;
+        }
+    }
+}
+
+.no-js{
+    #dokuwiki_magic-matcher{
+        display: none;
+    }
+}
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* print */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+@media print{
+    #dokuwiki_magic-matcher{
+        display: none;
+    }
+}
+

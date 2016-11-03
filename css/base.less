@@ -1,8 +1,117 @@
 /**
- * This file provides the basic styles.
+ * This file provides the basic vars and reset styles.
  *
  * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
  */
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* global vars */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+@line-height-default: 125%;
+@line-height-big: 135%;
+@line-height-bigger: 140%;
+
+@break-min-xxs: 480;
+@break-max-xxs: (@break-min-xxs - 1);
+
+@break-min-xs: 768;
+@break-max-xs: (@break-min-xs - 1);
+
+@break-min-md: 1024;
+@break-max-md: (@break-min-md - 1);
+
+@break-min-lg: 1440;
+@break-max-lg: (@break-min-lg - 1);
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* all media */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+html, body{
+    font-size: 100.1%;
+}
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote,
+a, abbr, em,acronym, img, strong,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+input, select, option, textarea, button{
+    background: transparent;
+    border: none 0; outline: 0; vertical-align: baseline;
+    font-style: normal;
+    margin: 0; padding: 0;
+}
+
+div, span, object,
+h1, h2, h3, h4, h5, h6, p, blockquote,
+a, abbr, em,acronym, img, strong,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+input, select, option, textarea, button{
+    font-size: 1rem; line-height: 100%;
+}
+
+
+ol, ul{ list-style: none outside none; }
+blockquote, q{ quotes: none; }
+acronym{ cursor: help; border-bottom: dotted 1px #333; }
+
+*:focus{ outline: 0; }
+
+table{ border-collapse: collapse; border-spacing: 0; empty-cells: show; caption-side: top; }
+caption, th, td{ text-align: left; vertical-align: top; }
+
+img{ display: block; float: none; border: none 0; line-height: @line-height-default; }
+
+*, div, nav, header{
+    box-sizing: border-box;
+}
+
+header, footer, .container, .row, nav, nav > ul{
+    &::before, &::after{
+        display: table;
+        content: "  ";
+        clear: both;
+    }
+}
+
+
+
+.sr-out {
+    .sr-out();
+}
+
+.sr-only {
+    .sr-only();
+}
+
+.structure, .none, .mobile-only {
+    display: none;
+}
+
+.mobile-only {
+    display: none;
+
+    @media @screen_max-xs {
+        display: inline-block;
+    }
+}
+
+.mobile-hide {
+    display: inline-block;
+
+    @media @screen_max-xs {
+        display: none;
+    }
+}
+
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* screen */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 
 @media screen{
 
@@ -135,7 +244,7 @@
     }
 
     html, body, div, span, applet, object, iframe,
-    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    h1, h2, h3, h4, h5, h6, p, blockquote,
     a, abbr, acronym, address, big, cite, del, dfn, em, img, ins, kbd, q, s, samp,
     small, strike, strong, sub, sup, tt, var,
     b, u, i, center,
@@ -150,11 +259,13 @@
         color: @ini_text;
     }
 
-    code{
-
-    }
 }
 
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* print */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 @media print{
-
+    body{
+        font-size: 12pt;
+    }
 }
