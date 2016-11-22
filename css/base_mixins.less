@@ -53,3 +53,28 @@
         clip: auto;
     }
 }
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Screenreader / Hide */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+
+.reset(){
+    background: transparent;
+    border: none 0; outline: 0; vertical-align: baseline;
+    font-style: normal;
+    margin: 0; padding: 0;
+}
+
+.elementsReset(){
+    div, span, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote,
+    a, abbr, em,acronym, img, strong,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    input, select, option, textarea, button{
+        .reset();
+    }
+}
+
+

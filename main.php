@@ -106,12 +106,6 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* Include Hook: header.html */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-            tpl_includeFile('header.html');
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* MagicMatcher */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
             ?>
@@ -128,6 +122,10 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
             </div><!-- .magic-matcher -->
             <?php
 
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Include Hook: header.html */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+            tpl_includeFile('header.html');
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* Header */
@@ -136,6 +134,30 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 
             <div id="dokuwiki__header" class="header no-print">
                 <div class="container">
+                    <div class="row">
+                        <?php if ($conf['useacl'] && $showTools): ?>
+
+                            <nav id="dokuwiki__usertools">
+                                <h6 class="sr-only" role="heading" aria-level="2"><?php echo $lang['user_tools']; ?></h6>
+                                <ul>
+                                    <?php
+                                    if (!empty($_SERVER['REMOTE_USER'])) {
+                                        echo '<li class="user"><span class="sr-only">'.$lang['loggedinas'].' </span>'.userlink().'</li>';
+                                    }?>
+                                    <li class="log"><?php tpl_actionlink('login'); ?></li>
+
+                                    <?php tpl_toolsevent('usertools', array(
+                                        'admin'     => tpl_action('admin', 1, 'li', 1),
+                                        'userpage'  => _tpl_action('userpage', 1, 'li', 1),
+                                        'profile'   => tpl_action('profile', 1, 'li', 1),
+                                        'register'  => tpl_action('register', 1, 'li', 1),
+                                    )); ?>
+
+                                </ul>
+                            </nav><!-- #dokuwiki__usertools -->
+                        <?php endif ?>
+
+                    </div>
                 </div><!-- .container -->
 
             <div class="headings">
@@ -147,38 +169,11 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
                     <p class="claim"><?php echo $conf['tagline'] ?></p>
                 <?php endif ?>
 
-                <ul class="a11y skip">
-                    <li><a href="#dokuwiki__content"><?php echo $lang['skip_to_content'] ?></a></li>
-                </ul>
+
                 <div class="clearer"></div>
             </div>
 
             <div class="tools">
-                <!-- USER TOOLS -->
-                <?php if ($conf['useacl'] && $showTools): ?>
-                    <div id="dokuwiki__usertools">
-                        <h3 class="a11y"><?php echo $lang['user_tools'] ?></h3>
-                        <ul>
-                            <?php
-                                if (!empty($_SERVER['REMOTE_USER'])) {
-                                    echo '<li class="user">';
-                                    tpl_userinfo(); /* 'Logged in as ...' */
-                                    echo '</li>';
-                                }
-                            ?>
-                            <?php /* the optional second parameter of tpl_action() switches between a link and a button,
-                                     e.g. a button inside a <li> would be: tpl_action('edit', 0, 'li') */
-                            ?>
-                            <?php tpl_toolsevent('usertools', array(
-                                'admin'     => tpl_action('admin', 1, 'li', 1),
-                                'userpage'  => _tpl_action('userpage', 1, 'li', 1),
-                                'profile'   => tpl_action('profile', 1, 'li', 1),
-                                'register'  => tpl_action('register', 1, 'li', 1),
-                                'login'     => tpl_action('login', 1, 'li', 1),
-                            )); ?>
-                        </ul>
-                    </div>
-                <?php endif ?>
 
                 <!-- SITE TOOLS -->
                 <div id="dokuwiki__sitetools">

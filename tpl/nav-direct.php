@@ -11,9 +11,12 @@
                             <span class="sr-out"><?php echo tpl_getLang('direct_prefix'); ?>: </span>
                             <span class="skip">
                                 <a href="#content"><?php echo tpl_getLang('direct_content_main'); ?></a><span class="sr-out"> /</span>
-                                <a href="#nav-main"><?php echo tpl_getLang('direct_menu_main');  ?></a>
+                                <a href="#dokuwiki__usertools"><?php echo $lang['user_tools']; ?></a><span class="sr-out"> /</span>
+                                <a href="#nav-main"><?php echo tpl_getLang('direct_menu_main');  ?>
                             </span>
                         </p>
+
+                        <hr class="structure" />
 
                     </div><!-- .col -->
                 </div><!-- .row -->
