@@ -12,7 +12,7 @@
                             <span class="skip">
                                 <a href="#content"><?php echo tpl_getLang('direct_content_main'); ?></a><span class="sr-out"> /</span>
                                 <a href="#dokuwiki__usertools"><?php echo $lang['user_tools']; ?></a><span class="sr-out"> /</span>
-                                <a href="#nav-main"><?php echo tpl_getLang('direct_menu_main');  ?>
+                                <a href="#nav-main"><?php echo tpl_getLang('direct_menu_main');  ?></a>
                             </span>
                         </p>
 

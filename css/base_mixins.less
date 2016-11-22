@@ -78,3 +78,31 @@
 }
 
 
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Col Grid */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+.make-grid(@class) {
+    .float-grid-columns(@class);
+    .loop-grid-columns(@grid-columns, @class, width);
+}
+
+.float-grid-columns(@class) {
+    .col-@{class}-1, .col-@{class}-2, .col-@{class}-3, .col-@{class}-4, .col-@{class}-5, .col-@{class}-6, .col-@{class}-7, .col-@{class}-8, .col-@{class}-9, .col-@{class}-10, .col-@{class}-11, .col-@{class}-12 {
+        float: left;
+    }
+}
+
+.loop-grid-columns(@index, @class, @type) when (@index >= 0) {
+    .calc-grid-column(@index, @class, @type);
+    // next iteration
+    .loop-grid-columns((@index - 1), @class, @type);
+}
+
+.calc-grid-column(@index, @class, @type) when (@type = width) and (@index > 0) {
+    .col-@{class}-@{index} {
+        width: percentage((@index / @grid-columns));
+    }
+}
+
+
+

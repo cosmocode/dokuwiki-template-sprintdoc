@@ -106,58 +106,42 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* MagicMatcher */
+/* Headline Menu AREA */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
             ?>
 
-            <div id="dokuwiki_magic-matcher" class="magic-matcher no-print">
-                <div class="container">
-                    <?php
-                        $mm = plugin_load('helper', 'magicmatcher_context');
-                        if($mm){
-                            $mm->tpl();
-                        }
-                    ?>
-                </div><!-- .container -->
-            </div><!-- .magic-matcher -->
+            <div class="nav-area-head">
+                <h5 class="sr-only" role="heading" aria-level="1"><?php echo tpl_getLang('nav-area-head') ?></h5>
+            </div><!-- .nav-area-head -->
+
             <?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* MagicMatcher */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+            include('tpl/nav-magicmatcher.php');
+
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* Include Hook: header.html */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
             tpl_includeFile('header.html');
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* Header */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
             ?>
 
             <div id="dokuwiki__header" class="header no-print">
                 <div class="container">
                     <div class="row">
-                        <?php if ($conf['useacl'] && $showTools): ?>
+                        <div class="col-xs-12">
+                        <?php
 
-                            <nav id="dokuwiki__usertools">
-                                <h6 class="sr-only" role="heading" aria-level="2"><?php echo $lang['user_tools']; ?></h6>
-                                <ul>
-                                    <?php
-                                    if (!empty($_SERVER['REMOTE_USER'])) {
-                                        echo '<li class="user"><span class="sr-only">'.$lang['loggedinas'].' </span>'.userlink().'</li>';
-                                    }?>
-                                    <li class="log"><?php tpl_actionlink('login'); ?></li>
 
-                                    <?php tpl_toolsevent('usertools', array(
-                                        'admin'     => tpl_action('admin', 1, 'li', 1),
-                                        'userpage'  => _tpl_action('userpage', 1, 'li', 1),
-                                        'profile'   => tpl_action('profile', 1, 'li', 1),
-                                        'register'  => tpl_action('register', 1, 'li', 1),
-                                    )); ?>
-
-                                </ul>
-                            </nav><!-- #dokuwiki__usertools -->
-                        <?php endif ?>
-
-                    </div>
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* User Tools */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                        include('tpl/nav-usertools.php'); ?>
+                        </div><!-- .col -->
+                    </div><!-- .row -->
                 </div><!-- .container -->
 
             <div class="headings">

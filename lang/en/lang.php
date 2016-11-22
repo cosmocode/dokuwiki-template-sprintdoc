@@ -8,6 +8,9 @@ $lang['direct_prefix']          = 'jump to';
 $lang['direct_content_main']    = 'main content';
 $lang['direct_menu_main']       = 'main menu';
 
+$lang['nav-area-head']          = 'menus and quick search';
+$lang['head_magic_matcher']     = 'MagicMatcher';
+
 $lang['discussion']             = 'Discussion';
 $lang['back_to_article']        = 'Back to article';
 $lang['userpage']               = 'User page';

@@ -7,21 +7,83 @@
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* global vars */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* fonts */
 @line-height-default: 125%;
 @line-height-big: 135%;
 @line-height-bigger: 140%;
 
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* breakpoints */
 @break-min-xxs: 480;
 @break-max-xxs: (@break-min-xxs - 1);
 
 @break-min-xs: 768;
 @break-max-xs: (@break-min-xs - 1);
 
+@break-min-sm: 992;
+@break-max-sm: (@break-min-xs - 1);
+
 @break-min-md: 1024;
 @break-max-md: (@break-min-md - 1);
 
-@break-min-lg: 1440;
+@break-min-lg: 1200;
 @break-max-lg: (@break-min-lg - 1);
+
+@break-min-xlg: 1440;
+@break-max-xlg: (@break-min-xlg - 1);
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* media queries for breakpoints */
+
+@screen_min-xxs: ~"only screen and (min-width: " ~"@{break-min-xxs}px)";
+@screen_max-xxs: ~"only screen and (max-width: " ~"@{break-max-xxs}px)";
+
+@screen_min-xs: ~"only screen and (min-width: " ~"@{break-min-xs}px)";
+@screen_max-xs: ~"only screen and (max-width: " ~"@{break-max-xs}px)";
+
+@screen_min-sm: ~"only screen and (min-width: " ~"@{break-min-sm}px)";
+@screen_max-sm: ~"only screen and (max-width: " ~"@{break-max-sm}px)";
+
+@screen_min-md: ~"only screen and (min-width: " ~"@{break-min-md}px)";
+@screen_max-md: ~"only screen and (max-width: " ~"@{break-max-md}px)";
+@screen_only-md: ~"only screen and (min-width: 800px) and (max-width: " ~"@{break-max-md}px)";
+
+@screen_min-lg: ~"only screen and (min-width: " ~"@{break-min-lg}px)";
+@screen_max-lg: ~"only screen and (max-width: " ~"@{break-max-lg}px)";
+
+@screen_min-xlg: ~"only screen and (min-width: " ~"@{break-min-xlg}px)";
+@screen_max-xlg: ~"only screen and (max-width: " ~"@{break-max-xlg}px)";
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* col width */
+@c12: 100%;
+@c11: 91.66666667%;
+@c10: 83.33333333%;
+@c9: 75%;
+@c8: 66.66666667%;
+@c7: 58.33333333%;
+@c6: 50%;
+@c5: 41.66666667%;
+@c4: 33.33333333%;
+@c3: 25%;
+@c2: 16.66666667%;
+@c1: 8.33333333%;
+
+@grid-columns: 12;
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* margin / padding */
+@margin-big: 2.5rem;
+
+
+
+
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* all media */
@@ -31,9 +93,10 @@ html, body{
     .reset();
 }
 
-header{
+header, .nav-direct{
     .elementsReset();
 }
+
 
 
 div, span, object,
@@ -103,7 +166,7 @@ header, footer, .container, .row, nav, nav > ul{
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* screen */
+/* screen only */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 
 @media screen{
@@ -255,7 +318,7 @@ header, footer, .container, .row, nav, nav > ul{
 }
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* print */
+/* print only */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 @media print{
     body{

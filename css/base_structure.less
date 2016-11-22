@@ -3,3 +3,55 @@
  *
  * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
  */
+
+
+/* Col Grid */
+.make-grid(xs);
+
+@media screen{
+    .container{
+        margin: 0 @margin-big;
+    }
+}
+
+@media @screen_min-xxs {
+    .container{
+        border: 1px solid deeppink;
+    }
+}
+
+@media @screen_min-xs {
+    .container{
+        border: 1px solid orangered;
+    }
+}
+
+@media @screen_min-sm {
+    .container{
+        border: 1px solid green;
+    }
+    .make-grid(sm);
+}
+
+@media @screen_min-md {
+    .container{
+        border: 1px solid blue;
+    }
+    .make-grid(md);
+}
+
+@media @screen_min-lg {
+    .container{
+        border: 1px solid blue;
+    }
+    .make-grid(lg);
+}
+
+@media @screen_min-xlg {
+    html{
+        font-size: 130%;
+    }
+    .container{
+        border: 1px solid red;
+    }
+}
