@@ -10,17 +10,92 @@
         li{
             display: inline-block;
             float: right;
-            border: 1px solid @color-border;
+            margin: 0 .1rem;
+            padding: 0;
+            font-size: .8rem;
             *{
                 font-size: .8rem;
             }
             a{
-                .fontello();
-                &.register{
+                color: @color-nav;
+                box-sizing: content-box;
+                padding: .3em .25em .15em;
+                text-align: center;
+                text-decoration: none;
+                border: 1px solid @color-border;
+                border-radius: @border-radius;
+                margin: 2px;
+                cursor: pointer;
 
+                &:hover, &:active, &:focus{
+                    background-color: @color-nav-hover-bg;
+                    border-width: 3px;
+                    border-style: double;
+                    margin: 0;
+
+                    //-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+                    //box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+                    color: @color-nav-hover;
                 }
+
+                .fontello();
+                .hide-text-show-before();
+                &:before{
+                    font-size: 1.12em;
+                    cursor: pointer;
+                    content: "?";
+                }
+
+                /* icon register new user */
+                &.register{
+                    .icon-user();
+                }
+                /* icon log-out */
+                &.logout{
+                    .icon-logout();
+                }
+                /* icon log-in */
+                &.login{
+                    .icon-login();
+                }
+                /* icon admin */
+                &.admin{
+                    .icon-cog();
+                }
+
+                /* add more icons if needed */
             }
 
+            &.user{
+                border: 1px solid @color-border;
+                border-radius: @border-radius;
+                color: @color-nav;
+                display: inline-block;
+                height: 1rem;
+                min-height: 20px;
+                min-width: 24px;
+                box-sizing: content-box;
+                padding: .3em .25em .15em;
+                margin-top: 2px;
+                bdi{
+                    color: @color-nav;
+                    display: inline-block;
+                    padding-top: 1px;
+                }
+                >bdi:first-of-type{
+                    .fontello();
+                    .icon-user();
+                    &:before{
+                        border: 4px solid @color-nav;
+                        margin-top: -1px;
+                        border-radius: 50%;
+                        background: @color-nav;
+                        color: #fff;
+                        font-size: .5rem;
+                        float: left;
+                    }
+                }
+            }
         }
     }
 }
