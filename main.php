@@ -79,9 +79,12 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 ?>
 <?php tpl_includeFile('meta.html') ?>
 </head>
-<?php /* #dokuwiki__top used as anchor for "back to top" button/link links */ ?>
-<body id="dokuwiki__top" class="<?php echo tpl_classes(); ?>">
+<?php
 
+
+/* #dokuwiki__top used as anchor for "back to top" button/link links */
+?>
+<body id="dokuwiki__top" class="<?php echo tpl_classes(); ?>">
 
     <div id="dokuwiki__site">
         <?php
@@ -106,24 +109,6 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* Headline Menu AREA */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-            ?>
-
-            <div class="nav-area-head">
-                <h5 class="sr-only" role="heading" aria-level="1"><?php echo tpl_getLang('nav-area-head') ?></h5>
-            </div><!-- .nav-area-head -->
-
-            <?php
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* MagicMatcher */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-            include('tpl/nav-magicmatcher.php');
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* Include Hook: header.html */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
             tpl_includeFile('header.html');
@@ -133,72 +118,139 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-12">
+                            <div class="headings main-sidebar">
+
+                                <?php if (tpl_getConf('logo') && file_exists(mediaFN(tpl_getConf('logo')))){
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Logo */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* upload your logo into the data/media folder (root of the media manager) and replace 'logo.png' in der template config accordingly: */
+                                    include('tpl/main-sidebar-logo.php');
+                                 } ?>
+                                <?php if ($conf['tagline']): ?>
+                                    <p class="claim"><?php echo $conf['tagline'] ?></p>
+                                <?php endif ?>
+                            </div><!-- .headings -->
+                        </div><!-- .col -->
+                    </div><!-- .row -->
+                </div><!-- .container -->
+            </div><!-- .header -->
+            <?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Headline Menu AREA */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+            ?>
+            <div class="sr-only nav-area-head">
+                <h5 class="sr-only" role="heading" aria-level="1"><?php echo tpl_getLang('nav-area-head') ?></h5>
+            </div><!-- .nav-area-head -->
+
+            <?php if ($showSidebar): ?>
+            <div class="tools">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+
+                            <div class="sidebarheader main-sidebar">
+                                <?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Include Hook: sidebarheader.html */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                                tpl_includeFile('sidebarheader.html') ?>
+                            </div><!-- .sidebarheader -->
+
+                            <div class="search main-sidebar">
+                            <?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Searchform */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                                include('tpl/main-sidebar-search.php');
+                            ?>
+                            </div><!-- .search -->
+
+                            <div id="dokuwiki__aside" class="menu main-sidebar">
+                                <?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* main menu */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                                include('tpl/nav-main.php');
+                                ?>
+                            </div><!-- .search -->
+
+                            <div class="site-tools main-sidebar">
+                                <?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Sitetools */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                                include('tpl/nav-sitetools.php');
+                                ?>
+                            </div><!-- .site-tools -->
+
+
+                            <div class="sidebarfooter main-sidebar">
+                                <?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Include Hook: sidebarfooter.html */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                                tpl_includeFile('sidebarfooter.html')
+                                ?>
+                            </div><!-- .sidebarheader -->
+
+                        </div><!-- .col -->
+                    </div><!-- .row -->
+                </div><!-- .container -->
+            </div><!-- .tools -->
+            <?php endif ?>
+
+
+        <div class="top-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+
                         <?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* MagicMatcher */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                        include('tpl/nav-magicmatcher.php');
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* User Tools */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                        include('tpl/nav-usertools.php'); ?>
-                        </div><!-- .col -->
-                    </div><!-- .row -->
-                </div><!-- .container -->
-
-            <div class="headings">
-                <h1><?php tpl_link(wl(),$conf['title'],'accesskey="h" title="[H]"') ?></h1>
-                <?php /* how to insert logo instead (if no CSS image replacement technique is used):
-                        upload your logo into the data/media folder (root of the media manager) and replace 'logo.png' accordingly:
-                        tpl_link(wl(),'<img src="'.ml('logo.png').'" alt="'.$conf['title'].'" />','id="dokuwiki__top" accesskey="h" title="[H]"') */ ?>
-                <?php if ($conf['tagline']): ?>
-                    <p class="claim"><?php echo $conf['tagline'] ?></p>
-                <?php endif ?>
+                        include('tpl/nav-usertools.php');
 
 
-                <div class="clearer"></div>
-            </div>
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Include Hook: header.html */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                        tpl_includeFile('header.html');
+                        ?>
 
-            <div class="tools">
-
-                <!-- SITE TOOLS -->
-                <div id="dokuwiki__sitetools">
-                    <h3 class="a11y"><?php echo $lang['site_tools'] ?></h3>
-                    <?php tpl_searchform() ?>
-                    <ul>
-                        <?php tpl_toolsevent('sitetools', array(
-                            'recent'    => tpl_action('recent', 1, 'li', 1),
-                            'media'     => tpl_action('media', 1, 'li', 1),
-                            'index'     => tpl_action('index', 1, 'li', 1),
-                        )); ?>
-                    </ul>
-                </div>
-
-            </div>
-            <div class="clearer"></div>
-
-            <!-- BREADCRUMBS -->
-            <?php if($conf['breadcrumbs']){ ?>
-                <div class="breadcrumbs"><?php tpl_breadcrumbs() ?></div>
-            <?php } ?>
-            <?php if($conf['youarehere']){ ?>
-                <div class="breadcrumbs"><?php tpl_youarehere() ?></div>
-            <?php } ?>
-
-            <div class="clearer"></div>
-            <hr class="a11y" />
-        </div></div><!-- /header -->
+                    </div><!-- .col -->
+                </div><!-- .row -->
+            </div><!-- .container -->
+        </div><!-- /top-header -->
 
 
         <div class="wrapper">
 
-            <!-- ********** ASIDE ********** -->
-            <?php if ($showSidebar): ?>
-                <div id="dokuwiki__aside"><div class="pad aside include group">
-                    <?php tpl_includeFile('sidebarheader.html') ?>
-                    <?php tpl_include_page($conf['sidebar'], 1, 1) /* includes the nearest sidebar page */ ?>
-                    <?php tpl_includeFile('sidebarfooter.html') ?>
-                    <div class="clearer"></div>
-                </div></div><!-- /aside -->
-            <?php endif; ?>
+
 
             <!-- ********** CONTENT ********** -->
             <div id="dokuwiki__content"><div class="pad">
