@@ -2,6 +2,7 @@
 /**
  * English language file for template
  *
+ *  @license    GPL 2 (http://www.gnu.org/licenses/gpl.html)
  */
 
 $lang['direct_prefix']              = 'jump to';
@@ -15,6 +16,13 @@ $lang['nav-area-head']              = 'menus and quick search';
 $lang['head_magic_matcher']         = 'MagicMatcher';
 $lang['head_quick_search']          = 'quick search';
 $lang['head_menu_main']             = 'main menu';
+$lang['head_menu_status']           = 'site status';
+$lang['head_breadcrumb']            = 'location indicator';
+
+$lang['prefix_tasks']               = 'open tasks: ';
+$lang['prefix_tasks_user']          = 'your open tasks: ';
+$lang['prefix_tasks_page']          = 'open tasks for this page: ';
+$lang['tasks_page_none']            = 'no open tasks for this page';
 
 $lang['discussion']                 = 'Discussion';
 $lang['back_to_article']            = 'Back to article';

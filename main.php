@@ -119,7 +119,6 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="headings main-sidebar">
-
                                 <?php if (tpl_getConf('logo') && file_exists(mediaFN(tpl_getConf('logo')))){
 
 
@@ -132,6 +131,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
                                 <?php if ($conf['tagline']): ?>
                                     <p class="claim"><?php echo $conf['tagline'] ?></p>
                                 <?php endif ?>
+
                             </div><!-- .headings -->
                         </div><!-- .col -->
                     </div><!-- .row -->
@@ -141,14 +141,15 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* Headline Menu AREA */
+/* headline menu area (Accessibility ) */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
             ?>
+
             <div class="sr-only nav-area-head">
                 <h5 class="sr-only" role="heading" aria-level="1"><?php echo tpl_getLang('nav-area-head') ?></h5>
             </div><!-- .nav-area-head -->
-
             <?php if ($showSidebar): ?>
+
             <div class="tools">
                 <div class="container">
                     <div class="row">
@@ -162,17 +163,19 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 /* Include Hook: sidebarheader.html */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
                                 tpl_includeFile('sidebarheader.html') ?>
+
                             </div><!-- .sidebarheader -->
 
                             <div class="search main-sidebar">
-                            <?php
+
+                                <?php
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* Searchform */
+/* search form */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                                include('tpl/main-sidebar-search.php');
-                            ?>
+                                include('tpl/main-sidebar-search.php'); ?>
+
                             </div><!-- .search -->
 
                             <div id="dokuwiki__aside" class="menu main-sidebar">
@@ -184,17 +187,18 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
                                 include('tpl/nav-main.php');
                                 ?>
-                            </div><!-- .search -->
+
+                            </div><!-- .menu -->
 
                             <div class="site-tools main-sidebar">
                                 <?php
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* Sitetools */
+/* site tools */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                                include('tpl/nav-sitetools.php');
-                                ?>
+                                include('tpl/nav-sitetools.php'); ?>
+
                             </div><!-- .site-tools -->
 
 
@@ -205,8 +209,8 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* Include Hook: sidebarfooter.html */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                                tpl_includeFile('sidebarfooter.html')
-                                ?>
+                                tpl_includeFile('sidebarfooter.html') ?>
+
                             </div><!-- .sidebarheader -->
 
                         </div><!-- .col -->
@@ -216,53 +220,92 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
             <?php endif ?>
 
 
-        <div class="top-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
+            <div class="top-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
 
-                        <?php
+                            <?php
+
+
+    /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+    /* User Tools */
+    /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                            include('tpl/nav-usertools.php');
+
+                            ?>
+
+                            <?php
+    /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+    /* MagicMatcher */
+    /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                            include('tpl/nav-magicmatcher.php');
+
+
+    /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+    /* Include Hook: header.html */
+    /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                            tpl_includeFile('header.html');
+                            ?>
+
+                        </div><!-- .col -->
+                    </div><!-- .row -->
+                </div><!-- .container -->
+            </div><!-- /top-header -->
+
+        <div class="content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+
+                            <?php tpl_flush(); /* flush the output buffer */
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* MagicMatcher */
+/* Include Hook: pageheader.html */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                        include('tpl/nav-magicmatcher.php');
+                            tpl_includeFile('pageheader.html')
+                            ?>
 
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* User Tools */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                        include('tpl/nav-usertools.php');
+                            <?php
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* Include Hook: header.html */
+/* breadcrumb */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                        tpl_includeFile('header.html');
-                        ?>
+                            include('tpl/nav-breadcrumb.php'); ?>
 
-                    </div><!-- .col -->
-                </div><!-- .row -->
-            </div><!-- .container -->
-        </div><!-- /top-header -->
+                            <?php
 
 
-        <div class="wrapper">
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* page quality / page tasks */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                            include('tpl/nav-page-quality-tasks.php'); ?>
+
+                            <div id="dokuwiki__content" class="page main-content">
+
+
+                                <?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* wikipage start / main  content */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                                tpl_content() /* the main content */ ?>
++
+                            </div><!-- .main-content -->
+
+                        </div><!-- .col -->
+                    </div><!-- .row -->
+                </div><!-- .container -->
 
 
 
-            <!-- ********** CONTENT ********** -->
-            <div id="dokuwiki__content"><div class="pad">
-                <?php tpl_flush() /* flush the output buffer */ ?>
-                <?php tpl_includeFile('pageheader.html') ?>
 
-                <div class="page">
-                    <!-- wikipage start -->
-                    <?php tpl_content() /* the main content */ ?>
-                    <!-- wikipage stop -->
-                    <div class="clearer"></div>
-                </div>
+
+
+
 
                 <?php tpl_flush() ?>
                 <?php tpl_includeFile('pagefooter.html') ?>
@@ -274,6 +317,9 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
             <!-- PAGE ACTIONS -->
             <?php if ($showTools): ?>
                 <div id="dokuwiki__pagetools">
+
+                    <?php include('tpl/nav-status.php');?>
+
                     <h3 class="a11y"><?php echo $lang['page_tools'] ?></h3>
                     <ul>
                         <?php tpl_toolsevent('pagetools', array(
