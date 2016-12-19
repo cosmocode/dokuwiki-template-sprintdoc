@@ -5,6 +5,7 @@
  */
 
 $meta['logo']             = array('string');
+$conf['logo_spacer']      = array('string');
 
 $meta['discussionPage']   = array('string');
 $meta['userPage']         = array('string');

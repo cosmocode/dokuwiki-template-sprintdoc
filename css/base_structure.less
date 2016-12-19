@@ -16,33 +16,33 @@
 
 @media @screen_min-xxs {
     .container{
-        border: 1px solid deeppink;
+        //border: 1px solid deeppink;
     }
 }
 
 @media @screen_min-xs {
     .container{
-        border: 1px solid orangered;
+        //border: 1px solid orangered;
     }
 }
 
 @media @screen_min-sm {
     .container{
-        border: 1px solid green;
+        //border: 1px solid green;
     }
     .make-grid(sm);
 }
 
 @media @screen_min-md {
     .container{
-        border: 1px solid blue;
+        //border: 1px solid blue;
     }
     .make-grid(md);
 }
 
 @media @screen_min-lg {
     .container{
-        border: 1px solid blue;
+        //border: 1px solid blue;
     }
     .make-grid(lg);
 }
@@ -52,6 +52,96 @@
         font-size: 130%;
     }
     .container{
-        border: 1px solid red;
+        //border: 1px solid red;
     }
 }
+
+@media @screen_min-xxlg {
+    html{
+        font-size: 145%;
+    }
+    .container{
+        //border: 1px solid red;
+    }
+}
+
+
+
+@media @screen_min-md {
+
+    .nav-direct p{
+        z-index: 1000;
+    }
+    .top-header{
+        z-index: 900;
+    }
+    .tools .row > .col-xs-12{
+        z-index: 1;
+    }
+    .header .row > .col-xs-12{
+        z-index: 2;
+    }
+    .content  .row > .col-xs-12{
+        z-index: 3;
+    }
+
+    .top-header{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    .header .row > .col-xs-12{
+        position: relative;
+        height: 150px;
+        min-height: 6rem;
+        box-sizing: content-box;
+    }
+    .tools{
+        .row > .col-xs-12{
+            position: absolute;
+            width: 23%;
+        }
+        .main-sidebar{
+            //background: pink;
+        }
+    }
+    .content{
+        .row > .col-xs-12{
+            width: 73%;
+            position: relative;
+            float: right;
+            background-color: #fff;
+        }
+    }
+    .claim{
+        width: 23%;
+        box-sizing: content-box;
+        padding-right: (@margin-big / 2);
+
+        .logo{
+            position: absolute;
+            bottom: 0;
+            height: 1px;
+            overflow: visible;
+            width: 23%;
+        }
+        .logo img{
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+    .main-sidebar{
+        &.search{
+            > img{
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+
+}
+

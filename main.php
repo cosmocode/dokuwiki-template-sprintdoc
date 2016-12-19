@@ -118,7 +118,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-12">
-                            <div class="headings main-sidebar">
+                            <div class="claim main-sidebar">
                                 <?php if (tpl_getConf('logo') && file_exists(mediaFN(tpl_getConf('logo')))){
 
 
@@ -167,8 +167,13 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
                             </div><!-- .sidebarheader -->
 
                             <div class="search main-sidebar">
-
-                                <?php
+                                <?php if (tpl_getConf('logo') && file_exists(mediaFN(tpl_getConf('logo')))){
+                                    if (tpl_getConf('logo_spacer') && file_exists(mediaFN(tpl_getConf('logo_spacer')))){
+                                        echo '<img width="5" height="5" src="'.ml(tpl_getConf('logo_spacer')).'" alt="" />';
+                                    } else{
+                                        echo '<img width="5" height="5" src="'.ml(tpl_getConf('logo')).'" alt="" />';
+                                    }
+                                }
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */

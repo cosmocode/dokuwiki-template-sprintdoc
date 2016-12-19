@@ -36,6 +36,9 @@
 @break-min-xlg: 1440;
 @break-max-xlg: (@break-min-xlg - 1);
 
+@break-min-xxlg: 1600;
+@break-max-xxlg: (@break-min-xlg - 1);
+
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* media queries for breakpoints */
@@ -58,6 +61,9 @@
 
 @screen_min-xlg: ~"only screen and (min-width: " ~"@{break-min-xlg}px)";
 @screen_max-xlg: ~"only screen and (max-width: " ~"@{break-max-xlg}px)";
+
+@screen_min-xxlg: ~"only screen and (min-width: " ~"@{break-min-xxlg}px)";
+@screen_max-xxlg: ~"only screen and (max-width: " ~"@{break-max-xxlg}px)";
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */

@@ -8,4 +8,4 @@
     } else{
         tpl_link( wl(),'<img src="'.ml(tpl_getConf('logo')).'" alt="'.$conf['title'].tpl_getLang('adjunct_linked_logo_text').'" />','accesskey="h" title="[H]"' );
     }
-    echo "</div>";
+    echo "<hr class=\"structure\" /></div>";
