@@ -234,18 +234,21 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 
 
     /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-    /* User Tools */
+    /* User Tools and MagicMatcher Bar */
     /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                            $mm = plugin_load('helper', 'magicmatcher_context');
+                            $navClass = "";
+                            if($mm){
+                                $matcher = $mm->getIssueContextBar();
+                                if($matcher !== ""){
+                                    $navClass = "has-bar";
+                                }
+                            }
+
                             include('tpl/nav-usertools.php');
-
-                            ?>
-
-                            <?php
-    /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-    /* MagicMatcher */
-    /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                            include('tpl/nav-magicmatcher.php');
-
+                            if($mm && $matcher !== ""){
+                                include('tpl/nav-magicmatcher.php');
+                            }
 
     /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
     /* Include Hook: header.html */

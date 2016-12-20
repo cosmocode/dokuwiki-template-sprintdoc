@@ -69,6 +69,7 @@
 
 @media @screen_min-md {
 
+    // z-indeces
     .nav-direct p{
         z-index: 1000;
     }
@@ -92,21 +93,31 @@
         width: 100%;
     }
 
-    .header .row > .col-xs-12{
-        position: relative;
-        height: 150px;
-        min-height: 6rem;
-        box-sizing: content-box;
+    .header, .tools{
+        .row{
+            position: relative;
+            > .col-xs-12{
+                width: 23%;
+                box-sizing: border-box;
+            }
+        }
     }
+
+    .header{
+        .row > .col-xs-12{
+            position: relative;
+            height: 150px;
+            min-height: 6rem;
+        }
+    }
+
     .tools{
         .row > .col-xs-12{
             position: absolute;
-            width: 23%;
-        }
-        .main-sidebar{
-            //background: pink;
+            background: pink;
         }
     }
+
     .content{
         .row > .col-xs-12{
             width: 73%;
@@ -115,17 +126,13 @@
             background-color: #fff;
         }
     }
-    .claim{
-        width: 23%;
-        box-sizing: content-box;
-        padding-right: (@margin-big / 2);
 
+    .claim{
         .logo{
             position: absolute;
             bottom: 0;
             height: 1px;
             overflow: visible;
-            width: 23%;
         }
         .logo img{
             max-width: 100%;
@@ -141,7 +148,5 @@
             }
         }
     }
-
-
 }
 

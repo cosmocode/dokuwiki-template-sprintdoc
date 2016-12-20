@@ -3,7 +3,7 @@
 
     if ($conf['useacl'] && $showTools): ?>
 
-                            <nav id="dokuwiki__usertools" class="nav-usertools">
+                            <nav id="dokuwiki__usertools" class="nav-usertools <?php echo $navClass?>">
                                 <h6 class="sr-only" role="heading" aria-level="2"><?php echo $lang['user_tools']; ?></h6>
                                 <ul>
                                     <li class="log"><?php tpl_actionlink('login'); ?></li>
@@ -20,7 +20,9 @@
                                         switch ($num) {
                                             case 0: $class = 'noopentasks'; break;
                                             case 1:  $class = 'opentask'; break;
-                                            default: $class = 'opentasks'; break;
+                                            default:
+                                                $class = 'opentask opentasks';
+                                                break;
                                         }
                                         $linktarget = tpl_getConf('tasks_page');
                                         $doInner = "<span class=\"prefix\">".tpl_getLang('prefix_tasks_user')." </span><span class=\"num\">".count($tasks)."</span>";

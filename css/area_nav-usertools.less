@@ -5,6 +5,10 @@
  */
 
 .nav-usertools {
+    &.has-bar{
+        margin-top: @height-context-bar;
+        padding-top: .5rem;
+    }
     ul{
         float: right;
         padding: 0; margin: .2rem 0 0 0;
@@ -65,6 +69,62 @@
                 }
 
                 /* add more icons if needed */
+            }
+
+            &.user-task{
+                &.noopentasks{
+                    border: 1px solid @color-border;
+                    border-radius: @border-radius;
+                    color: @color-nav;
+                    display: inline-block;
+                    height: 1rem;
+                    min-height: 20px;
+                    min-width: 24px;
+                    box-sizing: content-box;
+                    padding: .3em .25em .15em;
+                    margin-top: 2px;
+                    position: relative;
+                }
+
+                a{
+                    position: relative;
+                    overflow: visible;
+                    white-space: normal;
+                    text-indent: 0;
+                    &:before{
+                        content: "";
+                        position: absolute;
+                    }
+                }
+
+                .prefix{
+                    .fontello();
+                    .hide-text-show-before();
+                    .icon-clipboard();
+                    color: @color-nav;
+                }
+
+
+
+                .num{
+                    position: absolute;
+                    padding: .2em .3em .1em;
+                    text-align: center;
+                    font-size: .6rem;
+                    line-height: 100%;
+                    font-weight: 400;
+                    right: -0.3em;
+                    top: -0.4em;
+                    background-color: @color-border;
+                    border-radius: 2px;
+                    color: @color-nav;
+                }
+                &.opentasks, &.opentask{
+                    .num{
+                        background-color: @color-link;
+                        color: #fff;
+                    }
+                }
             }
 
             &.user{
