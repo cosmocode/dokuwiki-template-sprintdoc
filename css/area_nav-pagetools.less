@@ -4,52 +4,115 @@
  * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
  */
 
+/*
+.pagetools-item(edit, 1);
+.pagetools-item(create, 2);
+.pagetools-item(show, 4);
+.pagetools-item(source, 5);
+.pagetools-item(draft, 3);
+.pagetools-item(revs, 7, revisions);
+.pagetools-item(backlink, 8, backlink);
+.pagetools-item(top, 10);
+.pagetools-item(revert, 6, revert);
+.pagetools-item(subscribe, 9, subscribe);
+.pagetools-item(mediaManager, 11);
+.pagetools-item(back, 12);
+.pagetools-item(img_backto, 12);*/
+
 
 nav#dokuwiki__pagetools{
+    right: -2rem;
 
     ul {
         li {
-            font-size: .8rem;
-            line-height: 100%;
-
+            a{
+                font-size: .8rem;
+            }
             *{
                 font-size: .8rem;
             }
 
-            a.backlink{
+            .backlink, .edit, .wikilink2{
                 .hide-text-show-after();
-                .fontello();
-                line-height: 100%;
-                box-sizing: border-box;
-                border: 1px solid red;
+                .fontello-double();
+                color: @color-nav;
+                opacity: .6;
+                text-align: right;
+                position: relative;
+                min-height: 1.2rem;
+                height: 100%;
+                border: 0 none;
+                border-top: 3px double transparent;
+                border-bottom: 3px double transparent;
+                padding: .3rem 2px .3rem .4rem;
+                background: transparent;
                 font-size: 0;
                 &:before{
-                    font-size: 1rem;
-                    float: right;
-                    line-height: 1.2em;
-                    .btn-default-size();
-                    margin: .1rem auto 0;
-                    border: 1px solid blue;
+                    display: none;
                 }
-                &:hover, &:active, &:focus {
-                    padding: 0;
+                &:after{
+                    font-size: 1.2rem;
+                    min-width: 1.8rem;
+                    margin: .2rem .2rem;
+                    text-align: right;
                 }
+                &:hover, &:focus, &:active{
+                    text-indent: 0;
+                    font-size: .8rem;
+                    padding-right: 1.8rem;
+                    display: inline-block;
+                    background-color: @color-nav-hover-bg;
+                    color: @color-nav-hover;
+                    opacity: 1;
+                    white-space: nowrap;
+                    &:after{
+                        position: absolute;
+                        right: .2rem;
+                        top: .3rem;
+                    }
+                }
+
             }
 
-            a.backlink{
-                .icon-link();
+            .backlink{
+                .icon-link-after();
+            }
+
+            .edit{
+                .icon-doc-text-after();
+            }
+            .wikilink2{
+                .icon-puzzle-after();
             }
 
         }
     }
 
+
     &:hover{
+        min-width: 280px;
          ul{
              background-color: #fff;
              box-shadow: @box-shadow-offset;
+
              li{
-                 a.backlink{
-                     padding: 0;
+                 .backlink, .edit, .wikilink2{
+                     text-indent: 0;
+                     font-size: .8rem;
+                     white-space: nowrap;
+                     display: block;
+                     color: @color-nav-hover;
+                     &:after{
+                         color: @color-nav;
+                     }
+                     &:hover, &:focus, &:active{
+                         padding-right: 2px;
+                         border-color: @color-border;
+                         border-width: 3px 0 3px 0;
+                         &:after{
+                             position: static;
+                         }
+                     }
                  }
              }
          }
