@@ -4,10 +4,12 @@
  * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
  */
 
+
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* Fonts */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-.setLocalFontFace(@fontFamily,@fontWeight,@localFontName,@localFontNameVar,@filename){
+
+.setLocalFontFace(@fontFamily,@fontWeight,@localFontName,@localFontNameVar,@filename) {
     @font-face {
         font-family: @fontFamily;
         font-style: normal;
@@ -17,7 +19,7 @@
     }
 }
 
-.setIconFontFace(@fontFamily,@filename){
+.setIconFontFace(@fontFamily,@filename) {
     @font-face {
         font-family: @fontFamily;
         src: ~"url('fonts/icons/"~"@{filename}.eot?6762325')";
@@ -27,9 +29,8 @@
     }
 }
 
-.fontello(){
-
-    &::before{
+.fontello() {
+    &::before {
         font-family: "fontello";
         font-style: normal;
         font-weight: normal;
@@ -62,12 +63,11 @@
         /* Uncomment for 3D effect */
         /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
     }
-
 }
 
-.fontello-double(){
-
-    &::before, &::after{
+.fontello-double() {
+    &::before,
+    &::after {
         font-family: "fontello";
         font-style: normal;
         font-weight: normal;
@@ -100,14 +100,13 @@
         /* Uncomment for 3D effect */
         /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
     }
-
 }
-
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* Screenreader / Hide */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+
 .sr-out() {
     display: block;
     width: 1px;
@@ -118,7 +117,7 @@
     left: -200000em;
 }
 
-.sr-only(){
+.sr-only() {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -141,7 +140,7 @@
     }
 }
 
-.hide-text-show-before(){
+.hide-text-show-before() {
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;
@@ -150,21 +149,24 @@
     width: 1rem;
     min-height: 1.2em;
     min-width: 1.4em;
+
     &::before{
         text-indent: 0;
         float: left;
     }
+
     &::after{
         text-indent: 0;
         float: left;
     }
 }
 
+
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* Screenreader / Hide */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 
-.reset(){
+.reset() {
     background: transparent;
     border: none 0; outline: 0; vertical-align: baseline;
     font-style: normal;
@@ -178,7 +180,7 @@
     dl, dt, dd, ol, ul, li,
     fieldset, form, label, legend,
     table, caption, tbody, tfoot, thead, tr, th, td,
-    input, select, option, textarea, button{
+    input, select, option, textarea, button {
         .reset();
     }
 }
@@ -187,6 +189,7 @@
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* Col Grid */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+
 .make-grid(@class) {
     .float-grid-columns(@class);
     .loop-grid-columns(@grid-columns, @class, width);
@@ -209,6 +212,3 @@
         width: percentage((@index / @grid-columns));
     }
 }
-
-
-
