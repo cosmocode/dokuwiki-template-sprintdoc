@@ -84,7 +84,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 
 /* #dokuwiki__top used as anchor for "back to top" button/link links */
 ?>
-<body id="dokuwiki__top" class="<?php echo tpl_classes(); ?>">
+<body id="dokuwiki__top" class="<?php echo tpl_classes(); ?> <?php echo ($showSidebar) ? 'showSidebar' : ''; ?>">
 
     <div id="dokuwiki__site">
         <?php
@@ -233,9 +233,9 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
                             <?php
 
 
-    /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-    /* User Tools and MagicMatcher Bar */
-    /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* User Tools and MagicMatcher Bar */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
                             $mm = plugin_load('helper', 'magicmatcher_context');
                             $navClass = "";
                             if($mm){
@@ -250,9 +250,9 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
                                 include('tpl/nav-magicmatcher.php');
                             }
 
-    /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-    /* Include Hook: header.html */
-    /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Include Hook: header.html */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
                             tpl_includeFile('header.html');
                             ?>
 
@@ -274,25 +274,33 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
                             tpl_includeFile('pageheader.html')
                             ?>
-
-                            <?php
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* breadcrumb */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                            include('tpl/nav-breadcrumb.php'); ?>
-
-                            <?php
-
+                            <div class="breadcrumbs">
+                                <h6 class="sr-only" role="heading" aria-level="2"><?php echo  tpl_getLang('head_menu_status')  ?></h6>
+                                <?php
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* page quality / page tasks */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                            include('tpl/nav-page-quality-tasks.php'); ?>
+                                    include('tpl/nav-page-quality-tasks.php');
+                                ?>
+
+                                <?php
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* breadcrumb */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                                    include('tpl/nav-breadcrumb.php'); ?>
+
+                                <h6 class="sr-only" role="heading" aria-level="2"><?php echo  $lang['page_tools']  ?></h6>
+                            <?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* page tools */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                            include('tpl/nav-page-tools.php'); ?>
+                            </div>
 
                             <div id="dokuwiki__content" class="page main-content">
-
 
                                 <?php
 
@@ -300,8 +308,8 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* wikipage start / main  content */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                                tpl_content() /* the main content */ ?>
-+
+                                tpl_content(false); /* the main content */ ?>
+
                             </div><!-- .main-content -->
 
                         </div><!-- .col -->
@@ -320,28 +328,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
             </div></div><!-- /content -->
 
             <div class="clearer"></div>
-            <hr class="a11y" />
 
-            <!-- PAGE ACTIONS -->
-            <?php if ($showTools): ?>
-                <div id="dokuwiki__pagetools">
-
-                    <?php include('tpl/nav-status.php');?>
-
-                    <h3 class="a11y"><?php echo $lang['page_tools'] ?></h3>
-                    <ul>
-                        <?php tpl_toolsevent('pagetools', array(
-                            'edit'      => tpl_action('edit', 1, 'li', 1),
-                            'discussion'=> _tpl_action('discussion', 1, 'li', 1),
-                            'revisions' => tpl_action('revisions', 1, 'li', 1),
-                            'backlink'  => tpl_action('backlink', 1, 'li', 1),
-                            'subscribe' => tpl_action('subscribe', 1, 'li', 1),
-                            'revert'    => tpl_action('revert', 1, 'li', 1),
-                            'top'       => tpl_action('top', 1, 'li', 1),
-                        )); ?>
-                    </ul>
-                </div>
-            <?php endif; ?>
         </div><!-- /wrapper -->
 
         <!-- ********** FOOTER ********** -->

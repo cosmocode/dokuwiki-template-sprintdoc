@@ -19,6 +19,8 @@ $lang['head_menu_main']             = 'main menu';
 $lang['head_menu_status']           = 'site status';
 $lang['head_breadcrumb']            = 'location indicator';
 
+$lang['quality_trigger']            = 'toggle page analysis';
+
 $lang['prefix_tasks']               = 'open tasks: ';
 $lang['prefix_tasks_user']          = 'your open tasks: ';
 $lang['prefix_tasks_page']          = 'open tasks for this page: ';

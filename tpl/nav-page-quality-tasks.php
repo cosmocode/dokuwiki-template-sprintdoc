@@ -3,9 +3,17 @@
 ?>
 
 <?php
-    $doplugin = plugin_load('helper','do');
-    if ($doplugin !== null) {
-        echo "<ul>";
+    $doPlugin = plugin_load('helper','do');
+    $qc = plugin_load('helper','qc');
+    if ($doPlugin !== null ||$qc ) {
+        echo "<ul class=\"page-attributes\">";
+    }
+    if ($qc) {
+        echo "<li class=\"plugin__qc\"><a id=\"plugin__qc__link\" aria-expanded=\"false\" href=\"#plugin__qc__wrapper\"><span class=\"prefix\">".tpl_getLang('quality_trigger')."</span><span class=\"num\">0</span></strong></a>";
+        $qc->tplErrorCount();
+        echo "</li>";
+    }
+    if ($doplugin !== null ) {
         $tasks = $doplugin->getPageTaskCount();
         $num = $tasks[count];
         $title = "";
@@ -26,9 +34,11 @@
         $markup = "<li class=\"plugin__do_pagetasks ".$class."\" title=\"'.$title.'\"><strong><span class=\"prefix\">".tpl_getLang('prefix_tasks_page')." </span><span class=\"num\">".$num."</span></strong></li>";
 
         echo $markup;
-        echo "</ul>";
     }
 
+    if ($doPlugin !== null ||$qc ) {
+        echo "</ul>";
+    }
 
 /*
 

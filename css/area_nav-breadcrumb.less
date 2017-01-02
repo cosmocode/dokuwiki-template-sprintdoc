@@ -1,0 +1,116 @@
+/**
+ * This file provides the design styles for the direct / menu jump links.
+ *
+ * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
+ */
+
+.breadcrumbs {
+    padding: 2rem 2rem 1rem;
+    border-bottom: 1px solid @color-border;
+
+    > p{
+        font-size: .83rem;
+        margin: 0;
+        *{
+            font-size: .83rem;
+        }
+        .bchead{
+            .sr-only();
+        }
+        a{
+            &:hover,&:focus,&:active{
+                color: @color-nav;
+            }
+        }
+        span.home{
+            a{
+                .fontello();
+                .hide-text-show-before();
+                .icon-home();
+                height: 1em;
+                width: auto;
+                text-decoration:none;
+                &:before{
+                    font-size: 1rem;
+                    margin-top: .17rem;
+                }
+                &:hover,&:focus,&:active{
+                    color: @color-nav;
+                }
+            }
+
+        }
+    }
+    .page-attributes{
+        float:right;
+        display: inline-block;
+        list-style: none;
+        margin:0; padding:0;
+        max-width: 30%;
+        > li{
+            display: inline-block;
+            //float: right;
+            margin: 0 .1rem;
+            padding: 0;
+            font-size: .8rem;
+
+            #plugin__qc__wrapper{
+                position:absolute;
+                right:0;
+                width: auto;
+                border: 0 none;
+                background: @color-site-bg;
+            }
+            a[aria-expanded="false"] + #plugin__qc__wrapper{
+                display: none;
+            }
+            #plugin__qc__wrapper[aria-hidden="false"]{
+                margin-top: .7rem;
+            }
+
+            #plugin__qc__icon{
+                display: none;
+            }
+            &.plugin__qc{
+                display: inline-block;
+                overflow: visible;
+            }
+            #plugin__qc__link{
+                font-size: .8rem;
+                position: relative;
+                display: block;
+                height: 1rem;
+                width: 1rem;
+                border: 1px solid @color-border;
+                background-color: @color-site-bg;
+                border-radius: @border-radius;
+                color: @color-nav;
+                min-height: 1.2em;
+                min-width: 1.4em;
+                box-sizing: content-box;
+                padding: .3em .25em .15em;
+
+                .prefix{
+                    font-size: .8rem;
+                    .fontello();
+                    .hide-text-show-before();
+                    .icon-emo-happy();
+                    color: @color-nav;
+                }
+                .num{
+                    position: absolute;
+                    padding: .2em .3em .1em;
+                    text-align: center;
+                    font-size: .6rem;
+                    line-height: 100%;
+                    font-weight: 400;
+                    right: -0.3em;
+                    top: -0.4em;
+                    background-color: @color-border;
+                    border-radius: 2px;
+                    color: @color-nav;
+                }
+            }
+        }
+    }
+}

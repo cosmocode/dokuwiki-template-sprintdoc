@@ -19,6 +19,8 @@ $lang['head_menu_main']             = 'Hauptmenü';
 $lang['head_menu_status']           = 'Seitenstatus';
 $lang['head_breadcrumb']            = 'Standortanzeiger';
 
+$lang['quality_trigger']            = 'Seitenanalyse ein- bzw. ausblenden';
+
 $lang['prefix_tasks']               = 'offene Aufgaben: ';
 $lang['prefix_tasks_user']          = 'Ihre offenen Aufgaben: ';
 $lang['prefix_tasks_page']          = 'offene Aufgaben auf dieser Seite: ';
