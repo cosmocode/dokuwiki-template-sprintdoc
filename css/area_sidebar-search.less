@@ -4,14 +4,58 @@
  * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
  */
 
-.search.main-sidebar{
-    form{
-        white-space: nowrap;
-        .no{
-            border: 1px solid ;
-            padding-right: 1.5rem;
-            #qsearch__in{
+
+.search.main-sidebar {
+    form {
+        @icon-size: 40px;
+
+        display: block;
+        margin: @margin-default 0;
+
+        .no {
+            #qsearch__in {
                 width: 100%;
+                padding-left: 10px;
+                padding-right: (@icon-size + 10);
+            }
+        }
+
+        input {
+            min-height: @icon-size;
+            box-sizing: border-box;
+            border-color: @color-link;
+            border-radius: 0;
+        }
+
+        button[type="submit"] {
+            .fontello();
+            .hide-text-show-before();
+            .icon-search();
+
+            width: @icon-size;
+            min-height: @icon-size;
+            background-image: none;
+            background-color: @color-link;
+            border: solid 1px @color-link;
+            border-radius: 0;
+            color: #fff;
+            margin-left: -(@icon-size);
+            padding: 0;
+            transition: @transition color, @transition background-color;
+
+            &:hover,
+            &:focus,
+            &:active {
+                background-color: #fff;
+                color: @color-link;
+            }
+
+            &::before {
+                width: 100%;
+                color: inherit;
+                font-size: 25px;
+                text-align: center;
+                margin: 0;
             }
         }
     }
