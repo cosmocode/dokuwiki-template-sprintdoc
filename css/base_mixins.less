@@ -141,15 +141,25 @@
     }
 }
 
+.btn-default-size(){
+    height: 1rem;
+    width: 1rem;
+    min-height: 1.2em;
+    min-width: 1.4em;
+}
+
+.btn-default-height(){
+    height: 1rem;
+    min-height: 1.2em;
+    min-width: 1.4em;
+}
+
 .hide-text-show-before(){
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;
     text-indent: -9999px;
-    height: 1rem;
-    width: 1rem;
-    min-height: 1.2em;
-    min-width: 1.4em;
+    .btn-default-size();
     &::before{
         text-indent: 0;
         float: left;
@@ -157,6 +167,22 @@
     &::after{
         text-indent: 0;
         float: left;
+    }
+}
+
+
+.hide-text-show-after(){
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-indent: -9999px;
+    &::before{
+        text-indent: 0;
+        float: right;
+    }
+    &::after{
+        text-indent: 0;
+        float: right;
     }
 }
 

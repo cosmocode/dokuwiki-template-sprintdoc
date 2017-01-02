@@ -5,14 +5,54 @@
  */
 
 nav#dokuwiki__pagetools{
-    &:hover{
-        ul{
-           background-color: #fff;
-        }
-    }
+
     ul {
-        li a {
-            background-image: none;
+        li {
+            font-size: .8rem;
+            line-height: 100%;
+
+            *{
+                font-size: .8rem;
+            }
+
+            a.backlink{
+                .hide-text-show-after();
+                .fontello();
+                line-height: 100%;
+                box-sizing: border-box;
+                border: 1px solid red;
+                font-size: 0;
+                &:before{
+                    font-size: 1rem;
+                    float: right;
+                    line-height: 1.2em;
+                    .btn-default-size();
+                    margin: .1rem auto 0;
+                    border: 1px solid blue;
+                }
+                &:hover, &:active, &:focus {
+                    padding: 0;
+                }
+            }
+
+            a.backlink{
+                .icon-link();
+            }
+
         }
     }
+
+    &:hover{
+         ul{
+             background-color: #fff;
+             box-shadow: @box-shadow-offset;
+             li{
+                 a.backlink{
+                     padding: 0;
+                 }
+             }
+         }
+     }
+
+
 }
