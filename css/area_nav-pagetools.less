@@ -4,15 +4,26 @@
  * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
  */
 
-nav#dokuwiki__pagetools{
-    &:hover{
-        ul{
+nav#dokuwiki__pagetools {
+    &:hover {
+        ul {
            background-color: #fff;
         }
     }
+
     ul {
         li a {
             background-image: none;
         }
+    }
+}
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* max-width: 1023px */
+
+@media @screen_max-md {
+    nav#dokuwiki__pagetools {
+        right: 0;
     }
 }
