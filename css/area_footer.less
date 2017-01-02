@@ -3,3 +3,53 @@
  *
  * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
  */
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* no print */
+
+@media screen {
+    #dokuwiki__footer {
+        * {
+            font-size: (@font-size-default - .1);
+        }
+
+        .pad {
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .doc {}
+
+        .license {}
+    }
+}
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* min-width: 1024px */
+
+@media @screen_min-md {
+    #dokuwiki__footer {
+        margin: 0 @margin-big;
+
+        .pad {
+            float: right;
+            width: 73%;
+            padding: @margin-default 0;
+        }
+    }
+}
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* max-width: 1023px */
+
+@media @screen_max-md {
+    #dokuwiki__footer {
+        .pad {
+            width: 100%;
+            padding: @margin-default @margin-big;
+        }
+    }
+}
