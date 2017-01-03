@@ -1,5 +1,3 @@
-
-
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* all media */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
@@ -8,12 +6,13 @@
 /* + + + + + + + + + + + + + + + + + + + + + + + */
 /* magic matcher bar with form on top of page */
 
-#dokuwiki_magic-matcher{
-
+#dokuwiki_magic-matcher {
     position: fixed;
-    top:0; left: 0;
+    top: 0;
+    left: 0;
     width: 100%;
-    #magicmatcher__context{
+
+    #magicmatcher__context {
         box-sizing: border-box;
         background-color: __nav_direct_background__;
         box-shadow: __box_shadow__;
@@ -25,24 +24,46 @@
         padding: .8em 1em .5em;
         margin-bottom: 0;
 
-        .chosen-container-single .chosen-single span{
-            line-height: @line-height-bigger;
+        .chosen-container-single {
+            .chosen-single span {
+                line-height: @line-height-bigger;
+            }
         }
     }
 }
 
-.no-js{
-    #dokuwiki_magic-matcher{
+.no-js {
+    #dokuwiki_magic-matcher {
         display: none;
     }
 }
 
 
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* max-width: 1023px */
+
+@media @screen_max-lg {
+    #dokuwiki_magic-matcher {
+        #magicmatcher__context {
+            .chosen-container-single {
+                width: 20% !important;
+
+                + select + .chosen-container-single {
+                    width: 58% !important;
+                }
+            }
+        }
+    }
+}
+
+
+
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* print */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-@media print{
-    #dokuwiki_magic-matcher{
+
+@media print {
+    #dokuwiki_magic-matcher {
         display: none;
     }
 }
