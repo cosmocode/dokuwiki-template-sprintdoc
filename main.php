@@ -366,7 +366,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* copyright */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                                echo "var - fixme";
+                                echo "&copy; ".tpl_getConf('copyright');
                             ?>
                         </p>
                     </div>

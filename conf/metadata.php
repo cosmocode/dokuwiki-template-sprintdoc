@@ -11,3 +11,4 @@ $meta['discussionPage']   = array('string');
 $meta['userPage']         = array('string');
 $meta['hideTools']        = array('onoff');
 $meta['tasks_page']       = array('string');
+$meta['copyright']        = array('string');
