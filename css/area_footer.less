@@ -9,6 +9,17 @@
 /* no print */
 
 @media screen {
+    .page-footer {
+        background: @background_page-header;
+        border-top: 1px solid @color-border;
+        font-size: @font-size-default;
+        padding: @margin-small (@margin-big - .5);
+
+        bdi {
+            font-weight: bold;
+        }
+    }
+
     #dokuwiki__footer {
         .main-footer {
             position: relative;
@@ -17,10 +28,7 @@
 
         p {
             font-size: @font-size-default;
-        }
-
-        bdi {
-            font-weight: bold;
+            margin: 0;
         }
     }
 }
@@ -31,7 +39,6 @@
 
 @media @screen_min-md {
     #dokuwiki__footer {
-
         .col-xs-12 {
             float: right;
             width: 73%;
@@ -49,7 +56,6 @@
 
 @media @screen_max-md {
     #dokuwiki__footer {
-
         .main-footer {
             padding: @margin-default (@margin-big - .5);
         }
