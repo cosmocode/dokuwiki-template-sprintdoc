@@ -4,159 +4,153 @@
  * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
  */
 
+
 .nav-usertools {
-    &.has-bar{
+    &.has-bar {
         margin-top: @height-context-bar;
         padding-top: .5rem;
     }
-    ul{
+
+    ul {
         float: right;
-        padding: 0; margin: .2rem -.2rem 0 0;
-        li{
-            display: inline-block;
+        padding: 0;
+        margin: .2rem -.2rem 0 0;
+
+        li {
+            .btn-usertools-wrapper(); // uniform li
+
             float: right;
-            margin: 0 .1rem;
-            padding: 0;
             font-size: .8rem;
-            *{
+
+            * {
                 font-size: .8rem;
             }
-            a{
-                color: @color-nav;
-                box-sizing: content-box;
-                padding: .3em .25em .15em;
-                text-align: center;
-                text-decoration: none;
+
+            > strong,
+            > a {
+                display: block;
+                width: auto;
+                min-height: 2em;
                 border: 1px solid @color-border;
                 border-radius: @border-radius;
-                margin: 2px;
-                cursor: pointer;
-
-                &:hover, &:active, &:focus{
-                    background-color: @color-nav-hover-bg;
-                    border-width: 3px;
-                    border-style: double;
-                    margin: 0;
-
-                    //-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
-                    //box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
-                    color: @color-nav-hover;
-                }
-
-                .fontello();
-                .hide-text-show-before();
-                &:before{
-                    font-size: 1.12em;
-                    cursor: pointer;
-                    content: "?";
-                }
-
-                /* icon register new user */
-                &.register{
-                    .icon-user();
-                }
-                /* icon log-out */
-                &.logout{
-                    .icon-logout();
-                }
-                /* icon log-in */
-                &.login{
-                    .icon-login();
-                }
-                /* icon admin */
-                &.admin{
-                    .icon-cog();
-                }
-
-                /* add more icons if needed */
+                color: @color-nav;
+                text-align: center;
+                margin: 0;
             }
 
-            &.user-task{
+            .btn-usertools-num ();
+
+            &.user {
                 border: 1px solid @color-border;
                 border-radius: @border-radius;
-                color: @color-nav;
-                display: inline-block;
-                height: 1rem;
-                width: 1rem;
-                min-height: 1.2em;
-                min-width: 1.4em;
-                box-sizing: content-box;
-                padding: .3em .25em .15em;
-                margin-top: 2px;
+                padding: .3rem .25rem;
+
+                bdi {
+                    color: @color-nav;
+                    display: inline-block;
+                    padding-top: 1px;
+                }
+
+                > bdi:first-of-type {
+                    .fontello();
+                    .icon-user();
+
+                    &::before {
+                        float: left;
+                        background: @color-nav;
+                        border: 4px solid @color-nav;
+                        border-radius: 50%;
+                        color: #fff;
+                        font-size: .5rem;
+                        margin-top: -1px;
+                        margin-right: 6px;
+                    }
+                }
+            } // user
+
+            &.user-task {
                 position: relative;
 
-
-                a{
+                a {
                     position: relative;
                     overflow: visible;
                     white-space: normal;
                     text-indent: 0;
-                    &:before{
+
+                    &::before {
                         content: "";
                         position: absolute;
                     }
                 }
 
-                .prefix{
+                .prefix {
                     .fontello();
                     .hide-text-show-before();
                     .icon-clipboard();
+
                     color: @color-nav;
+                    margin-top: .3rem;
                 }
 
-
-
-                .num{
-                    position: absolute;
-                    padding: .2em .3em .1em;
-                    text-align: center;
-                    font-size: .6rem;
-                    line-height: 100%;
-                    font-weight: 400;
-                    right: -0.3em;
-                    top: -0.4em;
-                    background-color: @color-border;
-                    border-radius: 2px;
-                    color: @color-nav;
-                }
-                &.opentasks, &.opentask{
-                    .num{
+                &.opentasks,
+                &.opentask {
+                    .num {
                         background-color: @color-link;
                         color: #fff;
                     }
                 }
+            } // user-task
+        } // li
+
+        a {
+            .fontello();
+            .hide-text-show-before();
+
+            cursor: pointer;
+            background-color: #fff;
+            text-decoration: none;
+            transition: @transition color, @transition border-color;
+
+            &:hover,
+            &:active,
+            &:focus {
+                border-color: @color-nav-hover;
+                //-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+                //box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+                color: @color-nav-hover;
             }
 
-            &.user{
-                border: 1px solid @color-border;
-                border-radius: @border-radius;
-                color: @color-nav;
-                display: inline-block;
-                height: 1rem;
-                min-height: 1.2em;
-                min-width: 1.4em;
-                box-sizing: content-box;
-                padding: .3em .25em .15em;
-                margin-top: 2px;
-                bdi{
-                    color: @color-nav;
-                    display: inline-block;
-                    padding-top: 1px;
-                }
-                >bdi:first-of-type{
-                    .fontello();
-                    .icon-user();
-                    &:before{
-                        border: 4px solid @color-nav;
-                        margin-top: -1px;
-                        border-radius: 50%;
-                        background: @color-nav;
-                        color: #fff;
-                        font-size: .5rem;
-                        float: left;
-                    }
-                }
+            &::before {
+                content: "?";
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+                font-size: 1.12em;
+                cursor: pointer;
+                margin: .3rem 0;
             }
+
+            /* icon register new user */
+            &.register {
+                .icon-user();
+            }
+
+            /* icon log-out */
+            &.logout {
+                .icon-logout();
+            }
+
+            /* icon log-in */
+            &.login {
+                .icon-login();
+            }
+
+            /* icon admin */
+            &.admin {
+                .icon-cog();
+            }
+
+            /* add more icons if needed */
         }
     }
 }
