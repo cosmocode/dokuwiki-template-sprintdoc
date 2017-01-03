@@ -63,21 +63,25 @@
 
         > li {
             .btn-usertools-wrapper(); // uniform li
+            .btn-usertools-num();
 
             float: left;
+
+            &.do_none {
+                &:not([class*="plugin__qc"]) {
+                    background-color: @color-site-bg;
+                }
+
+                .num {
+                    background-color: @color-border;
+                    color: @color-nav;
+                }
+            }
 
             &.plugin__qc {
                 display: inline-block;
                 overflow: visible;
             }
-
-            &.do_none {
-                background-color: @color-site-bg;
-            }
-
-
-            .btn-usertools-num ();
-
 
             .prefix {
                 .fontello();
