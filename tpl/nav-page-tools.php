@@ -9,7 +9,6 @@
         <ul>
             <?php tpl_toolsevent('pagetools', array(
                 'edit'      => tpl_action('edit', 1, 'li', 1),
-                'discussion'=> _tpl_action('discussion', 1, 'li', 1),
                 'revisions' => tpl_action('revisions', 1, 'li', 1),
                 'backlink'  => tpl_action('backlink', 1, 'li', 1),
                 'subscribe' => tpl_action('subscribe', 1, 'li', 1),
