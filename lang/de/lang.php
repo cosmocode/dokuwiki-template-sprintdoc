@@ -29,8 +29,10 @@ $lang['tasks_page_none']            = 'keine offenen Aufgaben für diese Seite';
 $lang['discussion']                 = 'Diskussion';
 $lang['back_to_article']            = 'Zurück zum Artikel';
 $lang['userpage']                   = 'Benutzer-Seite';
-$lang['__existing__']               = 'The color for links to existing pages';
-$lang['__missing__']                = 'The color for links to non-existing pages';
+$lang['__existing__']               = 'Schriftfarbe für Links zu vorhandenen Webseiten';
+$lang['__existing-hover__']         = 'Hoverfarbe für Links zu vorhandenen Webseiten';
+$lang['__missing__']                = 'Schriftfarbe für Links zu nicht vorhandenen Webseiten';
+$lang['__missing-hover__']          = 'Hoverfarbe für Links zu nicht vorhandenen Webseiten';
 $lang['__site_width__']             = 'The width of the full site (can be any length unit: %, px, em, ...)';
 $lang['__sidebar_width__']          = 'The width of the sidebar, if any (can be any length unit: %, px, em, ...)';
 
