@@ -321,13 +321,27 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 
                         </div><!-- .main-content -->
 
+
+                        <div class="page-footer">
+                            <?php
+                                tpl_includeFile('pagefooter.html');
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* 'Last modified' etc */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                                tpl_pageinfo()
+                            ?>
+                        </div>
+
                     </div><!-- .col -->
                 </div><!-- .row -->
             </div><!-- .container -->
 
 
-            <?php tpl_flush() ?>
-            <?php tpl_includeFile('pagefooter.html') ?>
+            <?php
+                tpl_flush()
+            ?>
         </div><!-- /content -->
 
 
@@ -350,9 +364,9 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* 'Last modified' etc */
+/* copyright */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                                tpl_pageinfo()
+                                echo "var - fixme";
                             ?>
                         </p>
                     </div>
