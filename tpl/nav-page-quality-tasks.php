@@ -3,7 +3,10 @@
 ?>
 
 <?php
+    /** @var \helper_plugin_qc $qc */
     $doPlugin = plugin_load('helper','do');
+    
+    /** @var \helper_plugin_qc $qc */
     $qc = plugin_load('helper','qc');
     if ($doPlugin !== null ||$qc ) {
         echo "<ul class=\"page-attributes\">";
@@ -13,9 +16,9 @@
         $qc->tplErrorCount();
         echo "</li>";
     }
-    if ($doplugin !== null ) {
-        $tasks = $doplugin->getPageTaskCount();
-        $num = $tasks[count];
+    if ($doPlugin !== null ) {
+        $count = $doPlugin->getPageTaskCount();
+        $num = $count['count'];
         $title = "";
 
         if($num == 0){ // no tasks - does not exist do in plug-in
