@@ -11,6 +11,8 @@
         padding-top: .5rem;
     }
 
+
+/* + + + + +  icon list  + + + + + */
     ul {
         float: right;
         padding: 0;
@@ -21,11 +23,6 @@
             .btn-usertools-num();
 
             float: right;
-            font-size: .8rem;
-
-            * {
-                font-size: .8rem;
-            }
 
             > strong,
             > a {
@@ -40,6 +37,10 @@
             }
 
             &.noopentasks {
+                strong {
+                    background-color: @color-site-bg;
+                }
+
                 .num {
                     background-color: @color-border;
                     color: @color-nav;
@@ -67,9 +68,8 @@
                         border: 4px solid @color-nav;
                         border-radius: 50%;
                         color: #fff;
-                        font-size: .5rem;
-                        margin-top: -1px;
-                        margin-right: 6px;
+                        font-size: .6rem;
+                        margin: -2px 6px -2px 0;
                     }
                 }
             } // user
@@ -84,18 +84,14 @@
                     text-indent: 0;
 
                     &::before {
-                        content: "";
+                        content: '';
                         position: absolute;
                     }
                 }
 
                 .prefix {
-                    .fontello();
-                    .hide-text-show-before();
+                    .btn-prefix ();
                     .icon-clipboard();
-
-                    color: @color-nav;
-                    margin-top: .3rem;
                 }
 
                 &.opentasks,
@@ -108,6 +104,8 @@
             } // user-task
         } // li
 
+
+/* + + +  icons  + + + */
         a {
             .fontello();
             .hide-text-show-before();
@@ -131,9 +129,9 @@
                 display: block;
                 width: 100%;
                 box-sizing: border-box;
-                font-size: 1.12em;
+                font-size: 1.4em;
                 cursor: pointer;
-                margin: .3rem 0;
+                margin: .2rem 0 0;
             }
 
             /* icon register new user */
@@ -154,9 +152,11 @@
             /* icon admin */
             &.admin {
                 .icon-cog();
-            }
 
-            /* add more icons if needed */
-        }
-    }
-}
+                &::before {
+                    margin-top: .18rem;
+                }
+            }
+        } // a
+    } // ul
+} // nav-usertools

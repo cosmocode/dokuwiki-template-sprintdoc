@@ -1,0 +1,121 @@
+/**
+ * This file provides the design styles for the sidebar (navmain).
+ *
+ * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
+ */
+
+
+#dokuwiki__aside.main-sidebar {
+
+/* + + + + +  nav main  + + + + + */
+    .nav-main {
+        > ul {
+            @icon-size: 2rem;
+
+            margin: 0;
+            padding: 0;
+
+            ul {
+                margin-left: (@icon-size + .5);
+            }
+
+            li {
+                color: @color-nav;
+
+                &:first-of-type {
+                    padding-top: .3rem;
+                }
+            }
+
+            .li {
+                color: @color-nav;
+
+                a {
+                    color: inherit;
+                }
+            }
+
+
+/* + + +  first level  + + + */
+            > li {
+                list-style-type: none;
+                border-bottom: solid 1px @color-border;
+                margin: 0;
+                padding: 0 0 .3rem 0;
+
+                > .li { //background-color: pink;// hier activ !!!
+                    position: relative;
+                    padding: .5rem 0 .5rem (@icon-size + 1);
+
+                    &::before {                        background-color: gold;// test
+                        content: '?';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        display: flex;
+                        display: -webkit-flex;
+                        flex-direction: column;
+                        -webkit-flex-direction: column;
+                        justify-content: center;
+                        -webkit-justify-content: center;
+                        height: 100%;
+                        width: @icon-size;
+                        overflow: hidden;
+                        text-align: center;
+                        margin-top: auto;
+                        margin-bottom: auto;
+                    }
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: 15%;
+                        bottom: 15%;
+                        width: 1px;
+                        left: (@icon-size + .5);
+                        background-color: @color-border;
+                        transition: @transition background-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* min-width: 1440px */
+
+@media @screen_min-xlg {
+    #dokuwiki__aside.main-sidebar {
+        .nav-main {
+            .li {
+                font-size: .88rem;
+                padding: .1rem 0;
+
+                > * {
+                    font-size: .88rem;
+                }
+            }
+        }
+    }
+}
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* max-width: 1199px */
+
+@media @screen_max-xlg {
+    #dokuwiki__aside.main-sidebar {
+        .nav-main {
+            .li {
+                font-size: 1rem;
+                padding: .15rem .25rem;
+
+                > * {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}
