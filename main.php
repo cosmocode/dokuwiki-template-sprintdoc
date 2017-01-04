@@ -148,8 +148,6 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
         <div class="sr-only nav-area-head">
             <h5 class="sr-only" role="heading" aria-level="1"><?php echo tpl_getLang('nav-area-head') ?></h5>
         </div><!-- .nav-area-head -->
-        <?php if ($showSidebar): ?>
-
 
         <div class="tools">
             <div class="container">
@@ -223,7 +221,6 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
                 </div><!-- .row -->
             </div><!-- .container -->
         </div><!-- .tools -->
-        <?php endif ?>
 
 
         <div class="top-header">
