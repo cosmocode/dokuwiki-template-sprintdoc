@@ -2,6 +2,7 @@
 
     var mainMenu = function(){
         var $menu = $('.nav-main').find('> ul');
+
         try{
             if($menu.length > 0){
                 var $toggler = $menu.find('> li.level1 > .li'),
@@ -23,27 +24,12 @@
                             }
                         });
                     });
+
+                    //FIXME: store current nav state with local storage
                 }
 
 
             }
-            /*var $link = $this.find('#plugin__qc__link'),
-                $container = $this.find('#plugin__qc__wrapper');
-            if($container.length < 1){
-                $this.remove();
-            }else{
-                $container.attr('aria-hidden','true');
-                var $icon = $container.find('#plugin__qc__icon');
-                $container.find('#plugin__qc__out').removeAttr('style');
-                $link.on( 'click', function(e){
-                    e.preventDefault();
-                    $icon.trigger('click');
-                    var oldState = ($link.attr('aria-expanded')=== "true" );
-                    $container.attr('aria-hidden',oldState);
-                    $(this).attr('aria-expanded',!oldState);
-
-                });
-            }*/
 
         }catch(err){
 
