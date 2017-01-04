@@ -14,7 +14,7 @@ if (!defined('DOKU_INC')) die();                        /* must be run from with
 header('X-UA-Compatible: IE=edge,chrome=1');
 
 $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && !empty($_SERVER['REMOTE_USER']) );
-$showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
+$showSidebar = /*page_findnearest($conf['sidebar']) &&*/ ($ACT=='show');
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
