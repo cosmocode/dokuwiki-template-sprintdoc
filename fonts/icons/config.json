@@ -323,6 +323,18 @@
       "css": "up-open-big",
       "code": 59433,
       "src": "entypo"
+    },
+    {
+      "uid": "587bjlxppui6u4japooa2foe58rsvicp",
+      "css": "pencil",
+      "code": 59434,
+      "src": "modernpics"
+    },
+    {
+      "uid": "2aeb4987b469d22fcb8b471b6d2cdfff",
+      "css": "pencil-1",
+      "code": 59435,
+      "src": "linecons"
     }
   ]
 }
