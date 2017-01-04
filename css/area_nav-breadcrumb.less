@@ -53,6 +53,8 @@
         }
     }
 
+
+/* + + + + +  icon list  + + + + + */
     .page-attributes {
         float: right;
         display: inline-block;
@@ -67,8 +69,28 @@
 
             float: left;
 
+            > strong,
+            > a {
+                display: block;
+                width: auto;
+                min-height: 2em;
+                border: 1px solid @color-border;
+                border-radius: @border-radius;
+                color: @color-nav;
+                text-align: center;
+                margin: 0;
+            }
+
+            .prefix {
+                .btn-prefix ();
+                .icon-clipboard();
+            }
+
+/* check !!! */
             &.do_none {
-                &:not([class*="plugin__qc"]) {
+                position: relative;
+
+                strong {
                     background-color: @color-site-bg;
                 }
 
@@ -77,37 +99,15 @@
                     color: @color-nav;
                 }
             }
+/* end check !!! */
 
             &.plugin__qc {
                 display: inline-block;
                 overflow: visible;
             }
-
-            .prefix {
-                .fontello();
-                .hide-text-show-before();
-
-                height: auto;
-                width: 100%;
-                color: @color-nav;
-                text-align: center;
-                transition: @transition color;
-
-                &::before {
-                    width: 100%;
-                    margin: .35em 0 0;
-                }
-            }
         } // li
 
         a {
-            display: block;
-            width: auto;
-            min-height: 2em;
-            margin: 0;
-            border: 1px solid @color-border;
-            border-radius: @border-radius;
-            color: @color-nav;
             transition: @transition color, @transition border-color;
 
             &[aria-expanded="false"] + #plugin__qc__wrapper {
@@ -143,13 +143,18 @@
         }
 
         #plugin__qc__link {
-            font-size: .8rem;
             position: relative;
 
             .prefix {
                 .icon-emo-happy();
 
-                font-size: inherit;
+                width: 100%;
+                font-size: .9rem;
+
+                &::before {
+                    width: 100%;
+                    margin: .1em 0 0;
+                }
             }
         }
     }
