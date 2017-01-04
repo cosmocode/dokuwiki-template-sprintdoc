@@ -1,0 +1,109 @@
+/**
+ * This file provides the design styles for the sitetools (nav).
+ *
+ * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
+ */
+
+
+#dokuwiki__sitetools.nav-sitetools {
+    @icon-size: 2rem;
+
+    h6 { //background-color: pink;// hier activ !!!
+        position: relative;
+        width: auto;
+        height: auto;
+        color: @color-nav;
+        font-size: .88rem;
+        font-weight: normal;
+        margin: 0;
+        padding: .5rem 0 .5rem (@icon-size + 1);
+
+        &::before {
+            background-color: gold;
+            content: '?';
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            display: -webkit-flex;
+            flex-direction: column;
+            -webkit-flex-direction: column;
+            justify-content: center;
+            -webkit-justify-content: center;
+            height: 100%;
+            width: @icon-size;
+            overflow: hidden;
+            text-align: center;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 15%;
+            bottom: 15%;
+            width: 1px;
+            left: (@icon-size + .5);
+            background-color: @color-border;
+            transition: @transition background-color;
+        }
+    }
+
+/* + + +  linklist  + + + */
+    ul {
+        padding-left: (@icon-size + .5);
+    }
+
+    li {
+        color: @color-nav;
+
+        a {
+            color: inherit;
+        }
+
+        &:first-of-type {
+            padding-top: .3rem;
+        }
+    }
+}
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* min-width: 1440px */
+
+@media @screen_min-xlg {
+    #dokuwiki__sitetools.nav-sitetools {
+        li {
+            font-size: 100%;
+            padding-top: .1rem;
+            padding-bottom: .1rem;
+
+            > * {
+                font-size: .88rem;
+            }
+        }
+    }
+}
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* max-width: 1199px */
+
+@media @screen_max-xlg {
+    #dokuwiki__sitetools.nav-sitetools {
+        h6 {
+            font-size: 1rem;
+        }
+
+        li {
+            font-size: 1rem;
+            padding-top: .15rem;
+            padding-bottom: .15rem;
+
+            > * {
+                font-size: 1rem;
+            }
+        }
+    }
+}
