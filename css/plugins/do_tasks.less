@@ -13,11 +13,12 @@ ul.page-attributes {
             .hide-text-show-before();
             .icon-clipboard();
 
-            font-size: .8rem;
-            min-height: @icon-size;
-            min-width: @icon-size;
             color: @color-nav;
-            transition: @transition color;
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 1.3em;
+            margin: .2rem 0 0;
         }
 
         &.do_none {
@@ -27,7 +28,6 @@ ul.page-attributes {
             box-sizing: border-box;
             border: 1px solid @color-border;
             border-radius: @border-radius;
-            padding: 0 .2em;
         }
     }
 }
