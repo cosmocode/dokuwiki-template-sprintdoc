@@ -37,6 +37,10 @@
             }
 
             &.noopentasks {
+                strong {
+                    background-color: @color-site-bg;
+                }
+
                 .num {
                     background-color: @color-border;
                     color: @color-nav;
@@ -86,13 +90,8 @@
                 }
 
                 .prefix {
-                    .fontello();
-                    .hide-text-show-before();
+                    .btn-prefix ();
                     .icon-clipboard();
-
-                    color: @color-nav;
-                    font-size: 1.3em;
-                    margin-top: .2rem;
                 }
 
                 &.opentasks,
