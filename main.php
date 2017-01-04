@@ -309,6 +309,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
                         </div>
 
                         <div id="dokuwiki__content" class="page main-content">
+                            <div id="meta-box"></div>
 
                             <?php
 
