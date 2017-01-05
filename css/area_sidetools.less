@@ -8,10 +8,11 @@
 .side-tools.main-sidebar {
     @icon-size: 2rem;
 
-    > nav {
-        margin-top: 1em;
+    counter-increment: bar-counter;
 
+    > nav {
         > ul {
+            padding-bottom: .4rem;
             margin-bottom: 0;
         }
     }
@@ -25,7 +26,7 @@
         padding: .5em 0 .5em (@icon-size + 1.1);
 
         &::before {
-            content: 'A';
+            content: counter(bar-counter, lower-alpha);
             position: absolute;
             top: 0;
             left: 0;
@@ -62,8 +63,41 @@
 
 
 /* + + +  linklist  + + + */
-    ul {
+    ul,
+    .trace {
         padding-left: (@icon-size + .5);
+    }
+
+    ul {
+        border-bottom: 1px solid @color-border;
+    }
+
+    p {
+        max-height: 200px;
+        overflow-y: auto;
+        background-color: @background_page-header;
+        border: 1px solid @color-border;
+        padding: .4rem;
+
+        .bchead,
+        .bcsep {
+            display: none;
+        }
+
+        .breadcrumbs {
+            padding: 0;
+            margin: 0;
+        }
+
+        bdi {
+            display: block;
+            line-height: 125%;
+            padding: .1rem 0;
+        }
+
+        a {
+            cursor: pointer;
+        }
     }
 
     li {
