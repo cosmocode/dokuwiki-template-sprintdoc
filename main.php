@@ -14,7 +14,7 @@ if (!defined('DOKU_INC')) die();                        /* must be run from with
 header('X-UA-Compatible: IE=edge,chrome=1');
 
 $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && !empty($_SERVER['REMOTE_USER']) );
-$showSidebar = /*page_findnearest($conf['sidebar']) &&*/ ($ACT=='show');
+$showSidebar =  true; /*  */
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
@@ -84,7 +84,7 @@ $showSidebar = /*page_findnearest($conf['sidebar']) &&*/ ($ACT=='show');
 
 /* #dokuwiki__top used as anchor for "back to top" button/link links */
 ?>
-<body id="dokuwiki__top" class="<?php echo tpl_classes(); ?> <?php echo ($showSidebar) ? 'showSidebar' : ''; ?>">
+<body id="dokuwiki__top" class="<?php echo tpl_classes(); ?> <?php echo ($ACT) ? 'do-'.$ACT : 'do-none'; ?> <?php echo ($showSidebar) ? 'showSidebar' : ''; ?>">
 
 <div id="dokuwiki__site">
     <?php
@@ -194,7 +194,7 @@ $showSidebar = /*page_findnearest($conf['sidebar']) &&*/ ($ACT=='show');
                             ?>
                         </div><!-- .menu -->
 
-                        <div class="site-tools main-sidebar">
+                        <div class="side-tools main-sidebar toggle-menu">
                             <?php
 
 
@@ -203,7 +203,17 @@ $showSidebar = /*page_findnearest($conf['sidebar']) &&*/ ($ACT=='show');
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
                                 include('tpl/nav-sitetools.php');
                             ?>
-                        </div><!-- .site-tools -->
+                        </div><!-- .side-tools -->
+                        <div class="side-tools main-sidebar toggle-menu">
+                            <?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* user tools */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                            include('tpl/nav-usermenu.php');
+                            ?>
+                        </div><!-- .side-tools -->
 
 
                         <div class="sidebarfooter main-sidebar">
@@ -243,7 +253,7 @@ $showSidebar = /*page_findnearest($conf['sidebar']) &&*/ ($ACT=='show');
                                 }
                             }
 
-                            include('tpl/nav-usertools.php');
+                            include('tpl/nav-usertools-buttons.php');
                             if($mm && $matcher !== ""){
                                 include('tpl/nav-magicmatcher.php');
                             }

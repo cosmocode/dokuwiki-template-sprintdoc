@@ -165,5 +165,34 @@
         var h=window.innerHeight||self.innerHeight||(de&&de.clientHeight)||document.body.clientHeight;
         arrayPageSize=[w,h];
         return arrayPageSize;
+    },
+    useLocStorage: function(){
+        return ('localStorage' in window && window.localStorage !== null);
+    },
+    saveLSI: function(key, data){
+        if (this.useLocStorage) {
+            localStorage.setItem(key, data);
+        }
+    },
+    removeLSI: function(key){
+        if (this.useLocStorage) {
+            localStorage.removeItem(key);
+        }
+    },
+    getLSI: function(key){
+        if (this.useLocStorage) {
+            return localStorage.getItem(key);
+        }
+        return '';
+
+    },
+    showAllLSI: function() {
+        if (this.useLocStorage) {
+            var key = "";
+            for (var i=0; i<=localStorage.length-1; i++) {
+                key = localStorage.key(i);
+                //console.log(key+': '+localStorage.getItem(key));
+            }
+        }
     }
 };
