@@ -6,14 +6,6 @@
 
 
 #dokuwiki__content.main-content {
-    img {
-        display: inline-block;
-    }
-
-/* + + +  source block  + + + */
-    .code {
-        margin-top: @grid;
-    }
 }
 
 
@@ -21,26 +13,6 @@
 /* min-width: 1440px */
 
 @media @screen_min-xlg {
-    #dokuwiki__content.main-content {
-        p, a,
-        li, dl,
-        td, th,
-        label,
-        button {
-            font-size: .88rem;
-            line-height: 140%;
-
-            * {
-                font-size: inherit;
-                line-height: inherit;
-            }
-        }
-
-        small,
-        .code {
-            font-size: .75rem;
-        }
-    }
 }
 
 
@@ -48,23 +20,4 @@
 /* max-width: 1199px */
 
 @media @screen_max-xlg {
-    #dokuwiki__content.main-content {
-        p, a,
-        li, dl,
-        td, th,
-        label,
-        button {
-            font-size: 1rem;
-            line-height: 140%;
-
-            * {
-                font-size: inherit;
-                line-height: inherit;
-            }
-        }
-
-        .code {
-            font-size: .94rem;
-        }
-    }
 }

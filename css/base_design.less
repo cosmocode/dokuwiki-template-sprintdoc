@@ -147,6 +147,8 @@ figure,
 details,
 fieldset,
 address {
+    font-size: .88rem;
+    line-height: 140%;
     margin: 0 0 1.4em 0; /* bottom margin = line-height */
     padding: 0;
 }
@@ -158,6 +160,15 @@ audio {
     padding: 0;
 }
 
+small,
+.code {
+    font-size: .75rem;
+}
+
+.code {
+    margin-top: @grid;
+}
+
 
 /*____________ lists ____________*/
 
@@ -165,6 +176,7 @@ ul,
 ol {
     padding: 0 0 0 1.5em;
 }
+
 [dir=rtl] ul,
 [dir=rtl] ol {
     padding: 0 1.5em 0 0;
@@ -175,10 +187,12 @@ dd {
     padding: 0;
     margin: 0 0 0 1.5em;
 }
+
 [dir=rtl] li,
 [dir=rtl] dd {
     margin: 0 1.5em 0 0;
 }
+
 dt {
     font-weight: bold;
     margin: 0;
@@ -194,6 +208,7 @@ dl dl {
     margin-bottom: 0;
     padding: 0;
 }
+
 li li {
     font-size: 100%;
 }
@@ -217,6 +232,7 @@ caption {
     caption-side: top;
     text-align: left;
 }
+
 [dir=rtl] caption {
     text-align: right;
 }
@@ -228,11 +244,13 @@ td {
     vertical-align: top;
     border: 1px solid @ini_border;
 }
+
 th {
     font-weight: bold;
     background-color: @ini_background_alt;
     text-align: left;
 }
+
 [dir=rtl] th {
     text-align: right;
 }
@@ -240,11 +258,13 @@ th {
 a {
     outline: none;
 }
+
 a:link,
 a:visited {
     text-decoration: none;
     color: @ini_link;
 }
+
 a:hover,
 a:focus,
 a:active {
@@ -252,6 +272,7 @@ a:active {
 }
 
 img {
+    display: inline-block;
     border-width: 0;
     vertical-align: middle;
     color: #666;
@@ -259,6 +280,7 @@ img {
     font-style: italic;
     height: auto;
 }
+
 img,
 object,
 embed,
@@ -267,6 +289,7 @@ video,
 audio {
     max-width: 100%;
 }
+
 button img {
     max-width: none;
 }
@@ -286,6 +309,7 @@ abbr {
     border-bottom: 1px dotted;
     font-style: normal;
 }
+
 em acronym,
 em abbr {
     font-style: italic;
@@ -310,6 +334,7 @@ kbd {
     box-shadow: inset 0 0 .3em @ini_border;
     border-radius: 2px;
 }
+
 pre {
     overflow: auto;
     word-wrap: normal;
@@ -324,9 +349,11 @@ blockquote {
     border: solid @ini_border;
     border-width: 0 0 0 .25em;
 }
+
 [dir=rtl] blockquote {
     border-width: 0 .25em 0 0;
 }
+
 q:before,
 q:after {
     content: '';
@@ -337,9 +364,11 @@ sup {
     font-size: .8em;
     line-height: 1;
 }
+
 sub {
     vertical-align: sub;
 }
+
 sup {
     vertical-align: super;
 }
@@ -347,6 +376,7 @@ sup {
 small {
     font-size: .8em;
 }
+
 
 /*____________ forms ____________*/
 
@@ -357,18 +387,21 @@ form {
     margin: 0;
     padding: 0;
 }
+
 fieldset {
-    padding: .7em 1em 0;
-    padding: .7rem 1rem; /* for those browsers understanding :last-child */
+    padding: .7rem 1rem;
     border: 1px solid @ini_text_alt;
 }
+
 fieldset > :last-child {
     margin-bottom: 0;
 }
+
 legend {
     margin: 0;
     padding: 0 .1em;
 }
+
 label {
     vertical-align: middle;
     cursor: pointer;
@@ -397,10 +430,12 @@ progress {
 select {
     max-width: 100%;
 }
+
 optgroup {
     font-style: italic;
     font-weight: bold;
 }
+
 option {
     font-style: normal;
     font-weight: normal;
@@ -414,6 +449,7 @@ keygen {
     box-shadow: inset 0 0 1px #eee;
     border-radius: 2px;
 }
+
 input:active,
 input:focus,
 textarea:active,
@@ -424,6 +460,7 @@ keygen:active,
 keygen:focus {
     border-color: #999;
 }
+
 input[type=radio],
 input[type=checkbox],
 input[type=image] {
@@ -494,5 +531,3 @@ textarea[readonly] {
     opacity: .5;
     background-color: #eee;
 }
-
-
