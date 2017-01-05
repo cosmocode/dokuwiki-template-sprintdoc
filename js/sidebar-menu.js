@@ -1,43 +1,104 @@
 ( function( $, spc ) {
 
-    var mainMenu = function(){
-        var $menu = $('.nav-main').find('> ul');
+    var addToggleLink = function($elem){
+            $elem.wrapInner('<a href="#toggleMenu" class="toggler"></a>');
+        },
+        toggleState = function($toggler){
+            $toggler.toggleClass('closed');
+            $toggler.toggleClass('opened');
+        },
+        focusFirstSubLink = function($elem, is2nd){
 
-        try{
-            if($menu.length > 0){
-                var $toggler = $menu.find('> li.level1 > .li'),
-                    $submenu = $menu.find('> li.level1 > ul');
-                if($toggler.length > 0 && $submenu.length > 0){
-                    $toggler.addClass('closed');
-                    $toggler.wrapInner('<a href="#toggleMenu" class="toggler"></a>');
-                    $toggler.each(function( index ) {
-                        $(this).on( "click", function(e) {
-                            e.preventDefault();
-                            var $this = $(this);
-                            $this.toggleClass('closed');
-                            $this.toggleClass('opened');
-                            if($this.hasClass('opened')){
-                                var $foc = $this.closest('li.level1').find('li.level2:first-child').find('a:first-child');
-                                if($foc.length > 0){
-                                    $foc.focus();
+            var $foc = (is2nd) ? $elem.find('a')[1] : $elem.find('a')[0];
+
+            if($foc){
+                $foc.focus();
+            }
+            return $foc;
+        },
+        focusLastSubLink = function($elem){
+
+            var $foc = $elem.find('a:last-child'),
+                height = $elem.find('p').scrollHeight;
+
+            if($foc){
+                $foc.focus();
+            }
+            $elem.scrollTop(height);
+            return $foc;
+        },
+
+        mainMenu = function(){
+            var $menu = $('.nav-main').find('> ul');
+
+            try{
+                if($menu.length > 0){
+                    var $toggler = $menu.find('> li.level1 > .li'),
+                        $submenu = $menu.find('> li.level1 > ul');
+                    if($toggler.length > 0 && $submenu.length > 0){
+
+                        $toggler.addClass('closed');
+                        addToggleLink($toggler);
+                        $toggler.each(function( index ) {
+                            $(this).on( "click", function(e) {
+                                e.preventDefault();
+                                var $this = $(this);
+                                toggleState($this);
+                                if($this.hasClass('opened')){
+                                    var $foc = focusFirstSubLink($this.closest('li.level1'), true);
                                 }
-                            }
+                            });
                         });
-                    });
 
-                    //FIXME: store current nav state with local storage
+                        //FIXME: store current nav state with local storage
+                    }
+
+
                 }
 
+            }catch(err){
 
             }
+        },
+        sideMenu = function(){
+            var $menus = $('.tools').find('.toggle-menu');
 
-        }catch(err){
 
-        }
-    };
+            try{
+                $menus.each(function( ) {
+                    var $menu = $(this);
+                    if($menu.length > 0){
+                        var $toggler = $menu.find('h6'),
+                            $submenu = $menu.find('nav > ul, nav > div');
+                        if($toggler.length > 0 && $submenu.length > 0) {
+
+                            $toggler.addClass('closed');
+                            addToggleLink($toggler);
+                            $toggler.each(function (index) {
+                                $(this).on("click", function (e) {
+                                    e.preventDefault();
+                                    var $this = $(this);
+                                    toggleState($this);
+                                    if ($this.hasClass('opened')) {
+                                        var $elem = ($submenu.is('div')) ? focusLastSubLink($submenu): focusFirstSubLink($submenu,false);
+                                    }
+                                });
+                            });
+
+                            //FIXME: store current nav state with local storage
+                        }
+                    }
+                });
+
+
+            }catch(err){
+                alert('err');
+            }
+        };
 
     $(function(){
         mainMenu();
+        sideMenu();
     });
 
 } )( jQuery, spc );

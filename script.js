@@ -24,10 +24,11 @@
 
 } )( jQuery, spc, wikiLang );
 
-
 /* DOKUWIKI:include js/plugins/do_tasks.js */
-/* DOKUWIKI:include js/sidebar-menu.js */
 
+
+
+/* DOKUWIKI:include js/sidebar-menu.js */
 
 
 
