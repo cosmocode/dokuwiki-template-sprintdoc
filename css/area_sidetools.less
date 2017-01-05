@@ -5,8 +5,15 @@
  */
 
 
-#dokuwiki__sitetools.nav-sitetools {
+.side-tools.main-sidebar {
     @icon-size: 2rem;
+
+    > nav{
+        margin-top: 1rem;
+        > ul{
+            margin-bottom: 0;
+        }
+    }
 
     h6 { //background-color: pink;// hier activ !!!
         position: relative;
@@ -15,7 +22,6 @@
         color: @color-nav;
         font-size: .88rem;
         font-weight: normal;
-        margin: 0;
         padding: .5rem 0 .5rem (@icon-size + 1);
 
         &::before {
@@ -85,7 +91,7 @@
 /* min-width: 1440px */
 
 @media @screen_min-xlg {
-    #dokuwiki__sitetools.nav-sitetools {
+    .side-tools.main-sidebar {
         li {
             font-size: 100%;
             padding-top: .1rem;
@@ -103,7 +109,7 @@
 /* max-width: 1199px */
 
 @media @screen_max-xlg {
-    #dokuwiki__sitetools.nav-sitetools {
+    .site-tools.main-sidebar {
         h6 {
             font-size: 1rem;
         }
