@@ -14,7 +14,7 @@ if (!defined('DOKU_INC')) die();                        /* must be run from with
 header('X-UA-Compatible: IE=edge,chrome=1');
 
 $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && !empty($_SERVER['REMOTE_USER']) );
-$showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
+$showSidebar = /*page_findnearest($conf['sidebar']) &&*/ ($ACT=='show');
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
@@ -148,8 +148,6 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
         <div class="sr-only nav-area-head">
             <h5 class="sr-only" role="heading" aria-level="1"><?php echo tpl_getLang('nav-area-head') ?></h5>
         </div><!-- .nav-area-head -->
-        <?php if ($showSidebar): ?>
-
 
         <div class="tools">
             <div class="container">
@@ -223,7 +221,6 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
                 </div><!-- .row -->
             </div><!-- .container -->
         </div><!-- .tools -->
-        <?php endif ?>
 
 
         <div class="top-header">
@@ -309,6 +306,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
                         </div>
 
                         <div id="dokuwiki__content" class="page main-content">
+                            <div id="meta-box"></div>
 
                             <?php
 

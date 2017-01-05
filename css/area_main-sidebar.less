@@ -6,10 +6,11 @@
 
 
 #dokuwiki__aside.main-sidebar {
-
+    counter-reset: nav-counter;
 /* + + + + +  nav main  + + + + + */
     .nav-main {
         > ul {
+
             @icon-size: 2rem;
 
             margin: 0;
@@ -42,13 +43,16 @@
                 border-bottom: solid 1px @color-border;
                 margin: 0;
                 padding: 0 0 .3rem 0;
+                counter-increment: nav-counter;
 
                 > .li { //background-color: pink;// hier activ !!!
                     position: relative;
                     padding: .5rem 0 .5rem (@icon-size + 1);
 
-                    &::before {                        background-color: gold;// test
-                        content: '?';
+                    &::before {
+                        //background-color: @color-link;
+                        color: @color-nav;
+                        content: counter(nav-counter);
                         position: absolute;
                         top: 0;
                         left: 0;
@@ -76,7 +80,89 @@
                         background-color: @color-border;
                         transition: @transition background-color;
                     }
+
+                    &.opened, &.closed{
+                        padding: 0;
+                        &::before, &::after{
+                           display: none;
+                        }
+                        a{
+                            display: block;
+                            position: relative;
+                            padding: .5rem 0 .8rem (@icon-size + 1);
+                            margin-bottom: -.3rem;
+                            border: 1px solid transparent;
+                            &::before {
+                                //background-color: @color-link;
+                                color: @color-nav;
+                                content: counter(nav-counter);
+                                position: absolute;
+                                top: -.1rem;
+                                left: 0;
+                                display: flex;
+                                display: -webkit-flex;
+                                flex-direction: column;
+                                -webkit-flex-direction: column;
+                                justify-content: center;
+                                -webkit-justify-content: center;
+                                height: 100%;
+                                width: @icon-size;
+                                overflow: hidden;
+                                text-align: center;
+                                margin-top: auto;
+                                margin-bottom: auto;
+                            }
+
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                top: 15%;
+                                bottom: 15%;
+                                width: 1px;
+                                left: (@icon-size + .5);
+                                background-color: @color-border;
+                                transition: @transition background-color;
+                            }
+                            &:hover, &:focus, &:active{
+                                text-decoration: none;
+                                background-color: #fff;
+                                border-color: @color-link;
+                                color: @color-link;
+                            }
+                        }
+
+                    }
+
+                    &.opened{
+                        a{
+                            background-color: @color-link;
+                            color: #fff;
+                            &::after, &::before{
+                                color: #fff;
+                                border-color: #fff;
+                            }
+                            &:hover, &:focus, &:active{
+                                text-decoration: none;
+                                background-color: #fff;
+                                border-color: @color-link;
+                                color: @color-link;
+                                &::after, &::before{
+                                    color: inherit;
+                                    border-color: inherit;
+                                }
+                            }
+                        }
+                    }
+                    + ul{
+                        height: auto;
+                        overflow: hidden;
+                    }
+                  &.closed + ul{
+                      height: 0;
+                  }
                 }
+
+
             }
         }
     }

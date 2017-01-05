@@ -77,3 +77,9 @@ if (typeof console === "undefined" || typeof console.log === "undefined") {
         console.log = function() {};
     }
 }
+
+var wikiLang = "de";
+/**
+ * anonymous func: get page language
+ */
+(function($){ $("html").attr("lang"); if(typeof(l)!= 'undefined' && l.length>=2) wikiLang=l.substr(0,2).toLowerCase(); if(wikiLang!='de'&& wikiLang!='en') wikiLang='de'; })(jQuery);

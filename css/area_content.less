@@ -8,5 +8,29 @@
 .content .row {
     > .col-xs-12 {
         box-shadow: @box-shadow;
+        #dokuwiki__content{
+            position: relative;
+            z-index: 10;
+            &::before{
+                content: "";
+                background-color: @background_page-header;
+                border-bottom: 1px solid @color-border;
+                position: absolute;
+                top: 0; left: 0;
+                height: 3rem; width: 100%;
+                z-index: -1;
+            }
+            #meta-box{
+                display: inline-block;
+                height: 3rem;
+                max-width: 40%;
+                float: right;
+                border: 1px solid transparent;
+            }
+
+            #plugin__highlightparent{
+                display: block;
+            }
+        }
     }
 }
