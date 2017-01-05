@@ -11,6 +11,25 @@
     top: 0;
     left: 0;
     width: 100%;
+    #mm__issueselect_chosen{
+        max-width: 50%;
+    }
+
+    button[name="toggleSuggestions"]{
+        position: absolute;
+        right: 0; top: 0;
+        border: 0;
+        border-bottom: 1px solid @color-border;
+        border-left: 1px solid @color-border;
+        color: @color-nav;
+        background: #fff;
+        border-radius: 0;
+        border-bottom-left-radius: 5px;
+        &:hover, &:focus, &:active{
+            border-color: @button_background;
+            color: @button_background;
+        }
+    }
 
     #magicmatcher__context {
         box-sizing: border-box;
@@ -24,9 +43,29 @@
         padding: .8em 1em .5em;
         margin-bottom: 0;
 
+        font-size: .88rem;
+
+        .chosen-container-single,
+        .chosen-container-single *,
+        #mm_issue_loading,
+        .mm__status,
+        .toggleSuggestions {
+            font-size: .88rem;
+        }
+
         .chosen-container-single {
+
             .chosen-single span {
                 line-height: @line-height-bigger;
+            }
+        }
+        @media @screen_max-md {
+            padding-top: 1.8rem;
+            .chosen-container{
+                display: block;
+                min-width: 100%;
+                max-width: 100%;
+                margin-bottom: .5rem;
             }
         }
     }
@@ -82,6 +121,9 @@ a.jiralink {
         position: relative;
         .container{
             margin: .8rem 0 -5px;
+        }
+        #magicmatcher__context{
+            border-radius: 0;
         }
     }
 }
