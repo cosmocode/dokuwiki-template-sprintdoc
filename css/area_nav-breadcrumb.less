@@ -5,7 +5,7 @@
  */
 
 .breadcrumbs {
-    padding: @margin-small 1.8rem;
+    padding: (@margin-small + .2) 1.8rem @margin-small;
     border-bottom: 1px solid @color-border;
 
     > p {
@@ -20,24 +20,21 @@
             .sr-only();
         }
 
-        a {
-            &:hover,
-            &:focus,
-            &:active {
-                color: @color-nav;
-            }
-        }
-
         span.home {
             a {
                 .fontello();
                 .hide-text-show-before();
                 .icon-home();
 
-                height: 1em;
+                min-height: 1.8em;
                 width: auto;
+                box-sizing: border-box;
+                border: solid 1px transparent;
+                border-radius: 2px;
+                vertical-align: middle;
                 text-decoration: none;
-                transition: @transition color;
+                margin-top: -.2em;
+                transition: @transition border-color;
 
                 &:before {
                     font-size: 1rem;
@@ -47,21 +44,25 @@
                 &:hover,
                 &:focus,
                 &:active {
-                    color: @color-link-hover;
+                    border-color: @color-link;
                 }
             }
+        }
+
+        bdi {
+            padding: .1em .1em 0;
         }
     }
 
 
 /* + + + + +  icon list  + + + + + */
     .page-attributes {
+        list-style: none;
         float: right;
         display: inline-block;
-        list-style: none;
-        margin: 0;
-        padding: 0;
         max-width: 30%;
+        margin: -.2em 0 0;
+        padding: 0;
 
         > li {
             .btn-usertools-wrapper(); // uniform li
@@ -117,11 +118,11 @@
             &:hover,
             &:active,
             &:focus {
-                border-color: @button_color;
-                color: @button_color;
+                border-color: @button_background;
+                color: @button_background;
 
                 .prefix {
-                    color: @button_color;
+                    color: @button_background;
                 }
             }
         }

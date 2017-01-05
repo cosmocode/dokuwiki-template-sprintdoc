@@ -7,25 +7,25 @@
 
 .side-tools.main-sidebar {
     @icon-size: 2rem;
+
     counter-increment: bar-counter;
 
-    > nav{
-        > ul{
-            margin-bottom: 0;
+    > nav {
+        > ul {
             padding-bottom: .4rem;
+            margin-bottom: 0;
         }
     }
 
-    h6 { //background-color: pink;// hier activ !!!
+    h6 {
         position: relative;
         width: auto;
         height: auto;
         color: @color-nav;
-        font-size: .88rem;
         font-weight: normal;
-        padding: .5rem 0 .5rem (@icon-size + 1);
+        padding: .5em 0 .5em (@icon-size + 1.1);
+
         &::before {
-            //background-color: gold;
             content: counter(bar-counter, lower-alpha);
             position: absolute;
             top: 0;
@@ -50,19 +50,25 @@
             top: 15%;
             bottom: 15%;
             width: 1px;
-            left: (@icon-size + .5);
+            left: (@icon-size + .6);
             background-color: @color-border;
             transition: @transition background-color;
+        }
+
+        + ul {
+            margin-top: .5em;
+            margin-bottom: .25em;
         }
     }
 
 
 /* + + +  linklist  + + + */
-    ul,.trace{
+    ul,
+    .trace {
         padding-left: (@icon-size + .5);
     }
 
-    ul{
+    ul {
         border-bottom: 1px solid @color-border;
     }
 
@@ -72,14 +78,15 @@
         background-color: @background_page-header;
         border: 1px solid @color-border;
         padding: .4rem;
-                
+
         .bchead,
         .bcsep {
             display: none;
         }
 
         .breadcrumbs {
-            padding: 0; margin: 0;
+            padding: 0;
+            margin: 0;
         }
 
         bdi {
@@ -100,19 +107,19 @@
             display: list-item;
             list-style-type: square;
             color: @color-nav;
-            padding-top: .1rem;
-            padding-bottom: .1rem;
+            padding-top: .1em;
+            padding-bottom: .1em;
             transition: @transition color;
 
             &:hover,
             &:focus,
             &:active {
-                color: @button_color;
+                color: @button_background;
             }
         }
 
         &:first-of-type {
-            padding-top: .3rem;
+            padding-top: .3em;
         }
     }
 }
@@ -123,13 +130,21 @@
 
 @media @screen_min-xlg {
     .side-tools.main-sidebar {
+        h6 {
+            font-size: .9rem;
+
+            * {
+                font-size: inherit;
+            }
+        }
+
         li {
             font-size: 100%;
-            padding-top: .1rem;
-            padding-bottom: .1rem;
+            padding-top: .1em;
+            padding-bottom: .1em;
 
             > * {
-                font-size: .88rem;
+                font-size: .8rem;
             }
         }
     }
@@ -137,18 +152,17 @@
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* max-width: 1199px */
+/* max-width: 1439px */
 
 @media @screen_max-xlg {
-    .site-tools.main-sidebar {
+    .side-tools.main-sidebar {
         h6 {
             font-size: 1rem;
         }
 
         li {
             font-size: 1rem;
-            padding-top: .15rem;
-            padding-bottom: .15rem;
+            padding: .15em .25rem;
 
             > * {
                 font-size: 1rem;
