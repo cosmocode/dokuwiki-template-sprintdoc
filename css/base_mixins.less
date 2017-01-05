@@ -160,15 +160,15 @@
 .btn-usertools-num () {
     .num {
         position: absolute;
-        right: -.4em;
+        right: -.5em;
         top: -.4em;
         background-color: @button_color;
         border-radius: 2px;
-        color: #fff;
+        color: @button_background;
         font-size: .6rem;
         font-weight: 400;
         text-align: center;
-        line-height: 100%;
+        line-height: 1;
         padding: .2em .3em .1em;
         transition: @transition color, @transition background-color;
     }
@@ -189,8 +189,8 @@
     .fontello();
     .hide-text-show-before();
 
-    color: @color-nav;
-    font-size: 1rem;
+    color: inherit;
+    font-size: 1.3em;
     margin-top: .2rem;
 }
 

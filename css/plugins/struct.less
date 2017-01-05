@@ -1,0 +1,24 @@
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* all media */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+
+#dokuwiki__content {
+    .structaggregation {
+        @link-height: 1.5rem;
+
+        position: relative;
+        padding-bottom: @link-height;
+        margin-bottom: @grid;
+
+        .table {
+            margin-bottom: 0;
+        }
+
+        > a {
+            position: absolute;
+            bottom: 0;
+            height: @link-height;
+            margin-bottom: 0;
+        }
+    }
+}
