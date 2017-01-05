@@ -41,7 +41,7 @@
                     &:hover,
                     &:focus,
                     &:active {
-                        color: @button_color;
+                        color: @button_background;
                     }
                 }
             }
@@ -155,17 +155,17 @@
                             &:hover,
                             &:focus,
                             &:active {
-                                background-color: @button_background;
-                                border-color: @button_color;
-                                color: @button_color;
+                                background-color: @button_color;
+                                border-color: @button_background;
+                                color: @button_background;
                                 text-decoration: none;
 
                                 &::before {
-                                    color: @button_color;
+                                    color: @button_background;
                                 }
 
                                 &::after {
-                                    background-color: @button_color;
+                                    background-color: @button_background;
                                 }
                             }
                         }
@@ -173,23 +173,23 @@
 
                     &.opened {
                         a {
-                            background-color: @button_color;
-                            color: @button_background;
+                            background-color: @button_background;
+                            color: @button_color;
 
                             &::before {
-                                color: @button_background;
+                                color: @button_color;
                             }
 
                             &:hover,
                             &:focus,
                             &:active {
-                                background-color: @button_background;
-                                border-color: @button_color;
-                                color: @button_color;
+                                background-color: @button_color;
+                                border-color: @button_background;
+                                color: @button_background;
                                 text-decoration: none;
 
                                 &::before {
-                                    color: @button_color;
+                                    color: @button_background;
                                 }
                             }
                         }
