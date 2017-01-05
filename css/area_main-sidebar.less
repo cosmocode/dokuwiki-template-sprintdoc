@@ -7,10 +7,10 @@
 
 #dokuwiki__aside.main-sidebar {
     counter-reset: nav-counter;
+
 /* + + + + +  nav main  + + + + + */
     .nav-main {
         > ul {
-
             @icon-size: 2rem;
 
             margin: 0;
@@ -21,6 +21,7 @@
             }
 
             li {
+                list-style-type: none;
                 color: @color-nav;
 
                 &:first-of-type {
@@ -29,29 +30,49 @@
             }
 
             .li {
-                color: @color-nav;
-
                 a {
-                    color: inherit;
+                    display: list-item;
+                    list-style-type: square;
+                    color: @color-nav;
+                    padding-top: .1rem;
+                    padding-bottom: .1rem;
+                    transition: @transition color;
+
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        color: @button_color;
+                    }
                 }
             }
 
 
 /* + + +  first level  + + + */
             > li {
+                position: relative;
                 list-style-type: none;
-                border-bottom: solid 1px @color-border;
                 margin: 0;
                 padding: 0 0 .3rem 0;
                 counter-increment: nav-counter;
 
-                > .li { //background-color: pink;// hier activ !!!
+                &::after {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    display: block;
+                    width: 100%;
+                    height: 1px;
+                    background-color: @color-border;
+                }
+
+                > .li {
                     position: relative;
+                    z-index: 1;
+                    margin-top: -1px;
                     padding: .5rem 0 .5rem (@icon-size + 1);
 
                     &::before {
-                        //background-color: @color-link;
-                        color: @color-nav;
                         content: counter(nav-counter);
                         position: absolute;
                         top: 0;
@@ -65,6 +86,7 @@
                         height: 100%;
                         width: @icon-size;
                         overflow: hidden;
+                        color: @color-nav;
                         text-align: center;
                         margin-top: auto;
                         margin-bottom: auto;
@@ -78,23 +100,27 @@
                         width: 1px;
                         left: (@icon-size + .5);
                         background-color: @color-border;
-                        transition: @transition background-color;
                     }
 
-                    &.opened, &.closed{
+                    &.opened,
+                    &.closed {
                         padding: 0;
-                        &::before, &::after{
+
+                        &::before,
+                        &::after {
                            display: none;
                         }
-                        a{
-                            display: block;
+
+                        a {
                             position: relative;
-                            padding: .5rem 0 .8rem (@icon-size + 1);
-                            margin-bottom: -.3rem;
+                            display: block;
                             border: 1px solid transparent;
+                            border-radius: 2px;
+                            margin-bottom: -.3rem;
+                            padding: .6rem 0 .7rem (@icon-size + 1);
+                            transition: @transition color, @transition background-color, @transition border-color;
+
                             &::before {
-                                //background-color: @color-link;
-                                color: @color-nav;
                                 content: counter(nav-counter);
                                 position: absolute;
                                 top: -.1rem;
@@ -108,9 +134,11 @@
                                 height: 100%;
                                 width: @icon-size;
                                 overflow: hidden;
+                                color: @color-nav;
                                 text-align: center;
                                 margin-top: auto;
                                 margin-bottom: auto;
+                                transition: @transition color;
                             }
 
                             &::after {
@@ -123,46 +151,59 @@
                                 background-color: @color-border;
                                 transition: @transition background-color;
                             }
-                            &:hover, &:focus, &:active{
-                                text-decoration: none;
-                                background-color: #fff;
-                                border-color: @color-link;
-                                color: @color-link;
-                            }
-                        }
 
-                    }
-
-                    &.opened{
-                        a{
-                            background-color: @color-link;
-                            color: #fff;
-                            &::after, &::before{
-                                color: #fff;
-                                border-color: #fff;
-                            }
-                            &:hover, &:focus, &:active{
+                            &:hover,
+                            &:focus,
+                            &:active {
+                                background-color: @button_background;
+                                border-color: @button_color;
+                                color: @button_color;
                                 text-decoration: none;
-                                background-color: #fff;
-                                border-color: @color-link;
-                                color: @color-link;
-                                &::after, &::before{
-                                    color: inherit;
-                                    border-color: inherit;
+
+                                &::before {
+                                    color: @button_color;
+                                }
+
+                                &::after {
+                                    background-color: @button_color;
                                 }
                             }
                         }
                     }
-                    + ul{
+
+                    &.opened {
+                        a {
+                            background-color: @button_color;
+                            color: @button_background;
+
+                            &::before {
+                                color: @button_background;
+                            }
+
+                            &:hover,
+                            &:focus,
+                            &:active {
+                                background-color: @button_background;
+                                border-color: @button_color;
+                                color: @button_color;
+                                text-decoration: none;
+
+                                &::before {
+                                    color: @button_color;
+                                }
+                            }
+                        }
+                    }
+
+                    + ul {
                         height: auto;
                         overflow: hidden;
                     }
-                  &.closed + ul{
-                      height: 0;
-                  }
+
+                    &.closed + ul {
+                        height: 0;
+                    }
                 }
-
-
             }
         }
     }

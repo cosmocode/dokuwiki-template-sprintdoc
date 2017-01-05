@@ -56,16 +56,28 @@
         }
     }
 
+
 /* + + +  linklist  + + + */
     ul {
         padding-left: (@icon-size + .5);
     }
 
     li {
-        color: @color-nav;
+        list-style-type: none;
 
         a {
-            color: inherit;
+            display: list-item;
+            list-style-type: square;
+            color: @color-nav;
+            padding-top: .1rem;
+            padding-bottom: .1rem;
+            transition: @transition color;
+
+            &:hover,
+            &:focus,
+            &:active {
+                color: @button_color;
+            }
         }
 
         &:first-of-type {
