@@ -1,0 +1,117 @@
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* all media */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+
+.dokuwiki form.bureaucracy__plugin {
+    fieldset {
+        width: 100%;
+        max-width: 800px;
+        box-sizing: border-box;
+        border: 0 none;
+        text-align: center;
+        margin-left: 0;
+        margin-bottom: (@grid * 2);
+        padding: @grid 0 0;
+
+        > *:not(button) {
+            text-align: left;
+        }
+    }
+
+    legend {
+        font-size: 1.12em;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    label {
+        clear: both;
+        padding-top: (@grid / 2);
+
+        &::after {
+            content: '';
+            clear: both;
+        }
+
+        sup {
+            float: right;
+        }
+
+        input,
+        select {
+            float: left;
+            width: 50%;
+            min-height: 2em;
+            text-align: left;
+            padding: .1em .2em;
+        }
+
+        input[type="checkbox"] {
+            background-image: none;
+        }
+
+        span {
+            float: left;
+            width: 50%;
+            text-align: right;
+            padding-top: .2em;
+            padding-right: @grid;
+
+            &:not([class]) {
+                font-weight: bold;
+                margin-top: .4em;
+
+                + input,
+                + select {
+                    margin-top: .3em;
+                }
+
+                // checkboxes
+                + input + input {
+                    margin-top: .3em;
+                }
+            }
+
+            &.label {
+                text-align: right;
+                padding-top: .5em;
+            }
+
+            &.input {
+                width: 49%;
+                text-align: left;
+                padding-left: 0;
+            }
+        } // span
+    } // label
+
+    button[type="submit"] {
+        background-image: none;
+        background-color: @button_background;
+        border: solid 1px @button_background;
+        color: @button_color;
+        font-weight: bold;
+        margin-top: (@grid * 2);
+        padding: .4em @grid;
+        transition: @transition background-color, @transition color;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: @button_color;
+            color: @button_background;
+        }
+    }
+}
+
+
+
+/* neutralize #icke__page .content ul, #icke__page .content ol */
+#icke__page .content ul.autocompletion {
+    //margin: 0;
+    //padding: 0.3em;
+}
+
+ul.autocompletion li {
+    //list-style-type: none;
+}
