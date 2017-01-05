@@ -25,7 +25,7 @@
                 color: @color-nav;
 
                 &:first-of-type {
-                    padding-top: .3rem;
+                    padding-top: .3em;
                 }
             }
 
@@ -34,8 +34,8 @@
                     display: list-item;
                     list-style-type: square;
                     color: @color-nav;
-                    padding-top: .1rem;
-                    padding-bottom: .1rem;
+                    padding-top: .1em;
+                    padding-bottom: .1em;
                     transition: @transition color;
 
                     &:hover,
@@ -52,7 +52,7 @@
                 position: relative;
                 list-style-type: none;
                 margin: 0;
-                padding: 0 0 .3rem 0;
+                padding: 0 0 .3em;
                 counter-increment: nav-counter;
 
                 &::after {
@@ -70,7 +70,7 @@
                     position: relative;
                     z-index: 1;
                     margin-top: -1px;
-                    padding: .5rem 0 .5rem (@icon-size + 1);
+                    padding: .5em 0 .5em (@icon-size + 1);
 
                     &::before {
                         content: counter(nav-counter);
@@ -117,13 +117,13 @@
                             border: 1px solid transparent;
                             border-radius: 2px;
                             margin-bottom: -.3rem;
-                            padding: .6rem 0 .7rem (@icon-size + 1);
+                            padding: .6em 0 .6em (@icon-size + 1);
                             transition: @transition color, @transition background-color, @transition border-color;
 
                             &::before {
                                 content: counter(nav-counter);
                                 position: absolute;
-                                top: -.1rem;
+                                top: -.1em;
                                 left: 0;
                                 display: flex;
                                 display: -webkit-flex;
@@ -193,6 +193,11 @@
                                 }
                             }
                         }
+
+                        + ul {
+                            margin-top: .5em;
+                            margin-bottom: .25em;
+                        }
                     }
 
                     + ul {
@@ -216,12 +221,17 @@
 @media @screen_min-xlg {
     #dokuwiki__aside.main-sidebar {
         .nav-main {
-            .li {
-                font-size: .88rem;
-                padding: .1rem 0;
+            > ul > li > .li * {
+                font-size: .9rem;
+            }
 
-                > * {
-                    font-size: .88rem;
+            .li {
+                font-size: .8rem;
+                padding: .1em 0;
+
+                * {
+                    font-size: inherit;
+                    font-weight: inherit;
                 }
             }
         }
@@ -237,7 +247,7 @@
         .nav-main {
             .li {
                 font-size: 1rem;
-                padding: .15rem .25rem;
+                padding: .15em .25rem;
 
                 > * {
                     font-size: 1rem;

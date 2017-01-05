@@ -5,12 +5,11 @@
  * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
  */
 
-
-html, body{
+html, body {
     background-color: @color-site-bg;
 }
 
-a{
+a {
     color: @ini_existing;
 }
 
@@ -80,7 +79,6 @@ a{
     margin-right: 0;
 }
 
-
 caption,
 figcaption,
 summary,
@@ -89,6 +87,7 @@ legend {
     margin: 0 0 .35em;
     line-height: 1.2;
 }
+
 h1,
 h2,
 h3,
@@ -100,6 +99,7 @@ h6 {
     line-height: 1.2;
     clear: both;
 }
+
 [dir=rtl] h1,
 [dir=rtl] h2,
 [dir=rtl] h3,
@@ -113,41 +113,53 @@ h1 {
     font-size: 1.4rem;
     margin: 0 0 0.444em;
 }
+
 h2 {
     font-size: 1.12rem;
     margin: 0 0 0.666em;
 }
+
 h3 {
     font-size: 1rem;
     margin: 0 0 0.888em;
 }
+
 h4 {
     font-size: .93rem;
     margin: 0 0 1.0em;
 }
+
 h5 {
     font-size: .88rem;
     margin: 0 0 1.1428em;
 }
+
 h6 {
     font-size: .83rem;
     margin: 0 0 1.333em;
 }
 
-p{
+p {
     font-size: .83rem;
     line-height: 135%;
-    a, span, strong{
-        font-size: inherit;
-    }
-}
-label, legend{
-    font-size: .83rem;
-    a, span, strong{
+
+    a,
+    span,
+    strong {
         font-size: inherit;
     }
 }
 
+label,
+legend {
+    font-size: .88rem;
+
+    a,
+    span,
+    strong {
+        font-size: inherit;
+    }
+}
 
 p,
 ul,
@@ -163,7 +175,7 @@ fieldset,
 address {
     font-size: .88rem;
     line-height: 140%;
-    margin: 0 0 1.4em 0; /* bottom margin = line-height */
+    margin: 0 0 1.4em; /* bottom margin = line-height */
     padding: 0;
 }
 
@@ -227,13 +239,29 @@ li li {
     font-size: 100%;
 }
 
-ul             { list-style: square outside; }
-ol             { list-style: decimal outside; }
-ol ol          { list-style-type: lower-alpha; }
-ol ol ol       { list-style-type: upper-roman; }
-ol ol ol ol    { list-style-type: upper-alpha; }
-ol ol ol ol ol { list-style-type: lower-roman; }
+ul {
+    list-style: square outside;
+}
 
+ol {
+    list-style: decimal outside;
+}
+
+ol ol {
+    list-style-type: lower-alpha;
+}
+
+ol ol ol {
+    list-style-type: upper-roman;
+}
+
+ol ol ol ol {
+    list-style-type: upper-alpha;
+}
+
+ol ol ol ol ol {
+    list-style-type: lower-roman;
+}
 
 table {
     border-collapse: collapse;
@@ -388,7 +416,7 @@ sup {
 }
 
 small {
-    font-size: .8em;
+    font-size: .9em;
 }
 
 
@@ -522,7 +550,7 @@ button:focus,
 .qq-upload-button:hover {
     border-color: #999;
     background-color: #ddd;
-    background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8bGluZWFyR3JhZGllbnQgaWQ9Imc2NzAiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+CjxzdG9wIHN0b3AtY29sb3I9IiNGRkZGRkYiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiNGNEY0RjQiIG9mZnNldD0iMC4zIi8+PHN0b3Agc3RvcC1jb2xvcj0iI0RERERERCIgb2Zmc2V0PSIwLjk5Ii8+PHN0b3Agc3RvcC1jb2xvcj0iI0JCQkJCQiIgb2Zmc2V0PSIuOTkiLz4KPC9saW5lYXJHcmFkaWVudD4KPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNnNjcwKSIgLz4KPC9zdmc+);
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8bGluZWFyR3JhZGllbnQgaWQ9Imc2NzAiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+CjxzdG9wIHN0b3AtY29sb3I9IiNGRkZGRkYiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiNGNEY0RjQiIG9mZnNldD0iMC4zIi8+PHN0b3Agc3RvcC1jb2xvcj0iI0RERERERCIgb2Zmc2V0PSIwLjk5Ii8+PHN0b3Agc3RvcC1jb2xvcj0iI0JCQkJCQiIgb2Zmc2V0PSIuOTkiLz4KPC9saW5lYXJHcmFkaWVudD4KPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNnNjcwKSIgLz4KPC9zdmc+);
     background-image: linear-gradient(to bottom, #ffffff 0%, #f4f4f4 30%, #dddddd 99%, #bbbbbb 99%);
 }
 

@@ -35,6 +35,7 @@
 
         sup {
             float: right;
+            font-size: 1em;
         }
 
         input,
@@ -47,6 +48,8 @@
         }
 
         input[type="checkbox"] {
+            width: 1.5rem;
+            height: 1.5rem;
             background-image: none;
         }
 
@@ -54,12 +57,13 @@
             float: left;
             width: 50%;
             text-align: right;
+            line-height: @line-height-default;
             padding-top: .2em;
             padding-right: @grid;
 
             &:not([class]) {
                 font-weight: bold;
-                margin-top: .4em;
+                margin-top: .5em;
 
                 + input,
                 + select {
@@ -106,12 +110,34 @@
 
 
 
-/* neutralize #icke__page .content ul, #icke__page .content ol */
-#icke__page .content ul.autocompletion {
-    //margin: 0;
-    //padding: 0.3em;
+
+#icke__page .content ul.autocompletion {}
+
+ul.autocompletion li {}
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* min-width: 1440px */
+
+@media @screen_min-xlg {
+    .dokuwiki form.bureaucracy__plugin {
+        p {
+            font-size: .9rem;
+        }
+    }
 }
 
-ul.autocompletion li {
-    //list-style-type: none;
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* max-width: 1439px */
+
+@media @screen_max-xlg {
+    .dokuwiki form.bureaucracy__plugin {
+        p,
+        label,
+        button[type="submit"] {
+            font-size: 1rem;
+        }
+    }
 }
+
