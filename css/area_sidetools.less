@@ -55,10 +55,29 @@
             transition: @transition background-color;
         }
 
-        + ul {
-            margin-top: .5em;
-            margin-bottom: .25em;
+        + ul,+ div {
+            height: auto;
+            overflow: hidden;
         }
+
+        &.opened {
+            + ul, + div {
+                height: auto;
+                overflow: hidden;
+            }
+            + ul {
+                margin-top: .5em;
+                margin-bottom: .25em;
+            }
+        }
+
+        &.closed {
+            + ul, + div {
+                height: 0;
+                padding: 0;
+            }
+        }
+
     }
 
 
@@ -78,6 +97,10 @@
         background-color: @background_page-header;
         border: 1px solid @color-border;
         padding: .4rem;
+        font-size: .8rem;
+        *{
+            font-size: inherit;
+        }
 
         .bchead,
         .bcsep {
