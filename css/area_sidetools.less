@@ -7,11 +7,12 @@
 
 .side-tools.main-sidebar {
     @icon-size: 2rem;
+    counter-increment: bar-counter;
 
     > nav{
-        margin-top: 1rem;
         > ul{
             margin-bottom: 0;
+            padding-bottom: .4rem;
         }
     }
 
@@ -23,10 +24,9 @@
         font-size: .88rem;
         font-weight: normal;
         padding: .5rem 0 .5rem (@icon-size + 1);
-
         &::before {
             //background-color: gold;
-            content: 'A';
+            content: counter(bar-counter, lower-alpha);
             position: absolute;
             top: 0;
             left: 0;
@@ -58,8 +58,32 @@
 
 
 /* + + +  linklist  + + + */
-    ul {
+    ul,.trace{
         padding-left: (@icon-size + .5);
+    }
+    ul{
+        border-bottom: 1px solid @color-border;
+    }
+    p{
+        border: 1px solid @color-border;
+        background-color: @background_page-header;
+        padding: .4rem;
+        max-height: 200px;
+        overflow-y: auto;
+        .bchead, .bcsep{
+            display: none;
+        }
+        .breadcrumbs{
+            padding: 0; margin: 0;
+        }
+        bdi{
+            display: block;
+            line-height: 125%;
+            padding: .1rem 0;
+        }
+        a{
+            cursor: pointer;
+        }
     }
 
     li {

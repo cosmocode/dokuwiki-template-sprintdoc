@@ -215,6 +215,16 @@ $showSidebar =  true; /*  */
                             ?>
                         </div><!-- .side-tools -->
 
+                        <div class="side-tools main-sidebar toggle-menu">
+                            <?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* trace */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                            include('tpl/nav-trace.php');
+                            ?>
+                        </div><!-- .side-tools -->
 
                         <div class="sidebarfooter main-sidebar">
                             <?php
