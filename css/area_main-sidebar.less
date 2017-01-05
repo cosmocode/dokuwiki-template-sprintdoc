@@ -7,10 +7,10 @@
 
 #dokuwiki__aside.main-sidebar {
     counter-reset: nav-counter;
+
 /* + + + + +  nav main  + + + + + */
     .nav-main {
         > ul {
-
             @icon-size: 2rem;
 
             margin: 0;
@@ -38,19 +38,31 @@
 
 
 /* + + +  first level  + + + */
-            > li {
+            > li {position: relative;
                 list-style-type: none;
-                border-bottom: solid 1px @color-border;
                 margin: 0;
                 padding: 0 0 .3rem 0;
                 counter-increment: nav-counter;
 
-                > .li { //background-color: pink;// hier activ !!!
+                &::after {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: 0px;
+                    display: block;
+                    width: 100%;
+                    height: 1px;
+                    background-color: @color-border;
+                    transition: @transition background-color;
+                }
+
+                > .li {
                     position: relative;
+                    z-index: 1;
                     padding: .5rem 0 .5rem (@icon-size + 1);
+                    margin-top: -1px;
 
                     &::before {
-                        //background-color: @color-link;
                         color: @color-nav;
                         content: counter(nav-counter);
                         position: absolute;
@@ -81,20 +93,25 @@
                         transition: @transition background-color;
                     }
 
-                    &.opened, &.closed{
+                    &.opened,
+                    &.closed {
                         padding: 0;
-                        &::before, &::after{
+
+                        &::before,
+                        &::after {
                            display: none;
                         }
-                        a{
-                            display: block;
+
+                        a {
                             position: relative;
-                            padding: .5rem 0 .8rem (@icon-size + 1);
-                            margin-bottom: -.3rem;
+                            display: block;
                             border: 1px solid transparent;
+                            border-radius: 2px;
+                            margin-bottom: -.3rem;
+                            padding: .6rem 0 .7rem (@icon-size + 1);
+                            transition: @transition color, @transition background-color, @transition border-color;
+
                             &::before {
-                                //background-color: @color-link;
-                                color: @color-nav;
                                 content: counter(nav-counter);
                                 position: absolute;
                                 top: -.1rem;
@@ -108,6 +125,7 @@
                                 height: 100%;
                                 width: @icon-size;
                                 overflow: hidden;
+                                color: @color-nav;
                                 text-align: center;
                                 margin-top: auto;
                                 margin-bottom: auto;
@@ -123,46 +141,55 @@
                                 background-color: @color-border;
                                 transition: @transition background-color;
                             }
-                            &:hover, &:focus, &:active{
-                                text-decoration: none;
+
+                            &:hover,
+                            &:focus,
+                            &:active {
                                 background-color: #fff;
                                 border-color: @color-link;
                                 color: @color-link;
+                                text-decoration: none;
                             }
                         }
-
                     }
 
-                    &.opened{
-                        a{
+                    &.opened {
+                        a {
                             background-color: @color-link;
                             color: #fff;
-                            &::after, &::before{
+
+                            &::after,
+                            &::before{
                                 color: #fff;
                                 border-color: #fff;
                             }
-                            &:hover, &:focus, &:active{
-                                text-decoration: none;
+
+                            &:hover,
+                            &:focus,
+                            &:active {
                                 background-color: #fff;
                                 border-color: @color-link;
                                 color: @color-link;
-                                &::after, &::before{
+                                text-decoration: none;
+
+                                &::after,
+                                &::before {
                                     color: inherit;
                                     border-color: inherit;
                                 }
                             }
                         }
                     }
-                    + ul{
+
+                    + ul {
                         height: auto;
                         overflow: hidden;
                     }
-                  &.closed + ul{
-                      height: 0;
-                  }
+
+                    &.closed + ul {
+                        height: 0;
+                    }
                 }
-
-
             }
         }
     }
