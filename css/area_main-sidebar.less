@@ -11,6 +11,7 @@
 /* + + + + +  nav main  + + + + + */
     .nav-main {
         padding-bottom: 1.8rem;
+
         > ul {
             @icon-size: 2rem;
 
@@ -35,6 +36,7 @@
                     display: list-item;
                     list-style-type: square;
                     color: @color-nav;
+                    font-weight: normal;
                     padding-top: .1em;
                     padding-bottom: .1em;
                     transition: @transition color;
@@ -72,6 +74,10 @@
                     z-index: 1;
                     margin-top: -1px;
                     padding: .5em 0 .5em (@icon-size + 1);
+
+                    &[class="li"] {
+                        border-bottom: solid 1px @color-border;
+                    }
 
                     &::before {
                         content: counter(nav-counter);
@@ -222,8 +228,12 @@
 @media @screen_min-xlg {
     #dokuwiki__aside.main-sidebar {
         .nav-main {
-            > ul > li > .li * {
+            > ul > li > .li {
                 font-size: .9rem;
+
+                * {
+                    font-size: inherit;
+                }
             }
 
             .li {
@@ -231,7 +241,7 @@
                 padding: .1em 0;
 
                 * {
-                    font-size: inherit;
+                    font-size: .8rem;
                     font-weight: inherit;
                 }
             }
@@ -251,7 +261,7 @@
                 padding: .15em .25rem;
 
                 > * {
-                    font-size: 1rem;
+                    font-size: inherit;
                 }
             }
         }
