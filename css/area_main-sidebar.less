@@ -52,13 +52,13 @@
 
 /* + + +  first level  + + + */
             > li {
+                counter-increment: nav-counter;
                 position: relative;
                 list-style-type: none;
                 margin: 0;
                 padding: 0 0 .3em;
-                counter-increment: nav-counter;
 
-                &::after {
+                &:not(:last-of-type)::after {
                     content: '';
                     position: absolute;
                     left: 0;
