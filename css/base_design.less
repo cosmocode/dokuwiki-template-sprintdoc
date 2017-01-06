@@ -5,12 +5,13 @@
  * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
  */
 
+
 html, body {
     background-color: @color-site-bg;
 }
 
 a {
-    color: @ini_existing;
+    color: @color-link;
 }
 
 /* highlight selected tool */
@@ -125,7 +126,7 @@ h3 {
 }
 
 h4 {
-    font-size: .93rem;
+    font-size: .94rem;
     margin: 0 0 1.0em;
 }
 
@@ -140,7 +141,7 @@ h6 {
 }
 
 p {
-    font-size: .83rem;
+    font-size: .88rem;
     line-height: 135%;
 
     a,
@@ -151,7 +152,8 @@ p {
 }
 
 label,
-legend {
+legend,
+button {
     font-size: .88rem;
 
     a,
@@ -159,6 +161,14 @@ legend {
     strong {
         font-size: inherit;
     }
+}
+
+hr,
+figure,
+details,
+address {
+    font-size: .88rem;
+    line-height: 140%;
 }
 
 p,
@@ -173,8 +183,6 @@ figure,
 details,
 fieldset,
 address {
-    font-size: .88rem;
-    line-height: 140%;
     margin: 0 0 1.4em; /* bottom margin = line-height */
     padding: 0;
 }
@@ -200,6 +208,8 @@ small,
 
 ul,
 ol {
+    font-size: .88rem;
+    line-height: 140%;
     padding: 0 0 0 1.5em;
 }
 
@@ -217,6 +227,11 @@ dd {
 [dir=rtl] li,
 [dir=rtl] dd {
     margin: 0 1.5em 0 0;
+}
+
+dl {
+    font-size: .88rem;
+    line-height: 140%;
 }
 
 dt {
@@ -267,7 +282,9 @@ table {
     border-collapse: collapse;
     empty-cells: show;
     border-spacing: 0;
-    border: 1px solid @ini_border;
+    border: 1px solid @color-border;
+    font-size: .88rem;
+    line-height: 140%;
 }
 
 caption {
@@ -284,7 +301,7 @@ td {
     padding: .3em .5em;
     margin: 0;
     vertical-align: top;
-    border: 1px solid @ini_border;
+    border: 1px solid @color-border;
 }
 
 th {
@@ -304,7 +321,7 @@ a {
 a:link,
 a:visited {
     text-decoration: none;
-    color: @ini_link;
+    color: @color-link;
 }
 
 a:hover,
@@ -337,7 +354,7 @@ button img {
 }
 
 hr {
-    border-top: solid @ini_border;
+    border-top: solid @color-border;
     border-bottom: solid @ini_background;
     border-width: 1px 0;
     height: 0;
@@ -371,25 +388,29 @@ kbd {
     font-size: 1em;
     direction: ltr;
     text-align: left;
-    background-color: @ini_background_site;
-    color: @ini_text;
-    box-shadow: inset 0 0 .3em @ini_border;
+    background-color: @color-site-bg;
+    color: @color-text;
+    box-shadow: inset 0 0 .3em @color-border;
     border-radius: 2px;
 }
 
 pre {
     overflow: auto;
     word-wrap: normal;
-    border: 1px solid @ini_border;
+    border: 1px solid @color-border;
     border-radius: 2px;
-    box-shadow: inset 0 0 .5em @ini_border;
+    box-shadow: inset 0 0 .5em @color-border;
+    font-size: .88rem;
+    line-height: 140%;
     padding: .7em 1em;
 }
 
 blockquote {
-    padding: 0 .5em;
-    border: solid @ini_border;
+    border: solid @color-border;
     border-width: 0 0 0 .25em;
+    font-size: .88rem;
+    line-height: 140%;
+    padding: 0 .5em;
 }
 
 [dir=rtl] blockquote {
@@ -431,8 +452,10 @@ form {
 }
 
 fieldset {
-    padding: .7rem 1rem;
+    font-size: .88rem;
+    line-height: 140%;
     border: 1px solid @ini_text_alt;
+    padding: .7rem 1rem;
 }
 
 fieldset > :last-child {
@@ -473,6 +496,10 @@ select {
     max-width: 100%;
 }
 
+textarea.edit {
+    font-size: .88em;
+}
+
 optgroup {
     font-style: italic;
     font-weight: bold;
@@ -511,55 +538,79 @@ input[type=image] {
     box-shadow: none;
 }
 
-/* all types of buttons */
-input[type=submit],
-input[type=button],
-input[type=reset],
-input.button,
-a.button,
-button,
-.qq-upload-button {
-    color: #333;
+
+/* + + + + +  buttons  + + + + + */
+button {
     background-color: #eee;
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8bGluZWFyR3JhZGllbnQgaWQ9Imc4MjQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+CjxzdG9wIHN0b3AtY29sb3I9IiNGRkZGRkYiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiNGNEY0RjQiIG9mZnNldD0iMC4zIi8+PHN0b3Agc3RvcC1jb2xvcj0iI0VFRUVFRSIgb2Zmc2V0PSIwLjk5Ii8+PHN0b3Agc3RvcC1jb2xvcj0iI0NDQ0NDQyIgb2Zmc2V0PSIuOTkiLz4KPC9saW5lYXJHcmFkaWVudD4KPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNnODI0KSIgLz4KPC9zdmc+);
     background-image: linear-gradient(to bottom, #ffffff 0%, #f4f4f4 30%, #eeeeee 99%, #cccccc 99%);
     border: 1px solid #ccc;
     border-radius: 2px;
+    color: #333;
     padding: .1em .5em;
     cursor: pointer;
+    transition: @transition background-color, @transition color;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: #ddd;
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8bGluZWFyR3JhZGllbnQgaWQ9Imc2NzAiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+CjxzdG9wIHN0b3AtY29sb3I9IiNGRkZGRkYiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiNGNEY0RjQiIG9mZnNldD0iMC4zIi8+PHN0b3Agc3RvcC1jb2xvcj0iI0RERERERCIgb2Zmc2V0PSIwLjk5Ii8+PHN0b3Agc3RvcC1jb2xvcj0iI0JCQkJCQiIgb2Zmc2V0PSIuOTkiLz4KPC9saW5lYXJHcmFkaWVudD4KPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNnNjcwKSIgLz4KPC9zdmc+);
+        background-image: linear-gradient(to bottom, #ffffff 0%, #f4f4f4 30%, #dddddd 99%, #bbbbbb 99%);
+        border-color: #999;
+    }
 }
 
-input[type=submit]:hover,
-input[type=submit]:active,
-input[type=submit]:focus,
-input[type=button]:hover,
-input[type=button]:active,
-input[type=button]:hover,
-input[type=reset]:hover,
-input[type=reset]:active,
-input[type=reset]:hover,
-input.button:hover,
-input.button:active,
-input.button:focus,
-a.button:hover,
-a.button:active,
-a.button:focus,
-button:hover,
-button:active,
-button:focus,
-.qq-upload-button:hover {
-    border-color: #999;
-    background-color: #ddd;
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8bGluZWFyR3JhZGllbnQgaWQ9Imc2NzAiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+CjxzdG9wIHN0b3AtY29sb3I9IiNGRkZGRkYiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiNGNEY0RjQiIG9mZnNldD0iMC4zIi8+PHN0b3Agc3RvcC1jb2xvcj0iI0RERERERCIgb2Zmc2V0PSIwLjk5Ii8+PHN0b3Agc3RvcC1jb2xvcj0iI0JCQkJCQiIgb2Zmc2V0PSIuOTkiLz4KPC9saW5lYXJHcmFkaWVudD4KPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNnNjcwKSIgLz4KPC9zdmc+);
-    background-image: linear-gradient(to bottom, #ffffff 0%, #f4f4f4 30%, #dddddd 99%, #bbbbbb 99%);
+
+/* + + +  all types of submit-buttons  + + + */
+a.button,
+input[type=submit],
+input[type=reset],
+button[type=submit],
+.qq-upload-button {
+    cursor: pointer;
+    background-image: none;
+    background-color: @button_background;
+    border: 1px solid @button_background;
+    border-radius: 2px;
+    color: @button_color;
+    padding: .3em @grid;
+    transition: @transition background-color, @transition color;
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: @button_color;
+        color: @button_background;
+    }
 }
 
-input::-moz-focus-inner,
-button::-moz-focus-inner {
-    border: 0;
-    padding: 0;
+
+/* + + +  all types of buttons not being submit-buttons  + + + */
+input.button,
+input[type=button] {
+    cursor: pointer;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8bGluZWFyR3JhZGllbnQgaWQ9Imc4MjQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+CjxzdG9wIHN0b3AtY29sb3I9IiNGRkZGRkYiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiNGNEY0RjQiIG9mZnNldD0iMC4zIi8+PHN0b3Agc3RvcC1jb2xvcj0iI0VFRUVFRSIgb2Zmc2V0PSIwLjk5Ii8+PHN0b3Agc3RvcC1jb2xvcj0iI0NDQ0NDQyIgb2Zmc2V0PSIuOTkiLz4KPC9saW5lYXJHcmFkaWVudD4KPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNnODI0KSIgLz4KPC9zdmc+);
+    background-image: linear-gradient(to bottom, #ffffff 0%, #f4f4f4 30%, #eeeeee 99%, #cccccc 99%);
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    color: #333;
+    padding: .1em .5em;
+    transition: @transition background-color, @transition color;
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: #ddd;
+        border-color: #999;
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8bGluZWFyR3JhZGllbnQgaWQ9Imc2NzAiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+CjxzdG9wIHN0b3AtY29sb3I9IiNGRkZGRkYiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiNGNEY0RjQiIG9mZnNldD0iMC4zIi8+PHN0b3Agc3RvcC1jb2xvcj0iI0RERERERCIgb2Zmc2V0PSIwLjk5Ii8+PHN0b3Agc3RvcC1jb2xvcj0iI0JCQkJCQiIgb2Zmc2V0PSIuOTkiLz4KPC9saW5lYXJHcmFkaWVudD4KPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNnNjcwKSIgLz4KPC9zdmc+);
+        background-image: linear-gradient(to bottom, #ffffff 0%, #f4f4f4 30%, #dddddd 99%, #bbbbbb 99%);
+    }
 }
 
+
+/* + + +  all disabled buttons  + + + */
 input[disabled],
 button[disabled],
 select[disabled],
@@ -570,6 +621,30 @@ button[readonly],
 select[readonly],
 textarea[readonly] {
     cursor: auto;
-    opacity: .5;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8bGluZWFyR3JhZGllbnQgaWQ9Imc4MjQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+CjxzdG9wIHN0b3AtY29sb3I9IiNGRkZGRkYiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiNGNEY0RjQiIG9mZnNldD0iMC4zIi8+PHN0b3Agc3RvcC1jb2xvcj0iI0VFRUVFRSIgb2Zmc2V0PSIwLjk5Ii8+PHN0b3Agc3RvcC1jb2xvcj0iI0NDQ0NDQyIgb2Zmc2V0PSIuOTkiLz4KPC9saW5lYXJHcmFkaWVudD4KPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNnODI0KSIgLz4KPC9zdmc+);
+    background-image: linear-gradient(to bottom, #ffffff 0%, #f4f4f4 30%, #eeeeee 99%, #cccccc 99%);
     background-color: #eee;
+    opacity: .5;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    color: #333;
+    font-weight: normal;
+    padding: .3em @grid;
+    transition: @transition background-color, @transition color;
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: #ddd;
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8bGluZWFyR3JhZGllbnQgaWQ9Imc2NzAiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+CjxzdG9wIHN0b3AtY29sb3I9IiNGRkZGRkYiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiNGNEY0RjQiIG9mZnNldD0iMC4zIi8+PHN0b3Agc3RvcC1jb2xvcj0iI0RERERERCIgb2Zmc2V0PSIwLjk5Ii8+PHN0b3Agc3RvcC1jb2xvcj0iI0JCQkJCQiIgb2Zmc2V0PSIuOTkiLz4KPC9saW5lYXJHcmFkaWVudD4KPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNnNjcwKSIgLz4KPC9zdmc+);
+        background-image: linear-gradient(to bottom, #ffffff 0%, #f4f4f4 30%, #dddddd 99%, #bbbbbb 99%);
+        border-color: #999;
+        color: #333;
+    }
+}
+
+input::-moz-focus-inner,
+button::-moz-focus-inner {
+    border: 0;
+    padding: 0;
 }
