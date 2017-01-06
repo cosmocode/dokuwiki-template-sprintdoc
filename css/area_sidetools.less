@@ -10,78 +10,6 @@
 
     counter-increment: bar-counter;
 
-    > nav {
-        > ul {
-            padding-bottom: .4rem;
-            margin-bottom: 0;
-        }
-    }
-
-    h6 {
-        position: relative;
-        width: auto;
-        height: auto;
-        color: @color-nav;
-        font-weight: normal;
-        padding: .5em 0 .5em (@icon-size + 1.1);
-
-        &::before {
-            content: counter(bar-counter, lower-alpha);
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: flex;
-            display: -webkit-flex;
-            flex-direction: column;
-            -webkit-flex-direction: column;
-            justify-content: center;
-            -webkit-justify-content: center;
-            height: 100%;
-            width: @icon-size;
-            overflow: hidden;
-            text-align: center;
-            margin-top: auto;
-            margin-bottom: auto;
-        }
-
-        &::after {
-            content: '';
-            position: absolute;
-            top: 15%;
-            bottom: 15%;
-            width: 1px;
-            left: (@icon-size + .6);
-            background-color: @color-border;
-            transition: @transition background-color;
-        }
-
-        + ul,+ div {
-            height: auto;
-            overflow: hidden;
-        }
-
-        &.opened {
-            + ul, + div {
-                height: auto;
-                overflow: hidden;
-            }
-            + ul {
-                margin-top: .5em;
-                margin-bottom: .25em;
-            }
-        }
-
-        &.closed {
-            + ul, + div {
-                height: 0;
-                padding: 0;
-            }
-        }
-
-    }
-
-
-/* + + +  linklist  + + + */
     ul,
     .trace {
         padding-left: (@icon-size + .5);
@@ -89,38 +17,6 @@
 
     ul {
         border-bottom: 1px solid @color-border;
-    }
-
-    p {
-        max-height: 6rem;
-        overflow-y: auto;
-        background-color: @background_page-header;
-        border: 1px solid @color-border;
-        padding: .4rem;
-        font-size: .8rem;
-        *{
-            font-size: inherit;
-        }
-
-        .bchead,
-        .bcsep {
-            display: none;
-        }
-
-        .breadcrumbs {
-            padding: 0;
-            margin: 0;
-        }
-
-        bdi {
-            display: block;
-            line-height: 125%;
-            padding: .1rem 0;
-        }
-
-        a {
-            cursor: pointer;
-        }
     }
 
     li {
@@ -143,6 +39,235 @@
 
         &:first-of-type {
             padding-top: .3em;
+        }
+    }
+
+    > nav {
+        > ul {
+            margin: 0;
+            padding: 0 0 0 (@icon-size + .5);
+
+            li {
+                list-style-type: none;
+                color: @color-nav;
+
+                &:first-of-type {
+                    padding-top: .3em;
+                }
+            }
+        }
+    }
+
+
+/* + + + + +  headlines for linklists  + + + + + */
+    h6 {
+        position: relative;
+        width: auto;
+        height: auto;
+        color: @color-nav;
+        font-weight: normal;
+        padding: .5em 0 .5em (@icon-size + 1.1);
+
+        &[class="sr-only"] {
+            border-bottom: solid 1px @color-border;
+        }
+
+        * {
+            color: inherit;
+        }
+
+
+/* + + +  icon  + + + */
+        &::before {
+            content: counter(bar-counter, lower-alpha);
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            display: -webkit-flex;
+            flex-direction: column;
+            -webkit-flex-direction: column;
+            justify-content: center;
+            -webkit-justify-content: center;
+            height: 100%;
+            width: @icon-size;
+            overflow: hidden;
+            text-align: center;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+
+/* + + +  line bottom  + + + */
+        &::after {
+            content: '';
+            position: absolute;
+            top: 15%;
+            bottom: 15%;
+            width: 1px;
+            left: (@icon-size + .6);
+            background-color: @color-border;
+            transition: @transition background-color;
+        }
+
+        + ul,
+        + div {
+            height: auto;
+            overflow: hidden;
+        }
+
+
+/* + + +  toggle  + + + */
+        &.opened,
+        &.closed {
+            padding: 0;
+
+            &::before,
+            &::after {
+                display: none;
+            }
+
+            a {
+                position: relative;
+                display: block;
+                border: 1px solid transparent;
+                border-radius: 2px;
+                padding: .6em 0 .6em (@icon-size + 1);
+                transition: @transition color, @transition background-color, @transition border-color;
+
+                &::before {
+                    content: counter(bar-counter, lower-alpha);
+                    position: absolute;
+                    top: -.1em;
+                    left: 0;
+                    display: flex;
+                    display: -webkit-flex;
+                    flex-direction: column;
+                    -webkit-flex-direction: column;
+                    justify-content: center;
+                    -webkit-justify-content: center;
+                    height: 100%;
+                    width: @icon-size;
+                    overflow: hidden;
+                    color: @color-nav;
+                    text-align: center;
+                    margin-top: auto;
+                    margin-bottom: auto;
+                    transition: @transition color;
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 15%;
+                    bottom: 15%;
+                    width: 1px;
+                    left: (@icon-size + .5);
+                    background-color: @color-border;
+                    transition: @transition background-color;
+                }
+
+                &:hover,
+                &:focus,
+                &:active {
+                    background-color: @button_color;
+                    border-color: @button_background;
+                    color: @button_background;
+                    text-decoration: none;
+
+                    &::before {
+                        color: @button_background;
+                    }
+
+                    &::after {
+                        background-color: @button_background;
+                    }
+                }
+            }
+        }
+
+        &.opened {
+            a {
+                background-color: @button_background;
+                color: @button_color;
+
+                &::before {
+                    color: @button_color;
+                }
+
+                &:hover,
+                &:focus,
+                &:active {
+                    background-color: @button_color;
+                    border-color: @button_background;
+                    color: @button_background;
+                    text-decoration: none;
+
+                    &::before {
+                        color: @button_background;
+                    }
+                }
+            }
+
+            + ul,
+            + div {
+                height: auto;
+                overflow: hidden;
+            }
+
+            + ul {
+                margin-top: .5em;
+                padding-bottom: .4rem;
+            }
+        }
+
+        &.closed {
+            + ul,
+            + div {
+                height: 0;
+            }
+        }
+    }
+
+
+/* + + + + +  f.i. trace  + + + + + */
+    p {
+        max-height: 6rem;
+        overflow-y: auto;
+        background-color: @background_page-header;
+        border: 1px solid @button_background;
+        font-size: .8rem;
+        padding: .5rem .6em;
+
+        * {
+            font-size: inherit;
+        }
+
+        .bchead {
+            display: none;
+        }
+
+        .bcsep {
+            display: inline-block;
+            vertical-align: top;
+            padding-top: .3em;
+        }
+
+        .breadcrumbs {
+            border: 0 none;
+            padding: 0;
+            margin: 0;
+        }
+
+        bdi {
+            display: inline-block;
+            width: 95%;
+            line-height: 125%;
+            padding: .1rem 0;
+        }
+
+        a {
+            cursor: pointer;
         }
     }
 }
