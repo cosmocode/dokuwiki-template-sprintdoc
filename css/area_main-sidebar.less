@@ -228,21 +228,21 @@
 @media @screen_min-xlg {
     #dokuwiki__aside.main-sidebar {
         .nav-main {
-            > ul > li > .li {
-                font-size: .9rem;
-
-                * {
-                    font-size: inherit;
-                }
-            }
-
             .li {
                 font-size: .8rem;
                 padding: .1em 0;
 
                 * {
-                    font-size: .8rem;
+                    font-size: inherit;
                     font-weight: inherit;
+                }
+            }
+
+            > ul > li > .li {
+                font-size: .9rem;
+
+                * {
+                    font-size: inherit;
                 }
             }
         }
@@ -257,8 +257,17 @@
     #dokuwiki__aside.main-sidebar {
         .nav-main {
             .li {
+                font-size: .9rem;
+                padding: .15em 0 .15em .25rem;
+
+                * {
+                    font-size: inherit;
+                    font-weight: inherit;
+                }
+            }
+
+            > ul > li > .li {
                 font-size: 1rem;
-                padding: .15em .25rem;
 
                 > * {
                     font-size: inherit;
