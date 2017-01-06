@@ -234,10 +234,12 @@
     p {
         max-height: 6rem;
         overflow-y: auto;
-        background-color: @background_page-header;
+        background-color: @color-content-bg;
         border: 1px solid @button_background;
+        border-radius: 2px;
         font-size: .8rem;
-        padding: .5rem .6em;
+        margin-top: .1rem;
+        padding: .3rem .6em;
 
         * {
             font-size: inherit;
@@ -250,6 +252,7 @@
         .bcsep {
             display: inline-block;
             vertical-align: top;
+            color: @color-link;
             padding-top: .3em;
         }
 
@@ -287,12 +290,11 @@
         }
 
         li {
-            font-size: 100%;
-            padding-top: .1em;
-            padding-bottom: .1em;
+            font-size: .8rem;
+            padding: .1em 0 .1em .1rem;
 
             > * {
-                font-size: .8rem;
+                font-size: inherit;
             }
         }
     }
@@ -309,11 +311,11 @@
         }
 
         li {
-            font-size: 1rem;
-            padding: .15em .25rem;
+            font-size: .9rem;
+            padding: .15em 0 .15em .23rem;
 
             > * {
-                font-size: 1rem;
+                font-size: inherit;
             }
         }
     }
