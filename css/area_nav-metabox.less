@@ -1,12 +1,18 @@
-#meta-box{
-
-    ul.nav-tabs {
-        border-bottom: 1px solid @background_page-header;
-        background-color: @background_page-header;
+#meta-box {
+    .tab-container {
+        display: table;
+    }
+    .box-content {
         position: relative;
-        bottom: -2px;
-        margin: 0; padding: 0;
+        height: 0;
+        overflow-y: visible;
+    }
 
+    ul.meta-tabs {
+        border-bottom: 1px solid @color-border;
+        background-color: @background_page-header;
+        margin: 0;
+        padding: 0;
         list-style: none;
         &::before, &::after {
             display: table;
@@ -14,40 +20,106 @@
             box-sizing: border-box;
             clear: both;
         }
-        >li {
-            margin: -1px;
+        > li:first-child{
+            > a{
+                margin-left: 0;
+            }
+        }
+        > li {
+            margin: 0 -1px -1px;
             position: relative;
             display: inline-block;
-            >a {
+            > a {
                 font-size: .78rem;
-                margin-right: 2px;
+                margin-left: 4px;
                 line-height: 1.42857143;
                 position: relative;
                 display: block;
-                padding: .5em 2em;
-                border: 1px solid transparent;
+                padding: .56em 2em;
+                border: 1px solid @color-border;
+                background-color: @color-site-bg;
                 border-radius: 4px 4px 0 0;
-                color:  @color-nav;
-                .prefix{
-                    font-size: .78rem;
-                    color:  @color-nav;
+                color: @color-nav;
+                cursor: pointer;
+                * {
+                    cursor: pointer;
                 }
-                .num{
+                .prefix {
+                    font-size: .78rem;
+                    color: @color-nav;
+                }
+                .num {
                     font-size: .56rem;
                 }
-                &:hover, &:focus, &:active{
-                    color: #555;
-                    cursor: default;
-                    background-color: #fff;
-                    border-color: 1px solid @button_background;
+                &:hover, &:focus, &:active {
+                    color: @color-link;
+                    background-color: @background_page-header;
+                    border-color: @color-border;
                     border-bottom-color: transparent;
                 }
             }
-            &.active >a{
+            &.active > a {
                 color: #555;
-                cursor: default;
-                background-color: #fff;
+                background-color: @background_page-header;
                 border-color: transparent;
+            }
+        }
+    }
+    .meta-content {
+        .tab-pane {
+            border: 1px solid @color-border;
+            border-top-color: transparent;
+            background-color: @background_page-header;
+            display: none;
+            position: absolute;
+            width: 100%;
+            &.active {
+                display: block;
+            }
+            > div {
+                padding: .8rem .5rem .5rem;
+            }
+
+            #dw__toc {
+                width: auto;
+                float: none;
+                margin: 0;
+                padding: .6rem .5rem .5rem .8rem;
+                background: transparent;
+                border: 0 none;
+                h3 {
+                    display: none;
+                }
+                > div {
+                    padding: 0;
+                }
+                > div ul.toc {
+                    font-size: .78rem;
+                    padding-left: .5em;
+                    a {
+                        font-size: .78rem;
+                    }
+                    li {
+                    }
+                    div.li {
+                        position: relative;
+                        ::before {
+                            position: relative;
+                            top: -.2em;
+                            content: "";
+                            display: inline-block;
+                            width: 4px;
+                            height: 4px;
+                            margin-right: .3rem;
+                            background-color: @color-border;
+                            overflow: hidden;
+                        }
+                        padding: .15em 0;
+                    }
+                }
+                > div > ul.toc {
+                    padding: 0;
+                }
             }
         }
     }
