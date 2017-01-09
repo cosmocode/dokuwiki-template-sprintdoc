@@ -41,11 +41,12 @@
             color: @color-nav;
             margin-left: -(@icon-size);
             padding: 0;
-            transition: @transition color, @transition border-color;
+            transition: @transition color, @transition background-color, @transition border-color;
 
             &:hover,
             &:focus,
             &:active {
+                background-color: @button_color;
                 border: solid 1px @button_background;
                 color: @button_background;
 

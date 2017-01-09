@@ -109,7 +109,7 @@
         } // li
 
         a {
-            transition: @transition color, @transition border-color;
+            transition: @transition color, @transition background-color, @transition border-color;
 
             &[aria-expanded="false"] + #plugin__qc__wrapper {
                 display: none;
@@ -118,6 +118,7 @@
             &:hover,
             &:active,
             &:focus {
+                background-color: @button_color;
                 border-color: @button_background;
                 color: @button_background;
 

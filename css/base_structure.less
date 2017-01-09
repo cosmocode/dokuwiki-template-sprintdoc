@@ -18,38 +18,20 @@
 }
 
 @media @screen_min-xxs {
-    .container {
-        //border: 1px solid deeppink;
-    }
 }
 
 @media @screen_min-xs {
-    .container {
-        //border: 1px solid orangered;
-    }
 }
 
 @media @screen_min-sm {
-    .container {
-        //border: 1px solid green;
-    }
-
     .make-grid(sm);
 }
 
 @media @screen_min-md {
-    .container {
-        //border: 1px solid blue;
-    }
-
     .make-grid(md);
 }
 
 @media @screen_min-lg {
-    .container {
-        //border: 1px solid blue;
-    }
-
     .make-grid(lg);
 }
 
@@ -57,25 +39,16 @@
     html {
         font-size: 120%;
     }
-
-    .container {
-        //border: 1px solid red;
-    }
 }
 
 @media @screen_min-xxlg {
     html {
         //font-size: 135%;
     }
-
-    .container {
-        //border: 1px solid red;
-    }
 }
 
+/* + + + + +  z-indeces  + + + + + */
 @media @screen_min-md {
-
-    // z-indeces
     .nav-direct p {
         z-index: 1000;
     }
@@ -103,9 +76,11 @@
         width: 100%;
     }
 
-    .header, .tools {
+    .header,
+    .tools {
         .row {
             position: relative;
+
             > .col-xs-12 {
                 width: 23%;
                 box-sizing: border-box;
@@ -129,9 +104,33 @@
 
     .content {
         .row > .col-xs-12 {
-            width: 100%;
             position: relative;
+            width: 100%;
             background-color: #fff;
+        }
+    }
+
+    .claim {
+        .logo {
+            position: absolute;
+            bottom: 1em;
+            overflow: visible;
+
+            img {
+                height: 60px;
+                width: auto;
+                border-style: solid;
+                border-color: transparent;
+                border-width: 0 2px;
+            }
+
+            a:hover,
+            a:focus,
+            a:active {
+                img {
+                    border-width: 0;
+                }
+            }
         }
     }
 
@@ -142,32 +141,7 @@
                 float: right;
             }
         }
-    }
 
-    .claim {
-        .logo {
-            position: absolute;
-            bottom: 1em;
-            overflow: visible;
-        }
-
-        .logo img {
-            height: 60px;
-            width: auto;
-            border-style: solid;
-            border-color: transparent;
-            border-width: 0 3px;
-        }
-        .logo {
-            a:hover, a:focus, a:active{
-                img {
-                    border: 0 none;
-                }
-            }
-        }
-    }
-
-    .showSidebar {
         .claim {
             .logo {
                 position: absolute;
@@ -176,6 +150,7 @@
                 width: 100%; // fo IE
                 overflow: visible;
             }
+
             .logo img {
                 max-width: 100%;
                 height: auto;
@@ -193,9 +168,7 @@
     }
 }
 
-
 @media @screen_max-md {
-
     .container {
         margin: 0 2.5rem 0 1.25rem;
     }
@@ -209,11 +182,12 @@
 
     .content {
         position: relative;
-        #dokuwiki__pagetools{
-            top: 0;
 
+        #dokuwiki__pagetools {
+            top: 0;
         }
-        .row > .col-xs-12 #dokuwiki__content::before{
+
+        .row > .col-xs-12 #dokuwiki__content::before {
             display: none;
         }
     }
@@ -231,6 +205,4 @@
             display: none;
         }
     }
-
 }
-
