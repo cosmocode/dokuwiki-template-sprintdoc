@@ -19,6 +19,7 @@ $lang['head_menu_main']             = 'main menu';
 $lang['head_menu_status']           = 'site status';
 $lang['head_breadcrumb']            = 'location indicator';
 $lang['head_menu_trace']            = 'trace / visited last';
+$lang['head_meta_box']              = 'meta data for this page';
 
 $lang['quality_trigger']            = 'toggle page analysis';
 

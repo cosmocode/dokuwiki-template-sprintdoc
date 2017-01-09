@@ -326,7 +326,18 @@ $showSidebar =  true; /*  */
                         </div>
 
                         <div id="dokuwiki__content" class="page main-content">
-                            <div id="meta-box"></div>
+                            <div id="meta-box">
+                                <h6 class="sr-only" role="heading" aria-level="2"><?php echo  tpl_getLang('head_meta_box')  ?></h6>
+
+                                <?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* meta box */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                                include('tpl/nav-meta-box.php'); ?>
+                            </div>
+
 
                             <?php
 

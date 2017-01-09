@@ -19,6 +19,7 @@ $lang['head_menu_main']             = 'Hauptmenü';
 $lang['head_menu_status']           = 'Seitenstatus';
 $lang['head_breadcrumb']            = 'Standortanzeiger';
 $lang['head_menu_trace']            = 'zuletzt angesehen';
+$lang['head_meta_box']              = 'Metainformationen zur Seite';
 
 $lang['quality_trigger']            = 'Seitenanalyse ein- bzw. ausblenden';
 
