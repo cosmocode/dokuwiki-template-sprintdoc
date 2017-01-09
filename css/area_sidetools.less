@@ -250,7 +250,10 @@
         }
 
         .bcsep {
-            display: inline-block;
+            float: left;
+            clear: both;
+            display: block;
+            width: 3%;
             vertical-align: top;
             color: @color-link;
             padding-top: .3em;
@@ -263,10 +266,12 @@
         }
 
         bdi {
-            display: inline-block;
-            width: 95%;
+            display: block;
+            float: left;
+            width: 94%;
             line-height: 125%;
             padding: .1rem 0;
+            margin-left: 2%;
         }
 
         a {
