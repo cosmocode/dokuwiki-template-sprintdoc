@@ -1,0 +1,60 @@
+/**
+ * This file provides the design styles for the sidebar (navmain).
+ *
+ * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
+ */
+
+
+#dokuwiki__content {
+    overflow: visible;
+
+    .togglelink {
+        &.page_main-content {
+            position: absolute;
+            top: -1px;
+            left: -2rem;
+            z-index: 1;
+
+            width: 2rem;
+            height: 3.1rem;
+            background-color: #F6F6F6;
+            border: solid 1px @color-border;
+            border-radius: 2px 0 0 2px;
+            text-align: center;
+            padding-top: .9em;
+            transition: @transition color, @transition background-color, @transition border-color;
+
+            &:hover,
+            &:focus,
+            &:active {
+                background-color: @button_background;
+                border-color: @button_background;
+                color: @button_color;
+                text-decoration: none;
+
+                * {
+                    color: inherit;
+                }
+            }
+        }
+    }
+}
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* min-width: 1440px */
+
+@media @screen_min-xlg {
+    #dokuwiki__content .togglelink {
+
+    }
+}
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* max-width: 1199px */
+
+@media @screen_max-xlg {
+    #dokuwiki__content .togglelink {
+
+    }
+}
