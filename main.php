@@ -295,6 +295,9 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                             tpl_includeFile('pageheader.html')
                         ?>
 
+                        <?php
+                         ?>
+
                         <div class="breadcrumbs">
                             <h6 class="sr-only" role="heading" aria-level="2"><?php echo  tpl_getLang('head_menu_status')  ?></h6>
 
@@ -345,6 +348,7 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                             </div>
 
 
+                            <div class="msg-area"><?php html_msgarea();/*msg('Information.', 0);msg('Success', 1);msg('Notification', 2);msg('Fehler', -1);*/ ?></div>
                             <?php
 
 

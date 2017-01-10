@@ -35,7 +35,7 @@ nav#dokuwiki__pagetools{
             }
             a{
                 font-size: .8rem;
-                &.source, &.revs, &.backlink, &.plugin_bookcreator_addtobook, &.export_pdf, &.top, &.edit{
+                &.source, &.revs, &.backlink, &.plugin_bookcreator_addtobook, &.export_pdf, &.top, &.edit, &.show{
                     opacity: .6;
                     color: @color-nav;
                     *{
@@ -106,6 +106,12 @@ nav#dokuwiki__pagetools{
                         background-image: url(data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjEwMDAiIHdpZHRoPSI4NTcuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsPSJyZ2IoNDAsMTA5LDE2OCkiIGQ9Ik04MTkuMiAyMTIuMXExNS42IDE1LjYgMjYuOCA0Mi40dDExLjEgNDkuMXY2NDIuOHEwIDIyLjQgLTE1LjYgMzh0LTM3LjkgMTUuNmgtNzUwcS0yMi4zIDAgLTM4IC0xNS42VDAgOTQ2LjRWNTMuNnEwIC0yMi40IDE1LjYgLTM4VDUzLjYgMGg1MDBxMjIuMyAwIDQ5LjEgMTEuMnQ0Mi40IDI2Ljd6TTU3MS40IDc1Ljl2MjA5LjhoMjA5LjlRNzc1LjcgMjY5LjUgNzY5IDI2Mi44TDU5NC4zIDg4LjJxLTYuNyAtNi43IC0yMi45IC0xMi4zem0yMTQuMyA4NTIuN1YzNTcuMUg1NTMuNnEtMjIuMyAwIC0zOCAtMTUuNlQ1MDAgMzAzLjZWNzEuNEg3MS40djg1Ny4yaDcxNC4zek00OTguOSA1OTcuN3ExOC40IDE0LjUgNDYuOSAzMS4yUTU3OC43IDYyNSA2MTEgNjI1cTgyLjEgMCA5OC44IDI3LjMgOSAxMi4zIDEuMSAyOS4xIDAgLjUgLS41IDEuMWwtMS4xIDEuMXYuNnEtMy40IDIxLjIgLTM5LjcgMjEuMiAtMjYuNyAwIC02NC4xIC0xMS4ydC03Mi42IC0yOS42UTQwOS42IDY3OCAzMTQuMiA3MTAuOSAyMjguOCA4NTcuMSAxNzkuMSA4NTcuMXEtOC4zIDAgLTE1LjYgLTMuOWwtMTMuNCAtNi43cS0uNSAtLjUgLTMuMyAtMi44IC01LjYgLTUuNSAtMy40IC0yMCA1IC0yMi40IDMxLjMgLTUxLjF0NzMuNiAtNTMuOXE3LjggLTUgMTIuOSAzLjQgMS4xIDEuMSAxLjEgMi4yIDI5IC00Ny40IDU5LjcgLTEwOS45IDM3LjkgLTc1LjkgNTggLTE0Ni4yIC0xMy40IC00NS44IC0xNyAtODl0My42IC03MS4ycTYuMiAtMjIuMyAyMy41IC0yMi4zaDEyLjJxMTIuOSAwIDE5LjYgOC40IDEwIDExLjcgNSAzNy45IC0xLjEgMy40IC0yLjIgNC41IC41IDEuNyAuNSA0LjV2MTYuN3EtMS4xIDY4LjYgLTcuOCAxMDcuMSAzMC43IDkxLjYgODEuNSAxMzIuOXpNMTc3LjUgODI3cTI5IC0xMy40IDc2LjQgLTg4LjIgLTI4LjUgMjIuNCAtNDguOCA0Ni45VDE3Ny41IDgyN3pNMzk5LjYgMzEzLjZxLTguNCAyMy41IC0xLjIgNzMuNyAuNiAtMy45IDMuOSAtMjQuNiAwIC0xLjcgNCAtMjQgLjUgLTIuMiAyLjIgLTQuNCAtLjYgLS42IC0uNiAtMS4yIC0uNSAtMS4xIC0uNSAtMS42IC0uNiAtMTIuMyAtNy4zIC0yMC4xIDAgLjUgLS41IDEuMXYxLjF6bS02OS4yIDM2OC45cTc1LjMgLTMwLjIgMTU4LjQgLTQ1LjIgLTEuMSAtLjYgLTcuMiAtNS4zdC04LjkgLTcuNnEtNDIuNSAtMzcuMyAtNzAuOSAtOTguMiAtMTUuMSA0OCAtNDYuMyAxMTAgLTE2LjggMzEuMiAtMjUuMSA0Ni4zem0zNjAuNCAtOXEtMTMuMyAtMTMuMyAtNzguMSAtMTMuMyA0Mi40IDE1LjYgNjkuMiAxNS42IDcuOCAwIDEwLjEgLS42IDAgLS41IC0xLjIgLTEuN3oiLz48L3N2Zz4=);
                     }
                 }
+                &.show{
+                    background-image: url(data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjEwMDAiIHdpZHRoPSI4MzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbD0icmdiKDEwNSwxMDUsMTA1KSIgZD0iTTc5NSAxMTkuMDY5YzUwIDQ2LjI1IDQzLjc1IDExNy41IC0zLjc1IDE2NWwtNDYuMjUgNDYuMjVzMzUgLTUzLjc1IC0zNy41IC0xMjMuNzVjLTYzLjc1IC02My43NSAtMTIzLjc1IC0zNi4yNSAtMTIzLjc1IC0zNi4yNWw0OC43NSAtNDguNzVjNDMuNzUgLTQ1IDEyMCAtNDUgMTYyLjUgLTIuNXptLTg4Ljc1IDI1MGwtNDkyLjUgNDkyLjUgLTIxMCA1MS4yNSAtMy43NSAtMy43NSA1NSAtMjEwIDQ5Mi41IC00OTBjOC43NSAtMi41IDMwIC04Ljc1IDYwIC0yLjVsLTUyMi41IDUyMi41IC0xNSA1NSA2MCA2MCA1Ni4yNSAtMTUgMjUgLTIzLjc1IDIuNSAtNTYuMjUgLTQwIC00MCA0NzguNzUgLTQ3OC43NWM3LjUgNi4yNSA3LjUgNi4yNSAxNSAxNSA3MS4yNSA3MCAzOC43NSAxMjMuNzUgMzguNzUgMTIzLjc1eiIvPjwvc3ZnPg==);
+                    &:hover, &:focus, &:active{
+                        background-image: url(data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjEwMDAiIHdpZHRoPSI4MzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbD0icmdiKDQwLDEwOSwxNjgpIiBkPSJNNzk1IDExOS4wNjljNTAgNDYuMjUgNDMuNzUgMTE3LjUgLTMuNzUgMTY1bC00Ni4yNSA0Ni4yNXMzNSAtNTMuNzUgLTM3LjUgLTEyMy43NWMtNjMuNzUgLTYzLjc1IC0xMjMuNzUgLTM2LjI1IC0xMjMuNzUgLTM2LjI1bDQ4Ljc1IC00OC43NWM0My43NSAtNDUgMTIwIC00NSAxNjIuNSAtMi41em0tODguNzUgMjUwbC00OTIuNSA0OTIuNSAtMjEwIDUxLjI1IC0zLjc1IC0zLjc1IDU1IC0yMTAgNDkyLjUgLTQ5MGM4Ljc1IC0yLjUgMzAgLTguNzUgNjAgLTIuNWwtNTIyLjUgNTIyLjUgLTE1IDU1IDYwIDYwIDU2LjI1IC0xNSAyNSAtMjMuNzUgMi41IC01Ni4yNSAtNDAgLTQwIDQ3OC43NSAtNDc4Ljc1YzcuNSA2LjI1IDcuNSA2LjI1IDE1IDE1IDcxLjI1IDcwIDM4Ljc1IDEyMy43NSAzOC43NSAxMjMuNzV6Ii8+PC9zdmc+);
+                    }
+                }
             }
 
         }
@@ -117,7 +123,7 @@ nav#dokuwiki__pagetools{
              box-shadow: @box-shadow-offset;
              li{
                  a{
-                     &.source, &.revs, &.backlink, &.plugin_bookcreator_addtobook, &.export_pdf, &.top{
+                     &.source, &.revs, &.backlink, &.plugin_bookcreator_addtobook, &.export_pdf, &.top, &.show {
                          color: @color-nav;
                          background-position: 95% center;
                          opacity: .8;
