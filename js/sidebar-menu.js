@@ -4,10 +4,10 @@
             $elem.wrapInner('<a href="#toggleMenu" class="toggler"></a>');
         },
         setWideContent = function(){
-
+            $('body').addClass('wide-content');
         },
         setDefaultContent= function(){
-
+            $('body').removeClass('wide-content');
         },
         toggleState = function($toggler){
             $toggler.toggleClass('closed');

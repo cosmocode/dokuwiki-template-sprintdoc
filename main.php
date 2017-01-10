@@ -83,8 +83,9 @@ $showSidebar =  true; /*  */
 
 
 /* #dokuwiki__top used as anchor for "back to top" button/link links */
+$classWideContent = ($ACT === "show") ? "": "wide-content ";
 ?>
-<body id="dokuwiki__top" class="<?php echo tpl_classes(); ?> <?php echo ($ACT) ? 'do-'.$ACT : 'do-none'; ?> <?php echo ($showSidebar) ? 'showSidebar' : ''; ?>">
+<body id="dokuwiki__top" class="<?php echo tpl_classes(); ?> <?php echo ($ACT) ? 'do-'.$ACT : 'do-none'; ?> <?php echo $classWideContent; ?><?php echo ($showSidebar) ? 'showSidebar' : ''; ?>">
 
 <div id="dokuwiki__site">
     <?php
