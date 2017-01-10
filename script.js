@@ -26,6 +26,7 @@ var $_LANG = {};
         setLang();
     });
 
+
 } )( jQuery, spc, wikiLang );
 
 /* DOKUWIKI:include js/plugins/do_tasks.js */

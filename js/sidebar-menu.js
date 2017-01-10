@@ -41,6 +41,7 @@
                 if($menu.length > 0){
                     var $toggler = $menu.find('> li.level1 > .li'),
                         $submenu = $menu.find('> li.level1 > ul');
+
                     if($toggler.length > 0 && $submenu.length > 0){
 
                         $toggler.addClass('closed');
@@ -56,6 +57,7 @@
                             });
                         });
 
+
                         //FIXME: store current nav state with local storage
                     }
 
@@ -65,6 +67,20 @@
             }catch(err){
 
             }
+        },
+        toggleMainContent = function(){
+            var $toggler = $('.togglelink.page_main-content').find('a');
+            $toggler.on("click", function (e) {
+                e.preventDefault();
+                var $link = $(this);
+
+                if($('body').hasClass('wide-content')){
+                    setDefaultContent();
+                }else{
+                    setWideContent();
+                }
+
+            });
         },
         sideMenu = function(){
             var $menus = $('.tools').find('.toggle-menu');
@@ -105,6 +121,7 @@
     $(function(){
         mainMenu();
         sideMenu();
+        toggleMainContent();
     });
 
 } )( jQuery, spc );

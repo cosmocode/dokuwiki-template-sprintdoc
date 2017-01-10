@@ -5,6 +5,7 @@
             try{
                 var $link = $this.find('#plugin__qc__link'),
                     $container = $this.find('#plugin__qc__wrapper');
+
                 if($container.length < 1){
                     $this.remove();
                 }else{
@@ -19,6 +20,15 @@
                         $(this).attr('aria-expanded',!oldState);
 
                     });
+
+                    if($container.length > 0){
+                        var num = $container.attr('data-errors');
+                        if(num){
+                            $link.find('.num').empty().append(num);
+                            $link.closest('li').removeClass('do_none');
+                        }
+                    }
+
                 }
 
             }catch(err){
