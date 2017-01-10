@@ -244,6 +244,29 @@
 }
 
 
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* flex-box */
+
+.display-flex() {
+    display: flex;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+}
+
+.flex-direction(@elem:column) {
+    flex-direction: @elem;
+    -ms-flex-direction: @elem;
+    -webkit-flex-direction: @elem;
+}
+
+// default "center"
+.justify-content(@elem:center) {
+    justify-content: @elem;
+    -ms-justify-content: @elem;
+    -webkit-justify-content: @elem;
+}
+
+
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* Screenreader / Hide */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */

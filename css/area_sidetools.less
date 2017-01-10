@@ -79,18 +79,16 @@
 
 /* + + +  icon  + + + */
         &::before {
+            .display-flex();
+            .flex-direction();
+            .justify-content();
+
             content: counter(bar-counter, lower-alpha);
             position: absolute;
             top: 0;
             left: 0;
-            display: flex;
-            display: -webkit-flex;
-            flex-direction: column;
-            -webkit-flex-direction: column;
-            justify-content: center;
-            -webkit-justify-content: center;
             height: 100%;
-            width: @icon-size;
+            width: 2.5rem;
             overflow: hidden;
             text-align: center;
             margin-top: auto;
@@ -136,18 +134,17 @@
                 transition: @transition color, @transition background-color, @transition border-color;
 
                 &::before {
+                    .display-flex();
+                    .flex-direction();
+                    .justify-content();
+
                     content: counter(bar-counter, lower-alpha);
                     position: absolute;
-                    top: -.1em;
+                    top: 1px;
+                    bottom: 1px;
                     left: 0;
-                    display: flex;
-                    display: -webkit-flex;
-                    flex-direction: column;
-                    -webkit-flex-direction: column;
-                    justify-content: center;
-                    -webkit-justify-content: center;
                     height: 100%;
-                    width: @icon-size;
+                    width: 2.5rem;
                     overflow: hidden;
                     color: @color-nav;
                     text-align: center;
@@ -192,7 +189,11 @@
                 color: @button_color;
 
                 &::before {
-                    color: @button_color;
+                    background-color: @color-site-bg;
+                }
+
+                &::after {
+                    display: none;
                 }
 
                 &:hover,
@@ -204,7 +205,13 @@
                     text-decoration: none;
 
                     &::before {
+                        background-color: @button_color;
                         color: @button_background;
+                    }
+
+                    &::after {
+                        display: block;
+                        background-color: @button_background;
                     }
                 }
             }
