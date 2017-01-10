@@ -41,21 +41,49 @@
                 border-radius: 4px 4px 0 0;
                 color: @color-nav;
                 cursor: pointer;
+                transition: @transition color, @transition background-color, @transition border-color;
+
                 * {
                     cursor: pointer;
                 }
+
                 .prefix {
                     font-size: .78rem;
                     color: @color-nav;
+                    position: relative;
+                    transition: @transition color;
                 }
                 .num {
+                    position: absolute;
+                    right: -.8rem;
+                    top: -.4rem;
+                    background-color: @color-border;
+                    border-radius: 2px;
+                    color: @color-nav;
                     font-size: .56rem;
+                    font-weight: 400;
+                    text-align: center;
+                    line-height: 1;
+                    padding: .2em .2rem .1em;
+                    transition: @transition color, @transition background-color;
+
                 }
-                &:hover, &:focus, &:active {
-                    color: @color-link;
+                &:hover,
+                &:focus,
+                &:active {
                     background-color: @background_page-header;
                     border-color: @color-border;
                     border-bottom-color: transparent;
+                    color: @button_background;
+
+                    .prefix {
+                        color: @button_background;
+                    }
+
+                    .num {
+                        background-color: @button_background;
+                        color: @button_color;
+                    }
                 }
             }
             &.active > a {
