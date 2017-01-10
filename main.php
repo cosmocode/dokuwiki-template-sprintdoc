@@ -353,7 +353,7 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
                                 tpl_content(false); /* the main content */
                             ?>
-
+                            <div class="clearer"></div>
                         </div><!-- .main-content -->
 
 
