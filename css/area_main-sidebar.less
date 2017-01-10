@@ -8,14 +8,13 @@
 #dokuwiki__aside.main-sidebar {
     counter-reset: nav-counter;
 
+
 /* + + + + +  nav main  + + + + + */
     .nav-main {
-        padding-bottom: 1.8rem;
-
         > ul {
             @icon-size: 2rem;
 
-            margin: 0;
+            margin: 0 0 1.8rem;
             padding: 0;
 
             ul {
@@ -80,18 +79,16 @@
                     }
 
                     &::before {
+                        .display-flex();
+                        .flex-direction();
+                        .justify-content();
+
                         content: counter(nav-counter);
                         position: absolute;
                         top: 0;
                         left: 0;
-                        display: flex;
-                        display: -webkit-flex;
-                        flex-direction: column;
-                        -webkit-flex-direction: column;
-                        justify-content: center;
-                        -webkit-justify-content: center;
                         height: 100%;
-                        width: @icon-size;
+                        width: 2.5rem;
                         overflow: hidden;
                         color: @color-nav;
                         text-align: center;
@@ -128,24 +125,23 @@
                             transition: @transition color, @transition background-color, @transition border-color;
 
                             &::before {
+                                .display-flex();
+                                .flex-direction();
+                                .justify-content();
+
                                 content: counter(nav-counter);
                                 position: absolute;
-                                top: -.1em;
+                                top: 1px;
+                                bottom: 1px;
                                 left: 0;
-                                display: flex;
-                                display: -webkit-flex;
-                                flex-direction: column;
-                                -webkit-flex-direction: column;
-                                justify-content: center;
-                                -webkit-justify-content: center;
                                 height: 100%;
-                                width: @icon-size;
+                                width: 2.5rem;
                                 overflow: hidden;
                                 color: @color-nav;
                                 text-align: center;
                                 margin-top: auto;
                                 margin-bottom: auto;
-                                transition: @transition color;
+                                transition: @transition color, @transition background-color;
                             }
 
                             &::after {
@@ -184,7 +180,11 @@
                             color: @button_color;
 
                             &::before {
-                                color: @button_color;
+                                background-color: @color-site-bg;
+                            }
+
+                            &::after {
+                                display: none;
                             }
 
                             &:hover,
@@ -196,7 +196,13 @@
                                 text-decoration: none;
 
                                 &::before {
+                                    background-color: @button_color;
                                     color: @button_background;
+                                }
+
+                                &::after {
+                                    display: block;
+                                    background-color: @button_background;
                                 }
                             }
                         }
