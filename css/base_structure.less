@@ -142,6 +142,8 @@
             }
         }
 
+
+
         .claim {
             .logo {
                 position: absolute;
@@ -156,6 +158,23 @@
                 height: auto;
             }
         }
+    }
+
+    .wide-content{
+        .content {
+            .row > .col-xs-12{
+                width: auto;
+                float: right;
+            }
+        }
+        &.showSidebar{
+            .content {
+                .row > .col-xs-12 {
+                    margin-left: 2.5rem;
+                }
+            }
+        }
+
     }
 
     .main-sidebar {

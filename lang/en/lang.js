@@ -15,6 +15,10 @@ $lang['head_menu_status']           = 'site status';
 $lang['head_breadcrumb']            = 'location indicator';
 $lang['head_menu_trace']            = 'trace / visited last';
 
+$lang['meta_box_jira_tickets_none'] = 'jira associated tickets found: none';
+$lang['meta_box_tags_none']         = 'jira associated tickets found: none';
+$lang['meta_box_sitemap_none']      = 'no sitemap available';
+
 $lang['quality_trigger']            = 'toggle page analysis';
 
 $lang['prefix_tasks']               = 'open tasks: ';

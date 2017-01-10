@@ -1,3 +1,4 @@
+var $_LANG = {};
 
 /* DOKUWIKI:include js/base/helper.js */
 /* DOKUWIKI:include js/base/spc.js */
@@ -14,6 +15,9 @@
                 /* default */
                 /* DOKUWIKI:include lang/de/lang.js */
             }
+
+            $_LANG = $lang;
+
         }catch(err){
         }
     };
@@ -28,5 +32,3 @@
 
 /* DOKUWIKI:include js/sidebar-menu.js */
 /* DOKUWIKI:include js/meta-box.js */
-
-

@@ -5,24 +5,34 @@
 <div class="tab-container">
     <ul class="meta-tabs">
 
-        <li><a href="#tab1" aria-expanded="false"><span class="prefix">Sitemap</span><span class="num"></span></a></li>
-        <?php if ($tags !== null) { ?><li><a href="#tab2" aria-expanded="false"><span class="prefix">Tags</span><span class="num"></span></a></li><?php } ?>
-        <li><a href="#tab3" aria-expanded="false"><span class="prefix">Jira</span><span class="num"></span></a></li>
+        <li><a href="#tab-toc" aria-expanded="false"><span class="prefix">Sitemap <span class="num">0</span></span></a></li>
+        <li><a href="#tab-tags" aria-expanded="false"><span class="prefix">Tags <span class="num">0</span></span></a></li>
+        <li><a href="#tab-jira" aria-expanded="false"><span class="prefix">Jira <span class="num">0</span></span></a></li>
 
     </ul>
 
     <div class="meta-content">
         <div class="box-content">
-            <div id="tab1" class="tab-pane" aria-hidden="true">
+            <div id="tab-toc" class="tab-pane" aria-hidden="true">
                 <?php  tpl_toc(); ?>
             </div>
-            <?php if ($tags !== null) { ?>
-                <div id="tab2" class="tab-pane" aria-hidden="true">
-                    <?php $tags->tpl_tags(); ?>
-                </div>
-            <?php } ?>
-            <div id="tab3" class="tab-pane" aria-hidden="true">
 
+                <div id="tab-tags" class="tab-pane" aria-hidden="true">
+                    <div>
+                    <?php
+                        if ($tags !== null) {
+                            $tags->tpl_tags();
+                        }else{
+                            echo "<p>" . tpl_getLang('meta_box_tags_none') . "</p>";
+                        }
+                    ?>
+                    </div>
+                </div>
+
+            <div id="tab-jira" class="tab-pane" aria-hidden="true">
+                <div>
+                <p><?php echo tpl_getLang('meta_box_jira_tickets_none') ?></p>
+                </div>
             </div>
         </div>
     </div>

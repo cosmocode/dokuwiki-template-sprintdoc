@@ -3,6 +3,12 @@
     var addToggleLink = function($elem){
             $elem.wrapInner('<a href="#toggleMenu" class="toggler"></a>');
         },
+        setWideContent = function(){
+
+        },
+        setDefaultContent= function(){
+
+        },
         toggleState = function($toggler){
             $toggler.toggleClass('closed');
             $toggler.toggleClass('opened');

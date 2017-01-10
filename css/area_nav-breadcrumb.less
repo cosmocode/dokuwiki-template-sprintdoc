@@ -105,6 +105,7 @@
             &.plugin__qc {
                 display: inline-block;
                 overflow: visible;
+                position: static;
             }
         } // li
 
@@ -134,6 +135,25 @@
             width: auto;
             border: 0 none;
             background: @color-site-bg;
+            z-index: 2000;
+
+            #plugin__qc__out{
+                h1{
+                    font-size: 1.2rem;
+                }
+                h2{
+                    margin-top: 1.6em;
+                    font-size: .93rem;
+                }
+                > h1, > h2, > p, >dl, >div{
+                    padding-left: 1rem;
+                    margin-left: 0;
+                }
+                > div p{
+                    padding-left: 0;
+                    margin-left: 0;
+                }
+            }
 
             &[aria-hidden="false"] {
                 margin-top: .5rem;
