@@ -327,6 +327,11 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                         </div>
 
                         <div id="dokuwiki__content" class="page main-content">
+
+                            <div class="togglelink page_main-content">
+                                <a href="#">&lt; &gt;<span class="sr-out">auf/zu</span></a>
+                            </div>
+
                             <div id="meta-box">
                                 <h6 class="sr-only" role="heading" aria-level="2"><?php echo  tpl_getLang('head_meta_box')  ?></h6>
 
