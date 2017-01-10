@@ -33,6 +33,37 @@ nav#dokuwiki__pagetools{
             *{
                 font-size: .8rem;
             }
+            &.plugin_move_page{
+                a{
+                    opacity: .6;
+                    color: @color-nav;
+                    *{
+                        color: @color-nav;
+                    }
+
+                    background: url(data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjEwMDAiIHdpZHRoPSIxMDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGZpbGw9InJnYigxMDUsMTA1LDEwNSkiIGQ9Ik05NDYuNCAyMTQuM3EyMi40IDAgMzggMTUuNnQxNS42IDM4djY3OC41cTAgMjIuMyAtMTUuNiAzOHQtMzggMTUuNkg0MTAuN3EtMjIuMyAwIC0zNy45IC0xNS42dC0xNS43IC0zOFY3ODUuN0g1My42cS0yMi40IDAgLTM4IC0xNS42VDAgNzMyLjF2LTM3NVEwIDMzNC44IDExLjIgMzA4dDI2LjcgLTQyLjRMMjY1LjYgMzcuOVEyODEuMyAyMi4zIDMwOCAxMS4yVDM1Ny4xIDBoMjMyLjJxMjIuMyAwIDM3LjkgMTUuNnQxNS43IDM4djE4M3EzNy45IC0yMi4zIDcxLjQgLTIyLjNoMjMyLjF6TTY0Mi45IDMzMy4xTDQ3NiA1MDBoMTY2LjlWMzMzLjF6TTI4NS43IDExOC45TDExOC45IDI4NS43aDE2Ni44VjExOC45em0xMDkuNCAzNjFMNTcxLjQgMzAzLjZWNzEuNEgzNTcuMXYyMzIuMnEwIDIyLjMgLTE1LjYgMzcuOXQtMzcuOSAxNS42SDcxLjR2MzU3LjJoMjg1LjdWNTcxLjRxMCAtMjIuMyAxMS4yIC00OS4xdDI2LjggLTQyLjR6bTUzMy41IDQ0OC43VjI4NS43SDcxNC4zdjIzMi4ycTAgMjIuMyAtMTUuNiAzNy45dC0zOCAxNS42SDQyOC42djM1Ny4yaDUwMHoiLz48L3N2Zz4=) 95% center no-repeat;
+                    background-size: 1rem auto;
+                    &:before{
+                        visibility: hidden;
+                    }
+
+                    &:hover, &:focus, &:active{
+                        opacity: 1;
+                        color: @color-nav-hover;
+                        background-color: #fff;
+                        background-image: url(data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjEwMDAiIHdpZHRoPSIxMDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGZpbGw9InJnYig0MCwxMDksMTY4KSIgZD0iTTk0Ni40IDIxNC4zcTIyLjQgMCAzOCAxNS42dDE1LjYgMzh2Njc4LjVxMCAyMi4zIC0xNS42IDM4dC0zOCAxNS42SDQxMC43cS0yMi4zIDAgLTM3LjkgLTE1LjZ0LTE1LjcgLTM4Vjc4NS43SDUzLjZxLTIyLjQgMCAtMzggLTE1LjZUMCA3MzIuMXYtMzc1UTAgMzM0LjggMTEuMiAzMDh0MjYuNyAtNDIuNEwyNjUuNiAzNy45UTI4MS4zIDIyLjMgMzA4IDExLjJUMzU3LjEgMGgyMzIuMnEyMi4zIDAgMzcuOSAxNS42dDE1LjcgMzh2MTgzcTM3LjkgLTIyLjMgNzEuNCAtMjIuM2gyMzIuMXpNNjQyLjkgMzMzLjFMNDc2IDUwMGgxNjYuOVYzMzMuMXpNMjg1LjcgMTE4LjlMMTE4LjkgMjg1LjdoMTY2LjhWMTE4Ljl6bTEwOS40IDM2MUw1NzEuNCAzMDMuNlY3MS40SDM1Ny4xdjIzMi4ycTAgMjIuMyAtMTUuNiAzNy45dC0zNy45IDE1LjZINzEuNHYzNTcuMmgyODUuN1Y1NzEuNHEwIC0yMi4zIDExLjIgLTQ5LjF0MjYuOCAtNDIuNHptNTMzLjUgNDQ4LjdWMjg1LjdINzE0LjN2MjMyLjJxMCAyMi4zIC0xNS42IDM3Ljl0LTM4IDE1LjZINDI4LjZ2MzU3LjJoNTAweiIvPjwvc3ZnPg==);
+
+                        *{
+                            color: @color-nav-hover;
+                        }
+                        background-position: 95% center;
+                        &::before{
+                            visibility: visible;
+                        }
+                    }
+                }
+            }
+            
             a{
                 font-size: .8rem;
                 &.source, &.revs, &.backlink, &.plugin_bookcreator_addtobook, &.export_pdf, &.top, &.edit, &.show{
@@ -107,9 +138,9 @@ nav#dokuwiki__pagetools{
                     }
                 }
                 &.show{
-                    background-image: url(data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjEwMDAiIHdpZHRoPSI4MzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbD0icmdiKDEwNSwxMDUsMTA1KSIgZD0iTTc5NSAxMTkuMDY5YzUwIDQ2LjI1IDQzLjc1IDExNy41IC0zLjc1IDE2NWwtNDYuMjUgNDYuMjVzMzUgLTUzLjc1IC0zNy41IC0xMjMuNzVjLTYzLjc1IC02My43NSAtMTIzLjc1IC0zNi4yNSAtMTIzLjc1IC0zNi4yNWw0OC43NSAtNDguNzVjNDMuNzUgLTQ1IDEyMCAtNDUgMTYyLjUgLTIuNXptLTg4Ljc1IDI1MGwtNDkyLjUgNDkyLjUgLTIxMCA1MS4yNSAtMy43NSAtMy43NSA1NSAtMjEwIDQ5Mi41IC00OTBjOC43NSAtMi41IDMwIC04Ljc1IDYwIC0yLjVsLTUyMi41IDUyMi41IC0xNSA1NSA2MCA2MCA1Ni4yNSAtMTUgMjUgLTIzLjc1IDIuNSAtNTYuMjUgLTQwIC00MCA0NzguNzUgLTQ3OC43NWM3LjUgNi4yNSA3LjUgNi4yNSAxNSAxNSA3MS4yNSA3MCAzOC43NSAxMjMuNzUgMzguNzUgMTIzLjc1eiIvPjwvc3ZnPg==);
+                    background-image: url(data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjEwMDAiIHdpZHRoPSI4NTcuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsPSJyZ2IoMTA1LDEwNSwxMDUpIiBkPSJNODE5LjIgMjEyLjFxMTUuNiAxNS42IDI2LjggNDIuNHQxMS4xIDQ5LjF2NjQyLjhxMCAyMi40IC0xNS42IDM4dC0zNy45IDE1LjZoLTc1MHEtMjIuMyAwIC0zOCAtMTUuNlQwIDk0Ni40VjUzLjZxMCAtMjIuNCAxNS42IC0zOFQ1My42IDBoNTAwcTIyLjMgMCA0OS4xIDExLjJ0NDIuNCAyNi43ek01NzEuNCA3NS45djIwOS44aDIwOS45UTc3NS43IDI2OS41IDc2OSAyNjIuOEw1OTQuMyA4OC4ycS02LjcgLTYuNyAtMjIuOSAtMTIuM3ptMjE0LjMgODUyLjdWMzU3LjFINTUzLjZxLTIyLjMgMCAtMzggLTE1LjZUNTAwIDMwMy42VjcxLjRINzEuNHY4NTcuMmg3MTQuM3pNMjE0LjMgNDQ2LjRxMCAtNy44IDUgLTEyLjh0MTIuOCAtNUg2MjVxNy44IDAgMTIuOCA1dDUuMSAxMi44djM1LjdxMCA3LjkgLTUuMSAxMi45dC0xMi44IDVIMjMyLjFxLTcuOCAwIC0xMi44IC01dC01IC0xMi45di0zNS43em00MTAuNyAxMjVxNy44IDAgMTIuOCA1LjF0NS4xIDEyLjhWNjI1cTAgNy44IC01LjEgMTIuOHQtMTIuOCA1LjFIMjMyLjFxLTcuOCAwIC0xMi44IC01LjF0LTUgLTEyLjh2LTM1LjdxMCAtNy44IDUgLTEyLjh0MTIuOCAtNS4xSDYyNXptMCAxNDIuOXE3LjggMCAxMi44IDV0NS4xIDEyLjh2MzUuOHEwIDcuOCAtNS4xIDEyLjh0LTEyLjggNUgyMzIuMXEtNy44IDAgLTEyLjggLTV0LTUgLTEyLjh2LTM1LjhxMCAtNy44IDUgLTEyLjh0MTIuOCAtNUg2MjV6Ii8+PC9zdmc+);
                     &:hover, &:focus, &:active{
-                        background-image: url(data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjEwMDAiIHdpZHRoPSI4MzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbD0icmdiKDQwLDEwOSwxNjgpIiBkPSJNNzk1IDExOS4wNjljNTAgNDYuMjUgNDMuNzUgMTE3LjUgLTMuNzUgMTY1bC00Ni4yNSA0Ni4yNXMzNSAtNTMuNzUgLTM3LjUgLTEyMy43NWMtNjMuNzUgLTYzLjc1IC0xMjMuNzUgLTM2LjI1IC0xMjMuNzUgLTM2LjI1bDQ4Ljc1IC00OC43NWM0My43NSAtNDUgMTIwIC00NSAxNjIuNSAtMi41em0tODguNzUgMjUwbC00OTIuNSA0OTIuNSAtMjEwIDUxLjI1IC0zLjc1IC0zLjc1IDU1IC0yMTAgNDkyLjUgLTQ5MGM4Ljc1IC0yLjUgMzAgLTguNzUgNjAgLTIuNWwtNTIyLjUgNTIyLjUgLTE1IDU1IDYwIDYwIDU2LjI1IC0xNSAyNSAtMjMuNzUgMi41IC01Ni4yNSAtNDAgLTQwIDQ3OC43NSAtNDc4Ljc1YzcuNSA2LjI1IDcuNSA2LjI1IDE1IDE1IDcxLjI1IDcwIDM4Ljc1IDEyMy43NSAzOC43NSAxMjMuNzV6Ii8+PC9zdmc+);
+                        background-image: url(data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjEwMDAiIHdpZHRoPSI4NTcuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsPSJyZ2IoNDAsMTA5LDE2OCkiIGQ9Ik04MTkuMiAyMTIuMXExNS42IDE1LjYgMjYuOCA0Mi40dDExLjEgNDkuMXY2NDIuOHEwIDIyLjQgLTE1LjYgMzh0LTM3LjkgMTUuNmgtNzUwcS0yMi4zIDAgLTM4IC0xNS42VDAgOTQ2LjRWNTMuNnEwIC0yMi40IDE1LjYgLTM4VDUzLjYgMGg1MDBxMjIuMyAwIDQ5LjEgMTEuMnQ0Mi40IDI2Ljd6TTU3MS40IDc1Ljl2MjA5LjhoMjA5LjlRNzc1LjcgMjY5LjUgNzY5IDI2Mi44TDU5NC4zIDg4LjJxLTYuNyAtNi43IC0yMi45IC0xMi4zem0yMTQuMyA4NTIuN1YzNTcuMUg1NTMuNnEtMjIuMyAwIC0zOCAtMTUuNlQ1MDAgMzAzLjZWNzEuNEg3MS40djg1Ny4yaDcxNC4zek0yMTQuMyA0NDYuNHEwIC03LjggNSAtMTIuOHQxMi44IC01SDYyNXE3LjggMCAxMi44IDV0NS4xIDEyLjh2MzUuN3EwIDcuOSAtNS4xIDEyLjl0LTEyLjggNUgyMzIuMXEtNy44IDAgLTEyLjggLTV0LTUgLTEyLjl2LTM1Ljd6bTQxMC43IDEyNXE3LjggMCAxMi44IDUuMXQ1LjEgMTIuOFY2MjVxMCA3LjggLTUuMSAxMi44dC0xMi44IDUuMUgyMzIuMXEtNy44IDAgLTEyLjggLTUuMXQtNSAtMTIuOHYtMzUuN3EwIC03LjggNSAtMTIuOHQxMi44IC01LjFINjI1em0wIDE0Mi45cTcuOCAwIDEyLjggNXQ1LjEgMTIuOHYzNS44cTAgNy44IC01LjEgMTIuOHQtMTIuOCA1SDIzMi4xcS03LjggMCAtMTIuOCAtNXQtNSAtMTIuOHYtMzUuOHEwIC03LjggNSAtMTIuOHQxMi44IC01SDYyNXoiLz48L3N2Zz4=);
                     }
                 }
             }
@@ -122,6 +153,21 @@ nav#dokuwiki__pagetools{
              background-color: #fff;
              box-shadow: @box-shadow-offset;
              li{
+                 &.plugin_move_page{
+                     a{
+                         color: @color-nav;
+                         background-position: 95% center;
+                         opacity: .8;
+                         &:hover, &:focus, &:active{
+                             opacity: 1;
+                             *{
+                                 opacity: 1;
+                             }
+                             color: @color-nav-hover;
+                             background-color: #fff;
+                         }
+                     }
+                 }
                  a{
                      &.source, &.revs, &.backlink, &.plugin_bookcreator_addtobook, &.export_pdf, &.top, &.show {
                          color: @color-nav;
