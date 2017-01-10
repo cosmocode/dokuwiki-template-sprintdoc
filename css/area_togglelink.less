@@ -15,25 +15,30 @@
             left: -2rem;
             z-index: 1;
 
-            width: 2rem;
-            height: 3.1rem;
-            background-color: #F6F6F6;
-            border: solid 1px @color-border;
-            border-radius: 2px 0 0 2px;
-            text-align: center;
-            padding-top: .9em;
-            transition: @transition color, @transition background-color, @transition border-color;
-
-            &:hover,
-            &:focus,
-            &:active {
-                background-color: @button_background;
-                border-color: @button_background;
-                color: @button_color;
+            a {
+                display: block;
+                width: 2rem;
+                height: 3.1rem;
+                background-color: #F6F6F6;
+                border: solid 1px @color-border;
+                border-radius: 2px 0 0 2px;
                 text-decoration: none;
+                text-align: center;
+                padding-top: .9em;
+                transition: @transition color, @transition background-color, @transition border-color;
 
-                * {
-                    color: inherit;
+                &:hover,
+                &:focus,
+                &:active {
+                    background-color: @button_background;
+                    border-color: @button_background;
+                    color: @button_color;
+                    text-decoration: none;
+
+                    * {
+                        color: inherit;
+                        text-decoration: none;
+                    }
                 }
             }
         }
