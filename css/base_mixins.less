@@ -148,12 +148,12 @@
     min-width: @elem;
     box-sizing: border-box;
     color: @color-nav;
-    font-size: .8rem;
+    font-size: @font-size-small;
     padding: 0;
-    margin: 0 .2rem;
+    margin: 0 @very-small-spacing;
 
     * {
-        font-size: .8rem;
+        font-size: @font-size-small;
     }
 }
 
@@ -165,11 +165,11 @@
         background-color: @button_background;
         border-radius: 2px;
         color: @button_color;
-        font-size: .6rem;
+        font-size: @font-size-very-small;
         font-weight: 400;
         text-align: center;
         line-height: 1;
-        padding: .2em .2rem .1em;
+        padding: @very-small-spacing @very-small-spacing .1em;
         transition: @transition color, @transition background-color;
     }
 
@@ -190,8 +190,8 @@
     .hide-text-show-before();
 
     color: inherit;
-    font-size: 1rem;
-    margin-top: .2rem;
+    font-size: @font-size-default;
+    margin-top: @very-small-spacing;
 }
 
 

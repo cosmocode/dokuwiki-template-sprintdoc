@@ -10,11 +10,11 @@
     padding: 1rem 1.8rem .2rem;
 
     > p {
-        font-size: .83rem;
+        font-size: @font-size-small;
         margin: 0;
 
         * {
-            font-size: .83rem;
+            font-size: @font-size-small;
         }
 
         .bchead {
@@ -38,7 +38,7 @@
                 transition: @transition border-color;
 
                 &:before {
-                    font-size: 1rem;
+                    font-size: @font-size-default + (@font-scale-factor * 2);
                     margin-top: .17rem;
                 }
 
@@ -140,11 +140,11 @@
 
             #plugin__qc__out{
                 h1{
-                    font-size: 1.2rem;
+                    font-size: @font-size-head3;
                 }
                 h2{
                     margin-top: 1.6em;
-                    font-size: .93rem;
+                    font-size: @font-size-head5;
                 }
                 > h1, > h2, > p, >dl, >div{
                     padding-left: 1rem;
@@ -172,7 +172,7 @@
                 .icon-emo-happy();
 
                 width: 100%;
-                font-size: .9rem;
+                font-size: @font-size-default;
 
                 &::before {
                     width: 100%;

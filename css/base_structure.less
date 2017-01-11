@@ -25,25 +25,34 @@
 
 @media @screen_min-sm {
     .make-grid(sm);
+    html {
+        font-size: 100%; //16px
+    }
 }
 
 @media @screen_min-md {
     .make-grid(md);
+    html {
+        font-size: 81.25%; //13px
+    }
 }
 
 @media @screen_min-lg {
     .make-grid(lg);
+    html {
+        font-size: 87.5%; //14px
+    }
 }
 
 @media @screen_min-xlg {
     html {
-        font-size: 120%;
+        font-size: 93.75%; //15px
     }
 }
 
 @media @screen_min-xxlg {
     html {
-        //font-size: 135%;
+        font-size: 106.25%; //17px
     }
 }
 
@@ -173,7 +182,7 @@
         &.showSidebar{
             .content {
                 .row > .col-xs-12 {
-                    margin-left: 2.5rem;
+                    margin-left: @margin-big;
                 }
             }
         }
@@ -192,7 +201,7 @@
 
 @media @screen_max-md {
     .container {
-        margin: 0 2.5rem 0 1.25rem;
+        margin: 0 @margin-big 0 1.25rem;
     }
 
     #dokuwiki__usertools {

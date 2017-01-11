@@ -10,11 +10,10 @@
     }
 
     ul.meta-tabs {
-        //border-bottom: 1px solid @color-border;
-        //background-color: @background_page-header;
+        list-style: none;
+        background-color: @background_page-header;
         margin: 0;
         padding: 0;
-        list-style: none;
 
         &::before,
         &::after {
@@ -27,12 +26,6 @@
         > li:first-child {
             > a {
                 margin-left: 0;
-            }
-        }
-
-        > li:last-child {
-            > a {
-                margin-right: -1px;
             }
         }
 
@@ -49,7 +42,7 @@
                 border: 1px solid @color-border;
                 border-radius: @fix_border-radius @fix_border-radius 0 0;
                 color: @color-nav;
-                font-size: .78rem;
+                font-size: @font-size-small;
                 line-height: 1.42857143;
                 padding: .3em 1rem .1em;
                 margin-left: 4px;
@@ -57,28 +50,13 @@
 
                 * {
                     cursor: pointer;
+                    color: inherit;
                 }
 
                 .prefix {
-                    font-size: .78rem;
-                    color: @color-nav;
                     position: relative;
                     transition: @transition color;
-                }
-
-                .num {
-                    position: absolute;
-                    right: -.8rem;
-                    top: -.2rem;
-                    background-color: @color-border;
-                    border-radius: @fix_border-radius;
-                    color: @color-nav;
-                    font-size: .56rem;
-                    font-weight: 400;
-                    text-align: center;
-                    line-height: 1;
-                    padding: .2em .2rem .1em;
-                    transition: @transition color, @transition background-color;
+                    font-size: @font-size-small;
                 }
 
                 &:hover,
@@ -90,10 +68,6 @@
                     text-decoration: none;
 
                     .prefix {
-                        color: inherit;
-                    }
-
-                    .num {
                         color: inherit;
                     }
                 }
@@ -141,11 +115,17 @@
             }
 
             > div {
+                font-size: @font-size-small;
                 padding: .8rem .5rem .5rem;
+
+                * {
+                    font-size: inherit;
+                }
 
                 p {
                     padding-left: 1em;
                 }
+
                 ul {
                     list-style: none;
                     padding-left: 0;
@@ -174,11 +154,11 @@
                 }
 
                 > div ul.toc {
-                    font-size: .78rem;
+                    font-size: @font-size-small;
                     padding-left: .5em;
 
                     a {
-                        font-size: .78rem;
+                        font-size: @font-size-small;
                         display: inline-block;
                         padding-left: 10px;
                         position: relative;

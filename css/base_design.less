@@ -37,7 +37,7 @@ a {
     padding: 0.5em 1em 0;
 
     span {
-        font-size: 0.875em;
+        font-size: @font-size-small;
         border: solid @ini_background_alt;
         border-width: 1px 1px 0;
         background-color: @ini_background;
@@ -54,20 +54,20 @@ a {
     clear: both;
     background: @color-content-bg;
     color: inherit;
-    padding: 1rem 2rem 2rem;
+    padding: (@margin-default / 2) @margin-default @margin-default;
     // margin-bottom: .5rem; // no margin: if there is another bg-color, then there is an #fff border
     overflow: hidden;
     word-wrap: break-word;
 }
 
 .dokuwiki .docInfo {
-    font-size: 0.5rem;
+    font-size: @font-size-small;
     text-align: right;
 }
 
 /* license note under edit window */
 .dokuwiki div.license {
-    font-size: 93.75%;
+    font-size: @font-size-small;
 }
 
 [dir=rtl] .dokuwiki .docInfo {
@@ -111,38 +111,39 @@ h6 {
 }
 
 h1 {
-    font-size: 1.4rem;
+    font-size: @font-size-head1;
     margin: 0 0 0.444em;
     padding-top: 1em;
 }
 
 h2 {
-    font-size: 1.12rem;
+    font-size: @font-size-head2;
     margin: 0 0 0.666em;
 }
 
 h3 {
-    font-size: 1rem;
+    font-size: @font-size-head3;
     margin: 0 0 0.888em;
 }
 
 h4 {
-    font-size: .94rem;
+    font-size: @font-size-head4;
     margin: 0 0 1.0em;
 }
 
 h5 {
-    font-size: .88rem;
+    font-size: @font-size-head5;
     margin: 0 0 1.1428em;
 }
 
 h6 {
-    font-size: .83rem;
+    font-size: @font-size-head6;
+    font-weight: @font-weight-bold;
     margin: 0 0 1.333em;
 }
 
 p {
-    font-size: .88rem;
+    font-size: @font-size-default;
     line-height: 135%;
 
     a,
@@ -155,7 +156,7 @@ p {
 label,
 legend,
 button {
-    font-size: .88rem;
+    font-size: @font-size-default;
 
     a,
     span,
@@ -168,7 +169,7 @@ hr,
 figure,
 details,
 address {
-    font-size: .88rem;
+    font-size: @font-size-default;
     line-height: 140%;
 }
 
@@ -197,7 +198,7 @@ audio {
 
 small,
 .code {
-    font-size: .75rem;
+    font-size: @font-size-small;
 }
 
 .code {
@@ -209,7 +210,7 @@ small,
 
 ul,
 ol {
-    font-size: .88rem;
+    font-size: @font-size-default;
     line-height: 140%;
     padding: 0 0 0 1.5em;
 }
@@ -231,7 +232,7 @@ dd {
 }
 
 dl {
-    font-size: .88rem;
+    font-size: @font-size-default;
     line-height: 140%;
 }
 
@@ -284,7 +285,7 @@ table {
     empty-cells: show;
     border-spacing: 0;
     border: 1px solid @color-border;
-    font-size: .88rem;
+    font-size: @font-size-default;
     line-height: 140%;
 }
 
@@ -386,7 +387,7 @@ samp,
 kbd {
     font-family: Consolas, "Andale Mono WT", "Andale Mono", "Bitstream Vera Sans Mono", "Nimbus Mono L", Monaco, "Courier New", monospace;
     /* same font stack should be used for ".dokuwiki table.diff td" in _diff.css */
-    font-size: 1em;
+    font-size: @font-size-default;
     direction: ltr;
     text-align: left;
     background-color: @color-site-bg;
@@ -401,7 +402,7 @@ pre {
     border: 1px solid @color-border;
     border-radius: @fix_border-radius;
     box-shadow: inset 0 0 .5em @color-border;
-    font-size: .88rem;
+    font-size: @font-size-default;
     line-height: 140%;
     padding: .7em 1em;
 }
@@ -409,7 +410,7 @@ pre {
 blockquote {
     border: solid @color-border;
     border-width: 0 0 0 .25em;
-    font-size: .88rem;
+    font-size: @font-size-default;
     line-height: 140%;
     padding: 0 .5em;
 }
@@ -453,7 +454,7 @@ form {
 }
 
 fieldset {
-    font-size: .88rem;
+    font-size: @font-size-default;
     line-height: 140%;
     border: 1px solid @ini_text_alt;
     padding: .7rem 1rem;
@@ -498,7 +499,7 @@ select {
 }
 
 textarea.edit {
-    font-size: .88em;
+    font-size: @font-size-default;
 }
 
 optgroup {
