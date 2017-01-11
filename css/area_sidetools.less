@@ -129,8 +129,8 @@
                 position: relative;
                 display: block;
                 border: 1px solid transparent;
-                border-radius: 2px;
-                padding: .6em 0 .6em (@margin-big + 1);
+                border-radius: @fix_border-radius;
+                padding: .6em 0 .6em (@icon-size + 1);
                 transition: @transition color, @transition background-color, @transition border-color;
 
                 &::before {
@@ -190,6 +190,7 @@
 
                 &::before {
                     background-color: @color-site-bg;
+                    border-radius: @fix_border-radius 0 0 @fix_border-radius;
                 }
 
                 &::after {
@@ -243,7 +244,7 @@
         overflow-y: auto;
         background-color: @color-content-bg;
         border: 1px solid @button_background;
-        border-radius: 2px;
+        border-radius: @fix_border-radius;
         font-size: @font-size-small;
         margin-top: .1rem;
         padding: .3rem .6em;

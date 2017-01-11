@@ -7,7 +7,7 @@
 .breadcrumbs {
     position: relative;
     border-bottom: 1px solid @color-border-light;
-    padding: .8rem @margin-default @very-small-spacing;
+    padding: 1rem 1.8rem @very-small-spacing;
 
     > p {
         font-size: @font-size-small;
@@ -31,14 +31,14 @@
                 width: auto;
                 box-sizing: border-box;
                 border: solid 1px transparent;
-                border-radius: 2px;
+                border-radius: @border-radius;
                 vertical-align: middle;
                 text-decoration: none;
                 margin-top: -.2em;
                 transition: @transition border-color;
 
                 &:before {
-                    font-size: @font-size-default + (@font-scale-factor*2);
+                    font-size: @font-size-default + (@font-scale-factor * 2);
                     margin-top: .17rem;
                 }
 
@@ -62,7 +62,7 @@
         float: right;
         display: inline-block;
         max-width: 30%;
-        margin: -.4em 0 0;
+        margin: -.6em 0 0;
         padding: 0;
 
         > li {
