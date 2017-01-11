@@ -6,11 +6,12 @@
 
 
 .search.main-sidebar {
+
     form {
         @icon-size: 40px;
 
         display: block;
-        margin: @margin-default 0;
+        margin: 0 0 @margin-default;
 
         .no {
             #qsearch__in {
@@ -72,6 +73,20 @@
                 left: -1px;
                 background-color: @color-border;
                 transition: @transition background-color;
+            }
+        }
+    }
+}
+
+.wide-content{
+    .search.main-sidebar{
+        form{
+            .no {
+                #qsearch__in{
+                    width: 0;
+                    padding: 0;
+                    margin: 0;
+                }
             }
         }
     }
