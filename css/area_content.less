@@ -4,56 +4,61 @@
  * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
  */
 
-
 .content .row {
     > .col-xs-12 {
         box-shadow: @box-shadow;
-        #dokuwiki__content{
+
+        #dokuwiki__content {
             position: relative;
             z-index: 10;
-            &::before{
+
+            &::before {
                 content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                height: 2.45rem;
+                width: 100%;
                 background-color: @background_page-header;
                 border-bottom: 1px solid @color-border;
-                position: absolute;
-                top: 0; left: 0;
-                height: 3rem; width: 100%;
-                z-index: -1;
             }
-            #meta-box{
+
+            #meta-box {
                 display: inline-block;
                 min-height: 1.95rem;
                 max-width: 40%;
                 float: right;
             }
 
-            #plugin__highlightparent{
+            #plugin__highlightparent {
                 display: block;
             }
         }
     }
 }
 
-.structaggregation{
+.structaggregation {
     font-size: .88rem;
-    td, th{
+    td, th {
         font-size: .88rem;
         line-height: 125%;
-        a{
+        a {
             font-size: .88rem;
             line-height: 125%;
         }
     }
-    > a.export{
+    > a.export {
         font-size: .88rem;
         line-height: 135%;
         padding-top: .5em;
     }
-    ~ ul li .li{
+    ~ ul li .li {
         font-size: .88rem;
     }
 }
-.dokuwiki .structaggregation a.export{
+
+.dokuwiki .structaggregation a.export {
     padding-top: .3em;
     font-size: .88rem;
 }
@@ -63,12 +68,12 @@
 .main-content > .level3,
 .main-content > .level4,
 .main-content > .level5,
-.main-content > .level6{
+.main-content > .level6 {
     font-size: .88rem;
     padding-bottom: 1rem;
-    > p, > ul > li .li{
+    > p, > ul > li .li {
         font-size: .88rem;
-        a{
+        a {
             font-size: inherit;
         }
     }
