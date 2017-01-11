@@ -12,9 +12,9 @@
 /* + + + + +  nav main  + + + + + */
     .nav-main {
         > ul {
-            @icon-size: 2rem;
+            @icon-size: @margin-default;
 
-            margin: 0 0 1.8rem;
+            margin: 0 0 @margin-default;
             padding: 0;
 
             ul {
@@ -72,7 +72,7 @@
                     position: relative;
                     z-index: 1;
                     margin-top: -1px;
-                    padding: .5em 0 .5em (@icon-size + 1);
+                    padding: .5em 0 .5em (@margin-big + 1);
 
                     &[class="li"] {
                         border-bottom: solid 1px @color-border;
@@ -88,7 +88,7 @@
                         top: 0;
                         left: 0;
                         height: 100%;
-                        width: 2.5rem;
+                        width: @margin-big;
                         overflow: hidden;
                         color: @color-nav;
                         text-align: center;
@@ -102,7 +102,7 @@
                         top: 15%;
                         bottom: 15%;
                         width: 1px;
-                        left: (@icon-size + .5);
+                        left: (@margin-big + .5);
                         background-color: @color-border;
                     }
 
@@ -121,7 +121,7 @@
                             border: 1px solid transparent;
                             border-radius: 2px;
                             margin-bottom: -.3rem;
-                            padding: .6em 0 .6em (@icon-size + 1);
+                            padding: .7em 0 .7em (@margin-big + 1);
                             transition: @transition color, @transition background-color, @transition border-color;
 
                             &::before {
@@ -135,7 +135,7 @@
                                 bottom: 1px;
                                 left: 0;
                                 height: 100%;
-                                width: 2.5rem;
+                                width: @margin-big;
                                 overflow: hidden;
                                 color: @color-nav;
                                 text-align: center;
@@ -150,7 +150,7 @@
                                 top: 15%;
                                 bottom: 15%;
                                 width: 1px;
-                                left: (@icon-size + .5);
+                                left: @margin-big;
                                 background-color: @color-border;
                                 transition: @transition background-color;
                             }
@@ -235,7 +235,7 @@
     #dokuwiki__aside.main-sidebar {
         .nav-main {
             .li {
-                font-size: .8rem;
+                font-size: @font-size-default;
                 padding: .1em 0;
 
                 * {
@@ -245,7 +245,7 @@
             }
 
             > ul > li > .li {
-                font-size: .9rem;
+                font-size: @font-size-default;
 
                 * {
                     font-size: inherit;
@@ -263,7 +263,7 @@
     #dokuwiki__aside.main-sidebar {
         .nav-main {
             .li {
-                font-size: .9rem;
+                font-size: @font-size-default;
                 padding: .15em 0 .15em .25rem;
 
                 * {
@@ -273,7 +273,7 @@
             }
 
             > ul > li > .li {
-                font-size: 1rem;
+                font-size: @font-size-default;
 
                 > * {
                     font-size: inherit;

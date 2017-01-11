@@ -6,13 +6,13 @@
 
 
 .side-tools.main-sidebar {
-    @icon-size: 2rem;
+    @icon-size: @margin-default;
 
     counter-increment: bar-counter;
 
     ul,
     .trace {
-        padding-left: (@icon-size + .5);
+        padding-left: (@margin-big + .5);
     }
 
     ul {
@@ -45,7 +45,7 @@
     > nav {
         > ul {
             margin: 0;
-            padding: 0 0 0 (@icon-size + .5);
+            padding: 0 0 0 (@margin-big + .5);
 
             li {
                 list-style-type: none;
@@ -66,7 +66,7 @@
         height: auto;
         color: @color-nav;
         font-weight: normal;
-        padding: .5em 0 .5em (@icon-size + 1.1);
+        padding: .7em 0 .7em (@margin-big + 1.1);
 
         &[class="sr-only"] {
             border-bottom: solid 1px @color-border;
@@ -88,7 +88,7 @@
             top: 0;
             left: 0;
             height: 100%;
-            width: 2.5rem;
+            width: @margin-big;
             overflow: hidden;
             text-align: center;
             margin-top: auto;
@@ -103,7 +103,7 @@
             top: 15%;
             bottom: 15%;
             width: 1px;
-            left: (@icon-size + .6);
+            left: (@margin-big + .6);
             background-color: @color-border;
             transition: @transition background-color;
         }
@@ -130,7 +130,7 @@
                 display: block;
                 border: 1px solid transparent;
                 border-radius: 2px;
-                padding: .6em 0 .6em (@icon-size + 1);
+                padding: .6em 0 .6em (@margin-big + 1);
                 transition: @transition color, @transition background-color, @transition border-color;
 
                 &::before {
@@ -144,7 +144,7 @@
                     bottom: 1px;
                     left: 0;
                     height: 100%;
-                    width: 2.5rem;
+                    width: @margin-big;
                     overflow: hidden;
                     color: @color-nav;
                     text-align: center;
@@ -159,7 +159,7 @@
                     top: 15%;
                     bottom: 15%;
                     width: 1px;
-                    left: (@icon-size + .5);
+                    left: @margin-big;
                     background-color: @color-border;
                     transition: @transition background-color;
                 }
@@ -244,7 +244,7 @@
         background-color: @color-content-bg;
         border: 1px solid @button_background;
         border-radius: 2px;
-        font-size: .8rem;
+        font-size: @font-size-small;
         margin-top: .1rem;
         padding: .3rem .6em;
 
@@ -294,7 +294,7 @@
 @media @screen_min-xlg {
     .side-tools.main-sidebar {
         h6 {
-            font-size: .9rem;
+            font-size: @font-size-default;
 
             * {
                 font-size: inherit;
@@ -302,7 +302,7 @@
         }
 
         li {
-            font-size: .8rem;
+            font-size: @font-size-small;
             padding: .1em 0 .1em .1rem;
 
             > * {
@@ -319,11 +319,11 @@
 @media @screen_max-xlg {
     .side-tools.main-sidebar {
         h6 {
-            font-size: 1rem;
+            font-size: @font-size-default;
         }
 
         li {
-            font-size: .9rem;
+            font-size: @font-size-small;
             padding: .15em 0 .15em .23rem;
 
             > * {
@@ -332,7 +332,7 @@
         }
 
         p {
-            font-size: .9rem;
+            font-size: @font-size-small;
         }
     }
 }

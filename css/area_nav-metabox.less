@@ -9,7 +9,6 @@
     }
 
     ul.meta-tabs {
-        border-bottom: 1px solid @color-border;
         background-color: @background_page-header;
         margin: 0;
         padding: 0;
@@ -26,21 +25,22 @@
             }
         }
         > li {
-            margin: 0 -1px -1px;
+            margin: 1px -1px -1px;
             position: relative;
             display: inline-block;
             > a {
-                font-size: .78rem;
                 margin-left: 4px;
                 line-height: 1.42857143;
                 position: relative;
                 display: block;
-                padding: .56em 2em;
+                padding: .38em 2em .12em;
                 border: 1px solid @color-border;
+                border-bottom: 0 none;
                 background-color: @color-site-bg;
                 border-radius: 4px 4px 0 0;
                 color: @color-nav;
                 cursor: pointer;
+                text-decoration: none;
                 transition: @transition color, @transition background-color, @transition border-color;
 
                 * {
@@ -48,24 +48,12 @@
                 }
 
                 .prefix {
-                    font-size: .78rem;
                     color: @color-nav;
                     position: relative;
                     transition: @transition color;
+                    font-size: @font-size-small;
                 }
                 .num {
-                    position: absolute;
-                    right: -.8rem;
-                    top: -.4rem;
-                    background-color: @color-border;
-                    border-radius: 2px;
-                    color: @color-nav;
-                    font-size: .56rem;
-                    font-weight: 400;
-                    text-align: center;
-                    line-height: 1;
-                    padding: .2em .2rem .1em;
-                    transition: @transition color, @transition background-color;
 
                 }
                 &:hover,
@@ -90,8 +78,7 @@
                 cursor: default;
                 tab-index: -1;
                 color: #555;
-                background-color: @background_page-header;
-                border-color: transparent;
+                background-color: #fff;
             }
         }
     }
@@ -108,6 +95,10 @@
             }
             > div {
                 padding: .8rem .5rem .5rem;
+                font-size: @font-size-small;
+                *{
+                    font-size: inherit;
+                }
                 p{
                     padding-left: 1em;
                 }
@@ -134,10 +125,10 @@
                     padding: 0;
                 }
                 > div ul.toc {
-                    font-size: .78rem;
+                    font-size: @font-size-small;
                     padding-left: .5em;
                     a {
-                        font-size: .78rem;
+                        font-size: @font-size-small;
                         display: inline-block;
                         padding-left: 10px;
                         position: relative;

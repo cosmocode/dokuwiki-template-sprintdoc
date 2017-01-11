@@ -42,8 +42,11 @@
 @height-context-bar: 50px;
 
 @margin-small:       1rem;
-@margin-default:     1.5rem;
-@margin-big:         2.5rem;
+@margin-default:     2rem;
+@margin-big:         3.07rem;
+
+@small-spacing:      .3rem;
+@very-small-spacing: .2rem;
 
 @grid:               @margin-small;
 
@@ -53,8 +56,9 @@
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* fonts */
 
-@font-size-small: .75rem;
-@font-size-default: .88rem;
+@font-size-very-small: .73rem;
+@font-size-small: .88rem;
+@font-size-default: 1rem;
 @font-size-big: 1.5rem;
 @font-size-bigger: 1.75rem;
 
@@ -62,6 +66,17 @@
 @line-height-big: 135%;
 @line-height-bigger: 140%;
 
+@font-weight-bold: 800;
+@font-weight-normal: 400;
+
+@font-scale-factor: .0769;
+
+@font-size-head6: @font-size-default;
+@font-size-head5: @font-size-default + @font-scale-factor;
+@font-size-head4: @font-size-default + (@font-scale-factor * 2);
+@font-size-head3: @font-size-default + (@font-scale-factor * 3);
+@font-size-head2: @font-size-default + (@font-scale-factor * 4);
+@font-size-head1: @font-size-default + (@font-scale-factor * 5);
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* breakpoints */
@@ -140,7 +155,6 @@
 html,
 body {
     .reset();
-
     font-size: 100.1%;
 }
 

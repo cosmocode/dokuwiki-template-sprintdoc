@@ -4,6 +4,7 @@
 
 <?php if ($showTools): ?>
     <nav id="dokuwiki__pagetools">
+        <div class="tools">
 
         <?php include('nav-status.php');?>
         <ul>
@@ -16,5 +17,6 @@
                 'top'       => tpl_action('top', 1, 'li', 1),
             )); ?>
         </ul>
+        </div>
     </nav>
 <?php endif; ?>

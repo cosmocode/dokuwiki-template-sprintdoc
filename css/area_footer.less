@@ -22,9 +22,12 @@
     }
 
     #dokuwiki__footer {
+
         .main-footer {
             position: relative;
+            z-index: 10;
             box-sizing: border-box;
+            background-color: @color-site-bg;
         }
 
         p {
@@ -67,7 +70,7 @@
         &.showSidebar{
             #dokuwiki__footer {
                 .col-xs-12 {
-                    margin-left: 2.5rem;
+                    margin-left: @margin-big;
                 }
             }
         }
