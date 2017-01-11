@@ -68,6 +68,10 @@
                                 if($this.hasClass('opened')){
                                     var $foc = focusFirstSubLink($this.closest('li.level1'), true);
                                 }
+                                if($('body').hasClass('wide-content')){
+                                    setDefaultContent();
+                                }
+
                             });
                         });
 
@@ -117,6 +121,9 @@
                                     toggleState($this);
                                     if ($this.hasClass('opened')) {
                                         var $elem = ($submenu.is('div')) ? focusLastSubLink($submenu): focusFirstSubLink($submenu,false);
+                                    }
+                                    if($('body').hasClass('wide-content')){
+                                        setDefaultContent();
                                     }
                                 });
                             });
