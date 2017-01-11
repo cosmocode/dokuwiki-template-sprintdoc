@@ -24,6 +24,28 @@ class SvgNode extends \SimpleXMLElement {
 
         return simplexml_import_dom($new, get_class($this));
     }
+
+    /**
+     * @param \SimpleXMLElement $node the node to be added
+     * @return \SimpleXMLElement
+     */
+    public function appendNode(\SimpleXMLElement $node) {
+        $dom = dom_import_simplexml($this);
+        $domNode = dom_import_simplexml($node);
+
+        $newNode = $dom->appendChild($domNode);
+        return simplexml_import_dom($newNode, get_class($this));
+    }
+
+    /**
+     * @param \SimpleXMLElement $node the child to remove
+     * @return \SimpleXMLElement
+     */
+    public function removeChild(\SimpleXMLElement $node) {
+        $dom = dom_import_simplexml($node);
+        $dom->parentNode->removeChild($dom);
+        return $node;
+    }
 }
 
 /**
@@ -32,6 +54,7 @@ class SvgNode extends \SimpleXMLElement {
 class SVG {
 
     const IMGDIR = __DIR__ . '/img/';
+    const BACKGROUNDCLASS = 'sprintdoc-background';
 
     /** @var SvgNode */
     protected $xml;
@@ -62,6 +85,8 @@ class SVG {
      * Generate and output
      */
     public function out() {
+        $g = $this->wrapChildren();
+        $this->setBackground($g);
         $this->setStyle();
         header('image/svg+xml');
         echo $this->xml->asXML();
@@ -80,20 +105,31 @@ class SVG {
         $colors = array(
             's' => $this->fixColor($INPUT->str('s')),
             'f' => $this->fixColor($INPUT->str('f')),
+            'b' => $this->fixColor($INPUT->str('b')),
             'sh' => $this->fixColor($INPUT->str('sh')),
             'fh' => $this->fixColor($INPUT->str('fh')),
+            'bh' => $this->fixColor($INPUT->str('bh')),
         );
 
-        $style = '';
+        if (empty($colors['b'])) {
+            $colors['b'] = $this->fixColor('00000000');
+        }
+
+        $style = 'g rect.' . self::BACKGROUNDCLASS . '{fill:' . $colors['b'] . ';}';
+
+        if($colors['bh']) {
+            $style .= 'g:hover rect.' . self::BACKGROUNDCLASS . '{fill:' . $colors['bh'] . ';}';
+        }
+
         if($colors['s'] || $colors['f']) {
-            $style .= $element . '{';
+            $style .= 'g ' . $element . '{';
             if($colors['s']) $style .= 'stroke:' . $colors['s'] . ';';
             if($colors['f']) $style .= 'fill:' . $colors['f'] . ';';
             $style .= '}';
         }
 
         if($colors['sh'] || $colors['fh']) {
-            $style .= $element . ':hover{';
+            $style .= 'g:hover ' . $element . '{';
             if($colors['sh']) $style .= 'stroke:' . $colors['sh'] . ';';
             if($colors['fh']) $style .= 'fill:' . $colors['fh'] . ';';
             $style .= '}';
@@ -134,6 +170,41 @@ class SVG {
         }
 
         return "rgba($r,$g,$b,$a)";
+    }
+
+    /**
+     * sets a rectangular background of the size of the svg/this itself
+     *
+     * @param SvgNode $g
+     * @return SvgNode
+     */
+    protected function setBackground(SvgNode $g) {
+        $attributes = $this->xml->attributes();
+        $rect = $g->prependChild('rect');
+        $rect->addAttribute('class', self::BACKGROUNDCLASS);
+
+        $rect->addAttribute('x', '0');
+        $rect->addAttribute('y', '0');
+        $rect->addAttribute('height', $attributes['height']);
+        $rect->addAttribute('width', $attributes['width']);
+        return $rect;
+    }
+
+    /**
+     * Wraps all elements of $this in a `<g>` tag
+     *
+     * @return SvgNode
+     */
+    protected function wrapChildren() {
+        $svgChildren = array();
+        foreach ($this->xml->children() as $child) {
+            $svgChildren[] = $this->xml->removeChild($child);
+        }
+        $g = $this->xml->prependChild('g');
+        foreach ($svgChildren as $child) {
+            $g->appendNode($child);
+        }
+        return $g;
     }
 
     /**
