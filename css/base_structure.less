@@ -191,7 +191,7 @@
 
 @media @screen_max-md {
     .container {
-        margin: 0 @margin-big 0 1.25rem;
+        margin: 0 (@margin-big/2);
     }
 
     #dokuwiki__usertools {
@@ -199,17 +199,27 @@
         max-width: 75%;
         position: absolute;
         top: 0;
+        right: @margin-big/2;
     }
 
     .content {
         position: relative;
+        margin-top: 1rem;
 
         #dokuwiki__pagetools {
-            top: 0;
+            top: @margin-big * 2;
+            .tools{
+                position: static;
+            }
         }
 
-        .row > .col-xs-12 #dokuwiki__content::before {
-            display: none;
+        .row > .col-xs-12 #dokuwiki__content {
+
+            padding-right: @margin-big;
+            &::before {
+                display: none;
+            }
+
         }
     }
 

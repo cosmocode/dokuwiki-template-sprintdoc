@@ -3,6 +3,20 @@
     var addToggleLink = function($elem){
             $elem.wrapInner('<a href="#toggleMenu" class="toggler"></a>');
         },
+
+        setContentMinHeight = function(){
+            var $sidebar = $('.page-wrapper').find('> .tools').find('.col-xs-12');
+
+            if($sidebar.length == 1){
+                var h = $sidebar.height(),
+                    num = parseFloat(h);
+                if(!isNaN(num)){
+                    $('#dokuwiki__content').css('minHeight',num + 100);
+                }
+
+            }
+
+        },
         setWideContent = function(){
             $('body').addClass('wide-content');
         },
@@ -122,6 +136,7 @@
         mainMenu();
         sideMenu();
         toggleMainContent();
+        setContentMinHeight();
     });
 
 } )( jQuery, spc );
