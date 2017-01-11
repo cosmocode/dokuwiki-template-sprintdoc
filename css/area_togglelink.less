@@ -22,7 +22,7 @@
             height: 100%;
             background-color: @button_background;
             border: solid 1px @button_background;
-            border-radius: 2px 0 0 2px;
+            border-radius: @fix_border-radius 0 0 @fix_border-radius;
             color: @button_color;
             text-decoration: none;
             text-align: center;
@@ -51,6 +51,7 @@
             a {
                 background-color: @button_background;
                 border-color: @button_background;
+                border-radius: 0 @fix_border-radius @fix_border-radius 0;
 
                 &:hover,
                 &:focus,

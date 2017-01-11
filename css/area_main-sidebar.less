@@ -119,7 +119,7 @@
                             position: relative;
                             display: block;
                             border: 1px solid transparent;
-                            border-radius: 2px;
+                            border-radius: @fix_border-radius;
                             margin-bottom: -.3rem;
                             padding: .6em 0 .6em (@icon-size + 1);
                             transition: @transition color, @transition background-color, @transition border-color;
@@ -181,6 +181,7 @@
 
                             &::before {
                                 background-color: @color-site-bg;
+                                border-radius: @fix_border-radius 0 0 @fix_border-radius;
                             }
 
                             &::after {
