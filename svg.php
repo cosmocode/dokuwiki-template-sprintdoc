@@ -63,7 +63,7 @@ class SVG {
      */
     public function out() {
         $this->setStyle();
-        header('image/svg+xml');
+        header('Content-Type: image/svg+xml');
         echo $this->xml->asXML();
     }
 
