@@ -49,7 +49,7 @@ class SVG {
         $file = self::IMGDIR . $svg;
         if(!file_exists($file)) {
             // media files are ACL protected
-            if(auth_quickaclcheck($svg)) $this->abort(403);
+            if(auth_quickaclcheck($svg) < AUTH_READ) $this->abort(403);
             $file = mediaFN($svg);
         }
         // check if media exists
