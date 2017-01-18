@@ -2,6 +2,7 @@
     .tab-container {
         display: table;
     }
+
     .box-content {
         position: relative;
         height: 0;
@@ -9,104 +10,129 @@
     }
 
     ul.meta-tabs {
+        list-style: none;
         background-color: @background_page-header;
         margin: 0;
         padding: 0;
-        list-style: none;
-        &::before, &::after {
+
+        &::before,
+        &::after {
             display: table;
             content: " ";
             box-sizing: border-box;
             clear: both;
         }
-        > li:first-child{
-            > a{
+
+        > li:first-child {
+            > a {
                 margin-left: 0;
             }
         }
+
         > li {
-            margin: 1px -1px -1px;
+            margin: 0 0 -1px;
             position: relative;
             display: inline-block;
+
             > a {
-                margin-left: 4px;
-                line-height: 1.42857143;
+                cursor: pointer;
                 position: relative;
                 display: block;
-                padding: .38em 2em .12em;
-                border: 1px solid @color-border;
-                border-bottom: 0 none;
                 background-color: @color-site-bg;
-                border-radius: 4px 4px 0 0;
+                border: 1px solid @color-border;
+                border-radius: @fix_border-radius @fix_border-radius 0 0;
                 color: @color-nav;
-                cursor: pointer;
-                text-decoration: none;
+                font-size: @font-size-small;
+                line-height: 1.42857143;
+                padding: .3em 1rem .1em;
+                margin-left: 4px;
                 transition: @transition color, @transition background-color, @transition border-color;
 
                 * {
                     cursor: pointer;
+                    color: inherit;
                 }
 
                 .prefix {
-                    color: @color-nav;
                     position: relative;
                     transition: @transition color;
                     font-size: @font-size-small;
                 }
-                .num {
 
-                }
                 &:hover,
                 &:focus,
                 &:active {
-                    background-color: @background_page-header;
-                    border-color: @color-border;
-                    border-bottom-color: transparent;
-                    color: @button_background;
+                    background-color: @color-content-bg;
+                    border-color: @color-link;
+                    color: @color-link;
+                    text-decoration: none;
 
                     .prefix {
-                        color: @button_background;
-                    }
-
-                    .num {
-                        background-color: @button_background;
-                        color: @button_color;
+                        color: inherit;
                     }
                 }
             }
-            &.active > a {
-                cursor: default;
-                tab-index: -1;
-                color: #555;
-                background-color: #fff;
+
+            &.active {
+                z-index: 1;
+
+                > a {
+                    cursor: default;
+                    tab-index: -1;
+                    background-color: @color-content-bg;
+                    border-color: @color-link;
+                    border-bottom-color: @color-content-bg;
+                    color: @color-link;
+                }
             }
         }
     }
+
     .meta-content {
         .tab-pane {
-            border: 1px solid @color-border;
-            border-top-color: transparent;
-            background-color: @background_page-header;
-            display: none;
             position: absolute;
+            top: 0;
+            display: none;
             width: 100%;
+            background-color: @color-content-bg;
+            border: 1px solid @color-link;
+            border-top-color: transparent;
+            border-radius: 0 0 @fix_border-radius @fix_border-radius;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: -1px;
+                left: 0;
+                z-index: 0;
+                width: 100%;
+                height: 1px;
+                background-color: @color-link;
+            }
+
             &.active {
                 display: block;
             }
+
             > div {
-                padding: .8rem .5rem .5rem;
                 font-size: @font-size-small;
-                *{
+                padding: .8rem .5rem .5rem;
+
+                * {
                     font-size: inherit;
                 }
-                p{
+
+                p {
                     padding-left: 1em;
                 }
-                ul{
+
+                ul {
                     list-style: none;
-                    padding-left:0;
-                    li{
-                        margin-left: 0; padding-left: 1em;
+                    padding-left: 0;
+
+                    li {
+                        margin-left: 0;
+                        padding-left: 1em;
                     }
                 }
             }
@@ -118,26 +144,34 @@
                 padding: .6rem .5rem .5rem .8rem;
                 background: transparent;
                 border: 0 none;
+
                 h3 {
                     display: none;
                 }
+
                 > div {
                     padding: 0;
                 }
+
                 > div ul.toc {
                     font-size: @font-size-small;
                     padding-left: .5em;
+
                     a {
                         font-size: @font-size-small;
                         display: inline-block;
                         padding-left: 10px;
                         position: relative;
                     }
+
                     li {
                     }
+
                     div.li {
                         position: relative;
-                        ::before {
+                        padding: .15em 0;
+
+                        &::before {
                             position: absolute;
                             top: .3em;
                             content: "";
@@ -148,16 +182,17 @@
                             overflow: hidden;
                             left: 0;
                         }
-                        padding: .15em 0;
                     }
                 }
+
                 > div > ul.toc {
                     padding: 0;
                 }
             }
         }
     }
-    + .msg-area + a{
+
+    + .msg-area + a {
         clear: right;
         margin-top: 20px;
     }
