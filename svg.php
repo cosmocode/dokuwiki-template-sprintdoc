@@ -46,6 +46,37 @@ class SvgNode extends \SimpleXMLElement {
         $dom->parentNode->removeChild($dom);
         return $node;
     }
+
+    /**
+     * Wraps all elements of $this in a `<g>` tag
+     *
+     * @return SvgNode
+     */
+    public function groupChildren() {
+        $dom = dom_import_simplexml($this);
+
+        $g = $dom->ownerDocument->createElement('g');
+        while ($dom->childNodes->length > 0) {
+            $child = $dom->childNodes->item(0);
+            $dom->removeChild($child);
+            $g->appendChild($child);
+        }
+        $g = $dom->appendChild($g);
+
+        return simplexml_import_dom($g, get_class($this));
+    }
+
+    /**
+     * Add new style definitions to this element
+     * @param string $style
+     */
+    public function addStyle($style) {
+        $defs = $this->defs;
+        if(!$defs) {
+            $defs = $this->prependChild('defs');
+        }
+        $defs->addChild('style', $style);
+    }
 }
 
 /**
@@ -56,8 +87,7 @@ class SVG {
     const IMGDIR = __DIR__ . '/img/';
     const BACKGROUNDCLASS = 'sprintdoc-background';
 
-    /** @var SvgNode */
-    protected $xml;
+    protected $file;
 
     /**
      * SVG constructor
@@ -78,31 +108,51 @@ class SVG {
         // check if media exists
         if(!file_exists($file)) $this->abort(404);
 
-        $this->xml = simplexml_load_file($file, SvgNode::class);
+        $this->file = $file;
     }
 
     /**
      * Generate and output
      */
     public function out() {
-        $g = $this->wrapChildren();
-        $this->setBackground($g);
-        $this->setStyle();
+        $file = $this->file;
+        $params = $this->getParameters();
+
         header('Content-Type: image/svg+xml');
-        echo $this->xml->asXML();
+        $cachekey = md5($file . serialize($params));
+        $cache = new \cache($cachekey, '.svg');
+        $cache->_event = 'SVG_CACHE';
+
+        http_cached($cache->cache, $cache->useCache(array('files' => array($file, __FILE__))));
+        http_cached_finish($cache->cache, $this->generateSVG($file, $params));
     }
 
     /**
-     * Generate a style setting from the input variables
+     * Generate a new SVG based on the input file and the parameters
      *
-     * @return string
+     * @param string $file the SVG file to load
+     * @param array $params the parameters as returned by getParameters()
+     * @return string the new XML contents
      */
-    protected function makeStyle() {
+    protected function generateSVG($file, $params) {
+        /** @var SvgNode $xml */
+        $xml = simplexml_load_file($file, SvgNode::class);
+        $xml->addStyle($this->makeStyle($params));
+        $this->createBackground($xml);
+        $xml->groupChildren();
+
+        return $xml->asXML();
+    }
+
+    /**
+     * Get the supported parameters from request
+     *
+     * @return array
+     */
+    protected function getParameters() {
         global $INPUT;
 
-        $element = 'path'; // FIXME configurable?
-
-        $colors = array(
+        $params = array(
             's' => $this->fixColor($INPUT->str('s')),
             'f' => $this->fixColor($INPUT->str('f')),
             'b' => $this->fixColor($INPUT->str('b')),
@@ -111,27 +161,39 @@ class SVG {
             'bh' => $this->fixColor($INPUT->str('bh')),
         );
 
-        if (empty($colors['b'])) {
-            $colors['b'] = $this->fixColor('00000000');
+        return $params;
+    }
+
+    /**
+     * Generate a style setting from the input variables
+     *
+     * @param array $params associative array with the given parameters
+     * @return string
+     */
+    protected function makeStyle($params) {
+        $element = 'path'; // FIXME configurable?
+
+        if(empty($params['b'])) {
+            $params['b'] = $this->fixColor('00000000');
         }
 
-        $style = 'g rect.' . self::BACKGROUNDCLASS . '{fill:' . $colors['b'] . ';}';
+        $style = 'g rect.' . self::BACKGROUNDCLASS . '{fill:' . $params['b'] . ';}';
 
-        if($colors['bh']) {
-            $style .= 'g:hover rect.' . self::BACKGROUNDCLASS . '{fill:' . $colors['bh'] . ';}';
+        if($params['bh']) {
+            $style .= 'g:hover rect.' . self::BACKGROUNDCLASS . '{fill:' . $params['bh'] . ';}';
         }
 
-        if($colors['s'] || $colors['f']) {
+        if($params['s'] || $params['f']) {
             $style .= 'g ' . $element . '{';
-            if($colors['s']) $style .= 'stroke:' . $colors['s'] . ';';
-            if($colors['f']) $style .= 'fill:' . $colors['f'] . ';';
+            if($params['s']) $style .= 'stroke:' . $params['s'] . ';';
+            if($params['f']) $style .= 'fill:' . $params['f'] . ';';
             $style .= '}';
         }
 
-        if($colors['sh'] || $colors['fh']) {
+        if($params['sh'] || $params['fh']) {
             $style .= 'g:hover ' . $element . '{';
-            if($colors['sh']) $style .= 'stroke:' . $colors['sh'] . ';';
-            if($colors['fh']) $style .= 'fill:' . $colors['fh'] . ';';
+            if($params['sh']) $style .= 'stroke:' . $params['sh'] . ';';
+            if($params['fh']) $style .= 'fill:' . $params['fh'] . ';';
             $style .= '}';
         }
 
@@ -178,44 +240,15 @@ class SVG {
      * @param SvgNode $g
      * @return SvgNode
      */
-    protected function setBackground(SvgNode $g) {
-        $attributes = $this->xml->attributes();
+    protected function createBackground(SvgNode $g) {
         $rect = $g->prependChild('rect');
         $rect->addAttribute('class', self::BACKGROUNDCLASS);
 
         $rect->addAttribute('x', '0');
         $rect->addAttribute('y', '0');
-        $rect->addAttribute('height', $attributes['height']);
-        $rect->addAttribute('width', $attributes['width']);
+        $rect->addAttribute('height', '100%');
+        $rect->addAttribute('width', '100%');
         return $rect;
-    }
-
-    /**
-     * Wraps all elements of $this in a `<g>` tag
-     *
-     * @return SvgNode
-     */
-    protected function wrapChildren() {
-        $svgChildren = array();
-        foreach ($this->xml->children() as $child) {
-            $svgChildren[] = $this->xml->removeChild($child);
-        }
-        $g = $this->xml->prependChild('g');
-        foreach ($svgChildren as $child) {
-            $g->appendNode($child);
-        }
-        return $g;
-    }
-
-    /**
-     * Apply the style to the SVG
-     */
-    protected function setStyle() {
-        $defs = $this->xml->defs;
-        if(!$defs) {
-            $defs = $this->xml->prependChild('defs');
-        }
-        $defs->addChild('style', $this->makeStyle());
     }
 
     /**
