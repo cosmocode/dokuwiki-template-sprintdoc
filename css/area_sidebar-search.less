@@ -4,19 +4,69 @@
  * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
  */
 
-
 .search.main-sidebar {
-
-    p.toggleSearch{
-        padding: 0; Margin: 0;
-        display: none;
+    @icon-size: @page-header_height;
+    @icon-search_font-size: 25px;
+    p.toggleSearch a,
+    button[type="submit"] {
+        .fontello();
+        .hide-text-show-before();
+        .icon-search();
+        position: relative;
+        width: @icon-size;
+        min-height: @icon-size;
+        overflow: visible;
+        background-image: none;
+        background-color: transparent;
+        color: @color-nav;
+        padding: 0;
+        transition: @transition color, @transition background-color, @transition border-color;
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: @button_color;
+            border: solid 1px @button_background;
+            color: @button_background;
+            &::after {
+                background-color: @button_background;
+            }
+        }
+        &::before {
+            width: 100%;
+            color: inherit;
+            font-size: @icon-search_font-size;
+            text-align: center;
+            margin: 0;
+        }
     }
+    p.toggleSearch {
+        display: none;
+        margin: -1px 0 0;
+        padding: 0;
+        a {
+            width: @toggle-showsidebar_width;
+            border: solid 1px transparent;
+            border-bottom: solid 1px @color-border;
+            border-radius: @fix_border-radius 0 0 0;
+            text-decoration: none;
+            &:hover,
+            &:focus,
+            &:active {
+                border-radius: @fix_border-radius 0 0 @fix_border-radius;
+            }
+            &::before {
+                position: absolute;
+                top: 50%;
+                left: .8rem;
+                text-align: left;
+                margin-top: -(@icon-search_font-size / 2);
+            }
+        }
+    }
+    /* + + +  form  + + + */
     form {
-        @icon-size: 40px;
-
         display: block;
         margin: 0 0 @margin-default;
-
         .no {
             #qsearch__in {
                 width: 100%;
@@ -24,50 +74,14 @@
                 padding-right: (@icon-size + 10);
             }
         }
-
         input {
             min-height: @icon-size;
             box-sizing: border-box;
         }
-
         button[type="submit"] {
-            .fontello();
-            .hide-text-show-before();
-            .icon-search();
-
-            position: relative;
-            width: @icon-size;
-            min-height: @icon-size;
-            overflow: visible;
-            background-image: none;
-            background-color: transparent;
             border: solid 1px transparent;
             border-right-color: @color-border;
-            color: @color-nav;
             margin-left: -(@icon-size);
-            padding: 0;
-            transition: @transition color, @transition background-color, @transition border-color;
-
-            &:hover,
-            &:focus,
-            &:active {
-                background-color: @button_color;
-                border: solid 1px @button_background;
-                color: @button_background;
-
-                &::after {
-                    background-color: @button_background;
-                }
-            }
-
-            &::before {
-                width: 100%;
-                color: inherit;
-                font-size: 25px;
-                text-align: center;
-                margin: 0;
-            }
-
             &::after {
                 content: '';
                 position: absolute;
@@ -81,19 +95,25 @@
         }
     }
 }
-
-.wide-content{
-    .search.main-sidebar{
-        p.toggleSearch{
+.wide-content {
+    .search.main-sidebar {
+        p.toggleSearch {
             display: block;
             float: left;
+            width: 100%;
         }
-        form{
+        form {
+            input {
+                border: 0 none;
+            }
             .no {
-                #qsearch__in{
+                #qsearch__in {
                     width: 0;
                     padding: 0;
                     margin: 0;
+                }
+                button[type="submit"] {
+                    display: none;
                 }
             }
         }
