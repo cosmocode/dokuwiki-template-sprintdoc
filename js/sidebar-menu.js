@@ -3,11 +3,28 @@
     var addToggleLink = function($elem){
             $elem.wrapInner('<a href="#toggleMenu" class="toggler"></a>');
         },
+
+        setContentMinHeight = function(){
+            var $sidebar = $('.page-wrapper').find('> .tools').find('.col-xs-12');
+
+            if($sidebar.length == 1){
+                var h = $sidebar.height(),
+                    num = parseFloat(h);
+                if(!isNaN(num)){
+                    $('#dokuwiki__content').css('minHeight',num + 100);
+                }
+
+            }
+
+        },
         setWideContent = function(){
+            var $openTogglers = $('.main-sidebar').find('.opened').find('.toggler');
+            $openTogglers.trigger( "click" );
             $('body').addClass('wide-content');
         },
         setDefaultContent= function(){
             $('body').removeClass('wide-content');
+
         },
         toggleState = function($toggler){
             $toggler.toggleClass('closed');
@@ -54,6 +71,10 @@
                                 if($this.hasClass('opened')){
                                     var $foc = focusFirstSubLink($this.closest('li.level1'), true);
                                 }
+                                if($('body').hasClass('wide-content')){
+                                    setDefaultContent();
+                                }
+
                             });
                         });
 
@@ -104,6 +125,9 @@
                                     if ($this.hasClass('opened')) {
                                         var $elem = ($submenu.is('div')) ? focusLastSubLink($submenu): focusFirstSubLink($submenu,false);
                                     }
+                                    if($('body').hasClass('wide-content')){
+                                        setDefaultContent();
+                                    }
                                 });
                             });
 
@@ -122,6 +146,7 @@
         mainMenu();
         sideMenu();
         toggleMainContent();
+        setContentMinHeight();
     });
 
 } )( jQuery, spc );

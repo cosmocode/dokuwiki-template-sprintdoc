@@ -21,6 +21,8 @@ $lang['head_breadcrumb']            = 'location indicator';
 $lang['head_menu_trace']            = 'trace / visited last';
 $lang['head_meta_box']              = 'meta data for this page';
 
+$lang['jump_to_quicksearch']        = 'Jump to quick search';
+
 $lang['meta_box_jira_tickets_none'] = 'jira associated tickets found: none';
 $lang['meta_box_tags_none']         = 'tags found: none';
 $lang['meta_box_sitemap_none']      = 'no sitemap available';

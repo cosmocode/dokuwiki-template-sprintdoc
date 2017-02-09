@@ -168,13 +168,6 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
 
                         <div class="search main-sidebar">
                             <?php
-                                if (tpl_getConf('logo') && file_exists(mediaFN(tpl_getConf('logo')))){
-                                    if (tpl_getConf('logo_spacer') && file_exists(mediaFN(tpl_getConf('logo_spacer')))){
-                                        echo '<img width="5" height="5" src="'.ml(tpl_getConf('logo_spacer')).'" alt="" />';
-                                    } else{
-                                        echo '<img width="5" height="5" src="'.ml(tpl_getConf('logo')).'" alt="" />';
-                                    }
-                                }
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */

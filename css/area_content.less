@@ -13,22 +13,15 @@
             z-index: 10;
 
             &::before {
-                content: "";
+                content: '';
                 position: absolute;
                 top: 0;
                 left: 0;
                 z-index: -1;
-                height: 2.6rem;
+                height: @page-header_height;
                 width: 100%;
                 background-color: @background_page-header;
-                border-bottom: 1px solid @color-border;
-            }
-
-            #meta-box {
-                display: inline-block;
-                min-height: 1.95rem;
-                max-width: 40%;
-                float: right;
+                border-bottom: 1px solid @color-border-light;
             }
 
             #plugin__highlightparent {
@@ -38,14 +31,16 @@
     }
 }
 
+
+
 .structaggregation {
     td,
     th {
-        line-height: 125%;
+        line-height: @line-height-default;
 
         a {
 
-            line-height: 125%;
+            line-height: @line-height-default;
         }
     }
 
@@ -65,7 +60,7 @@
 .main-content > .level4,
 .main-content > .level5,
 .main-content > .level6 {
-    padding-bottom: 1rem;
+    //padding-bottom: 1rem;
 
     > p, > ul > li .li {
         a {
@@ -81,11 +76,11 @@
 .level4,
 .level5,
 .level6 {
-    line-height: 125%;
+    line-height: @line-height-default;
 
     div, p, th, td, textarea,
     h1, h2, h3, h4, h5, h6,
     dl, dt, dd, ol, ul, li {
-        line-height: 125%;
+        line-height: @line-height-default;
     }
 }

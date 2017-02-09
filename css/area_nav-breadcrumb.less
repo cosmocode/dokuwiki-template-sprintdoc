@@ -7,11 +7,17 @@
 .breadcrumbs {
     position: relative;
     border-bottom: 1px solid @color-border;
-    padding: 1rem 1.8rem .2rem;
+    padding: .8rem 1.8rem .35rem;
 
     > p {
         font-size: @font-size-small;
         margin: 0;
+        @media @screen_max-xs{
+            width: 1px;
+            position: relative;
+            overflow: hidden;
+            height: 1.6rem;
+        }
 
         * {
             font-size: @font-size-small;
@@ -28,6 +34,7 @@
                 .icon-home();
 
                 min-height: 1.8em;
+                min-width: 1.9em;
                 width: auto;
                 box-sizing: border-box;
                 border: solid 1px transparent;
@@ -62,8 +69,11 @@
         float: right;
         display: inline-block;
         max-width: 30%;
-        margin: -.6em 0 0;
+        margin: -.35em 0 0;
         padding: 0;
+        @media @screen_max-xs{
+            max-width: 90%;
+        }
 
         > li {
             .btn-usertools-wrapper(); // uniform li
@@ -139,18 +149,24 @@
             z-index: 2000;
 
             #plugin__qc__out{
-                h1{
+                h1 {
                     font-size: @font-size-head3;
                 }
-                h2{
+
+                h2 {
                     margin-top: 1.6em;
                     font-size: @font-size-head5;
                 }
-                > h1, > h2, > p, >dl, >div{
+                > h1,
+                > h2,
+                > p,
+                > dl,
+                > div {
                     padding-left: 1rem;
                     margin-left: 0;
                 }
-                > div p{
+
+                > div p {
                     padding-left: 0;
                     margin-left: 0;
                 }

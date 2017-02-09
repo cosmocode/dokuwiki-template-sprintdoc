@@ -12,12 +12,12 @@
 @background_page-header: __background_page-header__;
 
 @border-radius:          __default_border_radius__;
-@fix_border-radius:      2px;
 
 @font_family_screen:     __font_family_screen__;
 
 @color-text:             __text__;
 @color-border:           __border__;
+@color-border-light:     __border_light__;
 @color-nav:              __nav_menu_color__;
 @color-nav-hover:        __nav_menu_hover_color__;
 @color-nav-hover-bg:     __nav_menu_hover_bg__;
@@ -34,6 +34,8 @@
 @box-shadow-offset:      __box_shadow_offset__;
 @box-shadow:             __box_shadow__;
 @box-shadow-colored:     __box_shadow_colored__;
+
+@th_background:          __background_alt__;
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
@@ -52,6 +54,15 @@
 @grid:               @margin-small;
 
 @transition: ease-out .30s;
+
+/* + + +  for programmers customizing  + + + */
+@fix_border-radius:        3px;
+@toggle-showsidebar_width: 3.07rem;       // shown sidebar after toggle
+@page_padding-top:         @margin-small; // padding-top for 'dokuwiki__content'
+@page-header_height:       2.8rem;        // minimum: 2.8rem (height for breadcrumb, page-header, page-footer)
+@meta-box_height:          (@page-header_height - @page_padding-top);
+@breadcrumb_height:        @page-header_height;
+@formfield_min-height:     2rem;          // min-height for input, textarea, select, keygen
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
@@ -89,7 +100,7 @@
 @break-max-xs: (@break-min-xs - 1);
 
 @break-min-sm: 992;
-@break-max-sm: (@break-min-xs - 1);
+@break-max-sm: (@break-min-sm - 1);
 
 @break-min-md: 1024;
 @break-max-md: (@break-min-md - 1);
