@@ -21,6 +21,9 @@
 }
 
 @media @screen_min-xs {
+    html {
+        font-size: 114%; //16px
+    }
 }
 
 @media @screen_min-sm {
@@ -121,6 +124,9 @@
 
     .claim {
         .logo {
+            /*position: absolute;
+            bottom: 1em;
+            overflow: visible;*/
 
             img {
                 height: 60px;
@@ -152,17 +158,24 @@
 
         .claim {
             .logo {
-
+                /*position: absolute;
+                bottom: 0;
+                height: 1px;
+                width: 100%; // fo IE
+                overflow: visible;*/
             }
 
             .logo img {
-
+                /*max-width: 100%;
+                height: auto;*/
             }
         }
     }
 
     .wide-content{
-
+        .logo{
+            /*visibility: hidden;*/
+        }
         .content {
             .row > .col-xs-12{
                 width: auto;
@@ -191,7 +204,7 @@
 
 @media @screen_max-md {
     .container {
-        margin: 0 (@margin-big/2);
+        margin: 0 1.25rem;
     }
 
     #dokuwiki__usertools {
@@ -199,33 +212,27 @@
         max-width: 75%;
         position: absolute;
         top: 0;
-        right: @margin-big/2;
+        margin-right: 0;
+        right: 1.25rem;
     }
 
     .content {
         position: relative;
-        margin-top: 1rem;
 
         #dokuwiki__pagetools {
-            top: @margin-big * 2;
-            .tools{
-                position: static;
-            }
+            top: 0;
         }
 
-        .row > .col-xs-12 #dokuwiki__content {
-
-            padding-right: @margin-big;
-            &::before {
-                display: none;
-            }
-
+        .row > .col-xs-12 #dokuwiki__content::before {
+            display: none;
         }
     }
 
     #dokuwiki__header {
         .logo {
-
+            /*width: 200px;
+            max-width: 33%;
+            margin: .8rem 0;*/
         }
     }
 
@@ -233,5 +240,11 @@
         .main-sidebar {
             display: none;
         }
+    }
+}
+
+@media @screen_max-md{
+    .claim{
+        min-height: 3rem;
     }
 }

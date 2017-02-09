@@ -72,7 +72,7 @@
                     position: relative;
                     z-index: 1;
                     margin-top: -1px;
-                    padding: .5em 0 .5em (@margin-big + 1);
+                    padding: .5em 0 .5em (@margin-big + 1.1);
 
                     &[class="li"] {
                         border-bottom: solid 1px @color-border;
@@ -221,6 +221,9 @@
 
                     &.closed + ul {
                         height: 0;
+                        li a{
+                            display: none;
+                        }
                     }
                 }
             }
