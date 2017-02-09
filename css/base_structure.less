@@ -18,6 +18,9 @@
 }
 
 @media @screen_min-xxs {
+    html {
+        font-size: 114%; //16px
+    }
 }
 
 @media @screen_min-xs {
@@ -55,7 +58,7 @@
 
 @media @screen_min-xxlg {
     html {
-        font-size: 106.25%; //17px
+        font-size: 100%; //16px
     }
 }
 
@@ -105,6 +108,7 @@
             position: relative;
             height: 150px;
             min-height: 6rem;
+            display: table;
         }
     }
 
@@ -123,17 +127,22 @@
     }
 
     .claim {
+        display: table-cell;
+        height: 100%;
+        vertical-align: middle;
         .logo {
             /*position: absolute;
             bottom: 1em;
             overflow: visible;*/
+            padding: 1rem 0 .3rem;
+
 
             img {
-                height: 60px;
+                height: 4.6rem;
                 width: auto;
                 border-style: solid;
                 border-color: transparent;
-                border-width: 0 2px;
+                border-width: 2px 0;
             }
 
             a:hover,
@@ -153,31 +162,12 @@
                 float: right;
             }
         }
-
-
-
-        .claim {
-            .logo {
-                /*position: absolute;
-                bottom: 0;
-                height: 1px;
-                width: 100%; // fo IE
-                overflow: visible;*/
-            }
-
-            .logo img {
-                /*max-width: 100%;
-                height: auto;*/
-            }
-        }
     }
 
     .wide-content{
-        .logo{
-            /*visibility: hidden;*/
-        }
+        .logo{ }
         .content {
-            .row > .col-xs-12{
+            .row > .col-xs-12 {
                 width: auto;
                 float: none;
             }
@@ -185,7 +175,7 @@
         &.showSidebar{
             .content {
                 .row > .col-xs-12 {
-                    margin-left: @margin-big;
+                    margin-left: @toggle-showsidebar_width;
                 }
             }
         }
@@ -246,5 +236,10 @@
 @media @screen_max-md{
     .claim{
         min-height: 3rem;
+        .logo{
+            .mobile-only{
+                margin: .8rem 1rem .6rem 0;
+            }
+        }
     }
 }

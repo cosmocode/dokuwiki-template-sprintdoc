@@ -10,81 +10,65 @@
 
 @media screen {
     .page-footer {
-        background: @background_page-header;
+        min-height: @page-header_height;
+        background-color: @background_page-header;
         border-top: 1px solid @color-border-light;
         font-size: @font-size-default;
-        padding: @margin-small (@margin-big - .5);
         text-align: right;
-
+        padding: @margin-small @margin-default;
         bdi {
             font-weight: bold;
         }
     }
-
     #dokuwiki__footer {
-
         .main-footer {
             position: relative;
-            z-index: 10;
+            z-index: 2;
             box-sizing: border-box;
             background-color: @color-site-bg;
         }
-
         p {
             font-size: @font-size-default;
             margin: 0;
         }
     }
 }
-
-
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* min-width: 1024px */
-
 @media @screen_min-md {
     #dokuwiki__footer {
         .col-xs-12 {
             float: right;
             width: 100%;
         }
-
         .main-footer {
             padding: @margin-default 0;
         }
     }
-
     .showSidebar {
         #dokuwiki__footer {
-             .col-xs-12 {
-                 width: 73%;
+            .col-xs-12 {
+                width: 73%;
             }
         }
     }
     .wide-content {
-        #dokuwiki__footer {
-            .col-xs-12 {
-                width: auto;
-                float: none;
-            }
-        }
-        &.showSidebar{
+        &.showSidebar {
             #dokuwiki__footer {
                 .col-xs-12 {
-                    margin-left: @margin-big;
+                    margin-left: @toggle-showsidebar_width;
                 }
             }
         }
     }
 }
-
-
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* max-width: 1023px */
-
 @media @screen_max-md {
     #dokuwiki__footer {
         .main-footer {
-            padding: @margin-default (@margin-big - .5);
+            margin-top: .5rem;
+            padding: (@margin-default - .5) 0 @margin-default;
         }
     }
 }

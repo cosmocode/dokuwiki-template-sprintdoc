@@ -10,6 +10,11 @@
         padding-bottom: @link-height;
         margin-bottom: @grid;
 
+        table th input:focus {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
         .table {
             margin-bottom: 0;
         }
@@ -19,9 +24,24 @@
             bottom: 0;
             height: @link-height;
             margin-bottom: 0;
+
+            &.export {
+                line-height: 1;
+                padding-top: .3em;
+            }
         }
     }
     #plugin__struct_output{
         margin-right: 0;
+    }
+
+    .struct_entry_form {
+        margin-bottom: 2rem;
+        > fieldset {
+            margin-top: 1.5rem;
+        }
+    }
+    textarea + .struct_entry_form {
+        margin-top: -.5rem;
     }
 }

@@ -14,7 +14,9 @@ a {
     color: @color-link;
 }
 
+
 /* highlight selected tool */
+
 .mode_admin a.action.admin,
 .mode_login a.action.login,
 .mode_register a.action.register,
@@ -52,12 +54,13 @@ a {
 
 .dokuwiki div.page {
     clear: both;
-    background: @color-content-bg;
-    color: inherit;
-    padding: (@margin-default / 2) @margin-default @margin-default;
-    // margin-bottom: .5rem; // no margin: if there is another bg-color, then there is an #fff border
     overflow: hidden;
     word-wrap: break-word;
+    background: @color-content-bg;
+    color: inherit;
+    // margin-bottom: .5rem; // no margin: if there is another bg-color, then there is an #fff border
+    padding: @page_padding-top @margin-default @margin-default;
+
     @media @screen_max-md{
         padding-right: (@margin-default *1.6);
     }
@@ -76,6 +79,12 @@ a {
 /* license note under edit window */
 .dokuwiki div.license {
     font-size: @font-size-small;
+    line-height: @line-height-default;
+    padding-top: 1rem;
+
+    * {
+        font-size: inherit;
+    }
 }
 
 [dir=rtl] .dokuwiki .docInfo {
@@ -120,34 +129,37 @@ h6 {
 
 h1 {
     font-size: @font-size-head1;
-    margin: 0 0 0.444em;
+    margin: 0 0 @font-size-head1;
     padding-top: 1em;
+    #dokuwiki__content > & {
+        padding-top: 1.5em;
+    }
 }
 
 h2 {
     font-size: @font-size-head2;
-    margin: 0 0 0.666em;
+    margin: 0 0 @font-size-head2;
 }
 
 h3 {
     font-size: @font-size-head3;
-    margin: 0 0 0.888em;
+    margin: 0 0 @font-size-head3;
 }
 
 h4 {
     font-size: @font-size-head4;
-    margin: 0 0 1.0em;
+    margin: 0 0 @font-size-head4;
 }
 
 h5 {
     font-size: @font-size-head5;
-    margin: 0 0 1.1428em;
+    margin: 0 0 @font-size-head5;
 }
 
 h6 {
     font-size: @font-size-head6;
     font-weight: @font-weight-bold;
-    margin: 0 0 1.333em;
+    margin: 0 0 @font-size-head6;
 }
 
 p {
@@ -524,9 +536,12 @@ input,
 textarea,
 select,
 keygen {
-    border: 1px solid #ccc;
+    min-height: @formfield_min-height;
+    border: 1px solid @color-border;
     box-shadow: inset 0 0 1px #eee;
     border-radius: @fix_border-radius;
+    padding-left: .3rem;
+    padding-right: .3rem;
 }
 
 input:active,
@@ -573,12 +588,14 @@ button {
 
 
 /* + + +  all types of submit-buttons  + + + */
+form input[type=submit], // heredity 'adnewpage'
 a.button,
 input[type=submit],
 input[type=reset],
 button[type=submit],
 .qq-upload-button {
     cursor: pointer;
+    box-shadow: none;
     background-image: none;
     background-color: @button_background;
     border: 1px solid @button_background;
@@ -592,6 +609,27 @@ button[type=submit],
     &:focus {
         background-color: @button_color;
         color: @button_background;
+    }
+}
+
+input[type=submit],
+button[type=submit] {
+    &[disabled] {
+        cursor: default;
+        &:hover,
+        &:active,
+        &:focus {
+            box-shadow: none;
+            background-image: none;
+            background-color: @button_background;
+            color: @button_color;
+            border-color: @button_background;
+        }
+    }
+
+    + span {
+        display: block;
+        margin-top: @grid;
     }
 }
 
@@ -635,13 +673,12 @@ textarea[readonly] {
     background-image: linear-gradient(to bottom, #ffffff 0%, #f4f4f4 30%, #eeeeee 99%, #cccccc 99%);
     background-color: #eee;
     opacity: .5;
-    border: 1px solid #ccc;
+    border: 1px solid @color-border;
     border-radius: @fix_border-radius;
     color: #333;
     font-weight: normal;
     padding: .3em @grid;
     transition: @transition background-color, @transition color;
-
     &:hover,
     &:active,
     &:focus {
@@ -652,9 +689,20 @@ textarea[readonly] {
         color: #333;
     }
 }
-
 input::-moz-focus-inner,
 button::-moz-focus-inner {
     border: 0;
     padding: 0;
+}
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* media queries */
+@media @screen_max-lg {
+    .dokuwiki div.license {
+        font-size: @font-size-default;
+    }
+}
+@media @screen_max-md {
+    .dokuwiki div.license {
+        font-size: @font-size-small;
+    }
 }

@@ -1,0 +1,48 @@
+/**
+ * This file provides styles for the edit view (?do=edit), preview
+ * and section edit buttons.
+ */
+
+
+/* + + + + +  plugin tabinclude  + + + + + */
+
+
+div#dwpl-ti-container {
+
+/* + + +  tabnav  + + + */
+    li.dwpl-ti-tab {
+        box-shadow: none;
+        border-color: @color-site-bg;
+        border-radius: @fix_border-radius @fix_border-radius 0 0;
+        padding: 0;
+
+        div {
+            background-color: @background_page-header;
+            border-radius: inherit;
+            padding: .1em .35em;
+            &.selected {
+                background-color: @color-site-bg;
+            }
+        }
+    }
+
+
+/* + + +  box  + + + */
+    div.dwpl-ti-content-box {
+        overflow: auto;
+        box-shadow: none;
+        background-color: @color-site-bg;
+        border: solid 1px @color-site-bg;
+        border-radius: 0;
+    }
+}
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* media queries */
+
+@media @screen_max-md {
+    div#dwpl-ti-container {
+
+    }
+}
