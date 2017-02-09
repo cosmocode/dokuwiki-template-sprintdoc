@@ -18,10 +18,13 @@
 
         },
         setWideContent = function(){
+            var $openTogglers = $('.main-sidebar').find('.opened').find('.toggler');
+            $openTogglers.trigger( "click" );
             $('body').addClass('wide-content');
         },
         setDefaultContent= function(){
             $('body').removeClass('wide-content');
+
         },
         toggleState = function($toggler){
             $toggler.toggleClass('closed');
