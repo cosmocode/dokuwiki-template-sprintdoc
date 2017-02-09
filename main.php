@@ -100,15 +100,6 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
 
     <div class="page-wrapper <?php echo ($showSidebar) ? 'hasSidebar' : ''; ?>">
         <?php
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* Message AREA */
-/* FIXME: position of error + info messages. Does it have to be on top of the page? */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-            html_msgarea();
-
-
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* Include Hook: header.html */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
