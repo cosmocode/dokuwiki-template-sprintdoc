@@ -4,7 +4,7 @@
  *
  */
 
-$conf['logo']             = 'logo.png';
+$conf['logo']             = 'wiki:logo.png';
 $conf['mobile_logo']      = 'images/fav/favicon-32x32.png';
 
 $conf['logo_spacer']      = 'logo_spacer.png';
