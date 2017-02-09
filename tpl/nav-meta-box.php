@@ -5,7 +5,7 @@
 <div class="tab-container">
     <ul class="meta-tabs">
 
-        <li><a href="#tab-toc" aria-expanded="false"><span class="prefix">Sitemap</span></a></li>
+        <li><a href="#tab-toc" aria-expanded="false"><span class="prefix"><?php echo $lang['toc']?></span></a></li>
         <li><a href="#tab-tags" aria-expanded="false"><span class="prefix">Tags <span class="num">0</span></span></a></li>
         <li><a href="#tab-jira" aria-expanded="false"><span class="prefix">Jira <span class="num">0</span></span></a></li>
 
