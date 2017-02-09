@@ -1,7 +1,7 @@
 <?php
     if (!defined('DOKU_INC')) die();
 
-    echo '<div class=\"menu-togglelink mobile-only\"><a href=\'#\'>MOB</a></div>';
+    echo '<div class="menu-togglelink mobile-only"><a href=\'#\'>MOB</a></div>';
     echo '<div class="logo">';
 
     /* homepage logo should not link to itself (BITV accessibility requirement) */
