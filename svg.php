@@ -129,12 +129,17 @@ class SVG {
         $params = $this->getParameters();
 
         header('Content-Type: image/svg+xml');
-        $cachekey = md5($file . serialize($params));
+        $cachekey = md5($file . serialize($params) . filemtime(__FILE__));
         $cache = new \cache($cachekey, '.svg');
         $cache->_event = 'SVG_CACHE';
 
         http_cached($cache->cache, $cache->useCache(array('files' => array($file, __FILE__))));
-        http_cached_finish($cache->cache, $this->generateSVG($file, $params));
+        if($params['e']) {
+            $content = $this->embedSVG($file);
+        } else {
+            $content = $this->generateSVG($file, $params);
+        }
+        http_cached_finish($cache->cache, $content);
     }
 
     /**
@@ -155,6 +160,26 @@ class SVG {
     }
 
     /**
+     * Return the absolute minimum path definition for direct embedding
+     *
+     * No styles will be applied. They have to be done in CSS
+     *
+     * @param string $file the SVG file to load
+     * @return string the new XML contents
+     */
+    protected function embedSVG($file) {
+        /** @var SvgNode $xml */
+        $xml = simplexml_load_file($file, SvgNode::class);
+
+        $def = hsc((string) $xml->path['d']);
+        $w = hsc($xml['width']);
+        $h = hsc($xml['height']);
+        $v = hsc($xml['viewBox']);
+
+        return "<svg width=\"$w\" height=\"$h\" viewBox=\"$v\"><path d=\"$def\" /></svg>";
+    }
+
+    /**
      * Get the supported parameters from request
      *
      * @return array
@@ -163,6 +188,7 @@ class SVG {
         global $INPUT;
 
         $params = array(
+            'e' => $INPUT->bool('e', false),
             's' => $this->fixColor($INPUT->str('s')),
             'f' => $this->fixColor($INPUT->str('f')),
             'b' => $this->fixColor($INPUT->str('b')),
@@ -298,4 +324,5 @@ class SVG {
 // main
 $svg = new SVG();
 $svg->out();
+
 

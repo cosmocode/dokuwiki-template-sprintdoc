@@ -17,11 +17,7 @@ jQuery(function () {
             .text(text.substr(0, 1).toUpperCase() + text.substr(1, 1).toLowerCase());
         if (data[1]) {
             const src = data[1].trim();
-            const $svg = jQuery('<img>');
-            $svg.attr('src', DOKU_BASE + 'lib/tpl/sprintdoc/svg.php?svg='+src+'&f=__link__');
-            $svg.on('load', function () {
-                $icon.html($svg);
-            });
+            $icon.load(DOKU_BASE + 'lib/tpl/sprintdoc/svg.php?svg=' + src + '&e=1'); // directly embed
         }
 
         // make the new toggler
