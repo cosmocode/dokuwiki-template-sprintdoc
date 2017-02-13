@@ -33,3 +33,6 @@ var $_LANG = {};
 
 /* DOKUWIKI:include js/sidebar-menu.js */
 /* DOKUWIKI:include js/meta-box.js */
+
+
+/* DOKUWIKI:include js/sidebar.js */
