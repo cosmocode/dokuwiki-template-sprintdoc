@@ -319,7 +319,7 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                         </div>
 
                         <div id="dokuwiki__content" class="page main-content">
-                            <div id="meta-box">
+                            <div id="spr__meta-box">
                                 <h6 class="sr-only" role="heading" aria-level="2"><?php echo  tpl_getLang('head_meta_box')  ?></h6>
 
                                 <?php
