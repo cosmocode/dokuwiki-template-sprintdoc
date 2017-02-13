@@ -4,232 +4,61 @@
  * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
  */
 
-
 #dokuwiki__aside.main-sidebar {
-    counter-reset: nav-counter;
-
-
-/* + + + + +  nav main  + + + + + */
     .nav-main {
-        > ul {
-            @icon-size: @margin-default;
+        @icon-size: @font-size-big;
+        @menu-margin: @icon-size + @margin-small*2; // FIXME this is still wrong
 
-            margin: 0 0 @margin-default;
-            padding: 0;
+        margin-left: @menu-margin; // moves *all* sidebar content to the right
 
-            ul {
-                margin-left: (@icon-size + .5);
-            }
+        .navi-toggle {
+            cursor: pointer;
 
-            li {
-                list-style-type: none;
+            height: @line-height-big;
+            line-height: @line-height-big;
+            font-weight: normal;
+            margin-left: (@menu-margin * -1); // moves the toggles back to the left
+
+            color: @color-nav;
+            border: 1px solid transparent;
+            border-radius: @fix_border-radius;
+            // margin-bottom: -.3rem; FIXME
+            // padding: .7em 0 .7em (@margin-big + 1); FIXME WTF?
+            transition: @transition color, @transition background-color, @transition border-color;
+
+            span {
+                display: inline-block;
+                width: @menu-margin;
+                height: @line-height-big;
+                border-right: 1px solid @color-border;
+                text-align: center;
+                margin-right: @margin-small;
                 color: @color-nav;
 
-                &:first-of-type {
-                    padding-top: .3em;
+                img {
+                    width: @icon-size;
+                    height: @icon-size;
+                    filter: grayscale(100%); //fixme maybe we could find a better way
                 }
             }
 
-            .li {
-                a {
-                    display: list-item;
-                    list-style-type: square;
-                    color: @color-nav;
-                    font-weight: normal;
-                    padding-top: .1em;
-                    padding-bottom: .1em;
-                    transition: @transition color;
+            &:hover,
+            &:focus,
+            &:active {
+                background-color: @button_color;
+                border-color: @button_background;
+                color: @button_background;
+                text-decoration: none;
 
-                    &:hover,
-                    &:focus,
-                    &:active {
-                        color: @button_background;
-                    }
-                }
-            }
-
-
-/* + + +  first level  + + + */
-            > li {
-                counter-increment: nav-counter;
-                position: relative;
-                list-style-type: none;
-                margin: 0;
-                padding: 0 0 .3em;
-
-                &:not(:last-of-type)::after {
-                    content: '';
-                    position: absolute;
-                    left: 0;
-                    bottom: 0;
-                    display: block;
-                    width: 100%;
-                    height: 1px;
-                    background-color: @color-border;
-                }
-
-                > .li {
-                    position: relative;
-                    z-index: 1;
-                    margin-top: -1px;
-                    padding: .5em 0 .5em (@margin-big + 1.1);
-
-                    &[class="li"] {
-                        border-bottom: solid 1px @color-border;
-                    }
-
-                    &::before {
-                        .display-flex();
-                        .flex-direction();
-                        .justify-content();
-
-                        content: counter(nav-counter);
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        height: 100%;
-                        width: @margin-big;
-                        overflow: hidden;
-                        color: @color-nav;
-                        text-align: center;
-                        margin-top: auto;
-                        margin-bottom: auto;
-                    }
-
-                    &::after {
-                        content: '';
-                        position: absolute;
-                        top: 15%;
-                        bottom: 15%;
-                        width: 1px;
-                        left: (@margin-big + .5);
-                        background-color: @color-border;
-                    }
-
-                    &.opened,
-                    &.closed {
-                        padding: 0;
-
-                        &::before,
-                        &::after {
-                           display: none;
-                        }
-
-                        a {
-                            position: relative;
-                            display: block;
-                            border: 1px solid transparent;
-                            border-radius: @fix_border-radius;
-                            margin-bottom: -.3rem;
-                            padding: .7em 0 .7em (@margin-big + 1);
-                            transition: @transition color, @transition background-color, @transition border-color;
-
-                            &::before {
-                                .display-flex();
-                                .flex-direction();
-                                .justify-content();
-
-                                content: counter(nav-counter);
-                                position: absolute;
-                                top: 1px;
-                                bottom: 1px;
-                                left: 0;
-                                height: 100%;
-                                width: @margin-big;
-                                overflow: hidden;
-                                color: @color-nav;
-                                text-align: center;
-                                margin-top: auto;
-                                margin-bottom: auto;
-                                transition: @transition color, @transition background-color;
-                            }
-
-                            &::after {
-                                content: '';
-                                position: absolute;
-                                top: 15%;
-                                bottom: 15%;
-                                width: 1px;
-                                left: @margin-big;
-                                background-color: @color-border;
-                                transition: @transition background-color;
-                            }
-
-                            &:hover,
-                            &:focus,
-                            &:active {
-                                background-color: @button_color;
-                                border-color: @button_background;
-                                color: @button_background;
-                                text-decoration: none;
-
-                                &::before {
-                                    color: @button_background;
-                                }
-
-                                &::after {
-                                    background-color: @button_background;
-                                }
-                            }
-                        }
-                    }
-
-                    &.opened {
-                        a {
-                            background-color: @button_background;
-                            color: @button_color;
-
-                            &::before {
-                                background-color: @color-site-bg;
-                                border-radius: @fix_border-radius 0 0 @fix_border-radius;
-                            }
-
-                            &::after {
-                                display: none;
-                            }
-
-                            &:hover,
-                            &:focus,
-                            &:active {
-                                background-color: @button_color;
-                                border-color: @button_background;
-                                color: @button_background;
-                                text-decoration: none;
-
-                                &::before {
-                                    background-color: @button_color;
-                                    color: @button_background;
-                                }
-
-                                &::after {
-                                    display: block;
-                                    background-color: @button_background;
-                                }
-                            }
-                        }
-
-                        + ul {
-                            margin-top: .5em;
-                            margin-bottom: .25em;
-                        }
-                    }
-
-                    + ul {
-                        height: auto;
-                        overflow: hidden;
-                    }
-
-                    &.closed + ul {
-                        height: 0;
-                        li a{
-                            display: none;
-                        }
-                    }
+                span img {
+                    filter: none;
                 }
             }
         }
     }
 }
+
+// FIXME check if the stuff below is still relevant
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
@@ -258,7 +87,6 @@
         }
     }
 }
-
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* max-width: 1199px */
