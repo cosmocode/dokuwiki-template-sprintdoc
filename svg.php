@@ -89,6 +89,7 @@ class SVG {
     const CDNBASE = 'https://cdn.rawgit.com/Templarian/MaterialDesign/master/icons/svg/';
 
     protected $file;
+    protected $replacements;
 
     /**
      * SVG constructor
@@ -216,12 +217,15 @@ class SVG {
      * RRGGBB
      * RRGGBBAA
      *
-     * Converts it to rgba() form
+     * Converts it to rgba() form.
+     *
+     * Alternatively takes a replacement name from the current template's style.ini
      *
      * @param string $color
      * @return string
      */
-    protected function fixColor($color) {
+    protected function fixColor($color, $ini = true) {
+
         if(preg_match('/^([0-9a-f])([0-9a-f])([0-9a-f])$/i', $color, $m)) {
             $r = hexdec($m[1] . $m[1]);
             $g = hexdec($m[2] . $m[2]);
@@ -237,6 +241,12 @@ class SVG {
                 $a = hexdec('ff');
             }
         } else {
+            if($ini) {
+                if(!$this->replacements) $this->initReplacements();
+                if(isset($this->replacements[$color])) {
+                    return $this->replacements[$color];
+                }
+            }
             return '';
         }
 
@@ -270,6 +280,19 @@ class SVG {
         exit;
     }
 
+    /**
+     * Initialize the available replacement patterns
+     *
+     * Loads the style.ini from the template (and various local locations)
+     * via a core function only available through some hack.
+     */
+    protected function initReplacements() {
+        global $conf;
+        define('SIMPLE_TEST', 1); // hacky shit
+        include DOKU_INC . 'lib/exe/css.php';
+        $ini = css_styleini($conf['tpl']);
+        $this->replacements = $ini['replacements'];
+    }
 }
 
 // main
