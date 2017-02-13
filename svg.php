@@ -56,7 +56,7 @@ class SvgNode extends \SimpleXMLElement {
         $dom = dom_import_simplexml($this);
 
         $g = $dom->ownerDocument->createElement('g');
-        while ($dom->childNodes->length > 0) {
+        while($dom->childNodes->length > 0) {
             $child = $dom->childNodes->item(0);
             $dom->removeChild($child);
             $g->appendChild($child);
@@ -86,6 +86,7 @@ class SVG {
 
     const IMGDIR = __DIR__ . '/img/';
     const BACKGROUNDCLASS = 'sprintdoc-background';
+    const CDNBASE = 'https://cdn.rawgit.com/Templarian/MaterialDesign/master/icons/svg/';
 
     protected $file;
 
@@ -101,9 +102,17 @@ class SVG {
         // try local file first
         $file = self::IMGDIR . $svg;
         if(!file_exists($file)) {
-            // media files are ACL protected
-            if(auth_quickaclcheck($svg) < AUTH_READ) $this->abort(403);
+            // try media file
             $file = mediaFN($svg);
+            if(file_exists($file)) {
+                // media files are ACL protected
+                if(auth_quickaclcheck($svg) < AUTH_READ) $this->abort(403);
+            } else {
+                // get it from material design icons
+                $file = getCacheName($svg, '.svg');
+                io_download(self::CDNBASE . $svg, $file);
+            }
+
         }
         // check if media exists
         if(!file_exists($file)) $this->abort(404);
