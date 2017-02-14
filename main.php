@@ -239,6 +239,7 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* User Tools and MagicMatcher Bar */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                            /** @var \helper_plugin_magicmatcher_context $mm */
                             $mm = plugin_load('helper', 'magicmatcher_context');
                             $navClass = "";
                             if($mm){
