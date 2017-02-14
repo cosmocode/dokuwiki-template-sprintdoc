@@ -25,7 +25,7 @@ $lang['jump_to_quicksearch']        = 'Springe zur Schnellsuche';
 
 $lang['meta_box_jira_tickets_none'] = 'Keine Jira-Tickets verknüpft';
 $lang['meta_box_tags_none']         = 'Keine Tags verknüpft';
-$lang['meta_box_sitemap_none']      = 'keine Sitemap vorhanden';
+$lang['js']['meta_box_toc_none']    = 'kein Inhaltsverzeichnis vorhanden';
 
 $lang['quality_trigger']            = 'Seitenanalyse ein- bzw. ausblenden';
 

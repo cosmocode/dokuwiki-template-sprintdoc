@@ -25,7 +25,7 @@ $lang['jump_to_quicksearch']        = 'Jump to quick search';
 
 $lang['meta_box_jira_tickets_none'] = 'jira associated tickets found: none';
 $lang['meta_box_tags_none']         = 'tags found: none';
-$lang['meta_box_sitemap_none']      = 'no sitemap available';
+$lang['js']['meta_box_toc_none']    = 'no Table of Contents available';
 
 $lang['quality_trigger']            = 'toggle page analysis';
 
