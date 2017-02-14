@@ -13,6 +13,7 @@
                                     }?>
 
                                     <?php /* tasks do Plug-In */
+                                    /** @var \helper_plugin_do $doplugin */
                                     $doplugin = plugin_load('helper','do');
                                     if ($doplugin !== null && isset($_SERVER['REMOTE_USER'])) {
                                         $tasks = $doplugin->loadTasks(array('status' => array('undone'),'user'   => $_SERVER['REMOTE_USER']));

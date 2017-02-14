@@ -2,7 +2,7 @@
     if (!defined('DOKU_INC')) die();
 ?>
 
-        <div id="dokuwiki_direct" class="nav-direct no-print">
+        <div id="spr__direct" class="nav-direct no-print">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">

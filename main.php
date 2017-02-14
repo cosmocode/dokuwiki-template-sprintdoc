@@ -239,6 +239,7 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* User Tools and MagicMatcher Bar */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                            /** @var \helper_plugin_magicmatcher_context $mm */
                             $mm = plugin_load('helper', 'magicmatcher_context');
                             $navClass = "";
                             if($mm){
@@ -319,7 +320,7 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                         </div>
 
                         <div id="dokuwiki__content" class="page main-content">
-                            <div id="meta-box">
+                            <div id="spr__meta-box">
                                 <h6 class="sr-only" role="heading" aria-level="2"><?php echo  tpl_getLang('head_meta_box')  ?></h6>
 
                                 <?php
@@ -389,7 +390,7 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* copyright */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                                echo "&copy; ".tpl_getConf('copyright');
+                            tpl_license('');
                             ?>
                         </p>
                     </div>

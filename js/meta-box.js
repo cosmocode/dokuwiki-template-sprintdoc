@@ -1,8 +1,8 @@
-(function ($, spc, $lang) {
+(function ($, spc) {
 
     var toggleTabs = function () {
 
-        var $metaBox = $('#meta-box'),
+        var $metaBox = $('#spr__meta-box'),
             $tabLinks = $metaBox.find('.meta-tabs').find('a'),
             $tabPanels = $metaBox.find('.meta-content').find('.tab-pane');
 
@@ -45,8 +45,8 @@
         findJiraTickets = function(){
             var $tickets = $('#dokuwiki__content').find('a.jiralink');
             if($tickets.length >0){
-                var $panel = $('#tab-jira'),
-                    $num = $('a[href="#tab-jira"]').find('.num');
+                var $panel = $('#spr__tab-jira'),
+                    $num = $('a[href="#spr__tab-jira"]').find('.num');
 
                 if($panel.length > 0 && $num.length > 0){
                     $num.empty().append($tickets.length);
@@ -61,11 +61,11 @@
             }
         },
         findSitemap = function(){
-            var $panel =  $('#tab-toc'),
+            var $panel =  $('#spr__tab-toc'),
                 $toc = $panel.find('ul'),
-                $num = $('a[href="#tab-toc"]').find('.num');
+                $num = $('a[href="#spr__tab-toc"]').find('.num');
             if($toc.length == 0){
-                $panel.append('<div><p>'+$_LANG['meta_box_sitemap_none']+'</p></div>');
+                $panel.append('<div><p>'+LANG.template.sprintdoc.meta_box_toc_none+'</p></div>');
             }else{
                 $num.empty().append('1');
             }
@@ -77,5 +77,5 @@
         findSitemap();
     });
 
-})(jQuery, spc, $_LANG);
+})(jQuery, spc);
 
