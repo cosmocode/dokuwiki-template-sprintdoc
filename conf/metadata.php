@@ -12,4 +12,3 @@ $meta['userPage']         = array('string');
 $conf['user_ns']          = array('string');
 $meta['hideTools']        = array('onoff');
 $meta['tasks_page']       = array('string');
-$meta['copyright']        = array('string');

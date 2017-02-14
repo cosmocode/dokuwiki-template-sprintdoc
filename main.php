@@ -390,7 +390,7 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* copyright */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                                echo "&copy; ".tpl_getConf('copyright');
+                            tpl_license('');
                             ?>
                         </p>
                     </div>
