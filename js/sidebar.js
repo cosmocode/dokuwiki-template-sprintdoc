@@ -5,7 +5,7 @@ jQuery(function () {
     const $nav = jQuery('#dokuwiki__aside').find('nav.nav-main');
     if (!$nav.length) return;
 
-    const ELEMENT = 'h2'; // FIXME move to config
+    const ELEMENT = 'h1,h2,h3,h4,h5'; // FIXME move to config
     const $elements = $nav.find(ELEMENT);
     $elements.each(function () {
         const $me = jQuery(this);
@@ -31,8 +31,8 @@ jQuery(function () {
         const $wrap = jQuery('<div>').addClass('navi-pane');
         const $sibs = $me.nextAll();
         for (let i = 0; i < $sibs.length; i++) {
-            if ($sibs[i].tagName.toLowerCase() === ELEMENT) break;
             const $sib = jQuery($sibs[i]);
+            if($sib.is(ELEMENT)) break;
             $sib.detach().appendTo($wrap);
         }
         $wrap.hide();
