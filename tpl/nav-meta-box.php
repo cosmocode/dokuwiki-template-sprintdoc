@@ -40,6 +40,7 @@ if($tags) {
                 echo ' <span class="num">' . $tab['count'] . '</span>';
             }
             echo '</span>';
+            echo '</a>';
             echo '</li>';
         }
         ?>
