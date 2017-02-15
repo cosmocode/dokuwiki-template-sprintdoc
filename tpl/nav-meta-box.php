@@ -1,31 +1,7 @@
 <?php
 if(!defined('DOKU_INC')) die();
-global $lang;
 
-$tabs = array();
-
-$toc = tpl_toc(true);
-if($toc) {
-    $tabs[] = array(
-        'id' => 'spr__tab-toc',
-        'label' => $lang['toc'],
-        'tab' => $toc,
-        'count' => null,
-    );
-}
-
-/** @var helper_plugin_tagging $tags */
-$tags = plugin_load('helper', 'tagging');
-if($tags) {
-    $tabs[] = array(
-        'id' => 'spr__tab-tags',
-        'label' => tpl_getLang('tab_tags'),
-        'tab' => $tags->tpl_tags(false),
-        'count' => null, // FIXME
-    );
-}
-
-// fixme add magicmatcher info
+$tabs = \dokuwiki\template\sprintdoc\Template::getInstance()->getMetaBoxTabs();
 
 ?>
 <div class="tab-container">
