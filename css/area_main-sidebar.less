@@ -35,6 +35,24 @@
                 margin-right: @margin-small;
                 color: @color-nav;
 
+                // simple fake icon
+                strong {
+                    display: inline-block;
+                    font-size: @icon-size * 0.5;
+                    width: @icon-size * 0.9;
+                    height: @icon-size * 0.9;
+                    line-height: @icon-size * 0.9;
+                    margin: @icon-size * 0.05;
+                    vertical-align: baseline;
+                    text-align: center;
+                    color: @color-nav;
+                    border: 1px solid @color-nav;
+                    border-top-left-radius: 50%;
+                    border-bottom-right-radius: 50%;
+
+                }
+
+                // real icon
                 svg {
                     width: @icon-size;
                     height: @icon-size;
@@ -51,6 +69,11 @@
                 border-color: @button_background;
                 color: @button_background;
                 text-decoration: none;
+
+                span strong {
+                    color: @button_background;
+                    border-color: @button_background;
+                }
 
                 span svg path {
                     fill: @button_background;

@@ -14,7 +14,8 @@ jQuery(function () {
         const data = $me.text().split('@', 2);
         const text = data[0].trim();
         const $icon = jQuery('<span>')
-            .text(text.substr(0, 1).toUpperCase() + text.substr(1, 1).toLowerCase());
+            .text(text.substr(0, 1).toUpperCase() + text.substr(1, 1).toLowerCase())
+            .wrapInner('<strong>');
         if (data[1]) {
             const src = data[1].trim();
             $icon.load(DOKU_BASE + 'lib/tpl/sprintdoc/svg.php?svg=' + src + '&e=1'); // directly embed
