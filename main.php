@@ -168,59 +168,14 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                             ?>
                         </div><!-- .search -->
 
-                        <div id="dokuwiki__aside" class="menu main-sidebar">
+                        <div id="dokuwiki__aside">
                             <?php
-
-
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* main menu */
+/* sidebar */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                                include('tpl/nav-main.php');
+                                include('tpl/main-sidebar-nav.php');
                             ?>
-                        </div><!-- .menu -->
-
-                        <div class="side-tools main-sidebar toggle-menu">
-                            <?php
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* site tools */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                                include('tpl/nav-sitetools.php');
-                            ?>
-                        </div><!-- .side-tools -->
-                        <div class="side-tools main-sidebar toggle-menu">
-                            <?php
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* user tools */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                            include('tpl/nav-usermenu.php');
-                            ?>
-                        </div><!-- .side-tools -->
-
-                        <div class="side-tools main-sidebar toggle-menu">
-                            <?php
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* trace */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                            include('tpl/nav-trace.php');
-                            ?>
-                        </div><!-- .side-tools -->
-
-                        <div class="sidebarfooter main-sidebar">
-                            <?php
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* Include Hook: sidebarfooter.html */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                                tpl_includeFile('sidebarfooter.html')
-                            ?>
-                        </div><!-- .sidebarheader -->
+                        </div><!-- .aside -->
 
                     </div><!-- .col -->
                 </div><!-- .row -->

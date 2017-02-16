@@ -4,87 +4,90 @@
  * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
  */
 
-#dokuwiki__aside.main-sidebar {
-    .nav-main {
-        @icon-size: @font-size-big;
-        @menu-margin: @icon-size + @margin-small*2; // FIXME this is still wrong
+#dokuwiki__aside {
+    @icon-size: @font-size-big;
+    @menu-margin: @icon-size + @margin-small*2; // FIXME this is still wrong
 
-        margin-left: @menu-margin; // moves *all* sidebar content to the right
+    margin-left: @menu-margin; // moves *all* sidebar content to the right
 
-        .navi-toggle {
-            cursor: pointer;
+    // the toggle element
+    h6 {
+        cursor: pointer;
 
+        height: @line-height-big;
+        line-height: @line-height-big;
+        font-weight: normal;
+        margin-left: (@menu-margin * -1); // moves the toggles back to the left
+
+        color: @color-nav;
+        border: 1px solid transparent;
+        border-radius: @fix_border-radius;
+        // margin-bottom: -.3rem; FIXME
+        // padding: .7em 0 .7em (@margin-big + 1); FIXME WTF?
+        transition: @transition color, @transition background-color, @transition border-color;
+
+        span {
+            display: inline-block;
+            width: @menu-margin;
             height: @line-height-big;
-            line-height: @line-height-big;
-            font-weight: normal;
-            margin-left: (@menu-margin * -1); // moves the toggles back to the left
-
+            border-right: 1px solid @color-border;
+            text-align: center;
+            margin-right: @margin-small;
             color: @color-nav;
-            border: 1px solid transparent;
-            border-radius: @fix_border-radius;
-            // margin-bottom: -.3rem; FIXME
-            // padding: .7em 0 .7em (@margin-big + 1); FIXME WTF?
-            transition: @transition color, @transition background-color, @transition border-color;
 
-            span {
+            // simple fake icon
+            strong {
                 display: inline-block;
-                width: @menu-margin;
-                height: @line-height-big;
-                border-right: 1px solid @color-border;
+                font-size: @icon-size * 0.5;
+                width: @icon-size * 0.9;
+                height: @icon-size * 0.9;
+                line-height: @icon-size * 0.9;
+                margin: @icon-size * 0.05;
+                vertical-align: baseline;
                 text-align: center;
-                margin-right: @margin-small;
                 color: @color-nav;
+                border: 2px solid @color-nav;
+                border-top-right-radius: 50%;
+                border-bottom-left-radius: 50%;
 
-                // simple fake icon
-                strong {
-                    display: inline-block;
-                    font-size: @icon-size * 0.5;
-                    width: @icon-size * 0.9;
-                    height: @icon-size * 0.9;
-                    line-height: @icon-size * 0.9;
-                    margin: @icon-size * 0.05;
-                    vertical-align: baseline;
-                    text-align: center;
-                    color: @color-nav;
-                    border: 1px solid @color-nav;
-                    border-top-left-radius: 50%;
-                    border-bottom-right-radius: 50%;
-
-                }
-
-                // real icon
-                svg {
-                    width: @icon-size;
-                    height: @icon-size;
-                    path {
-                        fill: @color-nav;
-                    }
-                }
             }
 
-            &:hover,
-            &:focus,
-            &:active {
-                background-color: @button_color;
-                border-color: @button_background;
-                color: @button_background;
-                text-decoration: none;
-
-                span strong {
-                    color: @button_background;
-                    border-color: @button_background;
-                }
-
-                span svg path {
-                    fill: @button_background;
+            // real icon
+            svg {
+                width: @icon-size;
+                height: @icon-size;
+                path {
+                    fill: @color-nav;
                 }
             }
         }
+
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: @button_color;
+            border-color: @button_background;
+            color: @button_background;
+            text-decoration: none;
+
+            span strong {
+                color: @button_background;
+                border-color: @button_background;
+            }
+
+            span svg path {
+                fill: @button_background;
+            }
+        }
+    }
+
+    // the panel (hidden by default)
+    div.nav-panel {
+        display: none;
     }
 }
 
 // FIXME check if the stuff below is still relevant
-
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* min-width: 1440px */
