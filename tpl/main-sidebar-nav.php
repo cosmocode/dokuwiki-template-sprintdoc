@@ -61,7 +61,7 @@
                 $crumbs = array_reverse($crumbs, true);
                 foreach($crumbs as $id => $name) {
                     echo '<li>';
-                    tpl_link(wl($id), hsc($name), 'class="breadcrumbs" title="' . $id . '"');
+                    tpl_link(wl($id), hsc($name), 'title="' . $id . '"');
                     echo '</li>';
                 }
                 ?>
