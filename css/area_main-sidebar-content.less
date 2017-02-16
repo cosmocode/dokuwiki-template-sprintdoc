@@ -3,12 +3,17 @@
  */
 #dokuwiki__aside {
 
-    // do not indent the first level of lists in the sidebar
+    // do not indent the first level of lists
+    // and use less indention in deeper levels
     ul, ol {
         padding-left: 0;
 
         ul, ol {
-            padding-left: 1.5em; // same padding as defined in base styles
+            padding-left: @margin-small;
+
+            li {
+                margin-left: 0;
+            }
         }
     }
 }
