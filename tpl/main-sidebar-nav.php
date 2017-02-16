@@ -7,8 +7,8 @@
 
 <nav class="nav-sitetools">
     <h6 role="heading" aria-level="2">
-        <span><?php echo inlineSVG(__DIR__ . '/../img/sitemap.svg')?></span>
-        <?php echo $lang['site_tools']; ?>
+        <span class="ico"><?php echo inlineSVG(__DIR__ . '/../img/sitemap.svg') ?></span>
+        <span class="lbl"><?php echo $lang['site_tools']; ?></span>
     </h6>
     <div class="nav-panel level1">
         <ul>
@@ -29,8 +29,9 @@
 
 <nav class="nav-usermenu">
     <h6 role="heading" aria-level="2">
-        <span><?php echo inlineSVG(__DIR__ . '/../img/account-settings.svg')?></span>
-        <?php echo $lang['user_tools']; ?></h6>
+        <span class="ico"><?php echo inlineSVG(__DIR__ . '/../img/account-settings.svg') ?></span>
+        <span class="lbl"><?php echo $lang['user_tools']; ?></span>
+    </h6>
     <div class="nav-panel level1">
         <ul>
             <?php /* dokuwiki user tools */
@@ -51,8 +52,9 @@
 <?php if($conf['breadcrumbs']): ?>
     <nav class="nav-trace">
         <h6 role="heading" aria-level="2">
-            <span><?php echo inlineSVG(__DIR__ . '/../img/apple-safari.svg')?></span>
-            <?php echo tpl_getLang('head_menu_trace'); ?></h6>
+            <span class="ico"><?php echo inlineSVG(__DIR__ . '/../img/apple-safari.svg') ?></span>
+            <span class="lbl"><?php echo tpl_getLang('head_menu_trace'); ?></span>
+        </h6>
         <div class="nav-panel level1">
             <ul>
                 <?php /* trace breadcrumbs as list */

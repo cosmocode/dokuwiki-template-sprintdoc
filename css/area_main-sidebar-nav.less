@@ -13,23 +13,31 @@
     // the toggle element
     h6 {
         cursor: pointer;
-
-        height: @line-height-big;
-        line-height: @line-height-big;
         font-weight: normal;
         margin-left: (@menu-margin * -1); // moves the toggles back to the left
-
         color: @color-nav;
         border: 1px solid transparent;
         border-radius: @fix_border-radius;
-        // margin-bottom: -.3rem; FIXME
-        // padding: .7em 0 .7em (@margin-big + 1); FIXME WTF?
         transition: @transition color, @transition background-color, @transition border-color;
+
+        height: @icon-size + @margin-small;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
 
         span {
             display: inline-block;
+            vertical-align: middle;
+        }
+
+        span.lbl {
+            flex-grow: 1;
+        }
+
+        span.ico {
             width: @menu-margin;
-            height: @line-height-big;
+            height: @icon-size;
+            flex-grow: 0;
             border-right: 1px solid @color-border;
             text-align: center;
             margin-right: @margin-small;
@@ -70,12 +78,12 @@
             color: @button_background;
             text-decoration: none;
 
-            span strong {
+            span.ico strong {
                 color: @button_background;
                 border-color: @button_background;
             }
 
-            span svg path {
+            span.ico svg path {
                 fill: @button_background;
             }
         }

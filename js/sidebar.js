@@ -65,7 +65,7 @@ jQuery(function () {
             // prepare text and the optional icon
             const data = $me.text().split('@', 2);
             const text = data[0].trim();
-            const $icon = jQuery('<span>')
+            const $icon = jQuery('<span class="ico">')
                 .text(text.substr(0, 1).toUpperCase() + text.substr(1, 1).toLowerCase())
                 .wrapInner('<strong>');
             if (data[1]) {
@@ -78,6 +78,7 @@ jQuery(function () {
                     .attr('role', 'heading')
                     .attr('aria-level', '2')
                     .text(text)
+                    .wrapInner('<span class="lbl">')
                     .prepend($icon)
                 ;
 
