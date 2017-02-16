@@ -10,7 +10,7 @@
         <span><?php echo inlineSVG(__DIR__ . '/../img/sitemap.svg')?></span>
         <?php echo $lang['site_tools']; ?>
     </h6>
-    <div class="nav-panel">
+    <div class="nav-panel level1">
         <ul>
             <?php
             tpl_toolsevent(
@@ -31,7 +31,7 @@
     <h6 role="heading" aria-level="2">
         <span><?php echo inlineSVG(__DIR__ . '/../img/account-settings.svg')?></span>
         <?php echo $lang['user_tools']; ?></h6>
-    <div class="nav-panel">
+    <div class="nav-panel level1">
         <ul>
             <?php /* dokuwiki user tools */
             tpl_toolsevent(
@@ -53,7 +53,7 @@
         <h6 role="heading" aria-level="2">
             <span><?php echo inlineSVG(__DIR__ . '/../img/apple-safari.svg')?></span>
             <?php echo tpl_getLang('head_menu_trace'); ?></h6>
-        <div class="nav-panel">
+        <div class="nav-panel level1">
             <ul>
                 <?php /* trace breadcrumbs as list */
                 // FIXME move to helper class
