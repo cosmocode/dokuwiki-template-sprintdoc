@@ -39,6 +39,7 @@
                 'usertools',
                 array(
                     'login' => tpl_action('login', 1, 'li', 1),
+                    'profile' => tpl_action('profile', 1, 'li', 1),
                     'admin' => tpl_action('admin', 1, 'li', 1),
                     'register' => tpl_action('register', 1, 'li', 1),
                 )
