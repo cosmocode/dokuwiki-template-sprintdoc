@@ -30,7 +30,6 @@ class Template {
         return $instance;
     }
 
-
     /**
      * Template constructor.
      */
@@ -79,5 +78,44 @@ class Template {
         // fixme add magicmatcher info
 
         return $tabs;
+    }
+
+    /**
+     * Creates an image tag and includes the first found image correctly resized
+     *
+     * @param string $tag
+     * @param array $attributes
+     * @param int $w
+     * @param int $h
+     * @return string
+     */
+    public static function getResizedImgTag($tag, $attributes, $w, $h) {
+        $attr = '';
+        $medias = array();
+
+        // the attribute having an array defines where the image goes
+        foreach($attributes as $attribute => $data) {
+            if(is_array($data)) {
+                $medias = $data;
+                $attr = $attribute;
+            }
+        }
+        // if the image attribute could not be found return
+        if(!$attr || !$medias) return '';
+
+        // try all medias until an existing one is found
+        $media = '';
+        foreach($medias as $media) {
+            if(file_exists(mediaFN($media))) break;
+            $media = '';
+        }
+        if($media === '') return '';
+
+        // replace the array
+        $media = ml($media, array('w' => $w, 'h' => $h, 'crop' => 1), true, '&');
+        $attributes[$attr] = $media;
+
+        // return the full tag
+        return '<' . $tag . ' ' . buildAttributes($attributes) . ' />';
     }
 }

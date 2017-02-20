@@ -67,7 +67,6 @@ $showSidebar =  true; /*  */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 ?>
 <?php
-    echo tpl_favicon(array('favicon')); /* DokuWiki: favicon.ico  */
     include('tpl/favicon_tiles.php');
 ?>
 <?php
