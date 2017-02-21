@@ -135,10 +135,23 @@ jQuery(function () {
         });
     };
 
+    /**
+     * Show sidebar when accessing the search
+     */
+    const initSearchToggling = function () {
+        jQuery('.toggleSearch').find('a').click(function (e) {
+            setDefaultContent();
+            e.preventDefault();
+            jQuery('#qsearch__in').focus();
+        });
+
+    };
+
     // main
     initContentNav();
     initSidebarToggling();
     initMenuHandling();
     initContentMinHeight();
+    initSearchToggling();
 });
 
