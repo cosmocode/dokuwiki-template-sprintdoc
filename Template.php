@@ -118,4 +118,41 @@ class Template {
         // return the full tag
         return '<' . $tag . ' ' . buildAttributes($attributes) . ' />';
     }
+
+    /**
+     * Embed the main logo
+     *
+     * Tries a few different locations
+     */
+    public function mainLogo() {
+        global $conf;
+
+        $desktop = self::getResizedImgTag(
+            'img',
+            array(
+                'class' => 'mobile-hide',
+                'src' => array(tpl_getConf('logo'), 'wiki:logo-wide.png', 'wiki:logo.png'),
+                'alt' => tpl_getLang('adjunct_start_logo_text') . $conf['title'],
+            ),
+            0, 0
+        );
+        $mobile = self::getResizedImgTag(
+            'img',
+            array(
+                'class' => 'mobile-only',
+                'src' => array('wiki:logo-32x32.png', 'wiki:favicon.png', 'wiki:logo-square.png', 'wiki:logo.png', tpl_getConf('logo')),
+                'alt' => tpl_getLang('adjunct_start_logo_text') . $conf['title'],
+            ),
+            32, 32
+        );
+
+        // homepage logo should not link to itself (BITV accessibility requirement)
+        if(strcmp(wl(), $_SERVER['REQUEST_URI']) === 0) {
+            echo $desktop;
+            echo $mobile;
+        } else {
+            tpl_link(wl(), $desktop, 'accesskey="h" title="[H]"');
+            tpl_link(wl(), $mobile, 'accesskey="h" title="[H]"');
+        }
+    }
 }
