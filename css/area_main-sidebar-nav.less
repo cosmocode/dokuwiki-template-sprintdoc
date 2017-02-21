@@ -1,0 +1,152 @@
+/**
+ * This file provides the design styles the navigational elements in the sidebar
+ *
+ * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
+ * @author Andreas Gohr <gohr@cosmocode.de>
+ */
+#dokuwiki__aside {
+    @icon-size: @font-size-big;
+    @menu-margin: @icon-size + @margin-small*2; // FIXME this is still wrong
+
+    margin-left: @menu-margin; // moves *all* sidebar content to the right
+
+    // the toggle element
+    h6 {
+        cursor: pointer;
+        font-weight: normal;
+        margin-left: (@menu-margin * -1); // moves the toggles back to the left
+        color: @color-nav;
+        border: 1px solid transparent;
+        border-radius: @fix_border-radius;
+        transition: @transition color, @transition background-color, @transition border-color;
+
+        height: @icon-size + @margin-small;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        span {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        span.lbl {
+            flex-grow: 1;
+        }
+
+        span.ico {
+            width: @menu-margin;
+            height: @icon-size;
+            flex-grow: 0;
+            border-right: 1px solid @color-border;
+            text-align: center;
+            margin-right: @margin-small;
+            color: @color-nav;
+
+            // simple fake icon
+            strong {
+                display: inline-block;
+                font-size: @icon-size * 0.5;
+                width: @icon-size * 0.9;
+                height: @icon-size * 0.9;
+                line-height: @icon-size * 0.9;
+                margin: @icon-size * 0.05;
+                vertical-align: baseline;
+                text-align: center;
+                color: @color-nav;
+                border: 2px solid @color-nav;
+                border-top-right-radius: 50%;
+                border-bottom-left-radius: 50%;
+
+            }
+
+            // real icon
+            svg {
+                width: @icon-size;
+                height: @icon-size;
+                path {
+                    fill: @color-nav;
+                }
+            }
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: @button_color;
+            border-color: @button_background;
+            color: @button_background;
+            text-decoration: none;
+
+            span.ico strong {
+                color: @button_background;
+                border-color: @button_background;
+            }
+
+            span.ico svg path {
+                fill: @button_background;
+            }
+        }
+    }
+
+    // the panel (hidden by default)
+    div.nav-panel {
+        display: none;
+    }
+}
+
+// FIXME check if the stuff below is still relevant
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* min-width: 1440px */
+
+@media @screen_min-xlg {
+    #dokuwiki__aside.main-sidebar {
+        .nav-main {
+            .li {
+                font-size: @font-size-default;
+                padding: .1em 0;
+
+                * {
+                    font-size: inherit;
+                    font-weight: inherit;
+                }
+            }
+
+            > ul > li > .li {
+                font-size: @font-size-default;
+
+                * {
+                    font-size: inherit;
+                }
+            }
+        }
+    }
+}
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* max-width: 1199px */
+
+@media @screen_max-xlg {
+    #dokuwiki__aside.main-sidebar {
+        .nav-main {
+            .li {
+                font-size: @font-size-default;
+                padding: .15em 0 .15em .25rem;
+
+                * {
+                    font-size: inherit;
+                    font-weight: inherit;
+                }
+            }
+
+            > ul > li > .li {
+                font-size: @font-size-default;
+
+                > * {
+                    font-size: inherit;
+                }
+            }
+        }
+    }
+}
