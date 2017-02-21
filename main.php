@@ -10,7 +10,6 @@
  */
 
 if (!defined('DOKU_INC')) die();                        /* must be run from within DokuWiki */
-@require_once(dirname(__FILE__).'/tpl_functions.php');  /* include hook for template functions */
 header('X-UA-Compatible: IE=edge,chrome=1');
 
 $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && !empty($_SERVER['REMOTE_USER']) );
