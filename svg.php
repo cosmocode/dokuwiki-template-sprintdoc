@@ -125,11 +125,12 @@ class SVG {
      * Generate and output
      */
     public function out() {
+        global $conf;
         $file = $this->file;
         $params = $this->getParameters();
 
         header('Content-Type: image/svg+xml');
-        $cachekey = md5($file . serialize($params) . filemtime(__FILE__));
+        $cachekey = md5($file . serialize($params) . $conf['template'] . filemtime(__FILE__));
         $cache = new \cache($cachekey, '.svg');
         $cache->_event = 'SVG_CACHE';
 
@@ -250,8 +251,8 @@ class SVG {
      * @param string $color
      * @return string
      */
-    protected function fixColor($color, $ini = true) {
-
+    protected function fixColor($color) {
+        if($color === '') return '';
         if(preg_match('/^([0-9a-f])([0-9a-f])([0-9a-f])$/i', $color, $m)) {
             $r = hexdec($m[1] . $m[1]);
             $g = hexdec($m[2] . $m[2]);
@@ -267,11 +268,9 @@ class SVG {
                 $a = hexdec('ff');
             }
         } else {
-            if($ini) {
-                if(!$this->replacements) $this->initReplacements();
-                if(isset($this->replacements[$color])) {
-                    return $this->replacements[$color];
-                }
+            if(is_null($this->replacements)) $this->initReplacements();
+            if(isset($this->replacements[$color])) {
+                return $this->replacements[$color];
             }
             return '';
         }
@@ -316,7 +315,7 @@ class SVG {
         global $conf;
         define('SIMPLE_TEST', 1); // hacky shit
         include DOKU_INC . 'lib/exe/css.php';
-        $ini = css_styleini($conf['tpl']);
+        $ini = css_styleini($conf['template']);
         $this->replacements = $ini['replacements'];
     }
 }
