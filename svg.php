@@ -272,6 +272,9 @@ class SVG {
             if(isset($this->replacements[$color])) {
                 return $this->replacements[$color];
             }
+            if(isset($this->replacements['__' . $color . '__'])) {
+                return $this->replacements['__' . $color . '__'];
+            }
             return '';
         }
 
