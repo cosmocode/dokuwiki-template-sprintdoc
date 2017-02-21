@@ -4,20 +4,19 @@
  * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
  */
 
-
 #dokuwiki__content.main-content {
 
     .level2 {
         p a.media {
-            img{
-                border:1px dotted @color-site-bg;
+            img {
+                border: 1px dotted @color-site-bg;
 
             }
-           &:hover,&:focus,&:active{
-               img{
-                   border:1px solid @color-link;
-               }
-           }
+            &:hover, &:focus, &:active {
+                img {
+                    border: 1px solid @color-link;
+                }
+            }
 
         }
     }
@@ -34,18 +33,40 @@
         float: right;
         margin-top: 0;
         position: relative;
-        z-index:2;
+        z-index: 2;
         top: 0;
+
+        button {
+            background-color: transparent;
+            color: transparent;
+            border-color: transparent;
+
+            &::after {
+                content: '';
+                display: inline-block;
+                background: transparent url("svg.php?svg=pencil.svg&f=link") center center no-repeat;
+                height: 1em;
+                width: 1em;
+                background-size: contain;
+                margin-left: 0.5rem; // FIXME hard coded in plugins/edit.less
+            }
+
+            &:hover,
+            &:active,
+            &:focus {
+                background-color: @button_color;
+                color: @button_background;
+                border-color: @button_background;
+            }
+        }
     }
 }
-
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* min-width: 1440px */
 
 @media @screen_min-xlg {
 }
-
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* max-width: 1199px */
