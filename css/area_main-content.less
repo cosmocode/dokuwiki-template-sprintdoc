@@ -20,15 +20,14 @@
 
         }
     }
-    div.section_highlight {
-        margin: 0;
-        padding: 0 0 1rem 0;
-        border: 1px solid #abced4;
-        background-color: #fff;
-        background-image: linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
-        linear-gradient(#eee .1em, transparent .1em);
-        background-size: 100% 1.2em;
-        opacity: .7;
+    div.section_highlight{
+        background: repeating-linear-gradient(
+            -45deg,
+            @ini_background_neu,
+            @ini_background_neu 10px,
+            @ini_background 10px,
+            @ini_background 20px,
+        );
     }
     .secedit {
         float: right;

@@ -1,0 +1,8 @@
+sprintdoc-farm:
+  environment: sprintdoc-farm
+  tags:
+    - locally
+  only:
+    - live
+  script:
+    - fab deploy
