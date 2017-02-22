@@ -2,10 +2,12 @@
     position: relative;
     z-index: 10;
     display: inline-block;
-    min-height: 1.95rem;
+    min-height: @page-header_height;
     max-width: 40%;
     float: right;
-
+    margin-top: @page_padding-top * -1; // reverse padding-top of .page container
+    padding-top: 1rem;
+    border: 1px solid transparent;
 
     .tab-container {
         display: table;
@@ -54,7 +56,7 @@
                 position: relative;
                 display: block;
                 background-color: @color-site-bg;
-                border: 1px solid @color-border;
+                border: 1px solid @color-border-light;
                 border-radius: @fix_border-radius @fix_border-radius 0 0;
                 color: @color-nav;
                 font-size: @font-size-small;
