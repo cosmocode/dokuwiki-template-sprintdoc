@@ -11,6 +11,7 @@ $lang['direct_menu_main']           = 'main menu';
 
 $lang['adjunct_start_logo_text']    = 'Logo: ';
 $lang['adjunct_linked_logo_text']   = '. homepage link';
+$lang['a11y_search']                = 'Jump to the search';
 
 $lang['nav-area-head']              = 'menus and quick search';
 $lang['head_magic_matcher']         = 'MagicMatcher';
