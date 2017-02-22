@@ -239,7 +239,7 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                         <div class="breadcrumbs">
 
                             <div class="togglelink page_main-content">
-                                <a href="#">&lt; &gt;<span class="sr-out">auf/zu</span></a>
+                                <a href="#">&lt; &gt;<span class="sr-out"><?php echo tpl_getLang('a11y_sidebartoggle')?></span></a>
                             </div>
 
                             <h6 class="sr-only" role="heading" aria-level="2"><?php echo  tpl_getLang('head_menu_status')  ?></h6>
