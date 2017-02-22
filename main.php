@@ -236,7 +236,7 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                         <?php
                          ?>
 
-                        <div class="breadcrumbs">
+                        <div class="breadcrumbs" data-do="<?php echo $ACT?>">
 
                             <div class="togglelink page_main-content">
                                 <a href="#">&lt; &gt;<span class="sr-out"><?php echo tpl_getLang('a11y_sidebartoggle')?></span></a>
