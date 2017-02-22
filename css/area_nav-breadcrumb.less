@@ -30,6 +30,10 @@
         }
 
         span.home {
+            margin-left: -.2rem; // reverse spacing in home icon --> content text and home icon aligned
+            .wide-content &{
+                margin-left: .4rem; //toggle link has position absolute, hover on home icon needs more space than left padding of breadcrumb
+            }
             a {
                 .fontello();
                 .hide-text-show-before();
