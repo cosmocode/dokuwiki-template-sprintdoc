@@ -116,7 +116,7 @@ class Template {
         $attributes[$attr] = $media;
 
         // return the full tag
-        return '<' . $tag . ' ' . buildAttributes($attributes) . ' />';
+        return '<' . $tag . ' ' . buildAttributes($attributes) . ' />' . "\n";
     }
 
     /**
@@ -127,12 +127,20 @@ class Template {
     public function mainLogo() {
         global $conf;
 
+        // homepage logo should not link to itself (BITV accessibility requirement)
+        $linkit = (strcmp(wl(), $_SERVER['REQUEST_URI']) !== 0);
+        if($linkit) {
+            $title = $conf['title'] . tpl_getLang('adjunct_linked_logo_text');
+        } else {
+            $title = tpl_getLang('adjunct_start_logo_text') . $conf['title'];
+        }
+
         $desktop = self::getResizedImgTag(
             'img',
             array(
                 'class' => 'mobile-hide',
                 'src' => array(tpl_getConf('logo'), 'wiki:logo-wide.png', 'wiki:logo.png'),
-                'alt' => tpl_getLang('adjunct_start_logo_text') . $conf['title'],
+                'alt' => $title,
             ),
             0, 0
         );
@@ -141,18 +149,18 @@ class Template {
             array(
                 'class' => 'mobile-only',
                 'src' => array('wiki:logo-32x32.png', 'wiki:favicon.png', 'wiki:logo-square.png', 'wiki:logo.png', tpl_getConf('logo')),
-                'alt' => tpl_getLang('adjunct_start_logo_text') . $conf['title'],
+                'alt' => $title,
             ),
             32, 32
         );
 
         // homepage logo should not link to itself (BITV accessibility requirement)
-        if(strcmp(wl(), $_SERVER['REQUEST_URI']) === 0) {
-            echo $desktop;
-            echo $mobile;
-        } else {
+        if($linkit) {
             tpl_link(wl(), $desktop, 'accesskey="h" title="[H]"');
             tpl_link(wl(), $mobile, 'accesskey="h" title="[H]"');
+        } else {
+            echo $desktop;
+            echo $mobile;
         }
     }
 }
