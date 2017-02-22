@@ -30,7 +30,7 @@
     <a class="nav" role="heading" aria-level="2">
         <span class="ico"><?php echo inlineSVG(__DIR__ . '/../img/account-settings.svg') ?></span>
         <span class="lbl"><?php echo $lang['user_tools']; ?></span>
-    </>
+    </a>
     <div class="nav-panel level1">
         <ul>
             <?php /* dokuwiki user tools */
