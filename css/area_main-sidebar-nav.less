@@ -8,7 +8,9 @@
     @icon-size: @font-size-big;
     @menu-margin: @icon-size + @margin-small*2; // FIXME this is still wrong
 
-    margin-left: @menu-margin; // moves *all* sidebar content to the right
+    > * {
+        margin-left: @menu-margin; // moves *all* sidebar content to the right
+    }
 
     // the toggle element
     a.nav {
@@ -98,6 +100,36 @@
     }
 }
 
+/**
+ * Sidebar handling in mobile view
+ */
+@media @screen_max-md {
+    // hide on medium and smaller screens
+    #dokuwiki__aside {
+        display: none;
+    }
+    // show when toggled
+    #dokuwiki__aside.show {
+        display: block;
+
+        position: absolute;
+        left: 0;
+        z-index: 200; // above all
+
+
+        border-right: @ini_border 1px solid;
+        box-shadow: @box-shadow;;
+
+        max-width: 100%;
+        min-width: 45%;
+        height: 100%;
+
+        background-color: @ini_background;
+    }
+}
+
+
+
 // FIXME check if the stuff below is still relevant
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
@@ -125,6 +157,8 @@
             }
         }
     }
+
+
 }
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */

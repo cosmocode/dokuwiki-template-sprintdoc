@@ -50,22 +50,24 @@
 
 
 <?php if($conf['breadcrumbs']): ?>
-    <a class="nav" role="heading" aria-level="2">
-        <span class="ico"><?php echo inlineSVG(__DIR__ . '/../img/apple-safari.svg') ?></span>
-        <span class="lbl"><?php echo tpl_getLang('head_menu_trace'); ?></span>
-    </a>
-    <div class="nav-panel level1">
-        <ul>
-            <?php /* trace breadcrumbs as list */
-            // FIXME move to helper class
-            $crumbs = breadcrumbs();
-            $crumbs = array_reverse($crumbs, true);
-            foreach($crumbs as $id => $name) {
-                echo '<li>';
-                tpl_link(wl($id), hsc($name), 'title="' . $id . '"');
-                echo '</li>';
-            }
-            ?>
-        </ul>
-    </div>
+    <nav class="nav-trace">
+        <a class="nav" role="heading" aria-level="2">
+            <span class="ico"><?php echo inlineSVG(__DIR__ . '/../img/apple-safari.svg') ?></span>
+            <span class="lbl"><?php echo tpl_getLang('head_menu_trace'); ?></span>
+        </a>
+        <div class="nav-panel level1">
+            <ul>
+                <?php /* trace breadcrumbs as list */
+                // FIXME move to helper class
+                $crumbs = breadcrumbs();
+                $crumbs = array_reverse($crumbs, true);
+                foreach($crumbs as $id => $name) {
+                    echo '<li>';
+                    tpl_link(wl($id), hsc($name), 'title="' . $id . '"');
+                    echo '</li>';
+                }
+                ?>
+            </ul>
+        </div>
+    </nav>
 <?php endif ?>
