@@ -41,14 +41,15 @@
     }
     p.toggleSearch {
         display: none;
-        margin: -1px 0 0;
+        margin: -2px 0 0; // reverse transparent border and box-sizing of a child
         padding: 0;
         a {
-            width: @toggle-showsidebar_width;
+            width: @toggle-showsidebar_width + 0.1; /* must be a bit a wider than @toggle-showsidebar_width to hide right border on hover / focus */
             border: solid 1px transparent;
             border-bottom: solid 1px @color-border;
             border-radius: @fix_border-radius 0 0 0;
             text-decoration: none;
+            box-sizing: border-box;
             &:hover,
             &:focus,
             &:active {
