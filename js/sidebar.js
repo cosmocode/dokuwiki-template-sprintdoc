@@ -77,6 +77,7 @@ jQuery(function () {
             const $toggler = jQuery('<h6>')
                     .attr('role', 'heading')
                     .attr('aria-level', '2')
+                    .attr('tabindex', '0')
                     .text(text)
                     .wrapInner('<span class="lbl">')
                     .prepend($icon)
@@ -102,7 +103,7 @@ jQuery(function () {
      * Initialize the open/close toggling of menu entries
      */
     const initMenuHandling = function () {
-        $nav.on('click', 'h6', function () {
+        $nav.on('click keypress', 'h6', function () {
             toggleNav(jQuery(this));
         });
     };
