@@ -74,7 +74,9 @@ jQuery(function () {
             }
 
             // make the new toggler
-            const $toggler = jQuery('<h6>')
+            const $toggler = jQuery('<a>')
+                    .addClass('nav')
+                    .attr('href', '#')
                     .attr('role', 'heading')
                     .attr('aria-level', '2')
                     .text(text)
@@ -102,8 +104,9 @@ jQuery(function () {
      * Initialize the open/close toggling of menu entries
      */
     const initMenuHandling = function () {
-        $nav.on('click', 'h6', function () {
+        $nav.on('click', 'a', function (e) {
             toggleNav(jQuery(this));
+            e.preventDefault();
         });
     };
 
