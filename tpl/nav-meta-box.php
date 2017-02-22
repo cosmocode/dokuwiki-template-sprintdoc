@@ -6,6 +6,7 @@ $tabs = \dokuwiki\template\sprintdoc\Template::getInstance()->getMetaBoxTabs();
 ?>
 <div class="tab-container">
     <ul class="meta-tabs">
+        <li class="a11y">&nbsp;</li>
         <?php
         foreach($tabs as $tab) {
             echo '<li>';
