@@ -20,46 +20,6 @@
 
         }
     }
-    div.section_highlight{
-        background: repeating-linear-gradient(
-            -45deg,
-            @ini_background_neu,
-            @ini_background_neu 10px,
-            @ini_background 10px,
-            @ini_background 20px,
-        );
-    }
-    .secedit {
-        float: right;
-        margin-top: 0;
-        position: relative;
-        z-index: 2;
-        top: 0;
-
-        button {
-            background-color: transparent;
-            color: transparent;
-            border-color: transparent;
-
-            &::after {
-                content: '';
-                display: inline-block;
-                background: transparent url("svg.php?svg=pencil.svg&f=link") center center no-repeat;
-                height: 1em;
-                width: 1em;
-                background-size: contain;
-                margin-left: 0.5rem; // FIXME hard coded in plugins/edit.less
-            }
-
-            &:hover,
-            &:active,
-            &:focus {
-                background-color: @button_color;
-                color: @button_background;
-                border-color: @button_background;
-            }
-        }
-    }
 }
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
