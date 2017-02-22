@@ -116,7 +116,7 @@ class Template {
         $attributes[$attr] = $media;
 
         // return the full tag
-        return '<' . $tag . ' ' . buildAttributes($attributes) . ' />';
+        return '<' . $tag . ' ' . buildAttributes($attributes) . ' />' . "\n";
     }
 
     /**
