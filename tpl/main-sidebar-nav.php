@@ -4,12 +4,11 @@
     ?>
 </nav>
 
-
 <nav class="nav-sitetools">
-    <h6 role="heading" aria-level="2">
+    <a class="nav" role="heading" aria-level="2">
         <span class="ico"><?php echo inlineSVG(__DIR__ . '/../img/sitemap.svg') ?></span>
         <span class="lbl"><?php echo $lang['site_tools']; ?></span>
-    </h6>
+    </a>
     <div class="nav-panel level1">
         <ul>
             <?php
@@ -28,10 +27,10 @@
 
 
 <nav class="nav-usermenu">
-    <h6 role="heading" aria-level="2">
+    <a class="nav" role="heading" aria-level="2">
         <span class="ico"><?php echo inlineSVG(__DIR__ . '/../img/account-settings.svg') ?></span>
         <span class="lbl"><?php echo $lang['user_tools']; ?></span>
-    </h6>
+    </>
     <div class="nav-panel level1">
         <ul>
             <?php /* dokuwiki user tools */
@@ -51,24 +50,22 @@
 
 
 <?php if($conf['breadcrumbs']): ?>
-    <nav class="nav-trace">
-        <h6 role="heading" aria-level="2">
-            <span class="ico"><?php echo inlineSVG(__DIR__ . '/../img/apple-safari.svg') ?></span>
-            <span class="lbl"><?php echo tpl_getLang('head_menu_trace'); ?></span>
-        </h6>
-        <div class="nav-panel level1">
-            <ul>
-                <?php /* trace breadcrumbs as list */
-                // FIXME move to helper class
-                $crumbs = breadcrumbs();
-                $crumbs = array_reverse($crumbs, true);
-                foreach($crumbs as $id => $name) {
-                    echo '<li>';
-                    tpl_link(wl($id), hsc($name), 'title="' . $id . '"');
-                    echo '</li>';
-                }
-                ?>
-            </ul>
-        </div>
-    </nav>
+    <a class="nav" role="heading" aria-level="2">
+        <span class="ico"><?php echo inlineSVG(__DIR__ . '/../img/apple-safari.svg') ?></span>
+        <span class="lbl"><?php echo tpl_getLang('head_menu_trace'); ?></span>
+    </a>
+    <div class="nav-panel level1">
+        <ul>
+            <?php /* trace breadcrumbs as list */
+            // FIXME move to helper class
+            $crumbs = breadcrumbs();
+            $crumbs = array_reverse($crumbs, true);
+            foreach($crumbs as $id => $name) {
+                echo '<li>';
+                tpl_link(wl($id), hsc($name), 'title="' . $id . '"');
+                echo '</li>';
+            }
+            ?>
+        </ul>
+    </div>
 <?php endif ?>
