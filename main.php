@@ -14,6 +14,8 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 
 $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && !empty($_SERVER['REMOTE_USER']) );
 $showSidebar =  true; /*  */
+$hasFooter = page_findnearest('pagefooter');
+$showFooter = $hasFooter && ($ACT === 'show');
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
@@ -296,6 +298,13 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                                 tpl_content(false); /* the main content */
                             ?>
                             <div class="clearer"></div>
+                            <?php if($showFooter): ?>
+                                <div class="wikipagefooter">
+                                    <hr>
+                                    <?php tpl_include_page('pagefooter', true, true) ?>
+                                    <div class="clearer"></div>
+                                </div>
+                            <?php endif; ?>
                         </div><!-- .main-content -->
 
 
