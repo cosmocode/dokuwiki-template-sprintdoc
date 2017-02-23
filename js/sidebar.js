@@ -150,11 +150,22 @@ jQuery(function () {
 
     };
 
+    /**
+     * Open and close the sidebar in mobile view
+     */
+    const initMobileToggling = function () {
+        jQuery('.menu-togglelink').find('a').click(function (e) {
+            e.preventDefault();
+            jQuery('#dokuwiki__aside').toggleClass('show');
+        });
+    };
+
     // main
     initContentNav();
     initSidebarToggling();
     initMenuHandling();
     initContentMinHeight();
     initSearchToggling();
+    initMobileToggling();
 });
 
