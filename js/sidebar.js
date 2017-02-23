@@ -104,7 +104,7 @@ jQuery(function () {
      * Initialize the open/close toggling of menu entries
      */
     const initMenuHandling = function () {
-        $nav.on('click', 'a', function (e) {
+        $nav.on('click', 'a.nav', function (e) {
             toggleNav(jQuery(this));
             e.preventDefault();
         });
