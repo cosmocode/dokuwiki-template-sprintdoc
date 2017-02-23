@@ -298,7 +298,13 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                                 tpl_content(false); /* the main content */
                             ?>
                             <div class="clearer"></div>
-                            <?php if($showFooter): ?>
+                            <?php if($showFooter):
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Page Include Hook: pagefooter.txt */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                                ?>
                                 <div class="wikipagefooter">
                                     <hr>
                                     <?php tpl_include_page('pagefooter', true, true) ?>
@@ -310,6 +316,11 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
 
                         <div class="page-footer">
                             <?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Include Hook: pagefooter */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
                                 tpl_includeFile('pagefooter.html');
 
 
