@@ -18,14 +18,14 @@ $lang['head_quick_search']          = 'wikiübergreifende Schnellsuche';
 $lang['head_menu_main']             = 'Hauptmenü';
 $lang['head_menu_status']           = 'Seitenstatus';
 $lang['head_breadcrumb']            = 'Standortanzeiger';
-$lang['head_menu_trace']            = 'zuletzt angesehen';
+$lang['head_menu_trace']            = 'Zuletzt Angesehen';
 $lang['head_meta_box']              = 'Metainformationen zur Seite';
 
 $lang['jump_to_quicksearch']        = 'Springe zur Schnellsuche';
 
 $lang['meta_box_jira_tickets_none'] = 'Keine Jira-Tickets verknüpft';
 $lang['meta_box_tags_none']         = 'Keine Tags verknüpft';
-$lang['meta_box_sitemap_none']      = 'keine Sitemap vorhanden';
+$lang['js']['meta_box_toc_none']    = 'kein Inhaltsverzeichnis vorhanden';
 
 $lang['quality_trigger']            = 'Seitenanalyse ein- bzw. ausblenden';
 

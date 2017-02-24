@@ -6,8 +6,10 @@
 
 .breadcrumbs {
     position: relative;
-    border-bottom: 1px solid @color-border;
-    padding: 1rem 1.8rem .35rem;
+    border-bottom: 1px solid @color-border-light;
+    padding: 1rem 1.8rem .2rem;
+    min-height: @page-header_height;
+    box-sizing: border-box;
 
     > p {
         font-size: @font-size-small;
@@ -28,6 +30,10 @@
         }
 
         span.home {
+            margin-left: -.2rem; // reverse spacing in home icon --> content text and home icon aligned
+            .wide-content &{
+                margin-left: .4rem; //toggle link has position absolute, hover on home icon needs more space than left padding of breadcrumb
+            }
             a {
                 .fontello();
                 .hide-text-show-before();

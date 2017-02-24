@@ -4,50 +4,38 @@
  * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
  */
 
-
 #dokuwiki__content.main-content {
 
     .level2 {
         p a.media {
-            img{
-                border:1px dotted @color-site-bg;
+            img {
+                border: 1px dotted @color-site-bg;
 
             }
-           &:hover,&:focus,&:active{
-               img{
-                   border:1px solid @color-link;
-               }
-           }
+            &:hover, &:focus, &:active {
+                img {
+                    border: 1px solid @color-link;
+                }
+            }
 
         }
     }
-    div.section_highlight{
-        margin: 0;
-        padding: 0 0 1rem 0;
-        border: 1px solid #abced4;
-        background-color: #fff;
-        background-image:
-            linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
-            linear-gradient(#eee .1em, transparent .1em);
-        background-size: 100% 1.2em;
-        opacity: .7;
-    }
-    .secedit {
-        float: right;
-        margin-top: 0;
-        position: relative;
-        z-index:2;
-        top: 0;
+
+    .wikipagefooter {
+        > hr {
+            margin-top: 3em;
+            margin-bottom: 0.5em;
+            border-top: dashed @color-border-light 2px;
+            border-bottom: none;
+        }
     }
 }
-
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* min-width: 1440px */
 
 @media @screen_min-xlg {
 }
-
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* max-width: 1199px */

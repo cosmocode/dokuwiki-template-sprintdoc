@@ -1,0 +1,19 @@
+/**
+ * This file provides the design styles the non-navigational elements in the sidebar
+ */
+#dokuwiki__aside {
+
+    // do not indent the first level of lists
+    // and use less indention in deeper levels
+    ul, ol {
+        padding-left: 0;
+
+        ul, ol {
+            padding-left: @margin-small;
+
+            li {
+                margin-left: 0;
+            }
+        }
+    }
+}

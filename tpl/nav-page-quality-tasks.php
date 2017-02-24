@@ -3,9 +3,9 @@
 ?>
 
 <?php
-    /** @var \helper_plugin_qc $qc */
+    /** @var \helper_plugin_do $doPlugin */
     $doPlugin = plugin_load('helper','do');
-    
+
     /** @var \helper_plugin_qc $qc */
     $qc = plugin_load('helper','qc');
     if ($doPlugin !== null ||$qc ) {

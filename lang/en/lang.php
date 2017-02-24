@@ -11,6 +11,8 @@ $lang['direct_menu_main']           = 'main menu';
 
 $lang['adjunct_start_logo_text']    = 'Logo: ';
 $lang['adjunct_linked_logo_text']   = '. homepage link';
+$lang['a11y_search']                = 'Jump to the search';
+$lang['a11y_sidebartoggle']         = 'Open/Close Sidebar';
 
 $lang['nav-area-head']              = 'menus and quick search';
 $lang['head_magic_matcher']         = 'MagicMatcher';
@@ -18,14 +20,16 @@ $lang['head_quick_search']          = 'quick search';
 $lang['head_menu_main']             = 'main menu';
 $lang['head_menu_status']           = 'site status';
 $lang['head_breadcrumb']            = 'location indicator';
-$lang['head_menu_trace']            = 'trace / visited last';
+$lang['head_menu_trace']            = 'Last Visited Pages';
 $lang['head_meta_box']              = 'meta data for this page';
 
 $lang['jump_to_quicksearch']        = 'Jump to quick search';
 
 $lang['meta_box_jira_tickets_none'] = 'jira associated tickets found: none';
 $lang['meta_box_tags_none']         = 'tags found: none';
-$lang['meta_box_sitemap_none']      = 'no sitemap available';
+$lang['js']['meta_box_toc_none']    = 'no Table of Contents available';
+
+$lang['tab_tags']                   = 'Tags';
 
 $lang['quality_trigger']            = 'toggle page analysis';
 

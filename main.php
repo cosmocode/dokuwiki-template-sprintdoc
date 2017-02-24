@@ -10,11 +10,12 @@
  */
 
 if (!defined('DOKU_INC')) die();                        /* must be run from within DokuWiki */
-@require_once(dirname(__FILE__).'/tpl_functions.php');  /* include hook for template functions */
 header('X-UA-Compatible: IE=edge,chrome=1');
 
 $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && !empty($_SERVER['REMOTE_USER']) );
 $showSidebar =  true; /*  */
+$hasFooter = page_findnearest('pagefooter');
+$showFooter = $hasFooter && ($ACT === 'show');
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
@@ -67,7 +68,6 @@ $showSidebar =  true; /*  */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 ?>
 <?php
-    echo tpl_favicon(array('favicon')); /* DokuWiki: favicon.ico  */
     include('tpl/favicon_tiles.php');
 ?>
 <?php
@@ -168,59 +168,14 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                             ?>
                         </div><!-- .search -->
 
-                        <div id="dokuwiki__aside" class="menu main-sidebar">
+                        <div id="dokuwiki__aside">
                             <?php
-
-
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* main menu */
+/* sidebar */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                                include('tpl/nav-main.php');
+                                include('tpl/main-sidebar-nav.php');
                             ?>
-                        </div><!-- .menu -->
-
-                        <div class="side-tools main-sidebar toggle-menu">
-                            <?php
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* site tools */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                                include('tpl/nav-sitetools.php');
-                            ?>
-                        </div><!-- .side-tools -->
-                        <div class="side-tools main-sidebar toggle-menu">
-                            <?php
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* user tools */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                            include('tpl/nav-usermenu.php');
-                            ?>
-                        </div><!-- .side-tools -->
-
-                        <div class="side-tools main-sidebar toggle-menu">
-                            <?php
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* trace */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                            include('tpl/nav-trace.php');
-                            ?>
-                        </div><!-- .side-tools -->
-
-                        <div class="sidebarfooter main-sidebar">
-                            <?php
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* Include Hook: sidebarfooter.html */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                                tpl_includeFile('sidebarfooter.html')
-                            ?>
-                        </div><!-- .sidebarheader -->
+                        </div><!-- .aside -->
 
                     </div><!-- .col -->
                 </div><!-- .row -->
@@ -239,6 +194,7 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* User Tools and MagicMatcher Bar */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                            /** @var \helper_plugin_magicmatcher_context $mm */
                             $mm = plugin_load('helper', 'magicmatcher_context');
                             $navClass = "";
                             if($mm){
@@ -282,10 +238,10 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                         <?php
                          ?>
 
-                        <div class="breadcrumbs">
+                        <div class="breadcrumbs" data-do="<?php echo $ACT?>">
 
                             <div class="togglelink page_main-content">
-                                <a href="#">&lt; &gt;<span class="sr-out">auf/zu</span></a>
+                                <a href="#">&lt; &gt;<span class="sr-out"><?php echo tpl_getLang('a11y_sidebartoggle')?></span></a>
                             </div>
 
                             <h6 class="sr-only" role="heading" aria-level="2"><?php echo  tpl_getLang('head_menu_status')  ?></h6>
@@ -342,11 +298,29 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                                 tpl_content(false); /* the main content */
                             ?>
                             <div class="clearer"></div>
+                            <?php if($showFooter):
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Page Include Hook: pagefooter.txt */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                                ?>
+                                <div class="wikipagefooter">
+                                    <hr>
+                                    <?php tpl_include_page('pagefooter', true, true) ?>
+                                    <div class="clearer"></div>
+                                </div>
+                            <?php endif; ?>
                         </div><!-- .main-content -->
 
 
                         <div class="page-footer">
                             <?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Include Hook: pagefooter */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
                                 tpl_includeFile('pagefooter.html');
 
 
@@ -389,7 +363,7 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* copyright */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                                echo "&copy; ".tpl_getConf('copyright');
+                            tpl_license('');
                             ?>
                         </p>
                     </div>
