@@ -14,6 +14,7 @@
     > p {
         font-size: @font-size-small;
         margin: 0;
+
         @media @screen_max-xs{
             width: 1px;
             position: relative;
@@ -31,9 +32,11 @@
 
         span.home {
             margin-left: -.2rem; // reverse spacing in home icon --> content text and home icon aligned
-            .wide-content &{
+
+            .wide-content & {
                 margin-left: .4rem; //toggle link has position absolute, hover on home icon needs more space than left padding of breadcrumb
             }
+
             a {
                 .fontello();
                 .hide-text-show-before();
@@ -77,6 +80,7 @@
         max-width: 30%;
         margin: -.45em 0 0;
         padding: 0;
+
         @media @screen_max-xs{
             max-width: 90%;
         }
@@ -102,6 +106,10 @@
             .prefix {
                 .btn-prefix ();
                 .icon-clipboard();
+
+                min-height: 20px;
+                font-size: 1.2rem;
+                line-height: 1;
             }
 
 /* check !!! */
@@ -198,7 +206,7 @@
 
                 &::before {
                     width: 100%;
-                    margin: .1em 0 0;
+                    margin: 0;
                 }
             }
         }
