@@ -82,6 +82,14 @@ a {
     line-height: @line-height-default;
     padding-top: 1rem;
 
+    @media @screen_max-lg {
+        font-size: @font-size-default;
+    }
+
+    @media @screen_max-md {
+        font-size: @font-size-small;
+    }
+
     * {
         font-size: inherit;
     }
@@ -468,6 +476,19 @@ form {
     display: inline;
     margin: 0;
     padding: 0;
+
+    // multiline label
+    fieldset > label.block > span:first-child {
+        display: inline-block;
+
+        @media @screen_min-lg {
+            width: 48.8%;
+        }
+
+        @media @screen_max-lg {
+            width: 48.5%;
+        }
+    }
 }
 
 fieldset {
@@ -598,6 +619,7 @@ button[type=submit],
     border: 1px solid @button_background;
     border-radius: @fix_border-radius;
     color: @button_color;
+    vertical-align: top;
     padding: .3em @grid;
     transition: @transition background-color, @transition color;
 
@@ -609,10 +631,15 @@ button[type=submit],
     }
 }
 
+button[type='reset'] {
+    padding: .3em 1rem;
+}
+
 input[type=submit],
 button[type=submit] {
     &[disabled] {
         cursor: default;
+
         &:hover,
         &:active,
         &:focus {
@@ -676,6 +703,7 @@ textarea[readonly] {
     font-weight: normal;
     padding: .3em @grid;
     transition: @transition background-color, @transition color;
+
     &:hover,
     &:active,
     &:focus {
@@ -686,20 +714,9 @@ textarea[readonly] {
         color: #333;
     }
 }
+
 input::-moz-focus-inner,
 button::-moz-focus-inner {
     border: 0;
     padding: 0;
-}
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* media queries */
-@media @screen_max-lg {
-    .dokuwiki div.license {
-        font-size: @font-size-default;
-    }
-}
-@media @screen_max-md {
-    .dokuwiki div.license {
-        font-size: @font-size-small;
-    }
 }
