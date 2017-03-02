@@ -16,7 +16,6 @@
     a.nav {
         font-size: @font-size-head6;
         margin: 0 0 @font-size-head6;
-
         cursor: pointer;
         font-weight: normal;
         margin-left: (@menu-margin * -1); // moves the toggles back to the left
@@ -27,7 +26,9 @@
 
         height: @icon-size + @margin-small;
         display: flex;
+        display: -ms-flexbox;
         flex-direction: row;
+        -ms-flex-direction: row;
         align-items: center;
 
         span {

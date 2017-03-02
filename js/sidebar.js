@@ -117,7 +117,7 @@ jQuery(function () {
         initContentMinHeight = function () {
             var $sidebar = jQuery('.page-wrapper').find('> .tools').find('.col-xs-12');
             if ($sidebar.length == 1) {
-                const num = parseFloat($sidebar.height());
+                var num = parseFloat($sidebar.height());
                 if (!isNaN(num)) {
                     jQuery('#dokuwiki__content').css('minHeight', num + 100);
                 }
@@ -128,7 +128,7 @@ jQuery(function () {
          * Initialize the sidebar handle behaviour
          */
         initSidebarToggling = function () {
-            const $toggler = jQuery('.togglelink.page_main-content').find('a');
+            var $toggler = jQuery('.togglelink.page_main-content').find('a');
             $toggler.click(function (e) {
                 e.preventDefault();
                 if (jQuery('body').hasClass('wide-content')) {
