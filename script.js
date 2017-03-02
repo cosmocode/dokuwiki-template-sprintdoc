@@ -6,3 +6,4 @@
 /* DOKUWIKI:include js/meta-box.js */
 /* DOKUWIKI:include js/sidebar.js */
 /* DOKUWIKI:include js/breadcrumb.js */
+
