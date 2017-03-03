@@ -1,5 +1,5 @@
 jQuery(function () {
-    const $metaBox = jQuery('#spr__meta-box');
+    var $metaBox = jQuery('#spr__meta-box');
     if (!$metaBox.length) return;
 
     /**
@@ -10,8 +10,8 @@ jQuery(function () {
      */
     $metaBox.on('click', '.meta-tabs a', function (e) {
         e.preventDefault();
-        const $tab = jQuery(this);
-        const isopen = $tab.attr('aria-expanded') === 'true';
+        var $tab = jQuery(this),
+            isopen = $tab.attr('aria-expanded') === 'true';
 
         // disable all existing tabs
         $metaBox.find('.meta-tabs li')

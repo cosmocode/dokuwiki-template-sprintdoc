@@ -130,12 +130,12 @@
         display: table-cell;
         height: 100%;
         vertical-align: middle;
+
         .logo {
             /*position: absolute;
             bottom: 1em;
             overflow: visible;*/
             padding: 1rem 0 .3rem;
-
 
             img {
                 height: 4.6rem;
@@ -164,22 +164,21 @@
         }
     }
 
-    .wide-content{
-        .logo{ }
+    .wide-content {
         .content {
             .row > .col-xs-12 {
                 width: auto;
                 float: none;
             }
         }
-        &.showSidebar{
+
+        &.showSidebar {
             .content {
                 .row > .col-xs-12 {
                     margin-left: @toggle-showsidebar_width;
                 }
             }
         }
-
     }
 
     .main-sidebar {
@@ -233,12 +232,38 @@
     }
 }
 
-@media @screen_max-md{
-    .claim{
+@media @screen_max-md {
+    .claim {
         min-height: 3rem;
-        .logo{
-            .mobile-only{
+
+        .logo {
+            .mobile-only {
                 margin: .8rem 1rem .6rem 0;
+            }
+        }
+    }
+}
+
+@media @screen_max-xxs {
+    @mobileMargin: 4px;
+
+    .container {
+        margin: 0 @mobileMargin;
+    }
+
+    body.show-mobile-sidebar #dokuwiki__aside {
+        left: @mobileMargin;
+    }
+
+    #dokuwiki__usertools {
+        right: @mobileMargin;
+    }
+
+    #dokuwiki__footer {
+        .main-footer {
+            > * {
+                padding-left: 2rem;
+                padding-right: 2rem;
             }
         }
     }

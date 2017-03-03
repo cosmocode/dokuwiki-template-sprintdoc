@@ -3,3 +3,45 @@
  *
  * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
  */
+
+
+#dokuwiki__header {
+    .menu-togglelink {
+        border: 1px solid @color-border;
+        border-radius: @border-radius;
+        text-align: center;
+        margin: @very-small-spacing -(@very-small-spacing) 0 0;
+
+        font-size: @font-size-small;
+        min-height: 2em;
+        min-width: 2em;
+        box-sizing: border-box;
+        line-height: 2em;
+
+        cursor: pointer;
+        background-color: #fff;
+        text-decoration: none;
+        transition: @transition color, @transition background-color, @transition border-color;
+
+        svg {
+            height: @font-size-default + (@font-scale-factor * 4);
+            width: @font-size-default + (@font-scale-factor * 4);
+            vertical-align: middle;
+
+            path {
+                fill: @color-nav
+            }
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+            background-color: @button_color;
+            border-color: @button_background;
+
+            svg path {
+                fill: @button_background;
+            }
+        }
+    }
+}
