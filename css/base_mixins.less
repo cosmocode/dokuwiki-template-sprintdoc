@@ -142,7 +142,7 @@
 
 
 /* + + + + +  small icon-buttons (breadcrumb, page-header)  + + + + + */
-.btn-usertools-wrapper(@elem:2em) {
+.btn-usertools-wrapper(@elem:@toggle-size) {
     display: inline-block;
     min-height: @elem;
     min-width: @elem;
@@ -194,26 +194,11 @@
     margin-top: .3rem;
 }
 
-
-.btn-default-size() {
-    height: 1rem;
-    width: 1rem;
-    min-height: 1.2em;
-    min-width: 1.4em;
-}
-
-.btn-default-height() {
-    height: 1rem;
-    min-height: 1.2em;
-    min-width: 1.4em;
-}
-
 .hide-text-show-before(){
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;
     text-indent: -9999px;
-    .btn-default-size();
 
     &::before{
         text-indent: 0;
@@ -225,7 +210,6 @@
         float: left;
     }
 }
-
 
 .hide-text-show-after() {
     display: inline-block;
