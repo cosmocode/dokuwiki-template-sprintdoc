@@ -19,7 +19,7 @@ jQuery(function () {
         setDefaultContent = function () {
             jQuery('body').removeClass('wide-content');
 
-        };
+        },
 
         /**
          * Accessibility helper, focuses the first link witih the given element
