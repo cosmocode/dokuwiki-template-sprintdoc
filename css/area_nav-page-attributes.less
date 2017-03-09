@@ -1,0 +1,30 @@
+/**
+ * Page Attribute Icons in the breadcrumb bar
+ */
+.page-attributes {
+    list-style: none;
+    float: right;
+    display: inline-block;
+    max-width: 30%;
+    margin: -.45em 0 0;
+    padding: 0;
+    @media @screen_max-xs {
+        max-width: 90%;
+    }
+
+    > li {
+        .btn-usertools-wrapper(); // uniform li
+        .btn-usertools-num();
+
+        position: relative;
+        float: left;
+        display: block;
+        width: auto;
+        min-height: 2em;
+        border: 1px solid @color-border;
+        border-radius: @border-radius;
+        color: @color-nav;
+        text-align: center;
+        margin: 0;
+    }
+}

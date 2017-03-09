@@ -1,6 +1,26 @@
-#plugin__qc__wrapper{
-    font-size: @font-size-default;
-    p{
-        font-size: @font-size-default;
+/**
+ * Styles for the QC plugin
+ */
+
+// icon in page attributes
+.page-attributes .plugin_qc {
+    .qc_icon {
+        margin: 0;
+        width: 2em;
+        height: 2em;
+
+        svg {
+            margin-top: 0.1em;
+            margin-left: 0.1em;
+            width: 1.6em;
+            height: 1.6em;
+        }
     }
 }
+
+// output
+.qc-output {
+    font-size: 90%;
+    border-bottom: 1px solid @ini_border;
+}
+
