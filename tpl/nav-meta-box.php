@@ -9,7 +9,7 @@ $tabs = \dokuwiki\template\sprintdoc\Template::getInstance()->getMetaBoxTabs();
         <li class="a11y">&nbsp;</li>
         <?php
         foreach($tabs as $tab) {
-            echo '<li>';
+            echo '<li class="' . $tab['id'] . '">';
             echo '<a href="#' . $tab['id'] . '" aria-expanded="false">';
             echo '<span class="prefix">';
             echo $tab['label'];
