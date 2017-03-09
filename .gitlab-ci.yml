@@ -6,3 +6,13 @@ sprintdoc-farm:
     - live
   script:
     - fab deploy
+    
+
+cosmocode-farm:
+  environment: cosmocode-farm
+  tags:
+    - locally
+  only:
+    - live
+  script:
+    - fab deploy
