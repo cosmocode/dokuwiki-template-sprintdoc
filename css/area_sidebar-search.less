@@ -46,6 +46,9 @@
         display: none;
         margin: -2px 0 0; // reverse transparent border and box-sizing of a child
         padding: 0;
+        @media @screen_max-xxlg {
+            margin-top: -1px;
+        }
         a {
             min-width: (@toggle-showsidebar_width + 0.1); /* must be a bit a wider than @toggle-showsidebar_width to hide right border */
             width: @main-ico-dummy;
