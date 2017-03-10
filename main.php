@@ -99,11 +99,38 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
 /* upload your logo into the data/media folder (root of the media manager) and replace 'logo.png' in der template config accordingly: */
                                 include('tpl/main-sidebar-logo.php');
                              } ?>
-                            <?php if ($conf['tagline']): ?>
+                            <div class="main-title mobile-only">
+                                <?php if ($conf['title']):
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Wiki Title Mobile */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */ ?>
+                                    <p class="title"><?php echo $conf['title'] ?></p>
+                                <?php endif ?>
+
+                            </div><!-- .main-title -->
+                            <?php if ($conf['tagline']):
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Wiki Tagline */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */ ?>
                                 <p class="claim"><?php echo $conf['tagline'] ?></p>
                             <?php endif ?>
 
                         </div><!-- .headings -->
+                    </div><!-- .col -->
+
+                    <div class="col-xs-12">
+                        <div class="main-title desktop-only">
+                            <?php if ($conf['title']):
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Wiki Title Desktop */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */ ?>
+                                <p class="title"><?php echo $conf['title'] ?></p>
+                            <?php endif ?>
+
+                        </div><!-- .main-title -->
                     </div><!-- .col -->
                 </div><!-- .row -->
             </div><!-- .container -->

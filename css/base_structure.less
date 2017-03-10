@@ -110,6 +110,12 @@
             height: 150px;
             min-height: 6rem;
             display: table;
+
+            + .col-xs-12 {
+                float: right;
+                width: 73%;
+                box-sizing: border-box;
+            }
         }
     }
 
@@ -124,35 +130,6 @@
             position: relative;
             width: 100%;
             background-color: #fff;
-        }
-    }
-
-    .claim {
-        display: table-cell;
-        height: 100%;
-        vertical-align: middle;
-
-        .logo {
-            /*position: absolute;
-            bottom: 1em;
-            overflow: visible;*/
-            padding: 1rem 0 .3rem;
-
-            img {
-                height: 4.6rem;
-                width: auto;
-                border-style: solid;
-                border-color: transparent;
-                border-width: 2px 0;
-            }
-
-            a:hover,
-            a:focus,
-            a:active {
-                img {
-                    border-width: 0;
-                }
-            }
         }
     }
 
@@ -218,29 +195,9 @@
         }
     }
 
-    #dokuwiki__header {
-        .logo {
-            /*width: 200px;
-            max-width: 33%;
-            margin: .8rem 0;*/
-        }
-    }
-
     .tools {
         .main-sidebar {
             display: none;
-        }
-    }
-}
-
-@media @screen_max-md {
-    .claim {
-        min-height: 3rem;
-
-        .logo {
-            .mobile-only {
-                margin: .8rem 1rem .6rem 0;
-            }
         }
     }
 }

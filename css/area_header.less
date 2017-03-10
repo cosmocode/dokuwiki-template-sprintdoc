@@ -6,6 +6,115 @@
 
 
 #dokuwiki__header {
+    @header-font-opacity: .7;
+
+
+/* + + +  wiki logo  + + + */
+    @media @screen_min-md {
+        .logo {
+            /*position: absolute;
+            bottom: 1em;
+            overflow: visible;*/
+            padding: 1rem 0 .3rem;
+
+            img {
+                height: 4.6rem;
+                width: auto;
+                border-style: solid;
+                border-color: transparent;
+                border-width: 2px 0;
+            }
+
+            a:hover,
+            a:focus,
+            a:active {
+                img {
+                    border-width: 0;
+                }
+            }
+        }
+    }
+
+    @media @screen_max-md {
+        .logo {
+            display: table-cell;
+
+            .mobile-only {
+                margin: .8rem 1rem .6rem 0;
+            }
+        }
+    }
+
+
+/* + + +  wiki title  + + + */
+    .main-title {//background-color: pink;
+        &.desktop-only {
+            @media @screen_min-md {
+                display: table-cell;
+                vertical-align: middle;
+            }
+        }
+
+        &.mobile-only {
+            @media @screen_max-md {
+                display: table-cell;
+                vertical-align: middle;
+                padding-left: .6rem;
+            }
+        }
+    }
+
+    p.title {
+        background-color: @color-site-bg;;
+        opacity: @header-font-opacity;
+        line-height: @line-height-default;
+        margin-bottom: 0;
+
+        @media @screen_min-md {
+            font-size: @font-size-big;
+        }
+
+        @media @screen_max-md {
+            font-size: (@font-size-default + .25);
+            padding-top: .5rem;
+            padding-bottom: .5rem;
+        }
+    }
+
+
+/* + + +  wiki claim  + + + */
+    div.claim {
+        @media @screen_min-md {
+            display: table-cell;
+            height: 100%;
+            vertical-align: middle;
+        }
+
+        @media @screen_max-md {
+            min-height: 3rem;
+        }
+    }
+
+    p.claim {//background-color: deepskyblue;
+        opacity: @header-font-opacity;
+        margin-bottom: 0;
+        padding-bottom: 1rem;
+
+        @media @screen_min-xxs {
+            font-size: @font-size-small;
+        }
+
+        @media @screen_max-md {
+            padding-top: .5rem;
+        }
+
+        @media @screen_max-xxs {
+            font-size: @font-size-default;
+        }
+    }
+
+
+/* + + +  mobile nav togglelink  + + + */
     .menu-togglelink {
         margin: @very-small-spacing -(@very-small-spacing) 0 0;
 
