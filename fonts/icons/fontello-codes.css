@@ -72,5 +72,7 @@
 .icon-star:before { content: '\e860'; } /* '' */
 .icon-code:before { content: '\e861'; } /* '' */
 .icon-user-circle:before { content: '\e86c'; } /* '' */
+.icon-comment-question:before { content: '\e880'; } /* '' */
+.icon-jira:before { content: '\e881'; } /* '' */
 .icon-right-bold:before { content: '\e882'; } /* '' */
 .icon-down-bold:before { content: '\e883'; } /* '' */
