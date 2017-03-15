@@ -17,6 +17,7 @@ class Template {
     protected $plugins = array(
         'sqlite' => null,
         'tagging' => null,
+        'magicmatcher' => null,
     );
 
     /**
@@ -44,6 +45,7 @@ class Template {
         $this->plugins['sqlite'] = plugin_load('helper', 'sqlite');
         if($this->plugins['sqlite']) {
             $this->plugins['tagging'] = plugin_load('helper', 'tagging');
+            $this->plugins['magicmatcher'] = plugin_load('syntax', 'magicmatcher_issuelist');
         }
     }
 
@@ -75,7 +77,14 @@ class Template {
             );
         }
 
-        // fixme add magicmatcher info
+        if ($this->plugins['magicmatcher']) {
+            $tabs[] = array(
+                'id' => 'spr__tab-issues',
+                'label' => 'Issues', // FIXME
+                'tab' => $this->plugins['magicmatcher']->getIssueListHTML(),
+                'count' =>  $this->plugins['magicmatcher']->getCountIssues(),
+            );
+        }
 
         return $tabs;
     }
