@@ -42,7 +42,7 @@ class tpl {
       if($data['id'][0] == '#') {
                       $linktarget = $data['id'];
                   } else {
-                      $linktarget = wl($data['id'], $data['params']);
+                      $linktarget = wl($data['id'], $data['params'], false, '&');
                   }
       $caption = $lang['btn_' . $data['type']];
       if(strpos($caption, '%s')) {
