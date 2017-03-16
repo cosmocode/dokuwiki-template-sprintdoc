@@ -7,17 +7,17 @@
     &:empty{
         display: none;
     }
+}
 
-    /* short fix: SPR-891 - Icons für Notifications in Message Area werden gekachelt */
-    .notify {
-        background-repeat: no-repeat;
-        background-position: 8px 50%;
-        border: 1px solid #eeb;
-        font-size: 90%;
-        margin: 0 0 .5em;
-        padding: .4em;
-        padding-left: 32px;
-        overflow: hidden;
-        border-radius: 5px;
-    }
+/* short fix: SPR-891 - Icons für Notifications in Message Area werden gekachelt */
+div.success, div.error, div.info, div.notify {
+    background-repeat: no-repeat;
+    background-position: 8px 50%;
+    border: 1px solid #eeb;
+    font-size: 90%;
+    margin: 0 0 .5em;
+    padding: .4em;
+    padding-left: 32px;
+    overflow: hidden;
+    border-radius: 5px;
 }
