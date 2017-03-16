@@ -7,16 +7,32 @@
         <div class="tools">
 
         <?php include('nav-status.php');?>
-        <ul>
-            <?php tpl_toolsevent('pagetools', array(
-                'edit'      => tpl_action('edit', 1, 'li', 1),
-                'revisions' => tpl_action('revisions', 1, 'li', 1),
-                'backlink'  => tpl_action('backlink', 1, 'li', 1),
-                'subscribe' => tpl_action('subscribe', 1, 'li', 1),
-                'revert'    => tpl_action('revert', 1, 'li', 1),
-                'top'       => tpl_action('top', 1, 'li', 1),
-            )); ?>
-        </ul>
+            <ul>
+                <?php
+                $data = array(
+                    'view'  => 'main-svg',
+                    'items' => array(
+                            'edit'      => dokuwiki\template\sprintdoc\tpl::pageToolAction('edit'),
+                            'revert'    => dokuwiki\template\sprintdoc\tpl::pageToolAction('revert'),
+                            'revisions' => dokuwiki\template\sprintdoc\tpl::pageToolAction('revisions'),
+                            'backlink'  => dokuwiki\template\sprintdoc\tpl::pageToolAction('backlink'),
+                            'subscribe' => dokuwiki\template\sprintdoc\tpl::pageToolAction('subscribe'),
+                            'top'       => dokuwiki\template\sprintdoc\tpl::pageToolAction('top'),
+                         )
+                     );
+
+                     // the page tools can be amended through a custom plugin hook
+                     $evt = new Doku_Event('TEMPLATE_PAGETOOLS_DISPLAY', $data);
+                     if($evt->advise_before()){
+                        foreach($evt->data['items'] as $k => $html) {
+                            if($html)
+                                echo "<li>$html</li>";
+                        }
+                     }
+                     $evt->advise_after();
+                     unset($data);
+                ?>
+            </ul>
         </div>
     </nav>
 <?php endif; ?>

@@ -27,9 +27,8 @@
     }
 }
 
-
 nav#dokuwiki__pagetools {
-    @toolbox-width: 32px;
+    @toolbox-size: 30px;
 
     top: 3.05rem;
     z-index: 100;
@@ -42,25 +41,65 @@ nav#dokuwiki__pagetools {
         right: 8px;
     }
 
-    &:hover {
-        ul {
-            li {
-                a {
-                    box-shadow: none;
-                    background-image: none;
-                    border-color: transparent;
-                }
-            }
-        }
-    }
-
     ul {
         li {
+            @page-tools_svg-size: 25px;
+            @page-tools_svg-space: (@toolbox-size - @page-tools_svg-size) / 2;
+
             * {
                 font-size: @font-size-default;
             }
 
-            &.plugin_move_page {
+            a {
+                .fontello-double();
+
+                position: relative;
+                height: auto;
+                min-height: @toolbox-size; // for nav:hover
+                width: @toolbox-size; // for nav:hover
+                opacity: .6;
+                color: @color-nav;
+                font-size: @font-size-default;
+                padding: 2px @toolbox-size 2px 2px;
+
+                * {
+                    color: inherit;
+                }
+
+                &::before {
+                    display: none;
+                }
+
+                &:hover,
+                &:focus,
+                &:active {
+                    opacity: 1;
+                    color: @color-nav-hover;
+                    background-color: #FFF;
+                }
+
+                span {
+                    .sr-only();
+
+                    padding-right: .5rem;
+                    padding-left: .3rem;
+                }
+
+                svg {
+                    display: inline-block;
+                    width: @page-tools_svg-size;
+                    height: @page-tools_svg-size;
+                    vertical-align: middle;
+                    fill: @color-nav;
+                    margin: @page-tools_svg-space;
+                }
+
+                &.top {
+                    margin-top: 1em;
+                }
+            }
+
+            &.plugin_move_page {background-color: deeppink !important;
                 a {
                     opacity: .6;
                     color: @color-nav;
@@ -78,136 +117,9 @@ nav#dokuwiki__pagetools {
                     }
                 }
             }
-
-            a {
-                .fontello-double();
-
-                position: relative;
-                min-height: @toolbox-width; // for nav:hover
-                opacity: .6;
-                color: @color-nav;
-                font-size: @font-size-default;
-
-                * {
-                    color: inherit;
-                }
-
-                &::before {
-                    display: none;
-                }
-
-                &::after {
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    width: @toolbox-width;
-                    height: 100%;
-                    box-sizing: border-box;
-                    font-size: @font-size-big;
-                    margin: 0;
-                    padding-top: .2rem;
-
-                    @media @screen_min-md {
-                        background-color: @color-site-bg;
-                    }
-
-                    @media @screen_max-xlg {
-                        padding-top: .25rem;
-                    }
-
-                    @media @screen_max-lg {
-                        padding-top: .4rem;
-                    }
-
-                    @media @screen_max-md {
-                        background-color: #FFF;
-                        padding-top: 0;
-                    }
-                }
-
-                &:hover,
-                &:focus,
-                &:active {
-                    opacity: 1;
-                    color: @color-nav-hover;
-                    background-color: #FFF;
-                }
-
-                &.source {
-                    .icon-code();
-
-                    &::after {
-                        @media @screen_min-xlg {
-                            padding-top: .25rem;
-                        }
-
-                        @media @screen_max-xlg {
-                            padding-top: .35rem;
-                        }
-
-                        @media @screen_max-md {
-                            padding-top: .05rem;
-                        }
-                    }
-                }
-
-                &.edit {
-                    .icon-pencil();
-                }
-
-                &.revs {
-                    .icon-revisions-history();
-                }
-
-                &.backlink {
-                    .icon-link();
-                }
-
-                &.top {
-                    .icon-up-bold();
-                    margin-top: 1em;
-
-                    &::after {
-                        @media @screen_min-lg {
-                            padding-top: .15rem;
-                        }
-
-                        @media @screen_max-lg {
-                            padding-top: .25rem;
-                        }
-
-                        @media @screen_max-md {
-                            padding-top: .05rem;
-                        }
-                    }
-                }
-
-                &.plugin_bookcreator_addtobook {
-                    .icon-book-open();
-                }
-
-                &.export_pdf {
-                    .icon-file-pdf();
-                }
-
-                &.show {
-                    .icon-file-text();
-                }
-            }
         }
     }
-/*
-<ul>
-  <li><a href="#" class="action edit" title="Diese Seite bearbeiten [E]">Diese Seite bearbeiten</a></li>
-  <li><a href="#" class="action revs" title="Ältere Versionen [O]">Ältere Versionen</a></li>
-  <li><a href="#" class="action backlink" title="Links hierher">Links hierher</a></li>
-  <li><a href="#" class="action export_pdf" title="PDF exportieren"><span>PDF exportieren</span></a></li>
-  <li><a href="#" class="action source" title="PDF exportieren"><span>source</span></a></li>
-  <li><a href="#" class="action show" title="PDF exportieren"><span>show</span></a></li>
-  <li><a href="#" class="action plugin_bookcreator_addtobook" title="PDF exportieren"><span>was auch immer</span></a></li>
-  <li><a href="#" class="action top" title="Nach oben [T]">Nach oben</a></li>
-</ul>
-*/
+
     &:hover {
         ul {
             background-color: #fff;
@@ -215,16 +127,27 @@ nav#dokuwiki__pagetools {
 
             li {
                 a {
+                    box-shadow: none;
+                    background-image: none;
                     opacity: .8;
-
-                    &::after {
-                        background-color: #FFF;
-                    }
+                    border-color: transparent;
+                    padding: 2px 0 2px 2px;
 
                     &:hover,
                     &:focus,
                     &:active {
                         opacity: 1;
+
+                        svg {
+                            fill: @color-nav-hover;
+                        }
+                    }
+
+                    span {
+                        position: static;
+                        width: auto;
+                        height: auto;
+                        margin: auto;
                     }
                 }
             }
