@@ -8,13 +8,15 @@
 #dokuwiki__header {
     @header-font-opacity: .7;
 
-
 /* + + +  wiki logo  + + + */
     @media @screen_min-md {
+        div.claim {
+            display: table-cell;
+            height: 100%;
+            vertical-align: middle;
+        }
+
         .logo {
-            /*position: absolute;
-            bottom: 1em;
-            overflow: visible;*/
             padding: 1rem 0 .3rem;
 
             img {
@@ -46,29 +48,45 @@
     }
 
 
-/* + + +  wiki title  + + + */
-    .main-title {//background-color: pink;
-        &.desktop-only {
-            @media @screen_min-md {
-                display: table-cell;
-                vertical-align: middle;
+/* + + +  wiki title + claim  + + + */
+    .main-title.desktop-only {
+        @media @screen_min-md {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        @media @screen_max-md {
+            display: block;
+        }
+
+        p.title {
+            @media @screen_max-md {
+                display: none;
             }
         }
 
-        &.mobile-only {
+        p.claim {
             @media @screen_max-md {
-                display: table-cell;
-                vertical-align: middle;
-                padding-left: .6rem;
+                display: block;
+                padding-bottom: 1rem;
             }
         }
     }
 
+    .main-title:not([class*="desktop-only"]) {
+        @media @screen_max-md {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+
+
+/* + + +  wiki title  + + + */
     p.title {
         background-color: @color-site-bg;;
         opacity: @header-font-opacity;
         line-height: @line-height-default;
-        margin-bottom: 0;
+        margin-bottom: .5rem;
 
         @media @screen_min-md {
             font-size: @font-size-big;
@@ -77,39 +95,19 @@
         @media @screen_max-md {
             font-size: (@font-size-default + .25);
             padding-top: .5rem;
-            padding-bottom: .5rem;
+            padding-left: 1rem;
         }
     }
 
 
 /* + + +  wiki claim  + + + */
-    div.claim {
-        @media @screen_min-md {
-            display: table-cell;
-            height: 100%;
-            vertical-align: middle;
-        }
-
-        @media @screen_max-md {
-            min-height: 3rem;
-        }
-    }
-
-    p.claim {//background-color: deepskyblue;
+    p.claim {
         opacity: @header-font-opacity;
         margin-bottom: 0;
-        padding-bottom: 1rem;
-
-        @media @screen_min-xxs {
-            font-size: @font-size-small;
-        }
+        font-size: @font-size-default;
 
         @media @screen_max-md {
             padding-top: .5rem;
-        }
-
-        @media @screen_max-xxs {
-            font-size: @font-size-default;
         }
     }
 

@@ -99,24 +99,15 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
 /* upload your logo into the data/media folder (root of the media manager) and replace 'logo.png' in der template config accordingly: */
                                 include('tpl/main-sidebar-logo.php');
                              } ?>
-                            <div class="main-title mobile-only">
+                            <div class="main-title">
                                 <?php if ($conf['title']):
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* Wiki Title Mobile */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */ ?>
-                                    <p class="title"><?php echo $conf['title'] ?></p>
+                                    <p class="title mobile-only">MO <?php echo $conf['title'] ?></p>
                                 <?php endif ?>
-
                             </div><!-- .main-title -->
-                            <?php if ($conf['tagline']):
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* Wiki Tagline */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */ ?>
-                                <p class="claim"><?php echo $conf['tagline'] ?></p>
-                            <?php endif ?>
-
                         </div><!-- .headings -->
                     </div><!-- .col -->
 
@@ -127,9 +118,15 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* Wiki Title Desktop */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */ ?>
-                                <p class="title"><?php echo $conf['title'] ?></p>
+                                <p class="title">DO <?php echo $conf['title'] ?></p>
                             <?php endif ?>
+                            <?php if ($conf['tagline']):
 
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Wiki Tagline Desktop */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */ ?>
+                                <p class="claim">DO <?php echo $conf['tagline'] ?></p>
+                            <?php endif ?>
                         </div><!-- .main-title -->
                     </div><!-- .col -->
                 </div><!-- .row -->
