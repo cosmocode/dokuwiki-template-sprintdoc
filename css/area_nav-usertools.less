@@ -23,6 +23,7 @@
             .btn-usertools-num();
 
             float: right;
+            min-height: 28px;
 
             > strong,
             > a {
@@ -50,13 +51,14 @@
                 }
 
                 .num {
-                    background-color: @color-border;
-                    color: @color-nav;
+                    background-color: @noopentasks-background; // fix
+                    color: @noopentasks-color; // fix
                 }
             }
 
             &.user {
                 position: relative;
+                display: table-cell;
                 padding: 1px .2em 0 1px; // 1px for border
 
                 &::before {
@@ -74,19 +76,19 @@
                     background: #FFF; // for removing bg-image
                     border: 0 none;
                     text-indent: 0;
+                    color: @color-nav;
                     font-size: inherit;
                     margin-top: -1px; // for border
                     margin-right: -.2em;
-                    padding: 1px .2em 0 0;
+                    padding: 0 .2em 0 0;
 
                     @media @screen_only-lg {
-                        padding-top: 3px;
+                        padding-top: .25rem;
                     }
 
                     &::before {
                         content: '';
                         position: absolute;
-                        top: -3px;
                         left: 0;
                         right: 0;
                         bottom: 0;
@@ -94,28 +96,43 @@
                         border: solid 1px @color-border;
                         border-radius: @border-radius;
                         transition: @transition border-color;
+
+                        @media @screen_min-xxlg {
+                            top: -3px;
+                        }
+
+                        @media @screen_max-xxlg {
+                            top: -4px;
+                        }
+
+                        @media @screen_max-xlg {
+                            top: -3px;
+                        }
                     }
 
                     &:hover,
                     &:focus,
                     &:active {
+                        background-color: @color-nav-hover-bg;
+                        color: @color-nav-hover;
+
                         &::before {
-                            border-color: @button_background;
+                            border-color: @color-nav-hover;
                         }
 
                         bdi,
                         bdi:first-of-type {
-                            color: @button_background;
+                            color: @color-nav-hover;
 
                             &::before {
-                                color: @button_background;
+                                color: inherit;
                             }
                         }
                     }
                 }
 
                 bdi {
-                    color: @color-nav;
+                    color: inherit;
                     display: inline-block;
                     padding-top: 1px;
                     transition: @transition color;
@@ -126,14 +143,30 @@
                     .icon-user-circle();
 
                     position: relative;
-                    margin: .3em 0 .3em .25rem;
+                    margin: 0 0 .3em .25rem;
 
-                    @media @screen_min-md {
+                    @media @screen_min-xxlg {
+                        margin-top: 4px;
                         padding-left: 1.3rem;
                     }
 
-                    @media @screen_max-md {
+                    @media @screen_max-xxlg {
+                        margin-top: 5px;
                         padding-left: 1.5rem;
+                    }
+
+                    @media @screen_max-xlg {
+                        margin-top: 5px;
+                        padding-left: 1.5rem;
+                    }
+
+                    @media @screen_max-md {
+                        min-height: 1.15rem;
+                        margin-top: 5px;
+                    }
+
+                    @media @screen_max-xxs {
+                        margin-top: 4px;
                     }
 
                     &::before {
@@ -154,6 +187,26 @@
 
                         @media @screen_max-md {
                             top: -2px;
+                        }
+                    }
+                }
+
+                a {
+                    bdi:first-of-type {
+                        @media @screen_min-xxlg {
+                            margin-top: 5px;
+                        }
+
+                        @media @screen_max-xxlg {
+                            margin-top: 6px;
+                        }
+
+                        @media @screen_max-xlg {
+                            margin-top: 3px;
+                        }
+
+                        @media @screen_max-md {
+                            margin-top: 5px;
                         }
                     }
                 }
@@ -205,16 +258,6 @@
                 min-width: 2rem;
             }
 
-            &:hover,
-            &:active,
-            &:focus {
-                background-color: @button_color;
-                border-color: @button_background;
-                //-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
-                //box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
-                color: @button_background;
-            }
-
             &::before {
                 content: "?";
                 display: block;
@@ -222,7 +265,27 @@
                 box-sizing: border-box;
                 font-size: @font-size-default + (@font-scale-factor * 4);
                 cursor: pointer;
-                margin: .15em 0 0;
+                margin: 0;
+
+                @media @screen_min-xxlg {
+                    margin-top: .15rem;
+                }
+
+                @media @screen_max-xxlg {
+                    margin-top: .25rem;
+                }
+
+                @media @screen_max-md {
+                    margin-top: .15rem;
+                }
+            }
+
+            &:hover,
+            &:active,
+            &:focus {
+                background-color: @color-nav-hover-bg;
+                border-color: @color-nav-hover;
+                color: @color-nav-hover;
             }
 
             /* icon register new user */
@@ -236,7 +299,7 @@
 
                 &::before {
                     @media @screen_only-lg {
-                        margin-top: .27rem;
+                        margin-top: .3rem;
                     }
                 }
             }
@@ -247,7 +310,7 @@
 
                 &::before {
                     @media @screen_only-lg {
-                        margin-top: .27rem;
+                        margin-top: .3rem;
                     }
                 }
             }
