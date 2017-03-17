@@ -16,25 +16,24 @@
     // the toggle element
     a.nav {
         cursor: pointer;
-        margin: 0 0 @font-size-head6;
-        margin-left: (@menu-margin * -1); // moves the toggles back to the left
-        color: @color-nav;
-        font-size: @font-size-head6;
-        font-weight: normal;
-        border: 1px solid transparent;
-        border-radius: @fix_border-radius;
-        transition: @transition color, @transition background-color, @transition border-color;
-
-        height: @icon-size + @margin-small;
         display: flex;
         display: -ms-flexbox;
         flex-direction: row;
         -ms-flex-direction: row;
         align-items: center;
+        height: @icon-size + @margin-small;
+        border: 1px solid transparent;
+        border-radius: @fix_border-radius;
+        color: @color-nav;
+        font-size: @font-size-head6;
+        font-weight: normal;
+        margin: -1px 0 (@font-size-head6 / 2) (@menu-margin * -1); // moves the toggles back to the left
+        transition: @transition color, @transition background-color, @transition border-color;
 
         span {
             display: inline-block;
             vertical-align: middle;
+            color: inherit;
         }
 
         span.lbl {
@@ -48,7 +47,7 @@
             border-right: 1px solid @color-border;
             text-align: center;
             margin-right: @margin-small;
-            color: @color-nav;
+            color: inherit;
 
             // simple fake icon
             strong {
@@ -60,7 +59,7 @@
                 margin: @icon-size * 0.05;
                 vertical-align: baseline;
                 text-align: center;
-                color: @color-nav;
+                color: inherit;
                 border: 2px solid @color-nav;
                 border-top-right-radius: 50%;
                 border-bottom-left-radius: 50%;
@@ -73,6 +72,7 @@
 
                 path {
                     fill: @color-nav;
+                    transition: @transition all;
                 }
             }
         }
@@ -80,18 +80,21 @@
         &:hover,
         &:focus,
         &:active {
-            background-color: @button_color;
-            border-color: @button_background;
-            color: @button_background;
+            background-color: @color-nav-hover-bg;
+            border-color: @color-nav-hover;
+            color: @color-nav-hover;
             text-decoration: none;
 
-            span.ico strong {
-                color: @button_background;
-                border-color: @button_background;
-            }
+            span.ico {
+                strong {
+                    border-color: @color-nav-hover-bg;
+                }
 
-            span.ico svg path {
-                fill: @button_background;
+                svg {
+                    path {
+                        fill: @color-nav-hover;
+                    }
+                }
             }
         }
     }
@@ -99,13 +102,45 @@
     // the panel (hidden by default)
     div.nav-panel {
         display: none;
+        margin-top: .5rem;
+
+        ul {
+            margin-bottom: 1rem;
+        }
     }
 }
 
 
-/**
- * Sidebar handling in mobile view
- */
+/* + + + + + +  wide page content  + + + + +
+.wide-content {
+    #dokuwiki__aside {
+        a.nav {
+            position: relative;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -1px;
+                left: 0;
+                width: 100%;
+                height: 1px;
+                border-bottom: solid 1px @color-border;
+            }
+
+            &:hover,
+            &:focus,
+            &:active {
+                &::after {
+                    display: none;
+                }
+            }
+        }
+    }
+} */
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* max-width: 1023px */
 
 @media @screen_max-md {
     // hide on medium and smaller screens
@@ -115,9 +150,21 @@
 
     // show when toggled
     body.show-mobile-sidebar {
+        .search.main-sidebar {
+            display: block !important;
+            position: relative;
+
+            form {
+                margin-bottom: 1rem;
+
+                .no {
+                    display: block;
+                }
+            }
+        }
 
         #dokuwiki__aside {
-            display: block;
+            display: block !important;
             position: absolute;
             left: 1.25rem; //left margin of content container
             z-index: 200; // above all
@@ -143,7 +190,6 @@
 
             > nav {
                 position: relative;
-                //display: block;
                 z-index: 2;
 
                 &:first-child {
@@ -165,14 +211,14 @@
     }
 }
 
-// FIXME check if the stuff below is still relevant
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* min-width: 1440px */
 
 @media @screen_min-xlg {
-    #dokuwiki__aside.main-sidebar {
-        .nav-main {
+    #dokuwiki__aside {
+        nav {
+            li:not([class]),
             .li {
                 font-size: @font-size-default;
                 padding: .1em 0;
@@ -182,25 +228,18 @@
                     font-weight: inherit;
                 }
             }
-
-            > ul > li > .li {
-                font-size: @font-size-default;
-
-                * {
-                    font-size: inherit;
-                }
-            }
         }
     }
 }
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* max-width: 1199px */
+/* max-width: 1439px */
 
 @media @screen_max-xlg {
-    #dokuwiki__aside.main-sidebar {
-        .nav-main {
+    #dokuwiki__aside {
+        nav {
+            li:not([class]),
             .li {
                 font-size: @font-size-default;
                 padding: .15em 0 .15em .25rem;
@@ -208,14 +247,6 @@
                 * {
                     font-size: inherit;
                     font-weight: inherit;
-                }
-            }
-
-            > ul > li > .li {
-                font-size: @font-size-default;
-
-                > * {
-                    font-size: inherit;
                 }
             }
         }
