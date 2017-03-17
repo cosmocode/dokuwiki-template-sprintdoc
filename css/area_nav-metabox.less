@@ -78,7 +78,7 @@
                 border: 1px solid @color-border-light;
                 //border-bottom-color: @color-site-bg;
                 border-radius: @fix_border-radius @fix_border-radius 0 0;
-                color: @color-nav;
+                color: @color-link;
                 font-size: @font-size-small;
                 line-height: 1.42857143;
                 padding: .3em 1rem .1em;
@@ -110,8 +110,9 @@
 
                 .prefix {
                     position: relative;
-                    transition: @transition color;
+                    color: inherit;
                     font-size: @font-size-small;
+                    transition: @transition color;
                 }
 
                 &:hover,
@@ -119,12 +120,7 @@
                 &:active {
                     background-color: @color-content-bg;
                     border-color: @color-link;
-                    color: @color-link;
                     text-decoration: none;
-
-                    .prefix {
-                        color: inherit;
-                    }
                 }
             }
 
