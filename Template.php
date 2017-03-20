@@ -80,7 +80,7 @@ class Template {
         if ($this->plugins['magicmatcher']) {
             $tabs[] = array(
                 'id' => 'spr__tab-issues',
-                'label' => 'Issues', // FIXME
+                'label' => tpl_getLang('tab_issues'),
                 'tab' => $this->plugins['magicmatcher']->getIssueListHTML(),
                 'count' =>  $this->plugins['magicmatcher']->getCountIssues(),
             );
