@@ -1,13 +1,22 @@
 /**
  * Style Adjustments for the edittable plugin
  */
+
 #dokuwiki__content.main-content {
-    div.editbutton_table form div.no {
-        button,
-        input.button {
-            min-height: 1rem;
-            margin-top: 0;
-            font-size: @font-size-very-small;
+    div.editbutton_table {
+        position: relative; // for IE
+        z-index: 1; // for IE
+        margin-top: -1.46rem !important; // overwrite inline stales
+
+        form div.no {
+            button,
+            input.button {
+                min-height: 1rem;
+                // button - for inverted design: background-color: @button_color; color: @button_background;
+                font-size: @font-size-small;
+                margin-top: 0;
+            }
         }
     }
 }
+
