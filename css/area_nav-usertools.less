@@ -30,6 +30,7 @@
                 display: block;
                 width: auto;
                 min-height: @toggle-size;
+                overflow: hidden;
                 border: 1px solid @color-border;
                 border-radius: @border-radius;
                 color: @color-nav;
@@ -45,79 +46,85 @@
                 }
             }
 
-            &.noopentasks {
-                strong {
-                    background-color: @color-site-bg;
-                }
-
-                .num {
-                    background-color: @noopentasks-background; // fix
-                    color: @noopentasks-color; // fix
-                }
-            }
-
             &.user {
                 position: relative;
                 display: table-cell;
-                padding: 1px .2em 0 1px; // 1px for border
+                border: solid 1px @color-border;
+                border-radius: @border-radius;
+                padding-right: .3rem;
 
-                &::before {
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    border: solid 1px @color-border;
-                    border-radius: @border-radius;
+                @media @screen_min-xxlg {
+                    padding-top: .35rem;
+                }
+
+                @media @screen_max-xxlg {
+                    padding-top: .4rem;
+                }
+
+                @media @screen_max-xlg {
+                    padding-top: .5rem;
+                }
+
+                @media @screen_max-md {
+                    min-height: @toggle-size;
+                    padding-top: .35rem;
                 }
 
                 > a {
+                    .display-flex();
+                    .align-items();
+
+                    position: relative;
+                    min-height: 26px;
+                    overflow: visible;
                     background: #FFF; // for removing bg-image
                     border: 0 none;
                     text-indent: 0;
                     color: @color-nav;
                     font-size: inherit;
-                    margin-top: -1px; // for border
-                    margin-right: -.2em;
+                    margin-right: -.3rem;
                     padding: 0 .2em 0 0;
 
-                    @media @screen_only-lg {
-                        padding-top: .25rem;
+                    @media @screen_min-xxlg {
+                        margin-top: -.3rem;
+                    }
+
+                    @media @screen_max-xxlg {
+                        margin-top: -.3rem;
+                    }
+
+                    @media @screen_max-xlg {
+                        margin-top: -.5rem;
+                    }
+
+                    @media @screen_max-md {
+                        min-height: (@toggle-size - .1);
+                        margin-top: -.35rem;
                     }
 
                     &::before {
                         content: '';
-                        position: absolute;
-                        left: 0;
-                        right: 0;
-                        bottom: 0;
-                        display: block;
-                        border: solid 1px @color-border;
+                        top: -1px;
+                        bottom: -1px;
+                        left: -1px;
+                        right: -1px;
+                        width: auto;
+                        opacity: 0;
+                        border: solid 1px @color-nav-hover;
                         border-radius: @border-radius;
-                        transition: @transition border-color;
-
-                        @media @screen_min-xxlg {
-                            top: -3px;
-                        }
-
-                        @media @screen_max-xxlg {
-                            top: -4px;
-                        }
-
-                        @media @screen_max-xlg {
-                            top: -3px;
-                        }
+                        transform: none;
+                        transition: @transition opacity;
                     }
 
                     &:hover,
                     &:focus,
                     &:active {
                         background-color: @color-nav-hover-bg;
+                        border-color: @color-nav-hover;
                         color: @color-nav-hover;
 
                         &::before {
-                            border-color: @color-nav-hover;
+                            opacity: 1;
                         }
 
                         bdi,
@@ -134,7 +141,6 @@
                 bdi {
                     color: inherit;
                     display: inline-block;
-                    padding-top: 1px;
                     transition: @transition color;
                 }
 
@@ -143,31 +149,8 @@
                     .icon-user-circle();
 
                     position: relative;
-                    margin: 0 0 .3em .25rem;
-
-                    @media @screen_min-xxlg {
-                        margin-top: 4px;
-                        padding-left: 1.3rem;
-                    }
-
-                    @media @screen_max-xxlg {
-                        margin-top: 5px;
-                        padding-left: 1.5rem;
-                    }
-
-                    @media @screen_max-xlg {
-                        margin-top: 5px;
-                        padding-left: 1.5rem;
-                    }
-
-                    @media @screen_max-md {
-                        min-height: 1.15rem;
-                        margin-top: 5px;
-                    }
-
-                    @media @screen_max-xxs {
-                        margin-top: 4px;
-                    }
+                    margin: 0 0 0 .25rem;
+                    padding: 0 .1rem 0 1.3rem;
 
                     &::before {
                         position: absolute;
@@ -177,36 +160,17 @@
                         margin: 0;
                         transition: @transition color;
 
-                        @media @screen_min-xlg {
-                            top: -2px;
-                        }
-
-                        @media @screen_max-xlg {
-                            top: -1px;
-                        }
-
-                        @media @screen_max-md {
-                            top: -2px;
-                        }
-                    }
-                }
-
-                a {
-                    bdi:first-of-type {
                         @media @screen_min-xxlg {
-                            margin-top: 5px;
+                            top: -.25rem;
                         }
 
                         @media @screen_max-xxlg {
-                            margin-top: 6px;
+                            top: -.2rem;
                         }
 
-                        @media @screen_max-xlg {
-                            margin-top: 3px;
-                        }
+                        @media @screen_max-xxs {
+                            top: -.25rem;
 
-                        @media @screen_max-md {
-                            margin-top: 5px;
                         }
                     }
                 }
@@ -241,6 +205,17 @@
                     margin-bottom: -1px;
                 }
             } // user-task
+
+            &.noopentasks {
+                strong {
+                    background-color: @color-site-bg;
+                }
+
+                .num {
+                    background-color: @noopentasks-background; // fix
+                    color: @noopentasks-color; // fix
+                }
+            }
         } // li
 
 
@@ -250,7 +225,9 @@
             .hide-text-show-before();
 
             cursor: pointer;
+            position: relative;
             background-color: #fff;
+            line-height: 1;
             text-decoration: none;
             transition: @transition color, @transition background-color, @transition border-color;
 
@@ -258,26 +235,16 @@
                 min-width: 2rem;
             }
 
-            &::before {
+            &::before {//background-color: deeppink !important;
+                .center-middle();
+
                 content: "?";
                 display: block;
                 width: 100%;
                 box-sizing: border-box;
                 font-size: @font-size-default + (@font-scale-factor * 4);
+                line-height: 1;
                 cursor: pointer;
-                margin: 0;
-
-                @media @screen_min-xxlg {
-                    margin-top: .15rem;
-                }
-
-                @media @screen_max-xxlg {
-                    margin-top: .25rem;
-                }
-
-                @media @screen_max-md {
-                    margin-top: .15rem;
-                }
             }
 
             &:hover,
@@ -296,23 +263,11 @@
             /* icon log-out */
             &.logout {
                 .icon-logout();
-
-                &::before {
-                    @media @screen_only-lg {
-                        margin-top: .3rem;
-                    }
-                }
             }
 
             /* icon log-in */
             &.login {
                 .icon-login();
-
-                &::before {
-                    @media @screen_only-lg {
-                        margin-top: .3rem;
-                    }
-                }
             }
 
             /* icon admin */
@@ -320,9 +275,7 @@
                 .icon-cog();
 
                 &::before {
-                    @media @screen_only-lg {
-                        margin-top: .28rem;
-                    }
+                    vertical-align: top;
                 }
             }
         } // a

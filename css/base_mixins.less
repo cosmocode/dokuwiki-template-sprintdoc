@@ -191,7 +191,18 @@
 
     color: inherit;
     font-size: @font-size-default;
-    margin-top: .3rem;
+
+    @media @screen_min-xxlg {
+        margin-top: .25rem;
+    }
+
+    @media @screen_max-xxlg {
+        margin-top: .3rem;
+    }
+
+    @media @screen_max-md {
+        margin-top: .25rem;
+    }
 }
 
 .hide-text-show-before() {
@@ -246,11 +257,35 @@
     -webkit-flex-direction: @elem;
 }
 
-// default "center"
 .justify-content(@elem:center) {
     justify-content: @elem;
     -ms-justify-content: @elem;
     -webkit-justify-content: @elem;
+}
+
+.align-items(@elem:center) {
+    align-items: @elem;
+    -ms-align-items: @elem;
+    -webkit-align-items: @elem;
+}
+
+.flex(@elem:1 0 auto) {
+    flex: @elem;
+    -ms-flex: @elem;
+    -webkit-flex: @elem;
+}
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* positioning */
+
+.center-middle() {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
 }
 
 
