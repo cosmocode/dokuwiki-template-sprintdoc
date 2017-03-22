@@ -105,7 +105,7 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* Wiki Title Mobile */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */ ?>
-                                    <p class="title mobile-only">MO <?php echo $conf['title'] ?></p>
+                                    <p class="title mobile-only"><?php echo $conf['title'] ?></p>
                                 <?php endif ?>
                             </div><!-- .main-title -->
                         </div><!-- .headings -->
@@ -118,14 +118,14 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* Wiki Title Desktop */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */ ?>
-                                <p class="title">DO <?php echo $conf['title'] ?></p>
+                                <p class="title"><?php echo $conf['title'] ?></p>
                             <?php endif ?>
                             <?php if ($conf['tagline']):
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* Wiki Tagline Desktop */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */ ?>
-                                <p class="claim">DO <?php echo $conf['tagline'] ?></p>
+                                <p class="claim"><?php echo $conf['tagline'] ?></p>
                             <?php endif ?>
                         </div><!-- .main-title -->
                     </div><!-- .col -->
