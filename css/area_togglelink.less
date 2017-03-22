@@ -31,7 +31,7 @@
             height: 100%;
             background-color: @button_background;
             border: solid 1px @button_background;
-            border-radius: @border-radius 0 0 @border-radius; // @border-radius vs. @fix_border-radius
+            border-radius: @ini_default_border_radius 0 0 @ini_default_border_radius; // @ini_default_border_radius vs. @fix_border-radius
             color: @button_color;
             text-decoration: none;
             transition: @transition color, @transition background-color, @transition border-color;
@@ -78,7 +78,7 @@
             a {
                 background-color: @button_background;
                 border-color: @button_background;
-                border-radius: 0 @border-radius @border-radius 0; // @border-radius vs. @fix_border-radius
+                border-radius: 0 @ini_default_border_radius @ini_default_border_radius 0; // @ini_default_border_radius vs. @fix_border-radius
 
                 &::before {
                     opacity: .6;
