@@ -1,22 +1,37 @@
 #spr__meta-box {
+    .display-flex();
+    .flex-direction();
+    .justify-content(flex-end);
+
     position: relative;
     z-index: 10;
     float: right;
-    display: inline-block;
     max-width: 40%;
-    min-height: @page-header_height;
     border: 1px solid transparent;
-    margin-top: (@page_padding-top * -1); // reverse padding-top of .page container
+    margin-top: -(@page_padding-top); // reverse padding-top of .page container
     margin-right: -1px;
-    padding-top: 1rem;
 
+    // >= 1024
+    @media @screen_min-md {
+        height: @page-header_height;
+    }
+
+    // < 1024
     @media @screen_max-md {
         position: relative;
-        top: -1.1rem;
+        top: -1px;
         right: auto;
         float: none;
         display: block;
         max-width: 100%;
+        min-height: @page-header_height;
+        height: auto;
+    }
+
+    // < 992
+    @media @screen_max-sm {
+        position: relative;
+        top: .2rem;
     }
 
     .tab-container {
@@ -37,13 +52,12 @@
     ul.meta-tabs {
         list-style: none;
         line-height: 160%;
-        text-align: right; // right-aligned
-        white-space: nowrap;
         margin: 0;
         padding: 0;
 
-        @media @screen_max-md {
-            margin-top: 3px;
+        @media @screen_min-md {
+            white-space: nowrap;
+            text-align: right;
         }
 
         &::before,
@@ -66,8 +80,17 @@
             vertical-align: bottom;
             margin: 0;
 
+            @media @screen_min-md {
+                margin-left: .3rem;
+            }
+
             @media @screen_max-md {
-                margin-left: .2rem;
+                margin-right: .5rem;
+            }
+
+            @media @screen_max-sm {
+                margin-right: .3rem;
+                margin-bottom: .2rem;
             }
 
             > a {
@@ -76,8 +99,6 @@
                 display: block;
                 background-color: @color-site-bg;
                 border: 1px solid @color-border-light;
-                //border-bottom-color: @color-site-bg;
-                border-radius: @fix_border-radius @fix_border-radius 0 0;
                 color: @color-link;
                 font-size: @font-size-small;
                 line-height: 1.42857143;
@@ -85,22 +106,23 @@
                 margin-left: 4px;
                 transition: @transition color, @transition background-color, @transition border-color;
 
-                @media @screen_max-xxlg {
-                    padding-top: .35em;
-                }
-
-                @media @screen_max-xlg {
-                    padding-top: .3em;
+                @media @screen_min-md {
+                    border-radius: @fix_border-radius @fix_border-radius 0 0;
                 }
 
                 @media @screen_max-md {
                     top: -1px;
-                    padding: .2em .3rem .1em;
+                    background-color: @background_page-header;
+                    border-radius: 0 0 @fix_border-radius @fix_border-radius;
                     margin-left: 0;
+                    padding: .2em .3rem .1em;
                 }
 
-                @media @screen_max-xs {
-                    min-height: 30px;
+                @media @screen_max-sm {
+                    top: 0;
+                    border-radius: 0;
+                    margin-top: .2rem;
+                    padding-bottom: .2em;
                 }
 
                 * {
@@ -133,23 +155,35 @@
                     border-color: @color-link;
                     border-bottom-color: @color-content-bg;
                     color: @color-link;
+
+                    @media @screen_max-md {
+                        border-radius: 0;
+                    }
+
+                    @media @screen_max-sm {
+                        background-color: @color-link;
+                        border-bottom-color: @color-link;
+                        border-radius: 0;
+                        color: @color-content-bg;
+                    }
                 }
             }
         }
     }
 
     .meta-content {
-        @media @screen_min-xlg {
-            margin-top: -1px;
-        }
-
-        @media @screen_max-xlg {
-            margin-top: -1px;
-        }
+        margin-top: -1px;
 
         @media @screen_max-md {
             clear: both;
+        }
+
+        @media @screen_max-md {
             margin-top: -2px;
+        }
+
+        @media @screen_max-sm {
+            margin-top: 2px;
         }
 
         .tab-pane {
