@@ -31,7 +31,7 @@
             height: 100%;
             background-color: @button_background;
             border: solid 1px @button_background;
-            border-radius: @fix_border-radius 0 0 @fix_border-radius;
+            border-radius: @border-radius 0 0 @border-radius; // @border-radius vs. @fix_border-radius
             color: @button_color;
             text-decoration: none;
             transition: @transition color, @transition background-color, @transition border-color;
@@ -78,7 +78,7 @@
             a {
                 background-color: @button_background;
                 border-color: @button_background;
-                border-radius: 0 @fix_border-radius @fix_border-radius 0;
+                border-radius: 0 @border-radius @border-radius 0; // @border-radius vs. @fix_border-radius
 
                 &::before {
                     opacity: .6;
@@ -105,23 +105,5 @@
                 }
             }
         }
-    }
-}
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* min-width: 1440px */
-
-@media @screen_min-xlg {
-    .togglelink {
-
-    }
-}
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* max-width: 1199px */
-
-@media @screen_max-xlg {
-    .togglelink {
-
     }
 }

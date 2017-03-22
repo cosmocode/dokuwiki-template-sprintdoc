@@ -108,13 +108,13 @@
                 transition: @transition color, @transition background-color, @transition border-color;
 
                 @media @screen_min-md {
-                    border-radius: @fix_border-radius @fix_border-radius 0 0;
+                    border-radius: @border-radius @border-radius 0 0; // @border-radius vs. @fix_border-radius
                 }
 
                 @media @screen_max-md {
                     top: -1px;
                     background-color: @background_page-header;
-                    border-radius: 0 0 @fix_border-radius @fix_border-radius;
+                    border-radius: 0 0 @border-radius @border-radius; // @border-radius vs. @fix_border-radius
                     margin-left: 0;
                     padding: .2em .3rem .1em;
                 }
@@ -200,7 +200,7 @@
             }
 
             @media @screen_min-sm {
-                border-radius: 0 0 @fix_border-radius @fix_border-radius;
+                border-radius: 0 0 @fix_border-radius @fix_border-radius; // @border-radius vs. @fix_border-radius
             }
 
             &.active {
