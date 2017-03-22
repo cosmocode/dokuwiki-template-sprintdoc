@@ -84,3 +84,38 @@
         }
     }
 }
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* max-width: 768px */
+
+@media @screen_max-xs {
+    .page-footer {
+        padding-left: @margin-small;
+        padding-right: @margin-small;
+    }
+
+    #dokuwiki__footer {
+        .main-footer {
+            > * {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+    }
+}
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* max-width: 480px */
+
+@media @screen_max-xxs {
+    #dokuwiki__footer {
+        .main-footer {
+            > * {
+                padding-left: @margin-small;
+                padding-right: @margin-small;
+            }
+        }
+    }
+}

@@ -58,13 +58,17 @@ a {
     word-wrap: break-word;
     background: @color-content-bg;
     color: inherit;
-    // margin-bottom: .5rem; // no margin: if there is another bg-color, then there is an #fff border
     padding: @page_padding-top @margin-default @margin-default;
 
-    @media @screen_max-md{
-        padding-right: (@margin-default *1.6);
+    @media @screen_max-md {
+        padding-right: (@margin-default * 1.6);
+    }
+
+    @media @screen_max-xs {
+        padding-left: @margin-small;
     }
 }
+
 .content #dokuwiki__pagetools{
     @media @screen_max-md{
         top: 4rem;
