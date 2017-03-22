@@ -9,6 +9,9 @@ $tabs = \dokuwiki\template\sprintdoc\Template::getInstance()->getMetaBoxTabs();
         <li class="a11y">&nbsp;</li>
         <?php
         foreach($tabs as $tab) {
+            if (empty($tab['tab']) || trim($tab['tab']) === '') {
+                continue;
+            }
             echo '<li>';
             echo '<a href="#' . $tab['id'] . '" aria-expanded="false">';
             echo '<span class="prefix">';
@@ -27,6 +30,9 @@ $tabs = \dokuwiki\template\sprintdoc\Template::getInstance()->getMetaBoxTabs();
         <div class="box-content">
             <?php
             foreach($tabs as $tab) {
+                if (empty($tab['tab']) || trim($tab['tab']) === '') {
+                    continue;
+                }
                 echo '<div id="' . $tab['id'] . '" class="tab-pane" aria-hidden="true">';
                 echo $tab['tab'];
                 echo '</div>';
