@@ -100,7 +100,7 @@
                 display: block;
                 background-color: @color-site-bg;
                 border: 1px solid @ini_border_light;
-                color: @color-link;
+                color: @ini_existing;
                 font-size: @font-size-small;
                 line-height: 1.42857143;
                 padding: .3em 1rem .1em;
@@ -193,7 +193,7 @@
             display: none;
             width: 100%;
             background-color: @color-content-bg;
-            border: 1px solid @color-link;
+            border: 1px solid @ini_existing;
 
             @media @screen_min-xs {
                 min-width: 20em;
@@ -206,6 +206,10 @@
             &.active {
                 display: block;
                 overflow: hidden;
+            }
+
+            a {
+                color: @ini_existing;
             }
 
             > div {
