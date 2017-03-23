@@ -13,6 +13,18 @@
         margin-left: @menu-margin; // moves *all* sidebar content to the right
     }
 
+    a {
+        &:link,
+        &:visited {
+            opacity: .9;
+            color: @ini_nav_menu_color;
+        }
+
+        * {
+            color: inherit;
+        }
+    }
+
     // the toggle element
     a.nav {
         cursor: pointer;
@@ -22,6 +34,7 @@
         -ms-flex-direction: row;
         align-items: center;
         height: @icon-size + @margin-small;
+        opacity: 1;
         border: 1px solid transparent;
         border-radius: @fix_border-radius;
         color: @ini_nav_menu_color;
@@ -140,6 +153,31 @@
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* min-width: 1440px */
+
+@media @screen_min-xlg {
+    #dokuwiki__aside {
+        nav {
+            li:not([class]),
+            .li {
+                font-size: @font-size-head6;
+                padding: .15em 0;
+
+                * {
+                    font-size: inherit;
+                    font-weight: inherit;
+                }
+
+                a {
+                    font-size: (@font-size-head6 - .05);
+                }
+            }
+        }
+    }
+}
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* max-width: 1023px */
 
 @media @screen_max-md {
@@ -206,27 +244,6 @@
             .nav-panel,
             a.nav {
                 padding-right: .8em;
-            }
-        }
-    }
-}
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* min-width: 1440px */
-
-@media @screen_min-xlg {
-    #dokuwiki__aside {
-        nav {
-            li:not([class]),
-            .li {
-                font-size: @font-size-default;
-                padding: .1em 0;
-
-                * {
-                    font-size: inherit;
-                    font-weight: inherit;
-                }
             }
         }
     }
