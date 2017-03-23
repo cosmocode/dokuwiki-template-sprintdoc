@@ -162,26 +162,15 @@
         position: absolute;
         right: -.4rem;
         top: -.4em;
-        background-color: @ini_nav_menu_hover_bg;
+        background-color: @ini_nav_menu_hover_color;
         border-radius: 2px;
-        color: @ini_nav_menu_hover_color;
+        color: @ini_nav_menu_hover_bg;
         font-size: @font-size-very-small;
         font-weight: 400;
         text-align: center;
         line-height: 1;
         padding: .1em @very-small-spacing;
         transition: @transition color, @transition background-color;
-    }
-
-    a {
-        &:hover,
-        &:active,
-        &:focus {
-            .num {
-                background-color: @ini_nav_menu_hover_color;
-                color: @ini_nav_menu_hover_bg;
-            }
-        }
     }
 }
 
