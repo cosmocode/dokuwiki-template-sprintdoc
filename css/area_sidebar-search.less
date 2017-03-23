@@ -22,7 +22,7 @@
         background-image: none;
         background-color: transparent; // fix
         border: solid 1px transparent;
-        color: @ini_nav_menu_color; // fix
+        color: @ini_nav_menu_color;
         padding: 0;
         transition: @transition color, @transition background-color, @transition border-color;
 
@@ -111,12 +111,12 @@
         margin: 0 0 @margin-default;
 
         .no {
-            display: inline-block;
+            display: block;
 
             #qsearch__in {
                 width: 100%;
                 padding-left: 10px;
-                padding-right: (@icon-size + 10);
+                padding-right: @icon-size;
             }
         }
 
