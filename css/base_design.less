@@ -10,10 +10,6 @@ html, body {
     background-color: @color-site-bg;
 }
 
-a {
-    color: @color-link;
-}
-
 
 /* highlight selected tool */
 
@@ -347,18 +343,18 @@ th {
 
 a {
     outline: none;
-}
 
-a:link,
-a:visited {
-    text-decoration: none;
-    color: @color-link;
-}
+    &:link,
+    &:visited {
+        text-decoration: none;
+        color: @ini_link;
+    }
 
-a:hover,
-a:focus,
-a:active {
-    text-decoration: underline;
+    &:hover,
+    &:focus,
+    &:active {
+        text-decoration: underline;
+    }
 }
 
 img {
