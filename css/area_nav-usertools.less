@@ -33,7 +33,7 @@
                 overflow: hidden;
                 border: 1px solid @ini_border;
                 border-radius: @ini_default_border_radius; // @ini_default_border_radius vs. @fix_border-radius
-                color: @color-nav;
+                color: @ini_nav_menu_color;
                 text-align: center;
                 margin: 0;
 
@@ -80,7 +80,7 @@
                     background: #FFF; // for removing bg-image
                     border: 0 none;
                     text-indent: 0;
-                    color: @color-nav;
+                    color: @ini_nav_menu_color;
                     font-size: inherit;
                     margin-right: -.3rem;
                     padding: 0 .2em 0 0;
@@ -110,7 +110,7 @@
                         right: -1px;
                         width: auto;
                         opacity: 0;
-                        border: solid 1px @color-nav-hover;
+                        border: solid 1px @ini_nav_menu_hover_color;
                         border-radius: @ini_default_border_radius; // @ini_default_border_radius vs. @fix_border-radius
                         transform: none;
                         transition: @transition opacity;
@@ -119,9 +119,9 @@
                     &:hover,
                     &:focus,
                     &:active {
-                        background-color: @color-nav-hover-bg;
-                        border-color: @color-nav-hover;
-                        color: @color-nav-hover;
+                        background-color: @ini_nav_menu_hover_bg;
+                        border-color: @ini_nav_menu_hover_color;
+                        color: @ini_nav_menu_hover_color;
 
                         &::before {
                             opacity: 1;
@@ -129,7 +129,7 @@
 
                         bdi,
                         bdi:first-of-type {
-                            color: @color-nav-hover;
+                            color: @ini_nav_menu_hover_color;
 
                             &::before {
                                 color: inherit;
@@ -156,7 +156,7 @@
                         position: absolute;
                         left: -2px;
                         font-size: 1.4rem;
-                        color: @color-nav;
+                        color: @ini_nav_menu_color;
                         margin: 0;
                         transition: @transition color;
 
@@ -250,9 +250,9 @@
             &:hover,
             &:active,
             &:focus {
-                background-color: @color-nav-hover-bg;
-                border-color: @color-nav-hover;
-                color: @color-nav-hover;
+                background-color: @ini_nav_menu_hover_bg;
+                border-color: @ini_nav_menu_hover_color;
+                color: @ini_nav_menu_hover_color;
             }
 
             /* icon register new user */

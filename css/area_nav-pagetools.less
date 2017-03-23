@@ -58,7 +58,7 @@ nav#dokuwiki__pagetools {
                 min-height: @toolbox-size; // for nav:hover
                 width: @toolbox-size; // for nav:hover
                 opacity: .6;
-                color: @color-nav;
+                color: @ini_nav_menu_color;
                 font-size: @font-size-default;
                 padding: 2px @toolbox-size 2px 2px;
 
@@ -74,7 +74,7 @@ nav#dokuwiki__pagetools {
                 &:focus,
                 &:active {
                     opacity: 1;
-                    color: @color-nav-hover;
+                    color: @ini_nav_menu_hover_color;
                     background-color: #FFF;
                 }
 
@@ -90,7 +90,7 @@ nav#dokuwiki__pagetools {
                     width: @page-tools_svg-size;
                     height: @page-tools_svg-size;
                     vertical-align: middle;
-                    fill: @color-nav;
+                    fill: @ini_nav_menu_color;
                     margin: @page-tools_svg-space;
                 }
 
@@ -102,7 +102,7 @@ nav#dokuwiki__pagetools {
             &.plugin_move_page {
                 a {
                     opacity: .6;
-                    color: @color-nav;
+                    color: @ini_nav_menu_color;
 
                     * {
                         color: inherit;
@@ -111,7 +111,7 @@ nav#dokuwiki__pagetools {
                     &:hover,
                     &:focus,
                     &:active {
-                        color: @color-nav-hover;
+                        color: @ini_nav_menu_hover_color;
                         background-color: #fff;
                         opacity: 1;
                     }
@@ -139,7 +139,7 @@ nav#dokuwiki__pagetools {
                         opacity: 1;
 
                         svg {
-                            fill: @color-nav-hover;
+                            fill: @ini_nav_menu_hover_color;
                         }
                     }
 

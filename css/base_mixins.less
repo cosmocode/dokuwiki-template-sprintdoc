@@ -147,7 +147,7 @@
     min-height: @elem;
     min-width: @elem;
     box-sizing: border-box;
-    color: @color-nav;
+    color: @ini_nav_menu_color;
     font-size: @font-size-small;
     padding: 0;
     margin: 0 .25rem;
@@ -162,9 +162,9 @@
         position: absolute;
         right: -.4rem;
         top: -.4em;
-        background-color: @color-nav-hover;
+        background-color: @ini_nav_menu_hover_bg;
         border-radius: 2px;
-        color: @color-nav-hover-bg;
+        color: @ini_nav_menu_hover_color;
         font-size: @font-size-very-small;
         font-weight: 400;
         text-align: center;
@@ -178,8 +178,8 @@
         &:active,
         &:focus {
             .num {
-                background-color: @color-nav-hover;
-                color: @color-nav-hover-bg;
+                background-color: @ini_nav_menu_hover_color;
+                color: @ini_nav_menu_hover_bg;
             }
         }
     }
