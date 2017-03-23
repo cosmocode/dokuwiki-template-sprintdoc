@@ -181,10 +181,10 @@ button[type=submit],
     cursor: pointer;
     box-shadow: none;
     background-image: none;
-    background-color: @button_background;
-    border: 1px solid @button_background;
+    background-color: @ini_button_background;
+    border: 1px solid @ini_button_background;
     border-radius: @fix_border-radius;
-    color: @button_color;
+    color: @ini_button_color;
     vertical-align: top;
     padding: .3em @grid;
     transition: @transition background-color, @transition color;
@@ -192,8 +192,8 @@ button[type=submit],
     &:hover,
     &:active,
     &:focus {
-        background-color: @button_color;
-        color: @button_background;
+        background-color: @ini_button_color;
+        color: @ini_button_background;
     }
 }
 
@@ -216,9 +216,9 @@ button[type=submit] {
         &:focus {
             box-shadow: none;
             background-image: none;
-            background-color: @button_background;
-            color: @button_color;
-            border-color: @button_background;
+            background-color: @ini_button_background;
+            color: @ini_button_color;
+            border-color: @ini_button_background;
         }
     }
 

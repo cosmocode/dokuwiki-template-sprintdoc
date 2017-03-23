@@ -13,7 +13,7 @@
     box-sizing: border-box;
 
     @media @screen_max-md {
-        background-color: @background_page-header;
+        background-color: @ini_background_page-header;
     }
 
     @media @screen_max-xs {
@@ -71,7 +71,7 @@
                 &:hover,
                 &:focus,
                 &:active {
-                    border-color: @color-link;
+                    border-color: @ini_existing;
                 }
             }
         }
@@ -127,7 +127,7 @@
                 position: relative;
 
                 strong {
-                    background-color: @color-site-bg;
+                    background-color: @ini_background_site;
                 }
 
                 .num {
@@ -170,9 +170,9 @@
             right: 0;
             width: auto;
             border: 0 none;
-            background: @background_page-header;
-            background: -webkit-linear-gradient(top, @background_page-header, @color-content-bg);
-            background: linear-gradient(top, @background_page-header, @color-content-bg);
+            background: @ini_background_page-header;
+            background: -webkit-linear-gradient(top, @ini_background_page-header, @ini_background_content);
+            background: linear-gradient(top, @ini_background_page-header, @ini_background_content);
             box-shadow: @box-shadow-bottom;
             z-index: 2000;
 

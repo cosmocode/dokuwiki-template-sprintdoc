@@ -98,7 +98,7 @@
                 cursor: pointer;
                 position: relative;
                 display: block;
-                background-color: @color-site-bg;
+                background-color: @ini_background_site;
                 border: 1px solid @ini_border_light;
                 color: @ini_existing;
                 font-size: @font-size-small;
@@ -113,7 +113,7 @@
 
                 @media @screen_max-md {
                     top: -1px;
-                    background-color: @background_page-header;
+                    background-color: @ini_background_page-header;
                     border-radius: 0 0 @ini_default_border_radius @ini_default_border_radius; // @ini_default_border_radius vs. @fix_border-radius
                     margin-left: 0;
                     padding: .2em .3rem .1em;
@@ -141,8 +141,8 @@
                 &:hover,
                 &:focus,
                 &:active {
-                    background-color: @color-content-bg;
-                    border-color: @color-link;
+                    background-color: @ini_background_content;
+                    border-color: @ini_existing;
                     text-decoration: none;
                 }
             }
@@ -152,19 +152,19 @@
 
                 > a {
                     cursor: default;
-                    background-color: @color-content-bg;
-                    border-color: @color-link;
-                    border-bottom-color: @color-content-bg;
-                    color: @color-link;
+                    background-color: @ini_background_content;
+                    border-color: @ini_existing;
+                    border-bottom-color: @ini_background_content;
+                    color: @ini_existing;
 
                     @media @screen_max-md {
                         border-radius: 0;
                     }
 
                     @media @screen_max-sm {
-                        background-color: @color-link;
-                        border-bottom-color: @color-link;
-                        color: @color-content-bg;
+                        background-color: @ini_existing;
+                        border-bottom-color: @ini_existing;
+                        color: @ini_background_content;
                     }
                 }
             }
@@ -192,7 +192,7 @@
             right: 0;
             display: none;
             width: 100%;
-            background-color: @color-content-bg;
+            background-color: @ini_background_content;
             border: 1px solid @ini_existing;
 
             @media @screen_min-xs {
