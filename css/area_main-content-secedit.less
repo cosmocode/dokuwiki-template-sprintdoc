@@ -37,7 +37,7 @@
             &::after {
                 content: '';
                 display: inline-block;
-                background: transparent url("svg.php?svg=pencil.svg&f=link") center center no-repeat;
+                background: transparent url("svg.php?svg=pencil.svg&f=nav_menu_color") center center no-repeat;
                 height: 1em;
                 width: 1em;
                 background-size: contain;
@@ -50,6 +50,10 @@
                 background-color: @button_color;
                 color: @button_background;
                 border-color: @button_background;
+
+                &::after {
+                    background-image: url("svg.php?svg=pencil.svg&f=button_background");
+                }
             }
         }
     }
