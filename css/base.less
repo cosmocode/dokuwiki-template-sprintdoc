@@ -9,30 +9,23 @@
 /* converted vars */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 
-@background_page-header: __background_page-header__;
 
-@font_family_screen:     __font_family_screen__;
-
-@color-content-bg:       __background_content__;
-@color-site-bg:          __background_site__;
-
-@color-link:             __existing__;
-@color-link-hover:       @ini_nav_menu_color;
-
-@button_color:           __button_color__;
-@button_background:      __button_background__;
-
-@box-shadow-offset:      __box_shadow_offset__;
-@box-shadow:             __box_shadow__;
-@box-shadow-colored:     __box_shadow_colored__;
-@box-shadow-right-bottom:__box_shadow_right_bottom__;
-@box-shadow-bottom:      __box_shadow_bottom__;
-
-@th_background:          __background_alt__;
+//@th_background:            __background_alt__;
 
 
 /* ersetzt: */
 
+//@color-site-bg:          __background_site__;
+//@color-content-bg:       __background_content__;
+//@button_color:           __button_color__;
+//@button_background:      __button_background__;
+//@background_page-header: __background_page-header__;
+//@font_family_screen:       __font_family_screen__;
+//@box-shadow-offset:      __box_shadow_offset__;
+//@box-shadow:             __box_shadow__;
+//@box-shadow-colored:     __box_shadow_colored__;
+//@box-shadow-right-bottom:__box_shadow_right_bottom__;
+//@box-shadow-bottom:      __box_shadow_bottom__;
 //@color-text:             __text__;
 //@border-radius:          __default_border_radius__;
 //@color-border:           __border__;
@@ -40,33 +33,45 @@
 //@color-nav:              __nav_menu_color__;
 //@color-nav-hover:        __nav_menu_hover_color__;
 //@color-nav-hover-bg:     __nav_menu_hover_bg__;
+//@color-link:             __existing__;
+//@color-link-hover:       @ini_nav_menu_color;
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* global vars */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 
-@nav_direct_background   : @ini_background_content;
-@nav_direct_color        : @ini_existing;
+@font_family_screen:       arial, sans-serif;
+@font_family_print:        "Times New Roman", serif;
 
-@ini_sidebar_width : (100 - @ini_site_width) - 4;
+@nav_direct_background:    @ini_background_content;
+@nav_direct_color:         @ini_existing;
 
-@height-context-bar: 50px;
+@ini_sidebar_width:        (100 - @ini_site_width) - 4;
 
-@margin-small:       1rem;
-@margin-default:     2rem;
-@margin-big:         3.07rem;
+@height-context-bar:       50px;
 
-@small-spacing:      .3rem;
-@very-small-spacing: .2rem;
+@margin-small:             1rem;
+@margin-default:           2rem;
+@margin-big:               3.07rem;
 
-@grid:               @margin-small;
-@toggle-size:        1.75rem;
+@small-spacing:            .3rem;
+@very-small-spacing:       .2rem;
 
-@transition: ease-out .30s;
+@grid:                     @margin-small;
+@toggle-size:              1.75rem;
+
+@transition:               ease-out .30s;
+
+@box-shadow-offset:        .1em .1em .1em rgb(153,153,153,.5);
+@box-shadow:               0 0 .5em rgb(153,153,153,.5);
+@box-shadow-colored:       0 0 .5em rgba(40,109,168,.5);
+@box-shadow-right-bottom:  0.1em 0.3rem 0.5em rgb(153,153,153,.5);
+@box-shadow-bottom:        0 0.1em 0.5em rgb(153,153,153,.5);
 
 
 /* + + +  for programmers customizing  + + + */
+
 @fix_border-radius:        3px;
 @toggle-showsidebar_width: 3.07rem;       // shown sidebar after toggle
 @page_padding-top:         @margin-small; // padding-top for 'dokuwiki__content'
@@ -82,20 +87,20 @@
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* fonts */
 
-@font-size-very-small: .73rem;
-@font-size-small: .88rem;
-@font-size-default: 1rem;
-@font-size-big: 1.5rem;
-@font-size-bigger: 1.75rem;
+@font-size-very-small:     .73rem;
+@font-size-small:          .88rem;
+@font-size-default:        1rem;
+@font-size-big:            1.5rem;
+@font-size-bigger:         1.75rem;
 
-@line-height-default: 125%;
-@line-height-big: 135%;
-@line-height-bigger: 140%;
+@line-height-default:      125%;
+@line-height-big:          135%;
+@line-height-bigger:       140%;
 
-@font-weight-bold: 800;
-@font-weight-normal: 400;
+@font-weight-bold:         800;
+@font-weight-normal:       400;
 
-@font-scale-factor: .0769;
+@font-scale-factor:        .0769;
 
 @font-size-head6: @font-size-default;
 @font-size-head5: @font-size-default + @font-scale-factor;
