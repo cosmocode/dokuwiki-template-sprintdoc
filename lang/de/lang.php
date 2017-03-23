@@ -1,9 +1,10 @@
 <?php
 /**
  * German language file for template
- *
+ *__background_site__
  * @license    GPL 2 (http://www.gnu.org/licenses/gpl.html)
  */
+
 
 $lang['direct_prefix']              = 'Direkt';
 $lang['direct_content_main']        = 'Hauptinhalt dieser Seite';
@@ -37,12 +38,38 @@ $lang['tasks_page_none']            = 'keine offenen Aufgaben für diese Seite';
 $lang['discussion']                 = 'Diskussion';
 $lang['back_to_article']            = 'Zurück zum Artikel';
 $lang['userpage']                   = 'Benutzer-Seite';
-$lang['__existing__']               = 'Schriftfarbe für Links zu vorhandenen Webseiten';
-$lang['__missing__']                = 'Schriftfarbe für Links zu nicht vorhandenen Webseiten';
-$lang['__site_width__']             = 'The width of the full site (can be any length unit: %, px, em, ...)';
-$lang['__sidebar_width__']          = 'The width of the sidebar, if any (can be any length unit: %, px, em, ...)';
 
-$lang['__button_color__']           = 'Schriftfarbe für Buttons';
-$lang['__button_background__']      = 'Hintergrundfarbe für Buttons';
+
+/**
+ * content size
+ */
+
+$lang['__site_width__']             = 'Contentbereich - Breite (in %)';
+$lang['__sidebar_width__']          = 'obsolet: wird aus __site_width__ errechnet! (Breite der Navigation)';
+
+
+/**
+ * colors
+ */
+
+$lang['__background_site__']        = 'Website - Hintergrundfarbe';
+$lang['__background_content__']     = 'Contentbereich - Hintergrundfarbe';
+$lang['__background_page-header__'] = 'Contentbereich Header, Footer - Hintergrundfarbe';
+
+$lang['__border__']                 = 'Formularfelder, Tabellen - Rahmenfarbe';
+$lang['__border_light__']           = 'Contentbereich Header, Footer, Wiki Icons - Rahmenfarbe';
+
+$lang['__default_border_radius__']  = 'Icons, Content - Borderradius';
+
+$lang['__link__']                   = 'Links zu nicht-Wikiseiten - Schriftfarbe';
+$lang['__existing__']               = 'Links zu vorhandenen Wikiseiten - Schriftfarbe';
+$lang['__missing__']                = 'Links zu nicht vorhandenen Wikiseiten - Schriftfarbe';
+
+$lang['__button_color__']           = 'Buttons - Schriftfarbe';
+$lang['__button_background__']      = 'Buttons - Hintergrundfarbe';
+
+$lang['__nav_menu_color__']         = 'Navigation, Wiki Icons - Linkfarbe';
+$lang['__nav_menu_hover_color__']   = 'Navigation, Wiki Icons - Linkfarbe, Rahmenfarbe (Hover)';
+$lang['__nav_menu_hover_bg__']      = 'Navigation, Wiki Icons - Hintergrundfarbe (Hover)';
 
 //Setup VIM: ex: et ts=2 :
