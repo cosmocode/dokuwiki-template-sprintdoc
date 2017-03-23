@@ -5,6 +5,7 @@
  * @author Andreas Gohr <gohr@cosmocode.de>
  */
 
+
 #dokuwiki__aside {
     @icon-size: @font-size-big;
     @menu-margin: @icon-size + @margin-small*2; // FIXME this is still wrong
@@ -27,12 +28,10 @@
 
     // the toggle element
     a.nav {
+        .display-flex();
+        .align-items();
+
         cursor: pointer;
-        display: flex;
-        display: -ms-flexbox;
-        flex-direction: row;
-        -ms-flex-direction: row;
-        align-items: center;
         height: @icon-size + @margin-small;
         opacity: 1;
         border: 1px solid transparent;
@@ -57,10 +56,11 @@
             width: @menu-margin;
             height: @icon-size;
             flex-grow: 0;
-            border-right: 1px solid @ini_border;
+            border-right: 1px solid @ini_nav_menu_color;
             text-align: center;
             margin-right: @margin-small;
             color: inherit;
+            transition: @transition border-color;
 
             // simple fake icon
             strong {
@@ -76,6 +76,7 @@
                 border: 2px solid @ini_nav_menu_color;
                 border-top-right-radius: 50%;
                 border-bottom-left-radius: 50%;
+                transition: @transition border-color;
             }
 
             // real icon
@@ -99,8 +100,10 @@
             text-decoration: none;
 
             span.ico {
+                border-color: inherit;
+
                 strong {
-                    border-color: @ini_nav_menu_hover_bg;
+                    border-color: inherit;
                 }
 
                 svg {
@@ -124,7 +127,7 @@
 }
 
 
-/* + + + + + +  wide page content  + + + + +
+/* + + + + + +  wide page content  border-bottom between a.nav (short width)  + + + + +
 .wide-content {
     #dokuwiki__aside {
         a.nav {
@@ -181,11 +184,6 @@
 /* max-width: 1023px */
 
 @media @screen_max-md {
-    // hide on medium and smaller screens
-    #dokuwiki__aside {
-        display: none;
-    }
-
     // show when toggled
     body.show-mobile-sidebar {
         .search.main-sidebar {
@@ -202,30 +200,6 @@
         }
 
         #dokuwiki__aside {
-            display: block !important;
-            position: absolute;
-            left: 1.25rem; //left margin of content container
-            z-index: 200; // above all
-            box-shadow: @box-shadow-right-bottom;
-            min-width: 45%;
-            max-width: 90%;
-            height: auto;
-
-            &:after {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                bottom: 0;
-                right: 0;
-                width: 100%;
-                height: 100%;
-                background: @ini_background;
-                background: -webkit-linear-gradient(left, @ini_background, @color-content-bg);
-                background: linear-gradient(left, @ini_background, @color-content-bg);
-                z-index: 0;
-            }
-
             > nav {
                 position: relative;
                 z-index: 2;

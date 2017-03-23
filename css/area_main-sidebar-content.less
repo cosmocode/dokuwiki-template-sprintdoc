@@ -1,18 +1,60 @@
 /**
  * This file provides the design styles the non-navigational elements in the sidebar
  */
+
+
 #dokuwiki__aside {
 
     // do not indent the first level of lists
     // and use less indention in deeper levels
-    ul, ol {
+    ul,
+    ol {
         padding-left: 0;
 
-        ul, ol {
+        ul,
+        ol {
             padding-left: @margin-small;
 
             li {
                 margin-left: 0;
+            }
+        }
+    }
+}
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* max-width: 1023px */
+
+@media @screen_max-md {
+    #dokuwiki__aside {
+        display: none;
+    }
+
+    body.show-mobile-sidebar {
+        #dokuwiki__aside {
+            display: block !important;
+            position: absolute;
+            left: 1.25rem; //left margin of content container
+            z-index: 200; // above all
+            box-shadow: @box-shadow-right-bottom;
+            min-width: 45%;
+            max-width: 90%;
+            height: auto;
+
+            &:after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                width: 100%;
+                height: 100%;
+                background: @ini_background;
+                background: -webkit-linear-gradient(left, @ini_background, @color-content-bg);
+                background: linear-gradient(left, @ini_background, @color-content-bg);
+                z-index: 0;
             }
         }
     }
