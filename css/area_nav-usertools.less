@@ -31,7 +31,7 @@
                 width: auto;
                 min-height: @toggle-size;
                 overflow: hidden;
-                border: 1px solid @ini_border;
+                border: 1px solid @ini_border_light;
                 border-radius: @ini_default_border_radius; // @ini_default_border_radius vs. @fix_border-radius
                 color: @ini_nav_menu_color;
                 text-align: center;
@@ -47,27 +47,32 @@
             }
 
             &.user {
+                @space-min-xxlg: .35rem;
+                @space-max-xxlg: .4rem;
+                @space-max-xlg: .5rem;
+                @space-max-md: .35rem;
+
                 position: relative;
                 display: table-cell;
-                border: solid 1px @ini_border;
+                border: solid 1px @ini_border_light;
                 border-radius: @ini_default_border_radius; // @ini_default_border_radius vs. @fix_border-radius
                 padding-right: .3rem;
 
                 @media @screen_min-xxlg {
-                    padding-top: .35rem;
+                    padding-top: @space-min-xxlg;
                 }
 
                 @media @screen_max-xxlg {
-                    padding-top: .4rem;
+                    padding-top: @space-max-xxlg;
                 }
 
                 @media @screen_max-xlg {
-                    padding-top: .5rem;
+                    padding-top: @space-max-xlg;
                 }
 
                 @media @screen_max-md {
                     min-height: @toggle-size;
-                    padding-top: .35rem;
+                    padding-top: @space-max-md;
                 }
 
                 > a {
@@ -86,20 +91,20 @@
                     padding: 0 .2em 0 0;
 
                     @media @screen_min-xxlg {
-                        margin-top: -.3rem;
+                        margin-top: -(@space-min-xxlg);
                     }
 
                     @media @screen_max-xxlg {
-                        margin-top: -.3rem;
+                        margin-top: -(@space-max-xxlg);
                     }
 
                     @media @screen_max-xlg {
-                        margin-top: -.5rem;
+                        margin-top: -(@space-max-xlg);
                     }
 
                     @media @screen_max-md {
                         min-height: (@toggle-size - .1);
-                        margin-top: -.35rem;
+                        margin-top: -(@space-max-md);
                     }
 
                     &::before {
