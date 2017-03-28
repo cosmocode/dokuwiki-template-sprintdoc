@@ -10,6 +10,53 @@
     @icon-size: @font-size-big;
     @menu-margin: @icon-size + @margin-small*2; // FIXME this is still wrong
 
+    nav > p,
+    .mmissuelist li,
+    .mmissuelist div {
+        color: @ini_nav_menu_color;
+
+        &.noissue {
+            color: @ini_text_webframe;
+
+            * {
+                color: inherit;
+            }
+        }
+    }
+
+    nav li {
+        color: @ini_nav_menu_color;
+    }
+
+
+    /* jira itemlist */
+    .mmissuelist {
+        li {
+            &.noissue {
+                list-style-type: none;
+                margin-left: 0;
+            }
+
+            a {
+                display: inline-block;
+            }
+        }
+
+        img {
+            vertical-align: bottom;
+            margin-right: .3rem;
+        }
+
+        .mm__status {
+            padding-left: .3rem;
+            padding-right: .3rem;
+        }
+
+        form {
+            vertical-align: text-top;
+        }
+    }
+
     > * {
         margin-left: @menu-margin; // moves *all* sidebar content to the right
     }
@@ -60,7 +107,6 @@
             text-align: center;
             margin-right: @margin-small;
             color: inherit;
-            transition: @transition border-color;
 
             // simple fake icon
             strong {
@@ -122,6 +168,10 @@
 
         ul {
             margin-bottom: 1rem;
+
+            ul {
+                margin-bottom: 0;
+            }
         }
     }
 }
