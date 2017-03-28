@@ -63,25 +63,47 @@
 
 @transition:               ease-out .30s;
 
-@box-shadow-offset:        .1em .1em .1em rgb(153,153,153,.5);
+@box-shadow-offset:        .1em .1em .1em rgb(153,153,153,.5); // pagetools, tabinclude
 @box-shadow:               0 0 .5em rgb(153,153,153,.5);
 @box-shadow-colored:       0 0 .5em rgba(40,109,168,.5);
 @box-shadow-right-bottom:  0.1em 0.3rem 0.5em rgb(153,153,153,.5);
-@box-shadow-bottom:        0 0.1em 0.5em rgb(153,153,153,.5);
+@box-shadow-bottom:        0 .1em .5em rgb(153,153,153,.5); // qc-wrapper - breadcrumb
 
 
 /* + + +  for programmers customizing  + + + */
 
 @fix_border-radius:        3px;
+
 @toggle-showsidebar_width: 3.07rem;       // shown sidebar after toggle
+
 @page_padding-top:         @margin-small; // padding-top for 'dokuwiki__content'
 @page-header_height:       2.8rem;        // minimum: 2.8rem (height for breadcrumb, page-header, page-footer)
 @meta-box_height:          (@page-header_height - @page_padding-top);
 @breadcrumb_height:        @page-header_height;
+
 @formfield_min-height:     2rem;          // min-height for input, textarea, select, keygen
 
-@noopentasks-background:   #BBB;
-@noopentasks-color:        #696969;
+//@metanav-ini_background:   rgba(0, 0, 0, .1);
+
+
+/* icons */
+@noopentasks-background:   #ECECEC; /* metabox tabs + num in icons + tabinclude */
+@noopentasks-border:       #BBB; /* metabox tabs + num in icons */
+@noopentasks-color:        #666; /* metabox tabs + num in icons */
+
+
+/* navigation left */
+@quicksearch-button-color: @noopentasks-color; /* autosuggest, submit in quicksearch */
+@suggestion-zebra:         #EEE;
+
+
+/* edit mode */
+@highlight-odd-ini_text:  fade(@ini_background_content, 95%);
+@highlight-even-ini_text: fade(@ini_text, 5%);
+
+
+//@nolinkedicon-ini_background: fade(@ini_background, 10%);
+//@opacity-ini_nav_menu_color:  fade(@ini_nav_menu_color, 40%);
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
@@ -149,17 +171,19 @@
 
 @screen_min-md: ~"only screen and (min-width: " ~"@{break-min-md}px)";
 @screen_max-md: ~"only screen and (max-width: " ~"@{break-max-md}px)";
-@screen_only-md: ~"only screen and (min-width: 800px) and (max-width: " ~"@{break-max-md}px)";
 
 @screen_min-lg: ~"only screen and (min-width: " ~"@{break-min-lg}px)";
 @screen_max-lg: ~"only screen and (max-width: " ~"@{break-max-lg}px)";
-@screen_only-lg: ~"only screen and (min-width: " ~"@{break-min-md}px) and (max-width: " ~"@{break-max-xlg}px)";
 
 @screen_min-xlg: ~"only screen and (min-width: " ~"@{break-min-xlg}px)";
 @screen_max-xlg: ~"only screen and (max-width: " ~"@{break-max-xlg}px)";
 
 @screen_min-xxlg: ~"only screen and (min-width: " ~"@{break-min-xxlg}px)";
 @screen_max-xxlg: ~"only screen and (max-width: " ~"@{break-max-xxlg}px)";
+
+@screen_only-md: ~"only screen and (min-width: 800px) and (max-width: " ~"@{break-max-md}px)";
+@screen_only-lg: ~"only screen and (min-width: " ~"@{break-min-md}px) and (max-width: " ~"@{break-max-xlg}px)";
+@screen_xs-lg: ~"only screen and (min-width: " ~"@{break-min-xs}px) and (max-width: " ~"@{break-max-md}px)";
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
@@ -220,7 +244,7 @@ q {
 
 acronym {
     cursor: help;
-    border-bottom: dotted 1px #333;
+    border-bottom: dotted 1px @ini_text;
 }
 
 *:focus {
@@ -263,7 +287,7 @@ nav > ul {
     &::before,
     &::after {
         display: table;
-        content: "  ";
+        content: ' ';
         clear: both;
     }
 }
@@ -292,6 +316,7 @@ nav > ul {
 
 .mobile-only {
     display: none;
+
     @media @screen_max-md {
         display: inline-block;
     }

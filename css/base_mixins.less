@@ -142,12 +142,30 @@
 
 
 /* + + + + +  small icon-buttons (breadcrumb, page-header)  + + + + + */
+.btn-hover {
+    background-color: @ini_nav_menu_hover_bg;
+    color: @ini_nav_menu_hover_color;
+    transition: @transition color, @transition background-color, @transition border-color;
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: @ini_nav_menu_hover_color;
+        border-color: @ini_nav_menu_hover_color;
+        color: @ini_nav_menu_hover_bg;
+
+        .prefix {
+            color: inherit;
+        }
+    }
+}
+
 .btn-usertools-wrapper(@elem:@toggle-size) {
     display: inline-block;
     min-height: @elem;
     min-width: @elem;
     box-sizing: border-box;
-    color: @ini_nav_menu_color;
+    color: @ini_text_webframe;
     font-size: @font-size-small;
     padding: 0;
     margin: 0 .25rem;
@@ -161,7 +179,7 @@
     .num {
         position: absolute;
         right: -.4rem;
-        top: -.4em;
+        top: -.5em;
         background-color: @ini_nav_menu_hover_color;
         border-radius: 2px;
         color: @ini_nav_menu_hover_bg;

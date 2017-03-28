@@ -19,19 +19,13 @@
     // < 1024
     @media @screen_max-md {
         position: relative;
-        top: -1px;
+        top: .2rem;
         right: auto;
         float: none;
         display: block;
         max-width: 100%;
         min-height: @page-header_height;
         height: auto;
-    }
-
-    // < 992
-    @media @screen_max-sm {
-        position: relative;
-        top: .2rem;
         border: 0 none;
     }
 
@@ -86,10 +80,6 @@
             }
 
             @media @screen_max-md {
-                margin-right: .5rem;
-            }
-
-            @media @screen_max-sm {
                 margin-right: .4rem;
                 margin-bottom: .2rem;
             }
@@ -98,32 +88,26 @@
                 cursor: pointer;
                 position: relative;
                 display: block;
-                background-color: @ini_background_site;
-                border: 1px solid @ini_border_light;
-                color: @ini_existing;
                 font-size: @font-size-small;
                 line-height: 1.42857143;
-                padding: .3em 1rem .1em;
-                margin-left: 4px;
-                transition: @transition color, @transition background-color, @transition border-color;
+                transition: @transition background-color, @transition border-color, @transition color;
 
                 @media @screen_min-md {
+                    background-color: @ini_background;
+                    border: 1px solid @noopentasks-border;
                     border-radius: @ini_default_border_radius @ini_default_border_radius 0 0; // @ini_default_border_radius vs. @fix_border-radius
+                    color: @ini_nav_menu_color;
+                    margin-left: 4px;
+                    padding: .3em 1rem .1em;
                 }
 
                 @media @screen_max-md {
-                    top: -1px;
-                    background-color: @ini_background_page-header;
-                    border-radius: 0 0 @ini_default_border_radius @ini_default_border_radius; // @ini_default_border_radius vs. @fix_border-radius
-                    margin-left: 0;
-                    padding: .2em .3rem .1em;
-                }
-
-                @media @screen_max-sm {
                     top: 0;
-                    border-radius: 0;
+                    border: 1px solid @ini_existing;
+                    color: @ini_existing;
                     margin-top: .2rem;
-                    padding-bottom: .2em;
+                    margin-left: 0;
+                    padding: .2em .3rem;
                 }
 
                 * {
@@ -135,15 +119,24 @@
                     position: relative;
                     color: inherit;
                     font-size: @font-size-small;
-                    transition: @transition color;
                 }
 
                 &:hover,
                 &:focus,
                 &:active {
-                    background-color: @ini_background_content;
-                    border-color: @ini_existing;
                     text-decoration: none;
+
+                    @media @screen_min-md {
+                        background-color: @ini_background_content;
+                        border-color: @ini_existing;
+                        color: @ini_existing;
+                    }
+
+                    @media @screen_max-md {
+                        background-color: @ini_existing;
+                        border-color: @ini_background_content;
+                        color: @ini_background_content;
+                    }
                 }
             }
 
@@ -158,12 +151,9 @@
                     color: @ini_existing;
 
                     @media @screen_max-md {
-                        border-radius: 0;
-                    }
-
-                    @media @screen_max-sm {
                         background-color: @ini_existing;
                         border-bottom-color: @ini_existing;
+                        border-radius: 0;
                         color: @ini_background_content;
                     }
                 }
@@ -176,13 +166,6 @@
 
         @media @screen_max-md {
             clear: both;
-        }
-
-        @media @screen_max-md {
-            margin-top: -2px;
-        }
-
-        @media @screen_max-sm {
             margin-top: 2px;
         }
 
@@ -199,7 +182,7 @@
                 min-width: 20em;
             }
 
-            @media @screen_min-sm {
+            @media @screen_min-md {
                 border-radius: 0 0 @fix_border-radius @fix_border-radius; // @ini_default_border_radius vs. @fix_border-radius
             }
 
@@ -277,15 +260,15 @@
                         padding: .15em 0;
 
                         &::before {
+                            content: '';
                             position: absolute;
                             top: .6em;
-                            content: "";
+                            left: 0;
                             display: inline-block;
                             width: 4px;
                             height: 4px;
-                            background-color: #ccc;
                             overflow: hidden;
-                            left: 0;
+                            background-color: @ini_existing;
                         }
                     }
                 }

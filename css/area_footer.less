@@ -11,12 +11,19 @@
 @media screen {
     .page-footer {
         min-height: @page-header_height;
-        background-color: @ini_background_page-header;
+        background-color: @ini_background_page_header;
         border-top: 1px solid @ini_border_light;
         border-radius: 0 0 @fix_border-radius @fix_border-radius; // @ini_default_border_radius vs. @fix_border-radius
+        color: @ini_background_page_footer;
         font-size: @font-size-default;
         text-align: right;
         padding: @margin-small @margin-default;
+
+        *,
+        a:link,
+        a:visited {
+            color: inherit;
+        }
 
         bdi {
             font-weight: bold;
@@ -28,12 +35,17 @@
             position: relative;
             z-index: 2;
             box-sizing: border-box;
-            background-color: @ini_background_site;
+            background-color: @ini_background;
         }
 
         p {
+            color: @ini_text_webframe;
             font-size: @font-size-default;
             margin: 0;
+        }
+
+        a {
+            color: @ini_nav_menu_color;
         }
     }
 }

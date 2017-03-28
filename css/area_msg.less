@@ -1,10 +1,12 @@
-.msg-area{
+.msg-area {
     clear: both;
     padding-top: 1.6rem;
-    div{
+
+    div {
         line-height: 135%;
     }
-    &:empty{
+
+    &:empty {
         display: none;
     }
 }
@@ -20,4 +22,15 @@ div.success, div.error, div.info, div.notify {
     padding-left: 32px;
     overflow: hidden;
     border-radius: 5px;
+
+    a {
+        color: inherit;
+        text-decoration: underline;
+
+        &:hover,
+        &:focus,
+        &:active {
+            text-decoration: none;
+        }
+    }
 }

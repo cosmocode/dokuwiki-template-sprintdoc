@@ -7,7 +7,7 @@
 
 
 html, body {
-    background-color: @ini_background_site;
+    background-color: @ini_background;
 }
 
 
@@ -26,83 +26,90 @@ html, body {
     font-weight: bold;
 }
 
-.dokuwiki .pageId {
-    float: right;
-    margin-right: -1em;
-    margin-bottom: -1px;
-    margin-top: -1.5em;
-    overflow: hidden;
-    padding: 0.5em 1em 0;
+.dokuwiki {
+    .page ul li,
+    .aside ul li {
+        color: @ini_text;
+    }
 
-    span {
+    .pageId {
+        float: right;
+        margin-right: -1em;
+        margin-bottom: -1px;
+        margin-top: -1.5em;
+        overflow: hidden;
+        padding: 0.5em 1em 0;
+
+        span {
+            font-size: @font-size-small;
+            border: solid @ini_background_alt;
+            border-width: 1px 1px 0;
+            background-color: @ini_background;
+            color: @ini_text_alt;
+            padding: .1em .35em;
+            border-top-left-radius: 2px;
+            border-top-right-radius: 2px;
+            box-shadow: 0 0 .5em @ini_text_alt;
+            display: block;
+        }
+    }
+
+    div.page {
+        clear: both;
+        overflow: hidden;
+        word-wrap: break-word;
+        background: @ini_background_content;
+        color: inherit;
+        padding: @page_padding-top @margin-default @margin-default;
+
+        @media @screen_max-md {
+            padding-right: (@margin-default * 1.6);
+        }
+
+        @media @screen_max-xs {
+            padding-left: @margin-small;
+        }
+    }
+
+    .content #dokuwiki__pagetools {
+        @media @screen_max-md {
+            top: 4rem;
+        }
+    }
+
+    .docInfo {
         font-size: @font-size-small;
-        border: solid @ini_background_alt;
-        border-width: 1px 1px 0;
-        background-color: @ini_background;
-        color: @ini_text_alt;
-        padding: .1em .35em;
-        border-top-left-radius: 2px;
-        border-top-right-radius: 2px;
-        box-shadow: 0 0 .5em @ini_text_alt;
-        display: block;
-    }
-}
-
-.dokuwiki div.page {
-    clear: both;
-    overflow: hidden;
-    word-wrap: break-word;
-    background: @ini_background_content;
-    color: inherit;
-    padding: @page_padding-top @margin-default @margin-default;
-
-    @media @screen_max-md {
-        padding-right: (@margin-default * 1.6);
+        text-align: right;
     }
 
-    @media @screen_max-xs {
-        padding-left: @margin-small;
-    }
-}
-
-.content #dokuwiki__pagetools {
-    @media @screen_max-md {
-        top: 4rem;
-    }
-}
-
-.dokuwiki .docInfo {
-    font-size: @font-size-small;
-    text-align: right;
-}
-
-/* license note under edit window */
-.dokuwiki div.license {
-    font-size: @font-size-small;
-    line-height: @line-height-default;
-    padding-top: 1rem;
-
-    @media @screen_max-lg {
-        font-size: @font-size-default;
-    }
-
-    @media @screen_max-md {
+    /* license note under edit window */
+    div.license {
         font-size: @font-size-small;
+        line-height: @line-height-default;
+        padding-top: 1rem;
+
+        @media @screen_max-lg {
+            font-size: @font-size-default;
+        }
+
+        @media @screen_max-md {
+            font-size: @font-size-small;
+        }
+
+        * {
+            font-size: inherit;
+        }
     }
 
-    * {
-        font-size: inherit;
+    [dir=rtl] & .docInfo {
+        text-align: left;
     }
-}
 
-[dir=rtl] .dokuwiki .docInfo {
-    text-align: left;
-}
-
-[dir=rtl] .dokuwiki .pageId {
-    float: left;
-    margin-left: -1em;
-    margin-right: 0;
+    [dir=rtl] & .pageId {
+        float: left;
+        margin-left: -1em;
+        margin-right: 0;
+    }
 }
 
 caption,
@@ -305,6 +312,17 @@ ol ol ol ol ol {
     list-style-type: lower-roman;
 }
 
+
+/*____________ tables ____________*/
+
+.dokuwiki table.inline tr:hover td {
+    color: @ini_text_alt;
+
+    * {
+        color: @ini_text_alt;
+    }
+}
+
 table {
     border-collapse: collapse;
     empty-cells: show;
@@ -334,6 +352,7 @@ td {
 th {
     font-weight: bold;
     background-color: @ini_background_alt;
+    color: @ini_text_alt;
     text-align: left;
 }
 
@@ -403,7 +422,7 @@ em abbr {
 
 mark {
     background-color: @ini_highlight;
-    color: inherit;
+    color: @ini_highlight_text;
 }
 
 pre,
@@ -415,7 +434,7 @@ kbd {
     font-size: @font-size-default;
     direction: ltr;
     text-align: left;
-    background-color: @ini_background_site;
+    background-color: @ini_background_content;
     color: @ini_text;
     box-shadow: inset 0 0 .3em @ini_border;
     border-radius: @fix_border-radius;

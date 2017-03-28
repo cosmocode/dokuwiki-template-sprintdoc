@@ -6,7 +6,7 @@
 
 
 #dokuwiki__header {
-    @header-font-opacity: .7;
+    @header-font-opacity: 1;
 
 /* + + +  wiki logo  + + + */
     @media @screen_min-md {
@@ -83,8 +83,9 @@
 
 /* + + +  wiki title  + + + */
     p.title {
-        background-color: @ini_background_site;
+        background-color: @ini_background;
         opacity: @header-font-opacity;
+        color: @ini_text_webframe;
         line-height: @line-height-default;
         margin-bottom: .5rem;
 
@@ -103,8 +104,9 @@
 /* + + +  wiki claim  + + + */
     p.claim {
         opacity: @header-font-opacity;
-        margin-bottom: 0;
+        color: @ini_text_webframe;
         font-size: @font-size-default;
+        margin-bottom: 0;
 
         @media @screen_max-md {
             padding-top: .5rem;
