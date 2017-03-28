@@ -26,7 +26,8 @@
     }
 
     div.ui-admin {
-        ul.admin_tasks {
+        ul.admin_tasks,
+        ul.admin_plugins {
             padding: 0;
 
             li {
@@ -34,12 +35,32 @@
                 margin: 0 0 .6em 0;
 
                 a {
-                    font-weight: 400;
+                    color: @ini_text;
+
+                    * {
+                        color: inherit;
+                    }
 
                     span.icon {
                         margin-top: -.2rem;
                         margin-bottom: .2rem;
+
+                        svg {
+                            fill: @ini_existing;
+
+                            path {
+                                fill: @ini_existing;
+                            }
+                        }
                     }
+                }
+            }
+        }
+
+        ul.admin_tasks {
+            li {
+                a {
+                    font-weight: 400;
                 }
             }
         }
