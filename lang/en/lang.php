@@ -31,6 +31,7 @@ $lang['meta_box_tags_none']         = 'tags found: none';
 $lang['js']['meta_box_toc_none']    = 'no Table of Contents available';
 
 $lang['tab_tags']                   = 'Tags';
+$lang['tab_issues']                 = 'Issues';
 
 $lang['quality_trigger']            = 'toggle page analysis';
 
