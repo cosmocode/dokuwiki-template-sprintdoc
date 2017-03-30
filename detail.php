@@ -28,9 +28,133 @@ header('X-UA-Compatible: IE=edge,chrome=1');
     <?php tpl_includeFile('meta.html') ?>
 </head>
 
-<body>
-    <div id="dokuwiki__detail" class="<?php echo tpl_classes(); ?>">
+<body id="dokuwiki__top" class="<?php echo tpl_classes(); ?> wide-content showSidebar">
+<div id="dokuwiki__site">
+    <?php include('tpl/nav-direct.php') ?>
+
+
+    <div class="page-wrapper <?php echo ($showSidebar) ? 'hasSidebar' : ''; ?>">
+        <?php
+        tpl_includeFile('header.html');
+        ?>
+
+        <div id="dokuwiki__header" class="header no-print">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="claim main-sidebar">
+                            <?php if (tpl_getConf('logo') && file_exists(mediaFN(tpl_getConf('logo')))){
+
+                                /* upload your logo into the data/media folder (root of the media manager) and replace 'logo.png' in der template config accordingly: */
+                                include('tpl/main-sidebar-logo.php');
+                            } ?>
+                            <?php if ($conf['tagline']): ?>
+                                <p class="claim"><?php echo $conf['tagline'] ?></p>
+                            <?php endif ?>
+
+                        </div><!-- .headings -->
+                    </div><!-- .col -->
+                </div><!-- .row -->
+            </div><!-- .container -->
+        </div><!-- .header -->
+
+        <div class="sr-only nav-area-head">
+            <h5 class="sr-only" aria-level="1"><?php echo tpl_getLang('nav-area-head') ?></h5>
+        </div><!-- .nav-area-head -->
+
+        <div class="tools">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+
+                        <div class="sidebarheader main-sidebar">
+                            <?php
+                            tpl_includeFile('sidebarheader.html')
+                            ?>
+                        </div><!-- .sidebarheader -->
+
+                        <div class="search main-sidebar">
+                            <?php
+                            include('tpl/main-sidebar-search.php');
+                            ?>
+                        </div><!-- .search -->
+
+                        <div id="dokuwiki__aside">
+                            <?php
+                            include('tpl/main-sidebar-nav.php');
+                            ?>
+                        </div><!-- .aside -->
+
+                    </div><!-- .col -->
+                </div><!-- .row -->
+            </div><!-- .container -->
+        </div><!-- .tools -->
+
+        <div class="top-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+
+                        <?php
+                        $showTools = true;
+                        include('tpl/nav-usertools-buttons.php');
+                        tpl_includeFile('header.html');
+                        ?>
+
+                    </div><!-- .col -->
+                </div><!-- .row -->
+            </div><!-- .container -->
+        </div><!-- /top-header -->
+
+
+        <div id="dokuwiki__detail">
         <?php html_msgarea() ?>
+
+            <div class="content group">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="breadcrumbs" data-do="<?php echo $ACT?>">
+
+                                <div class="togglelink page_main-content">
+                                    <a href="#">&lt; &gt;<span class="sr-out"><?php echo tpl_getLang('a11y_sidebartoggle')?></span></a>
+                                </div>
+
+                                <h6 class="sr-only" role="heading" aria-level="2"><?php echo  tpl_getLang('head_menu_status')  ?></h6>
+
+                                <?php
+
+                                /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                                /* page quality / page tasks */
+                                /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                                include('tpl/nav-page-quality-tasks.php');
+                                ?>
+
+                                <?php
+                                /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                                /* breadcrumb */
+                                /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                                include('tpl/nav-breadcrumb.php');
+                                ?>
+
+                                <h6 class="sr-only" role="heading" aria-level="2"><?php echo  $lang['page_tools']  ?></h6>
+
+                                <?php
+
+
+                                /**
+                                 * FIXME implement proper pagetools as in https://www.dokuwiki.org/_detail/wiki:dokuwiki-128.png
+                                 * after the new svg-page-tool mechanism has been merged into master
+                                 *
+                                 * see https://cosmocode.jira.com/browse/SPR-837
+                                 */
+                                include('tpl/nav-page-tools.php');
+                                ?>
+
+                            </div>
+                            <div id="dokuwiki__content" class="page main-content">
+
+                                <div id="spr__meta-box"></div>
 
         <?php if($ERROR): print $ERROR; ?>
         <?php else: ?>
@@ -38,7 +162,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
             <?php if($REV) echo p_locale_xhtml('showrev');?>
             <h1><?php echo hsc(tpl_img_getTag('IPTC.Headline', $IMG))?></h1>
 
-            <div class="content group">
+
                 <?php tpl_img(900, 700); /* the image; parameters: maximum width, maximum height (and more) */ ?>
 
                 <div class="img_detail">
@@ -80,14 +204,54 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                     <?php endif; ?>
                     <?php //Comment in for Debug// dbg(tpl_img_getTag('Simple.Raw')); ?>
                 </div>
-            </div><!-- /.content -->
-
             <p class="back">
                 <?php tpl_action('mediaManager', 1) ?><br />
                 &larr; <?php tpl_action('img_backto', 1) ?>
             </p>
 
+                            </div><!-- .main-content -->
+                        </div><!-- .col -->
+                    </div><!-- .row -->
+                </div><!-- .container -->
+            </div><!-- /.content -->
+
+
         <?php endif; ?>
     </div>
+    </div><!-- /wrapper -->
+
+
+
+    <!-- ********** FOOTER ********** -->
+
+    <div id="dokuwiki__footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+
+                    <div class="main-footer">
+                        <p>
+                            <?php
+
+
+                            /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                            /* copyright */
+                            /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                            tpl_license($img = false, $imgonly = false, $return = false, $wrap = false);
+                            ?>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div><!-- /footer -->
+
+
+    <?php tpl_includeFile('footer.html') ?>
+</div><!-- .dokuwiki__site -->
+
+<div class="no"><?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?></div>
+
 </body>
 </html>
