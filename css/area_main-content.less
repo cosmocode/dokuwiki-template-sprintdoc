@@ -19,14 +19,22 @@
                     border: 1px solid @ini_existing;
                 }
             }
+        }
+    }
 
+    > div {
+        > ul,
+        > ol {
+            > li {
+                margin-bottom: @small-spacing;
+            }
         }
     }
 
     .wikipagefooter {
         > hr {
             margin-top: 3em;
-            margin-bottom: 0.5em;
+            margin-bottom: .5em;
             border-top: dashed @ini_border_light 2px;
             border-bottom: none;
         }

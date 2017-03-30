@@ -1,11 +1,11 @@
 /**
  * This styles the section editing buttons and highlighting
  */
-#dokuwiki__content.main-content {
-    @button-margin: .5rem; // FIXME shouldn't we have something in our base.less for this?
 
+
+#dokuwiki__content.main-content {
     div.section_highlight {
-        clear: right; // FIXME why?
+        clear: right;
         background: repeating-linear-gradient(
             -45deg,
             @highlight-odd-ini_text,
@@ -13,13 +13,14 @@
             @highlight-even-ini_text 10px,
             @highlight-even-ini_text 20px,
         );
+        border-color: @ini_background_page_header;
     }
 
     .secedit button {
         clear: both;
         font-size: 100%;
         margin-top: -1em;
-        margin-bottom: @button-margin;
+        margin-bottom: @small-spacing;
     }
 
     .editbutton_section {
@@ -41,7 +42,7 @@
                 height: 1em;
                 width: 1em;
                 background-size: contain;
-                margin-left: @button-margin;
+                margin-left: @small-spacing;
             }
 
             &:hover,
