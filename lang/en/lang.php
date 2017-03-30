@@ -51,27 +51,28 @@ $lang['userpage']                   = 'User page';
 $lang['__site_width__']             = 'content - width (in %)';
 
 $lang['__background__']             = 'website - background color';
-$lang['__background_neu__']         = 'website - background color - neutral';
+$lang['__background_neu__']         = 'website - background color (neutral)';
 $lang['__text_webframe__']          = 'website unlinked: claim, title, footer, navigation - font color';
 
 $lang['__nav_menu_color__']         = 'link: navigation, footer, pagetools icons, tabbox - font color';
-$lang['__nav_menu_hover_color__']   = 'link-hover: navigation, wiki icons - font color, border color';
-$lang['__nav_menu_hover_bg__']      = 'link-hover: navigation, wiki icons - background color';
+$lang['__nav_menu_hover_color__']   = 'link: navigation (hover) - font color, border color; wiki icons - font color; wiki icons (hover) - background color';
+$lang['__nav_menu_hover_bg__']      = 'link: navigation (hover) - background color; wiki icons - background color; wiki icons (hover) - font color';
 
-$lang['__background_content__']     = 'content, breadcrumb, pagetools hover - background color';
-$lang['__background_page_header__'] = 'content (header, footer, tabinclude) - background color';
-$lang['__background_page_footer__'] = 'content (footer, tabinclude tab controlls) - font color';
+$lang['__background_content__']     = 'content, breadcrumb, pagetools (hover) - background color';
+$lang['__background_page_header__'] = 'content: header, footer, tabinclude tab controlls deactivate - background color';
+$lang['__background_page_footer__'] = 'content: footer, tabinclude tab controlls deactivate - font color';
 
-$lang['__border_light__']           = 'content (header, footer), wiki icons, pagetools (hover) - border color';
+$lang['__border_light__']           = 'content: header, footer, wiki icons, pagetools box (hover) - border color';
 
-$lang['__text__']                   = 'content - font color';
-$lang['__text_neu__']               = 'content - font color - neutral';
+$lang['__text__']                   = 'content: text - font color';
+$lang['__text_neu__']               = 'content: text - font color (neutral)';
+
 $lang['__highlight__']              = 'text emphasize (e.g. for search results) - background color';
 $lang['__highlight_text__']         = 'text emphasize (e.g. for search results) - font color';
 
-$lang['__existing__']               = 'links to wikipages, pencil, hover: tabbox, pagetools - font color';
-$lang['__missing__']                = 'links to non-existing pages - font color';
+$lang['__existing__']               = 'links to wikipages, pencil, pagetools (hover) - font color; tabbox (hover) - font color, border color';
 $lang['__link__']                   = 'links to non wikipages (external links) - font color';
+$lang['__missing__']                = 'links to non-existing pages - font color';
 
 $lang['__button_color__']           = 'buttons - font color';
 $lang['__button_background__']      = 'buttons - background color';
@@ -79,5 +80,5 @@ $lang['__button_background__']      = 'buttons - background color';
 $lang['__background_alt__']         = 'table head, hover: table cell, struct Label - background color (alternative)';
 $lang['__text_alt__']               = 'table head, hover: table cell, struct Label - font color (alternative)';
 
-$lang['__border__']                 = 'tables, form fields - border color';
+$lang['__border__']                 = 'tables, form fields, blockquotes - border color';
 $lang['__default_border_radius__']  = 'wiki icons, content (top right) - border radius';

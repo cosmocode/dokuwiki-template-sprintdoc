@@ -1,3 +1,10 @@
+/**
+ * This file provides the design styles for the metatabbox
+ *
+ * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
+ */
+
+
 #spr__meta-box {
     .display-flex();
     .flex-direction();
@@ -44,6 +51,8 @@
         overflow-y: visible;
     }
 
+
+/* + + + + +  tab controlls  + + + + + */
     ul.meta-tabs {
         list-style: none;
         line-height: 160%;
@@ -95,6 +104,7 @@
                 @media @screen_min-md {
                     background-color: @ini_background;
                     border: 1px solid @noopentasks-border;
+                    border-bottom-color: @ini_background;
                     border-radius: @ini_default_border_radius @ini_default_border_radius 0 0; // @ini_default_border_radius vs. @fix_border-radius
                     color: @ini_nav_menu_color;
                     margin-left: 4px;
@@ -161,6 +171,8 @@
         }
     }
 
+
+/* + + + + +  toggle content  + + + + + */
     .meta-content {
         margin-top: -1px;
 

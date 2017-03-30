@@ -51,27 +51,28 @@ $lang['userpage']                   = 'Benutzer-Seite';
 $lang['__site_width__']             = 'Content - Breite (in %)';
 
 $lang['__background__']             = 'Website - Hintergrundfarbe';
-$lang['__background_neu__']         = 'Website - Hintergrundfarbe - neutral';
+$lang['__background_neu__']         = 'Website - Hintergrundfarbe (neutral)';
 $lang['__text_webframe__']          = 'Website unverlinkt: Claim, Titel, Footer, Navigation - Schriftfarbe';
 
-$lang['__nav_menu_color__']         = 'verlinkt: Navigation, Footer, Pagetools Icons, Tabbox - Schriftfarbe';
-$lang['__nav_menu_hover_color__']   = 'verlinkt-hover: Navigation, Wiki Icons - Schriftfarbe, Rahmenfarbe';
-$lang['__nav_menu_hover_bg__']      = 'verlinkt-hover: Navigation, Wiki Icons - Hintergrundfarbe';
+$lang['__nav_menu_color__']         = '+ verlinkt: Navigation, Footer, Pagetools Icons, Tabbox - Schriftfarbe';
+$lang['__nav_menu_hover_color__']   = '+ verlinkt: Navigation (hover) - Schriftfarbe, Rahmenfarbe; Wiki Icons - Schriftfarbe; Wiki Icons (hover) - Hintergrundfarbe';
+$lang['__nav_menu_hover_bg__']      = '+ verlinkt: Navigation (hover) - Hintergrundfarbe; Wiki Icons - Hintergrundfarbe; Wiki Icons (hover) - Schriftfarbe';
 
-$lang['__background_content__']     = 'Content, Breadcrumb, Pagetools hover - Hintergrundfarbe';
-$lang['__background_page_header__'] = 'Content (Header, Footer, Tabinclude) - Hintergrundfarbe';
-$lang['__background_page_footer__'] = 'Content (Footer, Tabinclude Tab controlls) - Schriftfarbe';
+$lang['__background_content__']     = '+ Content, Breadcrumb, Pagetools (hover) - Hintergrundfarbe';
+$lang['__background_page_header__'] = '+ Content: Header, Footer, Tabinclude Tab controlls deaktiviert - Hintergrundfarbe';
+$lang['__background_page_footer__'] = '+ Content: Footer, Tabinclude Tab controlls deaktiviert - Schriftfarbe';
 
-$lang['__border_light__']           = 'Content (Header, Footer), Wiki Icons, Pagetools (hover) - Rahmenfarbe';
+$lang['__border_light__']           = '+ Content: Header, Footer, Wiki Icons, Pagetools Box (hover) - Rahmenfarbe';
 
-$lang['__text__']                   = 'Content - Schriftfarbe';
-$lang['__text_neu__']               = 'Content - Schriftfarbe - neutral';
+$lang['__text__']                   = 'Content: Text - Schriftfarbe';
+$lang['__text_neu__']               = 'Content - Schriftfarbe (neutral)';
+
 $lang['__highlight__']              = 'Texthervorhebung (z.B. für Suchergebnisse) - Hintergrundfarbe';
 $lang['__highlight_text__']         = 'Texthervorhebung (z.B. für Suchergebnisse) - Schriftfarbe';
 
-$lang['__existing__']               = 'Links zu Wikiseiten, Stift, hover: Tabbox, Pagetools - Schriftfarbe';
-$lang['__missing__']                = 'Links zu nicht vorhandenen Wikiseiten - Schriftfarbe';
+$lang['__existing__']               = 'Links zu Wikiseiten, Stift, Pagetools (hover) - Schriftfarbe; Tabbox (hover) - Schriftfarbe, Rahmenfarbe';
 $lang['__link__']                   = 'Links zu nicht-Wikiseiten (externe Links) - Schriftfarbe';
+$lang['__missing__']                = 'Links zu nicht vorhandenen Wikiseiten - Schriftfarbe';
 
 $lang['__button_color__']           = 'Buttons - Schriftfarbe';
 $lang['__button_background__']      = 'Buttons - Hintergrundfarbe';
@@ -79,7 +80,5 @@ $lang['__button_background__']      = 'Buttons - Hintergrundfarbe';
 $lang['__background_alt__']         = 'Tabellenkopf, hover: Tabellenzeile, struct Label - Hintergrundfarbe (alternativ)';
 $lang['__text_alt__']               = 'Tabellenkopf, hover: Tabellenzeile, struct Label - Schriftfarbe (alternativ)';
 
-$lang['__border__']                 = 'Tabellen, Formularfelder - Rahmenfarbe';
+$lang['__border__']                 = 'Tabellen, Formularfelder, Zitate - Rahmenfarbe';
 $lang['__default_border_radius__']  = 'Wiki Icons, Content (oben rechts) - Borderradius';
-
-//Setup VIM: ex: et ts=2 :
