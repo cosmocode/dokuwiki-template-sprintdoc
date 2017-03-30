@@ -35,6 +35,36 @@ class Template {
      */
     protected function __construct() {
         $this->initializePlugins();
+
+        /** @var \Doku_Event_Handler */
+        global $EVENT_HANDLER;
+        $EVENT_HANDLER->register_hook('PLUGIN_TPLINC_LOCATIONS_SET', 'BEFORE', $this, 'registerIncludes');
+    }
+
+    /**
+     * Makes include position info available to the tplinc plugin
+     *
+     * @param \Doku_Event $event
+     */
+    public function registerIncludes(\Doku_Event $event) {
+        $event->data['footer'] = 'Footer below the page content';
+    }
+
+    /**
+     * Get the content to include from the tplinc plugin
+     *
+     * prefix and postfix are only added when there actually is any content
+     *
+     * @param string $location
+     * @param string $pre prepend this before the content
+     * @param string $post append this to the content
+     * @return string
+     */
+    public function getInclude($location, $pre = '', $post = '') {
+        if(!$this->plugins['tplinc']) return '';
+        $content = $this->plugins['tplinc']->renderIncludes($location);
+        if($content === '') return '';
+        return $pre . $content . $post;
     }
 
     /**
@@ -45,6 +75,7 @@ class Template {
         if($this->plugins['sqlite']) {
             $this->plugins['tagging'] = plugin_load('helper', 'tagging');
         }
+        $this->plugins['tplinc'] = plugin_load('helper', 'tplinc');
     }
 
     /**
