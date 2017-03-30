@@ -151,27 +151,77 @@ h1 {
 h2 {
     font-size: @font-size-head2;
     margin: 0 0 @font-size-head2;
+    padding-top: (@font-size-head2 / 2);
+
+    .secedit + &,
+    .section_highlight &:first-child {
+        padding-top: 0;
+    }
+
+    .section_highlight + & {
+        padding-top: (@font-size-head2 / 2);
+    }
 }
 
 h3 {
     font-size: @font-size-head3;
     margin: 0 0 @font-size-head3;
+    padding-top: (@font-size-head3 / 2);
+
+    .secedit + &,
+    .section_highlight &:first-child {
+        padding-top: 0;
+    }
+
+    .section_highlight + & {
+        padding-top: (@font-size-head3 / 2);
+    }
 }
 
 h4 {
     font-size: @font-size-head4;
     margin: 0 0 @font-size-head4;
+    padding-top: (@font-size-head4 / 2);
+
+    .secedit + &,
+    .section_highlight &:first-child {
+        padding-top: 0;
+    }
+
+    .section_highlight + & {
+        padding-top: (@font-size-head4 / 2);
+    }
 }
 
 h5 {
     font-size: @font-size-head5;
     margin: 0 0 @font-size-head5;
+    padding-top: (@font-size-head5 / 2);
+
+    .secedit + &,
+    .section_highlight &:first-child {
+        padding-top: 0;
+    }
+
+    .section_highlight + & {
+        padding-top: (@font-size-head5 / 2);
+    }
 }
 
 h6 {
     font-size: @font-size-head6;
     font-weight: @font-weight-bold;
     margin: 0 0 @font-size-head6;
+    padding-top: (@font-size-head6 / 2);
+
+    .secedit + &,
+    .section_highlight &:first-child {
+        padding-top: 0;
+    }
+
+    .section_highlight + & {
+        padding-top: (@font-size-head6 / 2);
+    }
 }
 
 p {
@@ -434,18 +484,21 @@ kbd {
     font-size: @font-size-default;
     direction: ltr;
     text-align: left;
-    background-color: @ini_background_content;
-    color: @ini_text;
-    box-shadow: inset 0 0 .3em @ini_border;
+    background-color: @noopentasks-background;
+    color: @noopentasks-color;
+    box-shadow: inset 0 0 .3em @noopentasks-border;
     border-radius: @fix_border-radius;
+    padding-left: @small-spacing;
+    padding-right: @small-spacing;
 }
 
 pre {
     overflow: auto;
     word-wrap: normal;
-    border: 1px solid @ini_border;
+    background-color: @noopentasks-background;
+    border: 1px solid @noopentasks-border;
     border-radius: @fix_border-radius;
-    box-shadow: inset 0 0 .5em @ini_border;
+    box-shadow: inset 0 0 .5em @noopentasks-border;
     font-size: @font-size-default;
     line-height: 140%;
     padding: .7em 1em;
