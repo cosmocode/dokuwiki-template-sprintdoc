@@ -151,7 +151,10 @@
             right: 0;
             width: auto;
             border: 0 none;
-            background: @color-site-bg;
+            background: @background_page-header;
+            background: -webkit-linear-gradient(top, @background_page-header, @color-content-bg);
+            background: linear-gradient(top, @background_page-header, @color-content-bg);
+            box-shadow: @box-shadow-bottom;
             z-index: 2000;
 
             #plugin__qc__out{

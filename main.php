@@ -9,27 +9,17 @@
  * @license  GPL 2 (http://www.gnu.org/licenses/gpl.html)
  */
 
+use dokuwiki\template\sprintdoc\Template;
+
 if (!defined('DOKU_INC')) die();                        /* must be run from within DokuWiki */
 header('X-UA-Compatible: IE=edge,chrome=1');
 
 $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && !empty($_SERVER['REMOTE_USER']) );
 $showSidebar =  true; /*  */
-$hasFooter = page_findnearest('pagefooter');
-$showFooter = $hasFooter && ($ACT === 'show');
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* conditional comments for IE8 / IE9 browser detection if needed */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 ?>
-<!--[if lt IE 9]> <html class="no-js lt-ie10 lt-ie9" lang="<?php echo $conf['lang'] ?>" dir="<?php echo $lang['direction'] ?>"> <![endif]-->
-<!--[if IE 9]> <html class="no-js lt-ie10 ie-9" lang="<?php echo $conf['lang'] ?>" dir="<?php echo $lang['direction'] ?>"> <![endif]-->
-<!--[if gt IE 9]><!--> <html class="edge no-js" lang="<?php echo $conf['lang'] ?>" dir="<?php echo $lang['direction'] ?>"> <!--<![endif]-->
+<html class="edge no-js" lang="<?php echo $conf['lang'] ?>" dir="<?php echo $lang['direction'] ?>">
 <head>
-
 <?php
-
-
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* meta and link relations */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
@@ -37,18 +27,6 @@ $showFooter = $hasFooter && ($ACT === 'show');
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <?php tpl_metaheaders() ?>
-<?php
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* conditional comments for HTML5 / media queries support in IE8 */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-?>
-<!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-
 <?php
 
 
@@ -298,19 +276,13 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                                 tpl_content(false); /* the main content */
                             ?>
                             <div class="clearer"></div>
-                            <?php if($showFooter):
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* Page Include Hook: pagefooter.txt */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                                ?>
-                                <div class="wikipagefooter">
-                                    <hr>
-                                    <?php tpl_include_page('pagefooter', true, true) ?>
-                                    <div class="clearer"></div>
-                                </div>
-                            <?php endif; ?>
+                            <?php
+                            if($ACT == 'show') echo Template::getInstance()->getInclude(
+                                'footer',
+                                '<div class="wikipagefooter"><hr>',
+                                '<div class="clearer"></div></div>'
+                            );
+                            ?>
                         </div><!-- .main-content -->
 
 
@@ -363,7 +335,7 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* copyright */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                            tpl_license('');
+                            tpl_license($img = false, $imgonly = false, $return = false, $wrap = false);
                             ?>
                         </p>
                     </div>

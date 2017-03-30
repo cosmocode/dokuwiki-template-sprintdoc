@@ -245,3 +245,30 @@
         }
     }
 }
+
+@media @screen_max-xxs{
+    @mobileMargin: 4px;
+    .container{
+        margin: 0 @mobileMargin;
+    }
+    body.show-mobile-sidebar #dokuwiki__aside{
+        left: @mobileMargin;
+    }
+    #dokuwiki__usertools{
+        right: @mobileMargin;
+    }
+    #dokuwiki__footer{
+        .main-footer{
+            > *{
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+
+        }
+    }
+    .page-footer{
+
+    }
+
+}
+
