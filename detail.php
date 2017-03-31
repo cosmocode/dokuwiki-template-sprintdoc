@@ -169,7 +169,30 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                     <h2><?php print nl2br(hsc(tpl_img_getTag('simple.title'))); ?></h2>
 
                     <?php if(function_exists('tpl_img_meta')): ?>
-                        <?php tpl_img_meta(); ?>
+                        <?php
+                        tpl_img_meta();
+
+                        /** @var helper_plugin_spatialhelper_index $spatial */
+                        $spatial = plugin_load('helper', 'spatialhelper_index');
+                        if ($spatial && plugin_load('helper', 'geophp')) {
+                            global $IMG;
+                            $point = $spatial->getCoordsFromExif($IMG);
+                            if ($point) {
+                                $long = $point->getX();
+                                $lat = $point->getY();
+                                $latShort = round($lat,3);
+                                $longShort = round($long,3);
+
+                                $hrefOSM = "https://www.openstreetmap.org/?mlat=$lat&mlon=$long#map=18/$lat/$long";
+                                $srcOSM = 'https://www.openstreetmap.org/export/embed.html?bbox='.($long-0.004).','.($lat-0.002).','.($long+0.004).','.($lat+0.002).'&layer=mapnik&marker='.$lat.','.$long;
+                                echo '<dl>';
+                                echo '<dt title="Open Street Maps">OSM:</dt><dd>';
+                                echo '<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="'.$srcOSM.'" style="border: 1px solid black"></iframe><br/><small><a href="'.$hrefOSM.'">View Larger Map</a></small>';
+                                echo '</dd>';
+                                echo '</dl>';
+                            }
+                        }
+                        ?>
                     <?php else: /* deprecated since Release 2014-05-05 */ ?>
                         <dl>
                             <?php
