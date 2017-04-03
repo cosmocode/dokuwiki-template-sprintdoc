@@ -6,38 +6,6 @@
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* converted vars */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-
-
-//@th_background:            __background_alt__;
-
-
-/* ersetzt: */
-
-//@color-site-bg:          __background_site__;
-//@color-content-bg:       __background_content__;
-//@button_color:           __button_color__;
-//@button_background:      __button_background__;
-//@background_page-header: __background_page-header__;
-//@font_family_screen:       __font_family_screen__;
-//@box-shadow-offset:      __box_shadow_offset__;
-//@box-shadow:             __box_shadow__;
-//@box-shadow-colored:     __box_shadow_colored__;
-//@box-shadow-right-bottom:__box_shadow_right_bottom__;
-//@box-shadow-bottom:      __box_shadow_bottom__;
-//@color-text:             __text__;
-//@border-radius:          __default_border_radius__;
-//@color-border:           __border__;
-//@color-border-light:     __border_light__;
-//@color-nav:              __nav_menu_color__;
-//@color-nav-hover:        __nav_menu_hover_color__;
-//@color-nav-hover-bg:     __nav_menu_hover_bg__;
-//@color-link:             __existing__;
-//@color-link-hover:       @ini_nav_menu_color;
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* global vars */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 
@@ -63,11 +31,11 @@
 
 @transition:               ease-out .30s;
 
-@box-shadow-offset:        .1em .1em .1em rgb(153,153,153,.5); // pagetools, tabinclude
-@box-shadow:               0 0 .5em rgb(153,153,153,.5);
-@box-shadow-colored:       0 0 .5em rgba(40,109,168,.5);
-@box-shadow-right-bottom:  0.1em 0.3rem 0.5em rgb(153,153,153,.5);
-@box-shadow-bottom:        0 .1em .5em rgb(153,153,153,.5); // qc-wrapper - breadcrumb
+@box-shadow-offset:        .1em .1em .1em rgba(153,153,153,.5); // pagetools, tabinclude
+@box-shadow:               0 0 .5em rgba(153,153,153,.5);
+@box-shadow-colored:       0 0 .5em fade(@ini_existing, 50%);
+@box-shadow-right-bottom:  0.1em 0.3rem 0.5em rgba(153,153,153,.5);
+@box-shadow-bottom:        0 .1em .5em rgba(153,153,153,.5); // qc-wrapper - breadcrumb
 
 
 /* + + +  for programmers customizing  + + + */
@@ -90,6 +58,7 @@
 @noopentasks-background:   #ECECEC; /* metabox tabs + num in icons + tabinclude + code, pre, samp, kbd */
 @noopentasks-border:       #BBB; /* metabox tabs + num in icons + code, pre, samp, kbd */
 @noopentasks-color:        #666; /* metabox tabs + num in icons + code, pre, samp, kbd */
+@wikiicons-border:         #CCC; /* usertools, breadcrumbs icons, pagetools box-hover */
 
 
 /* navigation left */
@@ -100,6 +69,7 @@
 /* edit mode */
 @highlight-odd-ini_text:  fade(@ini_background_content, 95%);
 @highlight-even-ini_text: fade(@ini_text, 5%);
+@color-editBox:           #252525; // editmode for tables
 
 
 //@nolinkedicon-ini_background: fade(@ini_background, 10%);
