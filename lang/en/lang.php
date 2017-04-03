@@ -63,7 +63,7 @@ $lang['__background_content__']     = 'content, breadcrumb, pagetools (hover) - 
 $lang['__background_page_header__'] = 'content: header, footer, tabinclude tab controlls deactivate - background color';
 $lang['__background_page_footer__'] = 'content: footer, tabinclude tab controlls deactivate - font color';
 
-$lang['__border_light__']           = 'content: header, footer, wiki icons, pagetools box (hover) - border color';
+$lang['__border_light__']           = 'content: header, footer - border color';
 
 $lang['__text__']                   = 'content: text - font color';
 $lang['__text_neu__']               = 'content: text - font color (neutral)';
@@ -79,7 +79,7 @@ $lang['__button_color__']           = 'buttons - font color';
 $lang['__button_background__']      = 'buttons - background color';
 
 $lang['__background_alt__']         = 'table head, hover: table cell, struct Label - background color (alternative)';
-$lang['__text_alt__']               = 'table head, hover: table cell, struct Label - font color (alternative)';
+$lang['__text_alt__']               = 'table head unlinked, hover: table cell, struct Label - font color (alternative)';
 
 $lang['__border__']                 = 'tables, form fields, blockquotes - border color';
 $lang['__default_border_radius__']  = 'wiki icons, content (top right) - border radius';
