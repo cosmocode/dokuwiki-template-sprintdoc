@@ -16,19 +16,18 @@
         border-color: @ini_background_page_header;
     }
 
-    .secedit button {
-        clear: both;
-        font-size: 100%;
-        margin-top: -1em;
-        margin-bottom: @small-spacing;
-    }
-
     .editbutton_section {
         position: relative;
         z-index: 2;
         top: 0;
         float: right;
         margin-top: 0;
+
+        form div.no {
+            button {
+                padding-right: 0;
+            }
+        }
 
         button {
             background-color: transparent;
@@ -37,23 +36,29 @@
 
             &::after {
                 content: '';
+                float: right;
                 display: inline-block;
                 background: transparent url("svg.php?svg=pencil.svg&f=existing") center center no-repeat;
                 height: 1em;
                 width: 1em;
                 background-size: contain;
+                border: solid 2px transparent;
+                border-radius: @ini_default_border_radius;
                 margin-left: @small-spacing;
+                margin-top: -1px;
             }
 
             &:hover,
             &:active,
             &:focus {
-                background-color: @ini_button_color;
-                color: @ini_button_background;
-                border-color: @ini_button_background;
+                //background-color: @ini_existing;
+                color: @ini_existing;
+                //border-color: @ini_existing;
 
                 &::after {
-                    background-image: url("svg.php?svg=pencil.svg&f=button_background");
+                    background-color: @ini_existing;
+                    background-image: url("svg.php?svg=pencil.svg&f=background_content");
+                    border-color: @ini_existing;
                 }
             }
         }

@@ -6,15 +6,29 @@
     div.editbutton_table {
         position: relative; // for IE
         z-index: 1; // for IE
+        float: left;
         margin-top: -1.46rem !important; // overwrite inline stales
 
         form div.no {
             button,
             input.button {
                 min-height: 1rem;
-                // button - for inverted design: background-color: @ini_button_color; color: @ini_button_background;
+                background-color: @ini_background_content;
+                border-top: solid 1px @ini_button_background;
+                border-color: @ini_border;
+                color: @ini_existing;
                 font-size: @font-size-small;
                 margin-top: 0;
+                padding-right: .3em;
+                transition: @transition background-color, @transition border-color, @transition color;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    background-color: @ini_existing;
+                    border-color: @ini_existing;
+                    color: @ini_background_content;
+                }
             }
         }
 
