@@ -10,6 +10,16 @@
         padding-bottom: @link-height;
         margin-bottom: @grid;
 
+        td,
+        th {
+            line-height: @line-height-default;
+
+            a {
+                color: @ini_existing;
+                line-height: @line-height-default;
+            }
+        }
+
         // search button in table (f.i. "All products")
         table th input {
             &:not(:focus) {
@@ -33,8 +43,26 @@
             margin-bottom: 0;
 
             &.export {
+                bottom: 1px;
+                background: transparent url("svg.php?svg=file-export.svg&f=existing") left center no-repeat;
+                background-size: auto 20px;
+                border: solid 1px @ini_border;
+                color: @ini_existing;
+                font-size: @font-size-small;
                 line-height: 1;
-                padding-top: .3em;
+                margin-top: -1px;
+                padding-top: .4em;
+                transition: @transition background-color, @transition border-color, @transition color;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    background-color: @ini_existing;
+                    background-image: url("svg.php?svg=file-export.svg&f=background_content");
+                    border-color: @ini_existing;
+                    color: @ini_background_content;
+                    text-decoration: none;
+                }
             }
         }
     }
@@ -45,6 +73,7 @@
 
     .struct_entry_form {
         margin-bottom: 2rem;
+
         > fieldset {
             margin-top: 1.5rem;
         }
@@ -52,6 +81,14 @@
 
     textarea + .struct_entry_form {
         margin-top: -.5rem;
+    }
+
+    div.editBox {
+        .struct_entry_form {
+            label span.label {
+                color: @color-editBox;
+            }
+        }
     }
 }
 
