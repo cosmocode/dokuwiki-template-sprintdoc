@@ -57,7 +57,6 @@ nav#dokuwiki__pagetools {
                 height: auto;
                 min-height: @toolbox-size; // for nav:hover
                 width: @toolbox-size; // for nav:hover
-                //opacity: .6;
                 font-size: @font-size-default;
                 padding: 2px @toolbox-size 2px 2px;
 
@@ -80,8 +79,6 @@ nav#dokuwiki__pagetools {
                 &:hover,
                 &:focus,
                 &:active {
-                    //opacity: 1;
-                    //color: @ini_nav_menu_hover_color;
                     background-color: transparent;
                 }
 
@@ -97,6 +94,7 @@ nav#dokuwiki__pagetools {
                     width: @page-tools_svg-size;
                     height: @page-tools_svg-size;
                     vertical-align: middle;
+                    border: solid 1px transparent;
                     margin: @page-tools_svg-space;
 
                     @media @screen_min-md {
@@ -117,7 +115,6 @@ nav#dokuwiki__pagetools {
                 a {
                     .btn-hover();
 
-                    //opacity: .6;
                     color: @ini_nav_menu_color;
 
                     * {
@@ -130,7 +127,7 @@ nav#dokuwiki__pagetools {
 
     &:hover {
         ul {
-            box-shadow: @box-shadow;//@box-shadow-offset;
+            box-shadow: @box-shadow; // @box-shadow-offset;
             background-color: @ini_background_content;
             border-color: @wikiicons-border;
 
@@ -140,24 +137,23 @@ nav#dokuwiki__pagetools {
                 a {
                     box-shadow: none;
                     background-image: none;
-                    //opacity: .8;
                     border-color: transparent;
                     color: inherit;
                     padding: 2px 0 2px 2px;
 
                     svg {
+                        border: solid 1px transparent;
                         border-radius: @ini_default_border_radius;
                         fill: @ini_existing;
+                        transition: @transition background-color, @transition border-color, @transition fill;
                     }
 
                     &:hover,
                     &:focus,
                     &:active {
-                        //opacity: 1;
-
                         svg {
                             background-color: @ini_existing;
-                            border: solid 2px @ini_existing;
+                            border-color: @ini_existing;
                             fill: @ini_background_content;
                         }
                     }
