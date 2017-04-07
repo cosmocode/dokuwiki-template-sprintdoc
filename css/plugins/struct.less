@@ -95,3 +95,54 @@
 .dokuwiki .struct_inlineditor {
     z-index: 3;
 }
+
+
+/* + + + + +  Struct Schema Editor  + + + + + */
+form {
+    &.doku_form.struct_newschema {
+        fieldset {
+            > label {
+                > span:first-child {
+                    display: inline-block;
+
+                    @media @screen_min-lg {
+                        width: 48.8%;
+                    }
+
+                    @media @screen_max-lg {
+                        width: 48.5%;
+                    }
+                }
+
+                > input[type="text"] {
+                    width: 50%;
+                }
+            }
+
+            button {
+                cursor: pointer;
+                box-shadow: none;
+                background-image: none;
+                background-color: @ini_button_background;
+                border: 1px solid @ini_button_background;
+                border-radius: @fix_border-radius;
+                color: @ini_button_color;
+                vertical-align: top;
+                margin-top: .3em;
+                padding: .3em @grid;
+                transition: @transition background-color, @transition color;
+
+                &:hover,
+                &:active,
+                &:focus {
+                    background-color: @ini_button_color;
+                    color: @ini_button_background;
+                }
+
+                + p {
+                    padding-top: 1rem;
+                }
+            }
+        }
+    }
+}
