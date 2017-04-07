@@ -1,5 +1,5 @@
 /**
- * This file provides the design styles for the direct / menu jump links.
+ * This file provides the design styles for the breadcrumb
  *
  * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
  */
@@ -125,32 +125,6 @@
                 font-size: 1.2rem;
                 line-height: 1;
             }
-
-/* check !!! */
-            &.do_none {
-                position: relative;
-                border-radius: @ini_default_border_radius; // @ini_default_border_radius vs. @fix_border-radius
-
-                strong {
-                    overflow: hidden;
-                    background-color: @ini_background;
-                    border-color: @noopentasks-border;
-                    color: @ini_text_webframe;
-                }
-
-                .num {
-                    margin-top: 1px;
-                    background-color: @noopentasks-border; // fix
-                    color: @noopentasks-color; // fix
-                }
-            }
-/* end check !!! */
-
-            &.plugin__qc {
-                display: inline-block;
-                overflow: visible;
-                position: static;
-            }
         } // li
 
         a {
@@ -160,71 +134,5 @@
                 display: none;
             }
         }
-
-        #plugin__qc__wrapper {
-            position: absolute;
-            right: 0;
-            width: auto;
-            border: 0 none;
-            background: @ini_background_page_header;
-            background: -webkit-linear-gradient(top, @ini_background_page_header, @ini_background_content);
-            background: linear-gradient(top, @ini_background_page_header, @ini_background_content);
-            box-shadow: @box-shadow-bottom;
-            z-index: 2000;
-
-            #plugin__qc__out {
-                h1 {
-                    font-size: @font-size-head3;
-                }
-
-                h2 {
-                    margin-top: 1.6em;
-                    font-size: @font-size-head5;
-                }
-                > h1,
-                > h2,
-                > p,
-                > dl,
-                > div {
-                    padding-left: 1rem;
-                    margin-left: 0;
-                }
-
-                > div p {
-                    padding-left: 0;
-                    margin-left: 0;
-                }
-            }
-
-            &[aria-hidden="false"] {
-                margin-top: .5rem;
-            }
-        }
-
-        #plugin__qc__icon {
-            display: none;
-        }
-
-        #plugin__qc__link {
-            position: relative;
-
-            .prefix {
-                .icon-emo-happy();
-
-                width: 100%;
-                font-size: @font-size-default;
-
-                &::before {
-                    width: 100%;
-                    margin: 0;
-                }
-            }
-        }
     }
-}
-
-
-/* + + + + +  ?  + + + + + */
-.mode_admin {
-
 }
