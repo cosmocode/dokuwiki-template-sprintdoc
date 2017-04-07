@@ -12,6 +12,7 @@ form {
     margin: 0;
     padding: 0;
 
+
     // multiline label
     fieldset > label.block > span:first-child {
         display: inline-block;
@@ -24,6 +25,7 @@ form {
             width: 48.5%;
         }
     }
+
 
     // older version (history)
     .dokuwiki & > .no > ul > li {
@@ -139,12 +141,17 @@ keygen:focus {
     border-color: #999;
 }
 
-input[type=radio],
-input[type=checkbox],
-input[type=image] {
+input[type="radio"],
+input[type="checkbox"],
+input[type="image"] {
     padding: 0;
     border-style: none;
     box-shadow: none;
+}
+
+input[type="file"] {
+    padding-top: .1rem;
+    padding-bottom: .1rem;
 }
 
 
