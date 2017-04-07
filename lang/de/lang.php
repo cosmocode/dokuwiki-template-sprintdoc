@@ -51,7 +51,6 @@ $lang['userpage']                   = 'Benutzer-Seite';
 $lang['__site_width__']             = 'Content - Breite (in %)';
 
 $lang['__background__']             = 'Website - Hintergrundfarbe';
-$lang['__background_neu__']         = 'Website - Hintergrundfarbe (neutral)';
 $lang['__text_webframe__']          = 'Website unverlinkt: Claim, Titel, Footer, Navigation - Schriftfarbe';
 
 $lang['__nav_menu_color__']         = 'verlinkt: Navigation, Footer, Pagetools Icons, Tabbox - Schriftfarbe';
@@ -59,13 +58,15 @@ $lang['__nav_menu_hover_color__']   = 'verlinkt: Navigation (hover) - Schriftfar
 $lang['__nav_menu_hover_bg__']      = 'verlinkt: Navigation (hover) - Hintergrundfarbe; Wiki Icons - Hintergrundfarbe; Wiki Icons (hover) - Schriftfarbe';
 
 $lang['__background_content__']     = 'Content, Breadcrumb, Pagetools (hover) - Hintergrundfarbe';
+$lang['__text__']                   = 'Content: Text - Schriftfarbe';
+
+$lang['__background_neu__']         = 'Content neutral (nicht zu unterschiedlich zum Content-Hintergrund) - Hintergrundfarbe';
+$lang['__text_neu__']               = 'Content neutral - Schriftfarbe';
+
 $lang['__background_page_header__'] = 'Content: Header, Footer, Tabinclude Tab controlls deaktiviert - Hintergrundfarbe';
 $lang['__background_page_footer__'] = 'Content: Footer, Tabinclude Tab controlls deaktiviert - Schriftfarbe';
 
 $lang['__border_light__']           = 'Content: Header, Footer - Rahmenfarbe';
-
-$lang['__text__']                   = 'Content: Text - Schriftfarbe';
-$lang['__text_neu__']               = 'Content - Schriftfarbe (neutral)';
 
 $lang['__highlight__']              = 'Texthervorhebung (z.B. für Suchergebnisse) - Hintergrundfarbe';
 $lang['__highlight_text__']         = 'Texthervorhebung (z.B. für Suchergebnisse) - Schriftfarbe';

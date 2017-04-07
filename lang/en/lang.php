@@ -52,7 +52,6 @@ $lang['userpage']                   = 'User page';
 $lang['__site_width__']             = 'content - width (in %)';
 
 $lang['__background__']             = 'website - background color';
-$lang['__background_neu__']         = 'website - background color (neutral)';
 $lang['__text_webframe__']          = 'website unlinked: claim, title, footer, navigation - font color';
 
 $lang['__nav_menu_color__']         = 'link: navigation, footer, pagetools icons, tabbox - font color';
@@ -60,13 +59,15 @@ $lang['__nav_menu_hover_color__']   = 'link: navigation (hover) - font color, bo
 $lang['__nav_menu_hover_bg__']      = 'link: navigation (hover) - background color; wiki icons - background color; wiki icons (hover) - font color';
 
 $lang['__background_content__']     = 'content, breadcrumb, pagetools (hover) - background color';
+$lang['__text__']                   = 'content: text - font color';
+
+$lang['__background_neu__']         = 'Content neutral (not too different from the content background) - background color';
+$lang['__text_neu__']               = 'content neutral: text - font color';
+
 $lang['__background_page_header__'] = 'content: header, footer, tabinclude tab controlls deactivate - background color';
 $lang['__background_page_footer__'] = 'content: footer, tabinclude tab controlls deactivate - font color';
 
 $lang['__border_light__']           = 'content: header, footer - border color';
-
-$lang['__text__']                   = 'content: text - font color';
-$lang['__text_neu__']               = 'content: text - font color (neutral)';
 
 $lang['__highlight__']              = 'text emphasize (e.g. for search results) - background color';
 $lang['__highlight_text__']         = 'text emphasize (e.g. for search results) - font color';
