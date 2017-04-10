@@ -58,7 +58,7 @@
                             'style' => 'background-image: none;',
                         );
                         $svg = __DIR__ . '/../images/tools/FIXME';
-                        $item = \dokuwiki\template\sprintdoc\tpl::pageToolItem(wl($ID, $params), $odt->getLang('export_odt_button'), $svg, $attr);
+                        $item = \dokuwiki\template\sprintdoc\tpl::pageToolItem(wl($ID, $params, false, '&'), $odt->getLang('export_odt_button'), $svg, $attr);
                         echo '<li>' . $item . '</li>';
                     }
 
@@ -76,7 +76,7 @@
                             'style' => 'background-image: none;',
                         );
                         $svg = __DIR__ . '/../images/tools/40-pdf-file.svg';
-                        $item = \dokuwiki\template\sprintdoc\tpl::pageToolItem(wl($ID, $params), $dw2pdf->getLang('export_pdf_button'), $svg, $attr);
+                        $item = \dokuwiki\template\sprintdoc\tpl::pageToolItem(wl($ID, $params, false, '&'), $dw2pdf->getLang('export_pdf_button'), $svg, $attr);
                         echo '<li>' . $item . '</li>';
                     }
                 }
