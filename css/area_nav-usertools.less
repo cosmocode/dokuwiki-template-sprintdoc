@@ -86,6 +86,7 @@
 
                     position: relative;
                     min-height: 26px;
+                    height: 1rem; // for IE11
                     overflow: visible;
                     background: @ini_nav_menu_hover_bg; // for removing bg-image
                     border: 0 none;
@@ -94,6 +95,10 @@
                     font-size: inherit;
                     margin-right: -.3rem;
                     padding: 0 .2em 0 0;
+
+                    @media @screen_only-xlg {
+                        padding-bottom: .1em;
+                    }
 
                     @media @screen_min-xxlg {
                         margin-top: -(@space-min-xxlg);
