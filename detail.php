@@ -139,17 +139,16 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 
                                 <h6 class="sr-only" role="heading" aria-level="2"><?php echo  $lang['page_tools']  ?></h6>
 
-                                <?php
-
-
-                                /**
-                                 * FIXME implement proper pagetools as in https://www.dokuwiki.org/_detail/wiki:dokuwiki-128.png
-                                 * after the new svg-page-tool mechanism has been merged into master
-                                 *
-                                 * see https://cosmocode.jira.com/browse/SPR-837
-                                 */
-                                include('tpl/nav-page-tools.php');
-                                ?>
+                                <nav id="dokuwiki__pagetools">
+                                    <div class="tools">
+                                        <ul>
+                                            <?php
+                                            echo '<li>' . dokuwiki\template\sprintdoc\tpl::pageToolAction('mediaManager') . '</li>';
+                                            echo '<li>' . dokuwiki\template\sprintdoc\tpl::pageToolAction('img_backto') . '</li>';
+                                            ?>
+                                        </ul>
+                                    </div>
+                                </nav>
 
                             </div>
                             <div id="dokuwiki__content" class="page main-content">
@@ -227,11 +226,6 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                     <?php endif; ?>
                     <?php //Comment in for Debug// dbg(tpl_img_getTag('Simple.Raw')); ?>
                 </div>
-            <p class="back">
-                <?php tpl_action('mediaManager', 1) ?><br />
-                &larr; <?php tpl_action('img_backto', 1) ?>
-            </p>
-
                             </div><!-- .main-content -->
                         </div><!-- .col -->
                     </div><!-- .row -->
