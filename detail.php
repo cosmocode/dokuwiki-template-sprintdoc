@@ -167,7 +167,6 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                 <div class="img_detail">
                     <h2><?php print nl2br(hsc(tpl_img_getTag('simple.title'))); ?></h2>
 
-                    <?php if(function_exists('tpl_img_meta')): ?>
                         <?php
                         tpl_img_meta();
 
@@ -192,38 +191,6 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                             }
                         }
                         ?>
-                    <?php else: /* deprecated since Release 2014-05-05 */ ?>
-                        <dl>
-                            <?php
-                                $config_files = getConfigFiles('mediameta');
-                                foreach ($config_files as $config_file) {
-                                    if(@file_exists($config_file)) {
-                                        include($config_file);
-                                    }
-                                }
-
-                                foreach($fields as $key => $tag){
-                                    $t = array();
-                                    if (!empty($tag[0])) {
-                                        $t = array($tag[0]);
-                                    }
-                                    if(is_array($tag[3])) {
-                                        $t = array_merge($t,$tag[3]);
-                                    }
-                                    $value = tpl_img_getTag($t);
-                                    if ($value) {
-                                        echo '<dt>'.$lang[$tag[1]].':</dt><dd>';
-                                        if ($tag[2] == 'date') {
-                                            echo dformat($value);
-                                        } else {
-                                            echo hsc($value);
-                                        }
-                                        echo '</dd>';
-                                    }
-                                }
-                            ?>
-                        </dl>
-                    <?php endif; ?>
                     <?php //Comment in for Debug// dbg(tpl_img_getTag('Simple.Raw')); ?>
                 </div>
                             </div><!-- .main-content -->
