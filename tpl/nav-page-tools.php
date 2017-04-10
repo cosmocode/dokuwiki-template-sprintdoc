@@ -57,7 +57,7 @@
                             'class' => 'action export_pdf',
                             'style' => 'background-image: none;',
                         );
-                        $svg = __DIR__ . '/../images/tools/FIXME';
+                        $svg = __DIR__ . '/../images/tools/43-file-delimeted.svg';
                         $item = \dokuwiki\template\sprintdoc\tpl::pageToolItem(wl($ID, $params, false, '&'), $odt->getLang('export_odt_button'), $svg, $attr);
                         echo '<li>' . $item . '</li>';
                     }
