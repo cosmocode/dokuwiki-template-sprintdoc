@@ -3,45 +3,151 @@
  *
  * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
  */
+
+
 #dokuwiki__header {
+    @header-font-opacity: 1;
 
-    .menu-togglelink {
-        border: 1px solid @color-border;
-        border-radius: @border-radius;
-        text-align: center;
-        margin: @very-small-spacing -(@very-small-spacing) 0 0;
-
-        font-size: @font-size-small;
-        min-height: 2em;
-        min-width: 2em;
-        box-sizing: border-box;
-        line-height: 2em;
-
-        cursor: pointer;
-        background-color: #fff;
-        text-decoration: none;
-        transition: @transition color, @transition background-color, @transition border-color;
-
-
-        svg {
-            height: @font-size-default + (@font-scale-factor * 4);
-            width: @font-size-default + (@font-scale-factor * 4);
+/* + + +  wiki logo  + + + */
+    @media @screen_min-md {
+        div.claim {
+            display: table-cell;
+            height: 100%;
             vertical-align: middle;
-            path {
-                fill: @color-nav
-            }
         }
 
-        &:hover,
-        &:active,
-        &:focus {
-            background-color: @button_color;
-            border-color: @button_background;
-            svg path {
-                fill: @button_background;
+        .logo {
+            padding: 1rem 0 .3rem;
+
+            img {
+                height: 4.6rem;
+                width: auto;
+                border-style: solid;
+                border-color: transparent;
+                border-width: 2px 0;
+            }
+
+            a:hover,
+            a:focus,
+            a:active {
+                img {
+                    border-width: 0;
+                }
             }
         }
-
     }
 
+    @media @screen_max-md {
+        .logo {
+            display: table-cell;
+
+            .mobile-only {
+                margin: .8rem 1rem .6rem 0;
+            }
+        }
+    }
+
+
+/* + + +  wiki title + claim  + + + */
+    .main-title.desktop-only {
+        @media @screen_min-md {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        @media @screen_max-md {
+            display: block;
+        }
+
+        p.title {
+            @media @screen_max-md {
+                display: none;
+            }
+        }
+
+        p.claim {
+            @media @screen_max-md {
+                display: block;
+                padding-bottom: 1rem;
+            }
+        }
+    }
+
+    .main-title:not([class*="desktop-only"]) {
+        @media @screen_max-md {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+
+
+/* + + +  wiki title  + + + */
+    p.title {
+        background-color: @ini_background;
+        opacity: @header-font-opacity;
+        color: @ini_text_webframe;
+        line-height: @line-height-default;
+        margin-bottom: .5rem;
+
+        @media @screen_min-md {
+            font-size: @font-size-big;
+        }
+
+        @media @screen_max-md {
+            font-size: (@font-size-default + .25);
+            padding-top: .5rem;
+            padding-left: 1rem;
+        }
+    }
+
+
+/* + + +  wiki claim  + + + */
+    p.claim {
+        opacity: @header-font-opacity;
+        color: @ini_text_webframe;
+        font-size: @font-size-default;
+        margin-bottom: 0;
+
+        @media @screen_max-md {
+            padding-top: .5rem;
+        }
+    }
+
+
+/* + + +  mobile nav togglelink  + + + */
+    .menu-togglelink {
+        margin: .45rem -(@very-small-spacing) 0 0;
+
+        a {
+            .fontello();
+            .icon-menu();
+
+            display: block;
+            min-height: @toggle-size;
+            min-width: @toggle-size;
+            box-sizing: border-box;
+            background-color: #fff;
+            border: 1px solid @ini_border;
+            border-radius: @ini_default_border_radius; // @ini_default_border_radius vs. @fix_border-radius
+            color: @ini_nav_menu_color;
+            font-size: 1rem;
+            text-align: center;
+            text-decoration: none;
+            line-height: 1;
+            transition: @transition color, @transition background-color, @transition border-color;
+
+            &::before {
+                font-size: 1.5rem;
+                margin: .1rem 0 0;
+            }
+
+            &:hover,
+            &:active,
+            &:focus {
+                background-color: @ini_nav_menu_hover_bg;
+                border-color: @ini_nav_menu_hover_color;
+                color: @ini_nav_menu_hover_color;
+            }
+        }
+    }
 }

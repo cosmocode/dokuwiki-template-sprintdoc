@@ -8,81 +8,102 @@
 .togglelink {
     &.page_main-content {
         position: absolute;
-        top: 0px;
+        top: 0;
         bottom: -1px;
         width: 2rem;
         left: -(@margin-default);
         z-index: 1;
-        @media @screen_max-md{
+
+        @media @screen_max-md {
             display: none;
         }
 
         a {
+            .fontello-double();
+            .icon-right-bold();
+            .icon-left-bold();
+
             .display-flex();
             .flex-direction();
             .justify-content();
 
-            width: (@margin-default);
+            width: @margin-default;
             height: 100%;
-            background-color: @button_background;
-            border: solid 1px @button_background;
-            border-radius: @fix_border-radius 0 0 @fix_border-radius;
-            color: @button_color;
+            background-color: @ini_button_background;
+            border: solid 1px @ini_button_background;
+            border-radius: @ini_default_border_radius 0 0 @ini_default_border_radius; // @ini_default_border_radius vs. @fix_border-radius
+            color: @ini_button_color;
             text-decoration: none;
-            text-align: center;
             transition: @transition color, @transition background-color, @transition border-color;
+
+            &::before,
+            &::after {
+                width: 100%;
+                opacity: .6;
+                font-size: 1rem;
+                line-height: 1;
+                text-align: center;
+                margin: 0;
+                transition: @transition opacity;
+            }
+
+            &::before {
+                opacity: 1;
+                font-size: 1.25rem;
+            }
 
             &:hover,
             &:focus,
             &:active {
-                background-color: @button_color;
-                border-color: @button_background;
-                color: @button_background;
+                background-color: @ini_button_color;
+                border-color: @ini_button_background;
+                color: @ini_button_background;
                 text-decoration: none;
 
                 * {
                     color: inherit;
                     text-decoration: none;
                 }
+
+                &::after {
+                    opacity: 0;
+                }
             }
         }
-
 
 /* + + +  toggle out  + + + */
         .wide-content & {
             left: -1px;
 
             a {
-                background-color: @button_background;
-                border-color: @button_background;
-                border-radius: 0 @fix_border-radius @fix_border-radius 0;
+                background-color: @ini_button_background;
+                border-color: @ini_button_background;
+                border-radius: 0 @ini_default_border_radius @ini_default_border_radius 0; // @ini_default_border_radius vs. @fix_border-radius
+
+                &::before {
+                    opacity: .6;
+                    font-size: 1rem;
+                }
+
+                &::after {
+                    opacity: 1;
+                    font-size: 1.25rem;
+                }
 
                 &:hover,
                 &:focus,
                 &:active {
-                    background-color: @button_color;
+                    background-color: @ini_button_color;
+
+                    &::before {
+                        opacity: 0;
+                    }
+
+                    &::after {
+                        opacity: 1;
+                    }
                 }
             }
         }
-    }
-}
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* min-width: 1440px */
-
-@media @screen_min-xlg {
-    .togglelink {
-
-    }
-}
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* max-width: 1199px */
-
-@media @screen_max-xlg {
-    .togglelink {
-
     }
 }

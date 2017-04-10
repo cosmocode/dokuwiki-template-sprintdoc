@@ -1,0 +1,117 @@
+/**
+ * This file provides styles for the form in tagcloud
+ */
+
+
+/* + + + + +  plugin tagging  + + + + + */
+
+#spr__meta-box {
+    ul.tagging_cloud {
+        width: 100%;
+        padding-right: 0;
+
+        li {
+            &.t0 a {
+                font-size: .9rem;
+            }
+            &.t1 a {
+                font-size: 1rem;
+            }
+            &.t2 a {
+                font-size: 1.1rem;
+            }
+            &.t3 a {
+                font-size: 1.2rem;
+            }
+            &.t4 a {
+                font-size: 1.3rem;
+            }
+            &.t5 a {
+                font-size: 1.4rem;
+            }
+            &.t6 a {
+                font-size: 1.5rem;
+            }
+            &.t7 a {
+                font-size: 1.6rem;
+            }
+            &.t8 a {
+                font-size: 1.7rem;
+            }
+            &.t9 a {
+                font-size: 1.8rem;
+            }
+            &.t10 a {
+                font-size: 1.9rem;
+            }
+        }
+    }
+
+    form#tagging__edit {
+        width: 100%;
+
+        label {
+            display: block;
+        }
+
+        input.edit {
+            width: 100%;
+            margin-bottom: .5rem;
+        }
+    }
+}
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* media queries */
+
+@media @screen_max-md {
+    #spr__meta-box {
+        form {
+            &#tagging__edit {
+                label {
+                    display: inline-block;
+                    min-width: 50%;
+                    vertical-align: top;
+                    margin-bottom: .5rem;
+                }
+
+                input.edit {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+@media @screen_max-xs {
+    #spr__meta-box {
+        form {
+            div > button[type="submit"] {
+                width: 49%;
+                padding: 0;
+            }
+
+            &#tagging__edit {
+                &::after {
+                    content: '';
+                    clear: both;
+                    display: block;
+                }
+
+                label {
+                    display: block;
+                    width: 100%;
+                }
+
+                button[type="submit"] {
+                    float: right;
+
+                    &:first-of-type {
+                        float: left;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,33 +1,33 @@
 /**
  * This styles the section editing buttons and highlighting
  */
-#dokuwiki__content.main-content {
-    @button-margin: .5rem; // FIXME shouldn't we have something in our base.less for this?
 
+
+#dokuwiki__content.main-content {
     div.section_highlight {
-        clear: right; // FIXME why?
+        clear: right;
         background: repeating-linear-gradient(
             -45deg,
-            transparent,
-            transparent 10px,
-            @ini_background_alt 10px,
-            @ini_background_alt 20px,
+            @highlight-odd-ini_text,
+            @highlight-odd-ini_text 10px,
+            @highlight-even-ini_text 10px,
+            @highlight-even-ini_text 20px,
         );
-    }
-
-    .secedit button {
-        clear: both;
-        font-size: 100%;
-        margin-top: @button-margin;
-        margin-bottom: @button-margin;
+        border-color: @ini_background_page_header;
     }
 
     .editbutton_section {
-        float: right;
-        margin-top: 0;
         position: relative;
         z-index: 2;
         top: 0;
+        float: right;
+        margin-top: 0;
+
+        form div.no {
+            button {
+                padding-right: 0;
+            }
+        }
 
         button {
             background-color: transparent;
@@ -36,20 +36,30 @@
 
             &::after {
                 content: '';
+                float: right;
                 display: inline-block;
-                background: transparent url("svg.php?svg=pencil.svg&f=link") center center no-repeat;
+                background: transparent url("svg.php?svg=pencil.svg&f=existing") center center no-repeat;
                 height: 1em;
                 width: 1em;
                 background-size: contain;
-                margin-left: @button-margin;
+                border: solid 2px transparent;
+                border-radius: @ini_default_border_radius;
+                margin-left: @small-spacing;
+                margin-top: -1px;
             }
 
             &:hover,
             &:active,
             &:focus {
-                background-color: @button_color;
-                color: @button_background;
-                border-color: @button_background;
+                //background-color: @ini_existing;
+                color: @ini_existing;
+                //border-color: @ini_existing;
+
+                &::after {
+                    background-color: @ini_existing;
+                    background-image: url("svg.php?svg=pencil.svg&f=background_content");
+                    border-color: @ini_existing;
+                }
             }
         }
     }

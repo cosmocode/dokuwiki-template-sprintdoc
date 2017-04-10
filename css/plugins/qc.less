@@ -1,6 +1,79 @@
-#plugin__qc__wrapper{
-    font-size: @font-size-default;
-    p{
+/**
+ * This file provides styles for qc plugin
+ */
+
+
+/* + + + + +  global  + + + + + */
+
+#dokuwiki__site {
+    .plugin__qc {
+        display: inline-block;
+        overflow: visible;
+        position: static;
+    }
+
+    #plugin__qc__icon {
+        display: none;
+    }
+
+    #plugin__qc__link {
+        position: relative;
+
+        .prefix {
+            .icon-emo-happy();
+
+            width: 100%;
+            font-size: @font-size-default;
+
+            &::before {
+                width: 100%;
+                margin: 0;
+            }
+        }
+    }
+
+    #plugin__qc__wrapper {
+        position: absolute;
+        right: 0;
+        z-index: 2000;
+        width: auto;
+        box-shadow: @box-shadow-bottom;
+        background: @ini_background_page_header;
+        background: -webkit-linear-gradient(top, @ini_background_page_header, @ini_background_content);
+        background: linear-gradient(top, @ini_background_page_header, @ini_background_content);
+        border: 0 none;
         font-size: @font-size-default;
+
+        p {
+            font-size: @font-size-default;
+        }
+
+        #plugin__qc__out {
+            h1 {
+                font-size: @font-size-head3;
+            }
+
+            h2 {
+                margin-top: 1.6em;
+                font-size: @font-size-head5;
+            }
+            > h1,
+            > h2,
+            > p,
+            > dl,
+            > div {
+                padding-left: 1rem;
+                margin-left: 0;
+            }
+
+            > div p {
+                padding-left: 0;
+                margin-left: 0;
+            }
+        }
+
+        &[aria-hidden="false"] {
+            margin-top: .5rem;
+        }
     }
 }

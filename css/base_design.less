@@ -7,11 +7,7 @@
 
 
 html, body {
-    background-color: @color-site-bg;
-}
-
-a {
-    color: @color-link;
+    background-color: @ini_background;
 }
 
 
@@ -30,71 +26,91 @@ a {
     font-weight: bold;
 }
 
-.dokuwiki .pageId {
-    float: right;
-    margin-right: -1em;
-    margin-bottom: -1px;
-    margin-top: -1.5em;
-    overflow: hidden;
-    padding: 0.5em 1em 0;
+.dokuwiki {
+    .page ol li,
+    .page ul li,
+    .aside ul li {
+        color: @ini_text;
+    }
 
-    span {
+    .pageId {
+        float: right;
+        margin-right: -1em;
+        margin-bottom: -1px;
+        margin-top: -1.5em;
+        overflow: hidden;
+        padding: 0.5em 1em 0;
+
+        span {
+            font-size: @font-size-small;
+            border: solid @ini_background_alt;
+            border-width: 1px 1px 0;
+            background-color: @ini_background;
+            color: @ini_text_alt;
+            padding: .1em .35em;
+            border-top-left-radius: 2px;
+            border-top-right-radius: 2px;
+            box-shadow: 0 0 .5em @ini_text_alt;
+            display: block;
+        }
+    }
+
+    div.page {
+        clear: both;
+        overflow: hidden;
+        word-wrap: break-word;
+        background: @ini_background_content;
+        color: inherit;
+        padding: @page_padding-top @margin-default @margin-default;
+
+        @media @screen_max-md {
+            padding-right: (@margin-default * 1.6);
+        }
+
+        @media @screen_max-xs {
+            padding-left: @margin-small;
+        }
+    }
+
+    .content #dokuwiki__pagetools {
+        @media @screen_max-md {
+            top: 4rem;
+        }
+    }
+
+    .docInfo {
         font-size: @font-size-small;
-        border: solid @ini_background_alt;
-        border-width: 1px 1px 0;
-        background-color: @ini_background;
-        color: @ini_text_alt;
-        padding: .1em .35em;
-        border-top-left-radius: 2px;
-        border-top-right-radius: 2px;
-        box-shadow: 0 0 .5em @ini_text_alt;
-        display: block;
+        text-align: right;
     }
-}
 
-.dokuwiki div.page {
-    clear: both;
-    overflow: hidden;
-    word-wrap: break-word;
-    background: @color-content-bg;
-    color: inherit;
-    // margin-bottom: .5rem; // no margin: if there is another bg-color, then there is an #fff border
-    padding: @page_padding-top @margin-default @margin-default;
+    /* license note under edit window */
+    div.license {
+        font-size: @font-size-small;
+        line-height: @line-height-default;
+        padding-top: 1rem;
 
-    @media @screen_max-md{
-        padding-right: (@margin-default *1.6);
+        @media @screen_max-lg {
+            font-size: @font-size-default;
+        }
+
+        @media @screen_max-md {
+            font-size: @font-size-small;
+        }
+
+        * {
+            font-size: inherit;
+        }
     }
-}
-.content #dokuwiki__pagetools{
-    @media @screen_max-md{
-        top: 4rem;
+
+    [dir=rtl] & .docInfo {
+        text-align: left;
     }
-}
 
-.dokuwiki .docInfo {
-    font-size: @font-size-small;
-    text-align: right;
-}
-
-/* license note under edit window */
-.dokuwiki div.license {
-    font-size: @font-size-small;
-    line-height: @line-height-default;
-    padding-top: 1rem;
-
-    * {
-        font-size: inherit;
+    [dir=rtl] & .pageId {
+        float: left;
+        margin-left: -1em;
+        margin-right: 0;
     }
-}
-
-[dir=rtl] .dokuwiki .docInfo {
-    text-align: left;
-}
-
-[dir=rtl] .dokuwiki .pageId {
-    float: left;
-    margin-left: -1em;
-    margin-right: 0;
 }
 
 caption,
@@ -136,27 +152,77 @@ h1 {
 h2 {
     font-size: @font-size-head2;
     margin: 0 0 @font-size-head2;
+    padding-top: (@font-size-head2 / 2);
+
+    .secedit + &,
+    .section_highlight &:first-child {
+        padding-top: 0;
+    }
+
+    .section_highlight + & {
+        padding-top: (@font-size-head2 / 2);
+    }
 }
 
 h3 {
     font-size: @font-size-head3;
     margin: 0 0 @font-size-head3;
+    padding-top: (@font-size-head3 / 2);
+
+    .secedit + &,
+    .section_highlight &:first-child {
+        padding-top: 0;
+    }
+
+    .section_highlight + & {
+        padding-top: (@font-size-head3 / 2);
+    }
 }
 
 h4 {
     font-size: @font-size-head4;
     margin: 0 0 @font-size-head4;
+    padding-top: (@font-size-head4 / 2);
+
+    .secedit + &,
+    .section_highlight &:first-child {
+        padding-top: 0;
+    }
+
+    .section_highlight + & {
+        padding-top: (@font-size-head4 / 2);
+    }
 }
 
 h5 {
     font-size: @font-size-head5;
     margin: 0 0 @font-size-head5;
+    padding-top: (@font-size-head5 / 2);
+
+    .secedit + &,
+    .section_highlight &:first-child {
+        padding-top: 0;
+    }
+
+    .section_highlight + & {
+        padding-top: (@font-size-head5 / 2);
+    }
 }
 
 h6 {
     font-size: @font-size-head6;
     font-weight: @font-weight-bold;
     margin: 0 0 @font-size-head6;
+    padding-top: (@font-size-head6 / 2);
+
+    .secedit + &,
+    .section_highlight &:first-child {
+        padding-top: 0;
+    }
+
+    .section_highlight + & {
+        padding-top: (@font-size-head6 / 2);
+    }
 }
 
 p {
@@ -297,11 +363,31 @@ ol ol ol ol ol {
     list-style-type: lower-roman;
 }
 
+
+/*____________ tables ____________*/
+
+.dokuwiki {
+    table.inline tr:hover {
+        th {
+            background-color: fade(@ini_background_alt, 50%);
+        }
+
+        td {
+            background-color: fade(@ini_background_alt, 80%);
+            color: @ini_text_alt;
+
+            *:not(button,a) {
+                color: @ini_text_alt;
+            }
+        }
+    }
+}
+
 table {
     border-collapse: collapse;
     empty-cells: show;
     border-spacing: 0;
-    border: 1px solid @color-border;
+    border: 1px solid @ini_border;
     font-size: @font-size-default;
     line-height: 140%;
 }
@@ -320,12 +406,13 @@ td {
     padding: .3em .5em;
     margin: 0;
     vertical-align: top;
-    border: 1px solid @color-border;
+    border: 1px solid @ini_border;
 }
 
 th {
     font-weight: bold;
     background-color: @ini_background_alt;
+    color: @ini_text_alt;
     text-align: left;
 }
 
@@ -335,18 +422,18 @@ th {
 
 a {
     outline: none;
-}
 
-a:link,
-a:visited {
-    text-decoration: none;
-    color: @color-link;
-}
+    &:link,
+    &:visited {
+        text-decoration: none;
+        color: @ini_link; // links to non wikipages (external links)
+    }
 
-a:hover,
-a:focus,
-a:active {
-    text-decoration: underline;
+    &:hover,
+    &:focus,
+    &:active {
+        text-decoration: underline;
+    }
 }
 
 img {
@@ -373,7 +460,7 @@ button img {
 }
 
 hr {
-    border-top: solid @color-border;
+    border-top: solid @ini_border;
     border-bottom: solid @ini_background;
     border-width: 1px 0;
     height: 0;
@@ -395,7 +482,7 @@ em abbr {
 
 mark {
     background-color: @ini_highlight;
-    color: inherit;
+    color: @ini_highlight_text;
 }
 
 pre,
@@ -407,25 +494,28 @@ kbd {
     font-size: @font-size-default;
     direction: ltr;
     text-align: left;
-    background-color: @color-site-bg;
-    color: @color-text;
-    box-shadow: inset 0 0 .3em @color-border;
+    background-color: @noopentasks-background;
+    color: @noopentasks-color;
+    box-shadow: inset 0 0 .3em @noopentasks-border;
     border-radius: @fix_border-radius;
+    padding-left: @small-spacing;
+    padding-right: @small-spacing;
 }
 
 pre {
     overflow: auto;
     word-wrap: normal;
-    border: 1px solid @color-border;
+    background-color: @noopentasks-background;
+    border: 1px solid @noopentasks-border;
     border-radius: @fix_border-radius;
-    box-shadow: inset 0 0 .5em @color-border;
+    box-shadow: inset 0 0 .5em @noopentasks-border;
     font-size: @font-size-default;
     line-height: 140%;
     padding: .7em 1em;
 }
 
 blockquote {
-    border: solid @color-border;
+    border: solid @ini_border;
     border-width: 0 0 0 .25em;
     font-size: @font-size-default;
     line-height: 140%;
@@ -457,249 +547,4 @@ sup {
 
 small {
     font-size: .9em;
-}
-
-
-/*____________ forms ____________*/
-
-/* for all of the form styles, style.ini colours are not used on purpose (except for fieldset border) */
-
-form {
-    display: inline;
-    margin: 0;
-    padding: 0;
-}
-
-fieldset {
-    font-size: @font-size-default;
-    line-height: 140%;
-    border: 1px solid @ini_text_alt;
-    padding: .7rem 1rem;
-}
-
-fieldset > :last-child {
-    margin-bottom: 0;
-}
-
-legend {
-    margin: 0;
-    padding: 0 .1em;
-}
-
-label {
-    vertical-align: middle;
-    cursor: pointer;
-}
-
-input,
-textarea,
-button,
-select,
-optgroup,
-option,
-keygen,
-output,
-meter,
-progress {
-    font: inherit;
-    font-weight: normal;
-    color: #333;
-    background-color: #fff;
-    line-height: normal;
-    margin: 0;
-    vertical-align: middle;
-    box-sizing: border-box;
-}
-
-select {
-    max-width: 100%;
-}
-
-textarea.edit {
-    font-size: @font-size-default;
-}
-
-optgroup {
-    font-style: italic;
-    font-weight: bold;
-}
-
-option {
-    font-style: normal;
-    font-weight: normal;
-}
-
-input,
-textarea,
-select,
-keygen {
-    min-height: @formfield_min-height;
-    border: 1px solid @color-border;
-    box-shadow: inset 0 0 1px #eee;
-    border-radius: @fix_border-radius;
-    padding-left: .3rem;
-    padding-right: .3rem;
-}
-
-input:active,
-input:focus,
-textarea:active,
-textarea:focus,
-select:active,
-select:focus,
-keygen:active,
-keygen:focus {
-    border-color: #999;
-}
-
-input[type=radio],
-input[type=checkbox],
-input[type=image] {
-    padding: 0;
-    border-style: none;
-    box-shadow: none;
-}
-
-
-/* + + + + +  buttons  + + + + + */
-button {
-    background-color: #eee;
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8bGluZWFyR3JhZGllbnQgaWQ9Imc4MjQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+CjxzdG9wIHN0b3AtY29sb3I9IiNGRkZGRkYiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiNGNEY0RjQiIG9mZnNldD0iMC4zIi8+PHN0b3Agc3RvcC1jb2xvcj0iI0VFRUVFRSIgb2Zmc2V0PSIwLjk5Ii8+PHN0b3Agc3RvcC1jb2xvcj0iI0NDQ0NDQyIgb2Zmc2V0PSIuOTkiLz4KPC9saW5lYXJHcmFkaWVudD4KPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNnODI0KSIgLz4KPC9zdmc+);
-    background-image: linear-gradient(to bottom, #ffffff 0%, #f4f4f4 30%, #eeeeee 99%, #cccccc 99%);
-    border: 1px solid #ccc;
-    border-radius: @fix_border-radius;
-    color: #333;
-    padding: .1em .5em;
-    cursor: pointer;
-    transition: @transition background-color, @transition color;
-
-    &:hover,
-    &:focus,
-    &:active {
-        background-color: #ddd;
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8bGluZWFyR3JhZGllbnQgaWQ9Imc2NzAiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+CjxzdG9wIHN0b3AtY29sb3I9IiNGRkZGRkYiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiNGNEY0RjQiIG9mZnNldD0iMC4zIi8+PHN0b3Agc3RvcC1jb2xvcj0iI0RERERERCIgb2Zmc2V0PSIwLjk5Ii8+PHN0b3Agc3RvcC1jb2xvcj0iI0JCQkJCQiIgb2Zmc2V0PSIuOTkiLz4KPC9saW5lYXJHcmFkaWVudD4KPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNnNjcwKSIgLz4KPC9zdmc+);
-        background-image: linear-gradient(to bottom, #ffffff 0%, #f4f4f4 30%, #dddddd 99%, #bbbbbb 99%);
-        border-color: #999;
-    }
-}
-
-
-/* + + +  all types of submit-buttons  + + + */
-form input[type=submit], // heredity 'adnewpage'
-a.button,
-input[type=submit],
-input[type=reset],
-button[type=submit],
-.qq-upload-button {
-    cursor: pointer;
-    box-shadow: none;
-    background-image: none;
-    background-color: @button_background;
-    border: 1px solid @button_background;
-    border-radius: @fix_border-radius;
-    color: @button_color;
-    padding: .3em @grid;
-    transition: @transition background-color, @transition color;
-
-    &:hover,
-    &:active,
-    &:focus {
-        background-color: @button_color;
-        color: @button_background;
-    }
-}
-
-input[type=submit],
-button[type=submit] {
-    &[disabled] {
-        cursor: default;
-        &:hover,
-        &:active,
-        &:focus {
-            box-shadow: none;
-            background-image: none;
-            background-color: @button_background;
-            color: @button_color;
-            border-color: @button_background;
-        }
-    }
-
-    + span {
-        display: block;
-        margin-top: @grid;
-    }
-}
-
-
-/* + + +  all types of buttons not being submit-buttons  + + + */
-input.button,
-input[type=button] {
-    cursor: pointer;
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8bGluZWFyR3JhZGllbnQgaWQ9Imc4MjQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+CjxzdG9wIHN0b3AtY29sb3I9IiNGRkZGRkYiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiNGNEY0RjQiIG9mZnNldD0iMC4zIi8+PHN0b3Agc3RvcC1jb2xvcj0iI0VFRUVFRSIgb2Zmc2V0PSIwLjk5Ii8+PHN0b3Agc3RvcC1jb2xvcj0iI0NDQ0NDQyIgb2Zmc2V0PSIuOTkiLz4KPC9saW5lYXJHcmFkaWVudD4KPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNnODI0KSIgLz4KPC9zdmc+);
-    background-image: linear-gradient(to bottom, #ffffff 0%, #f4f4f4 30%, #eeeeee 99%, #cccccc 99%);
-    background-color: #eee;
-    border: 1px solid #ccc;
-    border-radius: @fix_border-radius;
-    color: #333;
-    padding: .1em .5em;
-    transition: @transition background-color, @transition color;
-
-    &:hover,
-    &:active,
-    &:focus {
-        background-color: #ddd;
-        border-color: #999;
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8bGluZWFyR3JhZGllbnQgaWQ9Imc2NzAiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+CjxzdG9wIHN0b3AtY29sb3I9IiNGRkZGRkYiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiNGNEY0RjQiIG9mZnNldD0iMC4zIi8+PHN0b3Agc3RvcC1jb2xvcj0iI0RERERERCIgb2Zmc2V0PSIwLjk5Ii8+PHN0b3Agc3RvcC1jb2xvcj0iI0JCQkJCQiIgb2Zmc2V0PSIuOTkiLz4KPC9saW5lYXJHcmFkaWVudD4KPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNnNjcwKSIgLz4KPC9zdmc+);
-        background-image: linear-gradient(to bottom, #ffffff 0%, #f4f4f4 30%, #dddddd 99%, #bbbbbb 99%);
-    }
-}
-
-
-/* + + +  all disabled buttons  + + + */
-input[disabled],
-button[disabled],
-select[disabled],
-textarea[disabled],
-option[disabled],
-input[readonly],
-button[readonly],
-select[readonly],
-textarea[readonly] {
-    cursor: auto;
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8bGluZWFyR3JhZGllbnQgaWQ9Imc4MjQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+CjxzdG9wIHN0b3AtY29sb3I9IiNGRkZGRkYiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiNGNEY0RjQiIG9mZnNldD0iMC4zIi8+PHN0b3Agc3RvcC1jb2xvcj0iI0VFRUVFRSIgb2Zmc2V0PSIwLjk5Ii8+PHN0b3Agc3RvcC1jb2xvcj0iI0NDQ0NDQyIgb2Zmc2V0PSIuOTkiLz4KPC9saW5lYXJHcmFkaWVudD4KPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNnODI0KSIgLz4KPC9zdmc+);
-    background-image: linear-gradient(to bottom, #ffffff 0%, #f4f4f4 30%, #eeeeee 99%, #cccccc 99%);
-    background-color: #eee;
-    opacity: .5;
-    border: 1px solid @color-border;
-    border-radius: @fix_border-radius;
-    color: #333;
-    font-weight: normal;
-    padding: .3em @grid;
-    transition: @transition background-color, @transition color;
-    &:hover,
-    &:active,
-    &:focus {
-        background-color: #ddd;
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8bGluZWFyR3JhZGllbnQgaWQ9Imc2NzAiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+CjxzdG9wIHN0b3AtY29sb3I9IiNGRkZGRkYiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiNGNEY0RjQiIG9mZnNldD0iMC4zIi8+PHN0b3Agc3RvcC1jb2xvcj0iI0RERERERCIgb2Zmc2V0PSIwLjk5Ii8+PHN0b3Agc3RvcC1jb2xvcj0iI0JCQkJCQiIgb2Zmc2V0PSIuOTkiLz4KPC9saW5lYXJHcmFkaWVudD4KPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNnNjcwKSIgLz4KPC9zdmc+);
-        background-image: linear-gradient(to bottom, #ffffff 0%, #f4f4f4 30%, #dddddd 99%, #bbbbbb 99%);
-        border-color: #999;
-        color: #333;
-    }
-}
-input::-moz-focus-inner,
-button::-moz-focus-inner {
-    border: 0;
-    padding: 0;
-}
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* media queries */
-@media @screen_max-lg {
-    .dokuwiki div.license {
-        font-size: @font-size-default;
-    }
-}
-@media @screen_max-md {
-    .dokuwiki div.license {
-        font-size: @font-size-small;
-    }
 }

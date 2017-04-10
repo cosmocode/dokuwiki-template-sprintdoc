@@ -1,39 +1,57 @@
 /**
- * This file provides styles for the edit view (?do=edit), preview
- * and section edit buttons.
+ * This file provides styles for the tabinclude
  */
 
 
 /* + + + + +  plugin tabinclude  + + + + + */
 
-
 div#dwpl-ti-container {
-
-/* + + +  tabnav  + + + */
     li.dwpl-ti-tab {
         box-shadow: none;
-        border-color: @color-site-bg;
+        background-color: @ini_background_page_header;
+        border-color: @ini_border;
         border-radius: @fix_border-radius @fix_border-radius 0 0;
+        color: @ini_background_page_footer;
         padding: 0;
 
+        &:hover {
+            background-color: @ini_background_page_header;
+            text-decoration: none;
+
+            div {
+                text-decoration: underline;
+
+                &.selected {
+                    color: @ini_text;
+                }
+            }
+        }
+
         div {
-            background-color: @background_page-header;
             border-radius: inherit;
+            color: inherit;
             padding: .1em .35em;
+
             &.selected {
-                background-color: @color-site-bg;
+                position: relative;
+                z-index: 1;
+                background-color: @ini_background_content;
+                color: @ini_text;
             }
         }
     }
 
 
-/* + + +  box  + + + */
+/* + + +  content box  + + + */
     div.dwpl-ti-content-box {
+        position: relative;
+        z-index: 0;
         overflow: auto;
-        box-shadow: none;
-        background-color: @color-site-bg;
-        border: solid 1px @color-site-bg;
+        box-shadow: @box-shadow;
+        background-color: @ini_background_content;
+        border: solid 1px @ini_border;
         border-radius: 0;
+        margin-top: -1px;
     }
 }
 
@@ -42,7 +60,5 @@ div#dwpl-ti-container {
 /* media queries */
 
 @media @screen_max-md {
-    div#dwpl-ti-container {
-
-    }
+    div#dwpl-ti-container { }
 }

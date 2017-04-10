@@ -5,6 +5,7 @@
  *  @license    GPL 2 (http://www.gnu.org/licenses/gpl.html)
  */
 
+
 $lang['direct_prefix']              = 'jump to';
 $lang['direct_content_main']        = 'main content';
 $lang['direct_menu_main']           = 'main menu';
@@ -42,10 +43,44 @@ $lang['tasks_page_none']            = 'no open tasks for this page';
 $lang['discussion']                 = 'Discussion';
 $lang['back_to_article']            = 'Back to article';
 $lang['userpage']                   = 'User page';
-$lang['__existing__']               = 'The color for links to existing pages';
-$lang['__missing__']                = 'The color for links to non-existing pages';
-$lang['__site_width__']             = 'The width of the full site (can be any length unit: %, px, em, ...)';
-$lang['__sidebar_width__']          = 'The width of the sidebar, if any (can be any length unit: %, px, em, ...)';
 
-$lang['__button_color__']           = 'Color for buttons';
-$lang['__button_background__']      = 'Backgroundcolor for buttons';
+
+/**
+ * colors
+ */
+
+$lang['__site_width__']             = 'content - width (in %)';
+
+$lang['__background__']             = 'website - background color';
+$lang['__text_webframe__']          = 'website unlinked: claim, title, footer, navigation - font color';
+
+$lang['__nav_menu_color__']         = 'link: navigation, footer, pagetools icons, tabbox - font color';
+$lang['__nav_menu_hover_color__']   = 'link: navigation (hover) - font color, border color; wiki icons - font color; wiki icons (hover) - background color';
+$lang['__nav_menu_hover_bg__']      = 'link: navigation (hover) - background color; wiki icons - background color; wiki icons (hover) - font color';
+
+$lang['__background_content__']     = 'content, breadcrumb, pagetools (hover) - background color';
+$lang['__text__']                   = 'content: text - font color';
+
+$lang['__background_neu__']         = 'Content neutral (not too different from the content background) - background color';
+$lang['__text_neu__']               = 'content neutral: text - font color';
+
+$lang['__background_page_header__'] = 'content: header, footer, tabinclude tab controlls deactivate - background color';
+$lang['__background_page_footer__'] = 'content: footer, tabinclude tab controlls deactivate - font color';
+
+$lang['__border_light__']           = 'content: header, footer - border color';
+
+$lang['__highlight__']              = 'text emphasize (e.g. for search results) - background color';
+$lang['__highlight_text__']         = 'text emphasize (e.g. for search results) - font color';
+
+$lang['__existing__']               = 'links to wikipages, pencil, pagetools (hover) - font color; tabbox (hover) - font color, border color';
+$lang['__link__']                   = 'links to non wikipages (external links) - font color';
+$lang['__missing__']                = 'links to non-existing pages - font color';
+
+$lang['__button_color__']           = 'buttons - font color';
+$lang['__button_background__']      = 'buttons - background color';
+
+$lang['__background_alt__']         = 'table head, hover: table cell, struct Label - background color (alternative)';
+$lang['__text_alt__']               = 'table head unlinked, hover: table cell, struct Label - font color (alternative)';
+
+$lang['__border__']                 = 'tables, form fields, blockquotes - border color';
+$lang['__default_border_radius__']  = 'wiki icons, content (top right) - border radius';

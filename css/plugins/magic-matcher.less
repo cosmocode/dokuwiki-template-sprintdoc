@@ -1,6 +1,6 @@
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* all media */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/**
+ * This file provides styles for magic matcher plugin
+ */
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + */
@@ -21,9 +21,9 @@
         right: 0;
         top: 0;
         border: 0;
-        border-bottom: 1px solid @color-border;
-        border-left: 1px solid @color-border;
-        color: @color-nav;
+        border-bottom: 1px solid @ini_border;
+        border-left: 1px solid @ini_border;
+        color: @ini_nav_menu_color;
         background: #fff;
         border-radius: 0;
         border-bottom-left-radius: 5px;
@@ -31,8 +31,8 @@
         &:hover,
         &:focus,
         &:active {
-            border-color: @button_background;
-            color: @button_background;
+            border-color: @ini_button_background;
+            color: @ini_button_background;
         }
     }
 
@@ -42,9 +42,9 @@
         width: 100%;
         min-height: @height-context-bar;
         box-sizing: border-box;
-        box-shadow: __box_shadow__;
-        background-color: __nav_direct_background__;
-        border-radius: 0 0 __default_border_radius__ __default_border_radius__;
+        box-shadow: @box-shadow;
+        background-color: @ini_background_content;
+        border-radius: 0 0 @ini_default_border_radius @ini_default_border_radius;
         font-size: @font-size-default;
         padding: .8em 1em .5em;
         margin-bottom: 0;

@@ -1,0 +1,39 @@
+/**
+ * This file provides styles for tab boxes
+ */
+
+
+/* + + + + +  tabs  + + + + + */
+
+#dokuwiki__content {
+    ul.tabs {
+        li:not([class~="active"]) {
+            strong,
+            a {
+                color: @ini_text_neu;
+                transition: @transition background-color, @transition color;
+            }
+
+            a:hover,
+            a:focus,
+            a:active {
+                color: @ini_text;
+            }
+        }
+    }
+
+    .tabs > ul {
+        li:not([class~="active"]) {
+            a {
+                color: @ini_text_neu;
+                transition: @transition background-color, @transition color;
+            }
+
+            a:hover,
+            a:focus,
+            a:active {
+                color: @ini_text;
+            }
+        }
+    }
+}
