@@ -21,7 +21,7 @@
 .pagetools-item(img_backto, 12);
 */
 
-#dokuwiki__aside{
+#dokuwiki__aside {
     @media @screen_max-md {
         display: none !important;
     }
@@ -57,10 +57,16 @@ nav#dokuwiki__pagetools {
                 height: auto;
                 min-height: @toolbox-size; // for nav:hover
                 width: @toolbox-size; // for nav:hover
-                opacity: .6;
-                color: @color-nav;
                 font-size: @font-size-default;
                 padding: 2px @toolbox-size 2px 2px;
+
+                @media @screen_min-md {
+                    color: @ini_nav_menu_color;
+                }
+
+                @media @screen_max-md {
+                    color: @ini_existing;
+                }
 
                 * {
                     color: inherit;
@@ -73,9 +79,7 @@ nav#dokuwiki__pagetools {
                 &:hover,
                 &:focus,
                 &:active {
-                    opacity: 1;
-                    color: @color-nav-hover;
-                    background-color: #FFF;
+                    background-color: transparent;
                 }
 
                 span {
@@ -90,8 +94,16 @@ nav#dokuwiki__pagetools {
                     width: @page-tools_svg-size;
                     height: @page-tools_svg-size;
                     vertical-align: middle;
-                    fill: @color-nav;
+                    border: solid 1px transparent;
                     margin: @page-tools_svg-space;
+
+                    @media @screen_min-md {
+                        fill: @ini_nav_menu_color;
+                    }
+
+                    @media @screen_max-md {
+                        fill: @ini_existing;
+                    }
                 }
 
                 &.top {
@@ -101,19 +113,12 @@ nav#dokuwiki__pagetools {
 
             &.plugin_move_page {
                 a {
-                    opacity: .6;
-                    color: @color-nav;
+                    .btn-hover();
+
+                    color: @ini_nav_menu_color;
 
                     * {
                         color: inherit;
-                    }
-
-                    &:hover,
-                    &:focus,
-                    &:active {
-                        color: @color-nav-hover;
-                        background-color: #fff;
-                        opacity: 1;
                     }
                 }
             }
@@ -122,24 +127,34 @@ nav#dokuwiki__pagetools {
 
     &:hover {
         ul {
-            background-color: #fff;
-            box-shadow: @box-shadow-offset;
+            box-shadow: @box-shadow; // @box-shadow-offset;
+            background-color: @ini_background_content;
+            border-color: @wikiicons-border;
 
             li {
+                color: @ini_existing;
+
                 a {
                     box-shadow: none;
                     background-image: none;
-                    opacity: .8;
                     border-color: transparent;
+                    color: inherit;
                     padding: 2px 0 2px 2px;
+
+                    svg {
+                        border: solid 1px transparent;
+                        border-radius: @ini_default_border_radius;
+                        fill: @ini_existing;
+                        transition: @transition background-color, @transition border-color, @transition fill;
+                    }
 
                     &:hover,
                     &:focus,
                     &:active {
-                        opacity: 1;
-
                         svg {
-                            fill: @color-nav-hover;
+                            background-color: @ini_existing;
+                            border-color: @ini_existing;
+                            fill: @ini_background_content;
                         }
                     }
 

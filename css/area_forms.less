@@ -12,6 +12,7 @@ form {
     margin: 0;
     padding: 0;
 
+
     // multiline label
     fieldset > label.block > span:first-child {
         display: inline-block;
@@ -24,6 +25,7 @@ form {
             width: 48.5%;
         }
     }
+
 
     // older version (history)
     .dokuwiki & > .no > ul > li {
@@ -121,7 +123,7 @@ textarea,
 select,
 keygen {
     min-height: @formfield_min-height;
-    border: 1px solid @color-border;
+    border: 1px solid @ini_border;
     box-shadow: inset 0 0 1px #eee;
     border-radius: @fix_border-radius;
     padding-left: .3rem;
@@ -139,12 +141,17 @@ keygen:focus {
     border-color: #999;
 }
 
-input[type=radio],
-input[type=checkbox],
-input[type=image] {
+input[type="radio"],
+input[type="checkbox"],
+input[type="image"] {
     padding: 0;
     border-style: none;
     box-shadow: none;
+}
+
+input[type="file"] {
+    padding-top: .1rem;
+    padding-bottom: .1rem;
 }
 
 
@@ -181,10 +188,10 @@ button[type=submit],
     cursor: pointer;
     box-shadow: none;
     background-image: none;
-    background-color: @button_background;
-    border: 1px solid @button_background;
+    background-color: @ini_button_background;
+    border: 1px solid @ini_button_background;
     border-radius: @fix_border-radius;
-    color: @button_color;
+    color: @ini_button_color;
     vertical-align: top;
     padding: .3em @grid;
     transition: @transition background-color, @transition color;
@@ -192,8 +199,8 @@ button[type=submit],
     &:hover,
     &:active,
     &:focus {
-        background-color: @button_color;
-        color: @button_background;
+        background-color: @ini_button_color;
+        color: @ini_button_background;
     }
 }
 
@@ -216,9 +223,9 @@ button[type=submit] {
         &:focus {
             box-shadow: none;
             background-image: none;
-            background-color: @button_background;
-            color: @button_color;
-            border-color: @button_background;
+            background-color: @ini_button_background;
+            color: @ini_button_color;
+            border-color: @ini_button_background;
         }
     }
 
@@ -268,7 +275,7 @@ textarea[readonly] {
     background-image: linear-gradient(to bottom, #ffffff 0%, #f4f4f4 30%, #eeeeee 99%, #cccccc 99%);
     background-color: #eee;
     opacity: .5;
-    border: 1px solid @color-border;
+    border: 1px solid @ini_border;
     border-radius: @fix_border-radius;
     color: #333;
     font-weight: normal;

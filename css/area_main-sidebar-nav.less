@@ -5,26 +5,91 @@
  * @author Andreas Gohr <gohr@cosmocode.de>
  */
 
+
 #dokuwiki__aside {
     @icon-size: @font-size-big;
     @menu-margin: @icon-size + @margin-small*2; // FIXME this is still wrong
+
+    nav > p,
+    .mmissuelist li,
+    .mmissuelist div {
+        color: @ini_nav_menu_color;
+
+        &.noissue {
+            color: @ini_text_webframe;
+
+            * {
+                color: inherit;
+            }
+        }
+    }
+
+    nav {
+        li {
+            color: @ini_nav_menu_color;
+
+            > div {
+                color: @ini_text_webframe;
+            }
+        }
+    }
+
+
+    /* jira itemlist */
+    .mmissuelist {
+        li {
+            &.noissue {
+                list-style-type: none;
+                margin-left: 0;
+            }
+
+            a {
+                display: inline-block;
+            }
+        }
+
+        img {
+            vertical-align: bottom;
+            margin-right: .3rem;
+        }
+
+        .mm__status {
+            padding-left: .3rem;
+            padding-right: .3rem;
+        }
+
+        form {
+            vertical-align: text-top;
+        }
+    }
 
     > * {
         margin-left: @menu-margin; // moves *all* sidebar content to the right
     }
 
+    a {
+        &:link,
+        &:visited {
+            opacity: .9;
+            color: @ini_nav_menu_color;
+        }
+
+        * {
+            color: inherit;
+        }
+    }
+
     // the toggle element
     a.nav {
+        .display-flex();
+        .align-items();
+
         cursor: pointer;
-        display: flex;
-        display: -ms-flexbox;
-        flex-direction: row;
-        -ms-flex-direction: row;
-        align-items: center;
         height: @icon-size + @margin-small;
+        opacity: 1;
         border: 1px solid transparent;
         border-radius: @fix_border-radius;
-        color: @color-nav;
+        color: @ini_nav_menu_color;
         font-size: @font-size-head6;
         font-weight: normal;
         margin: -1px 0 (@font-size-head6 / 2) (@menu-margin * -1); // moves the toggles back to the left
@@ -44,7 +109,7 @@
             width: @menu-margin;
             height: @icon-size;
             flex-grow: 0;
-            border-right: 1px solid @color-border;
+            border-right: 1px solid @ini_nav_menu_color;
             text-align: center;
             margin-right: @margin-small;
             color: inherit;
@@ -60,9 +125,10 @@
                 vertical-align: baseline;
                 text-align: center;
                 color: inherit;
-                border: 2px solid @color-nav;
+                border: 2px solid @ini_nav_menu_color;
                 border-top-right-radius: 50%;
                 border-bottom-left-radius: 50%;
+                transition: @transition border-color;
             }
 
             // real icon
@@ -71,7 +137,7 @@
                 height: @icon-size;
 
                 path {
-                    fill: @color-nav;
+                    fill: @ini_nav_menu_color;
                     transition: @transition all;
                 }
             }
@@ -80,19 +146,21 @@
         &:hover,
         &:focus,
         &:active {
-            background-color: @color-nav-hover-bg;
-            border-color: @color-nav-hover;
-            color: @color-nav-hover;
+            background-color: @ini_nav_menu_hover_bg;
+            border-color: @ini_nav_menu_hover_color;
+            color: @ini_nav_menu_hover_color;
             text-decoration: none;
 
             span.ico {
+                border-color: inherit;
+
                 strong {
-                    border-color: @color-nav-hover-bg;
+                    border-color: inherit;
                 }
 
                 svg {
                     path {
-                        fill: @color-nav-hover;
+                        fill: @ini_nav_menu_hover_color;
                     }
                 }
             }
@@ -106,12 +174,16 @@
 
         ul {
             margin-bottom: 1rem;
+
+            ul {
+                margin-bottom: 0;
+            }
         }
     }
 }
 
 
-/* + + + + + +  wide page content  + + + + +
+/* + + + + + +  wide page content  border-bottom between a.nav (short width)  + + + + +
 .wide-content {
     #dokuwiki__aside {
         a.nav {
@@ -124,7 +196,7 @@
                 left: 0;
                 width: 100%;
                 height: 1px;
-                border-bottom: solid 1px @color-border;
+                border-bottom: solid 1px @ini_border;
             }
 
             &:hover,
@@ -140,14 +212,34 @@
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* min-width: 1440px */
+
+@media @screen_min-xlg {
+    #dokuwiki__aside {
+        nav {
+            li:not([class]),
+            .li {
+                font-size: @font-size-head6;
+                padding: .15em 0;
+
+                * {
+                    font-size: inherit;
+                    font-weight: inherit;
+                }
+
+                a {
+                    font-size: (@font-size-head6 - .05);
+                }
+            }
+        }
+    }
+}
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* max-width: 1023px */
 
 @media @screen_max-md {
-    // hide on medium and smaller screens
-    #dokuwiki__aside {
-        display: none;
-    }
-
     // show when toggled
     body.show-mobile-sidebar {
         .search.main-sidebar {
@@ -164,30 +256,6 @@
         }
 
         #dokuwiki__aside {
-            display: block !important;
-            position: absolute;
-            left: 1.25rem; //left margin of content container
-            z-index: 200; // above all
-            box-shadow: @box-shadow-right-bottom;
-            min-width: 45%;
-            max-width: 90%;
-            height: auto;
-
-            &:after {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                bottom: 0;
-                right: 0;
-                width: 100%;
-                height: 100%;
-                background: @ini_background;
-                background: -webkit-linear-gradient(left, @ini_background, @color-content-bg);
-                background: linear-gradient(left, @ini_background, @color-content-bg);
-                z-index: 0;
-            }
-
             > nav {
                 position: relative;
                 z-index: 2;
@@ -206,27 +274,6 @@
             .nav-panel,
             a.nav {
                 padding-right: .8em;
-            }
-        }
-    }
-}
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* min-width: 1440px */
-
-@media @screen_min-xlg {
-    #dokuwiki__aside {
-        nav {
-            li:not([class]),
-            .li {
-                font-size: @font-size-default;
-                padding: .1em 0;
-
-                * {
-                    font-size: inherit;
-                    font-weight: inherit;
-                }
             }
         }
     }

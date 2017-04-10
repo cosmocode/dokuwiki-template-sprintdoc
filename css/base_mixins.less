@@ -142,12 +142,30 @@
 
 
 /* + + + + +  small icon-buttons (breadcrumb, page-header)  + + + + + */
+.btn-hover {
+    background-color: @ini_nav_menu_hover_bg;
+    color: @ini_nav_menu_hover_color;
+    transition: @transition color, @transition background-color, @transition border-color;
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: @ini_nav_menu_hover_color;
+        border-color: @ini_nav_menu_hover_color;
+        color: @ini_nav_menu_hover_bg;
+
+        .prefix {
+            color: inherit;
+        }
+    }
+}
+
 .btn-usertools-wrapper(@elem:@toggle-size) {
     display: inline-block;
     min-height: @elem;
     min-width: @elem;
     box-sizing: border-box;
-    color: @color-nav;
+    color: @ini_text_webframe;
     font-size: @font-size-small;
     padding: 0;
     margin: 0 .25rem;
@@ -161,27 +179,16 @@
     .num {
         position: absolute;
         right: -.4rem;
-        top: -.4em;
-        background-color: @color-nav-hover;
+        top: -.5em;
+        background-color: @ini_nav_menu_hover_color;
         border-radius: 2px;
-        color: @color-nav-hover-bg;
+        color: @ini_nav_menu_hover_bg;
         font-size: @font-size-very-small;
         font-weight: 400;
         text-align: center;
         line-height: 1;
         padding: .1em @very-small-spacing;
         transition: @transition color, @transition background-color;
-    }
-
-    a {
-        &:hover,
-        &:active,
-        &:focus {
-            .num {
-                background-color: @color-nav-hover;
-                color: @color-nav-hover-bg;
-            }
-        }
     }
 }
 

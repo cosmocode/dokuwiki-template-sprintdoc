@@ -22,7 +22,6 @@
         background-image: none;
         background-color: transparent; // fix
         border: solid 1px transparent;
-        color: @color-nav; // fix
         padding: 0;
         transition: @transition color, @transition background-color, @transition border-color;
 
@@ -30,12 +29,11 @@
         &:focus,
         &:active {
             min-height: @icon-size;
-            background-color: @button_color;
-            border: solid 1px @button_background;
-            color: @button_background;
+            background-color: @ini_button_color;
+            border: solid 1px @ini_button_background;
 
             &::after {
-                background-color: @button_background;
+                background-color: @ini_button_background;
             }
         }
 
@@ -61,6 +59,7 @@
             min-width: (@toggle-showsidebar_width + 0.1); /* must be a bit a wider than @toggle-showsidebar_width to hide right border */
             width: @main-ico-dummy;
             border-radius: @fix_border-radius;
+            color: @ini_nav_menu_color;
             text-decoration: none;
             box-sizing: border-box;
 
@@ -76,9 +75,9 @@
             &:hover,
             &:focus,
             &:active {
-                background-color: @color-nav-hover-bg;
-                border-color: @color-nav-hover;
-                color: @color-nav-hover;
+                background-color: @ini_nav_menu_hover_bg;
+                border-color: @ini_nav_menu_hover_color;
+                color: @ini_nav_menu_hover_color;
             }
         }
     }
@@ -90,6 +89,7 @@
         right: 0;
         height: auto;
         min-height: (@icon-size - .2);
+        color: @quicksearch-button-color;
 
         &:hover,
         &:focus,
@@ -97,9 +97,9 @@
             top: 0;
             bottom: 0;
             min-height: @icon-size;
-            background-color: @button_color;
-            border: solid 1px @button_background;
-            color: @button_background;
+            background-color: @ini_button_color;
+            border: solid 1px @ini_button_background;
+            color: @ini_button_background;
         }
     }
 
@@ -111,12 +111,12 @@
         margin: 0 0 @margin-default;
 
         .no {
-            display: inline-block;
+            display: block;
 
             #qsearch__in {
                 width: 100%;
                 padding-left: 10px;
-                padding-right: (@icon-size + 10);
+                padding-right: @icon-size;
             }
         }
 
@@ -127,7 +127,7 @@
 
         button[type="submit"] {
             border: solid 1px transparent;
-            border-right-color: @color-border;
+            border-right-color: @ini_border;
             margin-left: -(@icon-size);
 
             &::after {
@@ -137,8 +137,30 @@
                 bottom: 15%;
                 width: 1px;
                 left: -1px;
-                background-color: @color-border;
+                background-color: @ini_border;
                 transition: @transition background-color;
+            }
+        }
+
+        div.ajax_qsearch {
+            box-shadow: none;
+            background-color: #FFF;
+            padding: 0;
+
+            strong,
+            ul li {
+                color: @quicksearch-button-color;
+                padding: .25rem .5rem;
+
+                * {
+                    color: inherit;
+                }
+            }
+
+            ul li {
+                &:nth-child(odd) {
+                    background-color: @suggestion-zebra;
+                }
             }
         }
     }

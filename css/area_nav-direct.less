@@ -4,8 +4,9 @@
  * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
  */
 
+
 .nav-direct {
-    background-color: __nav_direct_background__;
+    background-color: @nav_direct_background;
     margin-top: -1px;
 
     p {
@@ -21,12 +22,12 @@
         a:visited {
             .sr-out();
 
-            box-shadow: __box_shadow__;
+            box-shadow: @box-shadow;
             display: block;
             width: 100%;
-            background-color: __nav_direct_background__;
-            border-bottom: 1px solid __shadow_color__;
-            color: __nav_direct_color__;
+            background-color: @nav_direct_background;
+            border-bottom: 1px solid @ini_border_light;
+            color: @nav_direct_color;
             line-height: @line-height-default;
             text-decoration: none;
             padding: 1em;

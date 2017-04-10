@@ -1,18 +1,29 @@
 /**
- * This file provides the design styles for the direct / menu jump links.
+ * This file provides the design styles for the breadcrumb
  *
  * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
  */
 
+
 .breadcrumbs {
     position: relative;
-    border-bottom: 1px solid @color-border-light;
-    padding: 1rem 1.8rem .2rem;
     min-height: @page-header_height;
     box-sizing: border-box;
+    background-color: @ini_background_content;
+    border-bottom: 1px solid @ini_border_light;
+    padding: 1rem 1.8rem .2rem;
 
     @media @screen_max-md {
-        background-color: @background_page-header;
+        background-color: @ini_background_page_header;
+    }
+
+    @media @screen_max-xs {
+        padding-left: @margin-small;
+        padding-right: .75rem;
+    }
+
+    @media @screen_xs-lg {
+        background-color: @ini_background_content;
     }
 
     > p {
@@ -51,7 +62,7 @@
                 width: auto;
                 box-sizing: border-box;
                 border: solid 1px transparent;
-                border-radius: @border-radius;
+                border-radius: @ini_default_border_radius; // @ini_default_border_radius vs. @fix_border-radius
                 vertical-align: middle;
                 text-decoration: none;
                 margin-top: -.2em;
@@ -65,7 +76,7 @@
                 &:hover,
                 &:focus,
                 &:active {
-                    border-color: @color-link;
+                    border-color: @ini_existing;
                 }
             }
         }
@@ -100,9 +111,8 @@
                 display: block;
                 width: auto;
                 min-height: @toggle-size;
-                border: 1px solid @color-border;
-                border-radius: @border-radius;
-                color: @color-nav;
+                border: 1px solid @wikiicons-border;
+                border-radius: @ini_default_border_radius; // @ini_default_border_radius vs. @fix_border-radius
                 text-align: center;
                 margin: 0;
             }
@@ -115,113 +125,14 @@
                 font-size: 1.2rem;
                 line-height: 1;
             }
-
-/* check !!! */
-            &.do_none {
-                position: relative;
-
-                strong {
-                    background-color: @color-site-bg;
-                }
-
-                .num {
-                    background-color: @noopentasks-background; // fix
-                    color: @noopentasks-color; // fix
-                }
-            }
-/* end check !!! */
-
-            &.plugin__qc {
-                display: inline-block;
-                overflow: visible;
-                position: static;
-            }
         } // li
 
         a {
-            transition: @transition color, @transition background-color, @transition border-color;
+            .btn-hover();
 
             &[aria-expanded="false"] + #plugin__qc__wrapper {
                 display: none;
             }
-
-            &:hover,
-            &:active,
-            &:focus {
-                background-color: @color-nav-hover-bg;
-                border-color: @color-nav-hover;
-                color: @color-nav-hover;
-
-                .prefix {
-                    color: inherit;
-                }
-            }
-        }
-
-        #plugin__qc__wrapper {
-            position: absolute;
-            right: 0;
-            width: auto;
-            border: 0 none;
-            background: @background_page-header;
-            background: -webkit-linear-gradient(top, @background_page-header, @color-content-bg);
-            background: linear-gradient(top, @background_page-header, @color-content-bg);
-            box-shadow: @box-shadow-bottom;
-            z-index: 2000;
-
-            #plugin__qc__out{
-                h1 {
-                    font-size: @font-size-head3;
-                }
-
-                h2 {
-                    margin-top: 1.6em;
-                    font-size: @font-size-head5;
-                }
-                > h1,
-                > h2,
-                > p,
-                > dl,
-                > div {
-                    padding-left: 1rem;
-                    margin-left: 0;
-                }
-
-                > div p {
-                    padding-left: 0;
-                    margin-left: 0;
-                }
-            }
-
-            &[aria-hidden="false"] {
-                margin-top: .5rem;
-            }
-        }
-
-        #plugin__qc__icon {
-            display: none;
-        }
-
-        #plugin__qc__link {
-            position: relative;
-
-            .prefix {
-                .icon-emo-happy();
-
-                width: 100%;
-                font-size: @font-size-default;
-
-                &::before {
-                    width: 100%;
-                    margin: 0;
-                }
-            }
         }
     }
-}
-
-
-/* + + + + +  ?  + + + + + */
-.mode_admin {
-
 }

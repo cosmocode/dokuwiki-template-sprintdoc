@@ -9,14 +9,13 @@
  * @license  GPL 2 (http://www.gnu.org/licenses/gpl.html)
  */
 
+use dokuwiki\template\sprintdoc\Template;
+
 if (!defined('DOKU_INC')) die();                        /* must be run from within DokuWiki */
 header('X-UA-Compatible: IE=edge,chrome=1');
 
 $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && !empty($_SERVER['REMOTE_USER']) );
 $showSidebar =  true; /*  */
-$hasFooter = page_findnearest('pagefooter');
-$showFooter = $hasFooter && ($ACT === 'show');
-
 ?>
 <html class="edge no-js" lang="<?php echo $conf['lang'] ?>" dir="<?php echo $lang['direction'] ?>">
 <head>
@@ -105,7 +104,7 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* Wiki Title Mobile */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */ ?>
-                                    <p class="title mobile-only">MO <?php echo $conf['title'] ?></p>
+                                    <p class="title mobile-only"><?php echo $conf['title'] ?></p>
                                 <?php endif ?>
                             </div><!-- .main-title -->
                         </div><!-- .headings -->
@@ -118,14 +117,14 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* Wiki Title Desktop */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */ ?>
-                                <p class="title">DO <?php echo $conf['title'] ?></p>
+                                <p class="title"><?php echo $conf['title'] ?></p>
                             <?php endif ?>
                             <?php if ($conf['tagline']):
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* Wiki Tagline Desktop */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */ ?>
-                                <p class="claim">DO <?php echo $conf['tagline'] ?></p>
+                                <p class="claim"><?php echo $conf['tagline'] ?></p>
                             <?php endif ?>
                         </div><!-- .main-title -->
                     </div><!-- .col -->
@@ -301,19 +300,13 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                                 tpl_content(false); /* the main content */
                             ?>
                             <div class="clearer"></div>
-                            <?php if($showFooter):
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* Page Include Hook: pagefooter.txt */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                                ?>
-                                <div class="wikipagefooter">
-                                    <hr>
-                                    <?php tpl_include_page('pagefooter', true, true) ?>
-                                    <div class="clearer"></div>
-                                </div>
-                            <?php endif; ?>
+                            <?php
+                            if($ACT == 'show') echo Template::getInstance()->getInclude(
+                                'footer',
+                                '<div class="wikipagefooter"><hr>',
+                                '<div class="clearer"></div></div>'
+                            );
+                            ?>
                         </div><!-- .main-content -->
 
 
