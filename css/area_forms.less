@@ -25,34 +25,6 @@ form {
             width: 48.5%;
         }
     }
-
-
-    // older version (history)
-    .dokuwiki & > .no > ul > li {
-        min-height: 2rem;
-        vertical-align: baseline;
-
-        a,
-        span,
-        img {
-            vertical-align: baseline;
-        }
-
-        img {
-            margin-left: 4px;
-            margin-right: 4px;
-        }
-
-        input[type="checkbox"] {
-            margin-bottom: .2rem;
-        }
-
-        span.user bdi {
-            a {
-                vertical-align: baseline;
-            }
-        }
-    }
 }
 
 fieldset {
@@ -130,6 +102,20 @@ keygen {
     padding-right: .3rem;
 }
 
+input[type="radio"],
+input[type="checkbox"] {
+    min-height: 1rem;
+}
+
+input[type="radio"],
+input[type="checkbox"],
+input[type="image"] {
+    padding: 0;
+    border-style: none;
+    //box-shadow: none; :in ie picture and checkbox disappear
+}
+
+
 input:active,
 input:focus,
 textarea:active,
@@ -139,14 +125,6 @@ select:focus,
 keygen:active,
 keygen:focus {
     border-color: #999;
-}
-
-input[type="radio"],
-input[type="checkbox"],
-input[type="image"] {
-    padding: 0;
-    border-style: none;
-    box-shadow: none;
 }
 
 input[type="file"] {
