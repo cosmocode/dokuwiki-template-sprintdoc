@@ -168,9 +168,9 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                                     echo p_locale_xhtml('showrev');
                                 } ?>
                                 <h1><?php echo hsc(tpl_img_getTag('IPTC.Headline', $IMG)) ?></h1>
-
-
-                                <?php tpl_img(900, 700); /* the image; parameters: maximum width, maximum height (and more) */ ?>
+                                <div class="img-link">
+                                    <?php tpl_img(900, 700); /* the image; parameters: maximum width, maximum height (and more) */ ?>
+                                </div>
 
                                 <div class="img_detail">
                                     <h2><?php print nl2br(hsc(tpl_img_getTag('simple.title'))); ?></h2>
