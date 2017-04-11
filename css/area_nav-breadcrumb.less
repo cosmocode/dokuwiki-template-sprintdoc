@@ -1,19 +1,35 @@
 /**
- * This file provides the design styles for the direct / menu jump links.
+ * This file provides the design styles for the breadcrumb
  *
  * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
  */
 
+
 .breadcrumbs {
     position: relative;
-    border-bottom: 1px solid @color-border-light;
-    padding: 1rem 1.8rem .2rem;
     min-height: @page-header_height;
     box-sizing: border-box;
+    background-color: @ini_background_content;
+    border-bottom: 1px solid @ini_border_light;
+    padding: 1rem 1.8rem .2rem;
+
+    @media @screen_max-md {
+        background-color: @ini_background_page_header;
+    }
+
+    @media @screen_max-xs {
+        padding-left: @margin-small;
+        padding-right: .75rem;
+    }
+
+    @media @screen_xs-lg {
+        background-color: @ini_background_content;
+    }
 
     > p {
         font-size: @font-size-small;
         margin: 0;
+
         @media @screen_max-xs{
             width: 1px;
             position: relative;
@@ -31,9 +47,11 @@
 
         span.home {
             margin-left: -.2rem; // reverse spacing in home icon --> content text and home icon aligned
-            .wide-content &{
+
+            .wide-content & {
                 margin-left: .4rem; //toggle link has position absolute, hover on home icon needs more space than left padding of breadcrumb
             }
+
             a {
                 .fontello();
                 .hide-text-show-before();
@@ -44,7 +62,7 @@
                 width: auto;
                 box-sizing: border-box;
                 border: solid 1px transparent;
-                border-radius: @border-radius;
+                border-radius: @ini_default_border_radius; // @ini_default_border_radius vs. @fix_border-radius
                 vertical-align: middle;
                 text-decoration: none;
                 margin-top: -.2em;
@@ -58,7 +76,7 @@
                 &:hover,
                 &:focus,
                 &:active {
-                    border-color: @color-link;
+                    border-color: @ini_existing;
                 }
             }
         }
@@ -67,10 +85,4 @@
             padding: .1em .1em 0;
         }
     }
-}
-
-
-/* + + + + +  ?  + + + + + */
-.mode_admin {
-
 }

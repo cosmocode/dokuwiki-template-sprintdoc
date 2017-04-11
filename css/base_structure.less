@@ -39,7 +39,8 @@
 @media @screen_min-md {
     .make-grid(md);
     html {
-        font-size: 81.25%; //13px
+        font-size: 87.5%; //14px
+        //font-size: 81.25%; //13px
     }
 }
 
@@ -82,6 +83,7 @@
 
     .content .row > .col-xs-12 {
         z-index: 3;
+        border-radius: 0 @ini_default_border_radius @fix_border-radius @fix_border-radius; // @ini_default_border_radius vs. @fix_border-radius
     }
 
     .top-header {
@@ -97,7 +99,7 @@
             position: relative;
 
             > .col-xs-12 {
-                width: 23%;
+                width: @ini_sidebar_width;
                 box-sizing: border-box;
             }
         }
@@ -109,6 +111,12 @@
             height: 150px;
             min-height: 6rem;
             display: table;
+
+            + .col-xs-12 {
+                float: right;
+                width: @ini_site_width;
+                box-sizing: border-box;
+            }
         }
     }
 
@@ -126,62 +134,30 @@
         }
     }
 
-    .claim {
-        display: table-cell;
-        height: 100%;
-        vertical-align: middle;
-        .logo {
-            /*position: absolute;
-            bottom: 1em;
-            overflow: visible;*/
-            padding: 1rem 0 .3rem;
-
-
-            img {
-                height: 4.6rem;
-                width: auto;
-                border-style: solid;
-                border-color: transparent;
-                border-width: 2px 0;
-            }
-
-            a:hover,
-            a:focus,
-            a:active {
-                img {
-                    border-width: 0;
-                }
-            }
-        }
-
-
-    }
-
     .showSidebar {
         .content {
             .row > .col-xs-12 {
-                width: 73%;
+                width: @ini_site_width;
                 float: right;
             }
         }
     }
 
-    .wide-content{
-        .logo{ }
+    .wide-content {
         .content {
             .row > .col-xs-12 {
                 width: auto;
                 float: none;
             }
         }
-        &.showSidebar{
+
+        &.showSidebar {
             .content {
                 .row > .col-xs-12 {
                     margin-left: @toggle-showsidebar_width;
                 }
             }
         }
-
     }
 
     .main-sidebar {
@@ -220,14 +196,6 @@
         }
     }
 
-    #dokuwiki__header {
-        .logo {
-            /*width: 200px;
-            max-width: 33%;
-            margin: .8rem 0;*/
-        }
-    }
-
     .tools {
         .main-sidebar {
             display: none;
@@ -235,40 +203,27 @@
     }
 }
 
-@media @screen_max-md{
-    .claim{
-        min-height: 3rem;
-        .logo{
-            .mobile-only{
-                margin: .8rem 1rem .6rem 0;
-            }
-        }
-    }
-}
-
-@media @screen_max-xxs{
+@media @screen_max-xxs {
     @mobileMargin: 4px;
-    .container{
+
+    .container {
         margin: 0 @mobileMargin;
     }
-    body.show-mobile-sidebar #dokuwiki__aside{
+
+    body.show-mobile-sidebar #dokuwiki__aside {
         left: @mobileMargin;
     }
-    #dokuwiki__usertools{
+
+    #dokuwiki__usertools {
         right: @mobileMargin;
     }
-    #dokuwiki__footer{
-        .main-footer{
-            > *{
+
+    #dokuwiki__footer {
+        .main-footer {
+            > * {
                 padding-left: 2rem;
                 padding-right: 2rem;
             }
-
         }
     }
-    .page-footer{
-
-    }
-
 }
-

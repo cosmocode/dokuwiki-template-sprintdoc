@@ -1,20 +1,48 @@
+/**
+ * This file provides the design styles for the metatabbox
+ *
+ * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
+ */
+
+
 #spr__meta-box {
+    .display-flex();
+    .flex-direction();
+    .justify-content(flex-end);
+
     position: relative;
     z-index: 10;
-    display: inline-block;
-    min-height: @page-header_height;
-    max-width: 40%;
     float: right;
-    margin-top: @page_padding-top * -1; // reverse padding-top of .page container
-    padding-top: 1rem;
-    border: 1px solid transparent;
+    max-width: 40%;
+    margin-top: -(@page_padding-top); // reverse padding-top of .page container
+    margin-right: -1px;
+
+    // >= 1024
+    @media @screen_min-md {
+        height: @page-header_height;
+        border: 1px solid transparent;
+    }
+
+    // < 1024
+    @media @screen_max-md {
+        position: relative;
+        top: .2rem;
+        right: auto;
+        float: none;
+        display: block;
+        max-width: 100%;
+        min-height: @page-header_height;
+        height: auto;
+        border: 0 none;
+    }
 
     .tab-container {
         display: table;
-        @media @screen_max-md{
+
+        @media @screen_max-md {
+            display: block;
             width: 100%;
         }
-
     }
 
     .box-content {
@@ -23,21 +51,25 @@
         overflow-y: visible;
     }
 
+
+/* + + + + +  tab controlls  + + + + + */
     ul.meta-tabs {
         list-style: none;
-        background-color: @background_page-header;
-        @media @screen_max-md{
-            background-color: #fff;
-        }
+        line-height: 160%;
         margin: 0;
         padding: 0;
 
+        @media @screen_min-md {
+            white-space: nowrap;
+            text-align: right;
+        }
+
         &::before,
         &::after {
-            display: table;
-            content: " ";
-            box-sizing: border-box;
+            content: '';
             clear: both;
+            display: table;
+            box-sizing: border-box;
         }
 
         > li:first-child {
@@ -47,27 +79,45 @@
         }
 
         > li {
-            margin: 0 0 -1px;
             position: relative;
             display: inline-block;
+            vertical-align: bottom;
+            margin: 0;
+
+            @media @screen_min-md {
+                margin-left: .3rem;
+            }
+
+            @media @screen_max-md {
+                margin-right: .4rem;
+                margin-bottom: .2rem;
+            }
 
             > a {
                 cursor: pointer;
                 position: relative;
                 display: block;
-                background-color: @color-site-bg;
-                border: 1px solid @color-border-light;
-                border-bottom-color: @color-site-bg;
-                border-radius: @fix_border-radius @fix_border-radius 0 0;
-                color: @color-nav;
                 font-size: @font-size-small;
                 line-height: 1.42857143;
-                padding: .3em 1rem .1em;
-                margin-left: 4px;
-                transition: @transition color, @transition background-color, @transition border-color;
-                @media @screen_max-xs{
-                    padding: .3em .3rem .1em;
+                transition: @transition background-color, @transition border-color, @transition color;
+
+                @media @screen_min-md {
+                    background-color: @ini_background;
+                    border: 1px solid @noopentasks-border;
+                    border-bottom-color: @ini_background;
+                    border-radius: @ini_default_border_radius @ini_default_border_radius 0 0; // @ini_default_border_radius vs. @fix_border-radius
+                    color: @ini_nav_menu_color;
+                    margin-left: 4px;
+                    padding: .3em 1rem .1em;
+                }
+
+                @media @screen_max-md {
+                    top: 0;
+                    border: 1px solid @ini_existing;
+                    color: @ini_existing;
+                    margin-top: .2rem;
                     margin-left: 0;
+                    padding: .2em .3rem;
                 }
 
                 * {
@@ -77,20 +127,25 @@
 
                 .prefix {
                     position: relative;
-                    transition: @transition color;
+                    color: inherit;
                     font-size: @font-size-small;
                 }
 
                 &:hover,
                 &:focus,
                 &:active {
-                    background-color: @color-content-bg;
-                    border-color: @color-link;
-                    color: @color-link;
                     text-decoration: none;
 
-                    .prefix {
-                        color: inherit;
+                    @media @screen_min-md {
+                        background-color: @ini_background_content;
+                        border-color: @ini_existing;
+                        color: @ini_existing;
+                    }
+
+                    @media @screen_max-md {
+                        background-color: @ini_existing;
+                        border-color: @ini_background_content;
+                        color: @ini_background_content;
                     }
                 }
             }
@@ -100,43 +155,56 @@
 
                 > a {
                     cursor: default;
-                    background-color: @color-content-bg;
-                    border-color: @color-link;
-                    border-bottom-color: @color-content-bg;
-                    color: @color-link;
+                    background-color: @ini_background_content;
+                    border-color: @ini_existing;
+                    border-bottom-color: @ini_background_content;
+                    color: @ini_existing;
+
+                    @media @screen_max-md {
+                        background-color: @ini_existing;
+                        border-bottom-color: @ini_existing;
+                        border-radius: 0;
+                        color: @ini_background_content;
+                    }
                 }
             }
         }
     }
 
+
+/* + + + + +  toggle content  + + + + + */
     .meta-content {
-        margin-right: 1px;
         margin-top: -1px;
+
+        @media @screen_max-md {
+            clear: both;
+            margin-top: 2px;
+        }
+
         .tab-pane {
             position: absolute;
             top: 0;
             right: 0;
             display: none;
             width: 100%;
-            min-width: 20em;
-            background-color: @color-content-bg;
-            border: 1px solid @color-link;
-            border-top-color: transparent;
-            border-radius: 0 0 @fix_border-radius @fix_border-radius;
+            background-color: @ini_background_content;
+            border: 1px solid @ini_existing;
 
-            &::before {
-                content: '';
-                position: absolute;
-                top: -1px;
-                left: 0;
-                z-index: 0;
-                width: 100%;
-                height: 1px;
-                background-color: @color-link;
+            @media @screen_min-xs {
+                min-width: 20em;
+            }
+
+            @media @screen_min-md {
+                border-radius: 0 0 @fix_border-radius @fix_border-radius; // @ini_default_border_radius vs. @fix_border-radius
             }
 
             &.active {
                 display: block;
+                overflow: hidden;
+            }
+
+            a {
+                color: @ini_existing;
             }
 
             > div {
@@ -158,6 +226,16 @@
                     li {
                         margin-left: 0;
                         padding-left: 1em;
+                    }
+                }
+            }
+
+            &#spr__tab-tags {
+                > div {
+                    ul {
+                        li {
+                            padding-left: 0;
+                        }
                     }
                 }
             }
@@ -189,23 +267,20 @@
                         position: relative;
                     }
 
-                    li {
-                    }
-
                     div.li {
                         position: relative;
                         padding: .15em 0;
 
                         &::before {
+                            content: '';
                             position: absolute;
-                            top: .3em;
-                            content: "";
+                            top: .6em;
+                            left: 0;
                             display: inline-block;
                             width: 4px;
                             height: 4px;
-                            background-color: #ccc;
                             overflow: hidden;
-                            left: 0;
+                            background-color: @ini_existing;
                         }
                     }
                 }
@@ -221,25 +296,4 @@
         clear: right;
         margin-top: 20px;
     }
-
-    @media @screen_max-md{
-        max-width: 100%;
-        float: none;
-        display: block;
-        top: -1.1rem;
-        position: relative;
-        right: auto;
-        .tab-container{
-            display: block;
-        }
-        ul.meta-tabs{
-            > li > a{
-                margin-left: 0;
-            }
-        }
-        .meta-content{
-            clear: both;
-        }
-    }
 }
-

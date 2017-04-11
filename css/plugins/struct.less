@@ -1,6 +1,9 @@
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* all media */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/**
+ * This file provides styles for struct plugin
+ */
+
+
+/* + + + + +  global  + + + + + */
 
 #dokuwiki__content {
     .structaggregation {
@@ -10,9 +13,26 @@
         padding-bottom: @link-height;
         margin-bottom: @grid;
 
-        table th input:focus {
-            width: 100%;
-            box-sizing: border-box;
+        td,
+        th {
+            line-height: @line-height-default;
+
+            a {
+                color: @ini_existing;
+                line-height: @line-height-default;
+            }
+        }
+
+        // search button in table (f.i. "All products")
+        table th input {
+            &:not(:focus) {
+                cursor: pointer;
+            }
+
+            &:focus {
+                width: 100%;
+                box-sizing: border-box;
+            }
         }
 
         .table {
@@ -26,22 +46,106 @@
             margin-bottom: 0;
 
             &.export {
+                bottom: 1px;
+                background: transparent url("svg.php?svg=file-export.svg&f=existing") left center no-repeat;
+                background-size: auto 20px;
+                border: solid 1px @ini_border;
+                color: @ini_existing;
+                font-size: @font-size-small;
                 line-height: 1;
-                padding-top: .3em;
+                margin-top: -1px;
+                padding-top: .4em;
+                transition: @transition background-color, @transition border-color, @transition color;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    background-color: @ini_existing;
+                    background-image: url("svg.php?svg=file-export.svg&f=background_content");
+                    border-color: @ini_existing;
+                    color: @ini_background_content;
+                    text-decoration: none;
+                }
             }
         }
     }
+
     #plugin__struct_output{
         margin-right: 0;
     }
 
     .struct_entry_form {
         margin-bottom: 2rem;
+
         > fieldset {
             margin-top: 1.5rem;
         }
     }
+
     textarea + .struct_entry_form {
         margin-top: -.5rem;
+    }
+
+    div.editBox {
+        .struct_entry_form {
+            label span.label {
+                color: @color-editBox;
+            }
+        }
+    }
+}
+
+.dokuwiki .struct_inlineditor {
+    z-index: 3;
+}
+
+
+/* + + + + +  form - Struct Schema Editor  + + + + + */
+form {
+    &.doku_form.struct_newschema {
+        fieldset {
+            > label {
+                > span:first-child {
+                    display: inline-block;
+
+                    @media @screen_min-lg {
+                        width: 48.8%;
+                    }
+
+                    @media @screen_max-lg {
+                        width: 48.5%;
+                    }
+                }
+
+                > input[type="text"] {
+                    width: 50%;
+                }
+            }
+
+            button {
+                cursor: pointer;
+                box-shadow: none;
+                background-image: none;
+                background-color: @ini_button_background;
+                border: 1px solid @ini_button_background;
+                border-radius: @fix_border-radius;
+                color: @ini_button_color;
+                vertical-align: top;
+                margin-top: .3em;
+                padding: .3em @grid;
+                transition: @transition background-color, @transition color;
+
+                &:hover,
+                &:active,
+                &:focus {
+                    background-color: @ini_button_color;
+                    color: @ini_button_background;
+                }
+
+                + p {
+                    padding-top: 1rem;
+                }
+            }
+        }
     }
 }

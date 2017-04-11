@@ -1,42 +1,129 @@
+/**
+ * This file provides the design styles for the admin tools
+ *
+ * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
+ */
+
+
 .do-admin {
     #admin__version {
         font-size: @font-size-default;
     }
+
     .main-content ul {
-         > li{
+        > li {
             font-size: @font-size-default;
 
-             div.li{
-                 font-size: @font-size-default;
+            div.li {
+                font-size: @font-size-default;
 
-                 a{
-                     font-size: @font-size-default;
-                     line-height: 125%;
-                     cursor: pointer;
-                 }
-             }
-        }
-    }
-
-    ul.admin_tasks {
-        padding: 0;
-
-        li {
-            background-size: auto 1rem;
-            margin: 0 0 .6em 0;
-
-            a {
-                font-weight: 400;
+                a {
+                    font-size: @font-size-default;
+                    line-height: 125%;
+                    cursor: pointer;
+                }
             }
         }
     }
 
-    @media @screen_max-md {
-        ul.admin_tasks {
-            float: none;
-            width: auto;
-        }
+    div.ui-admin {
+        ul.admin_tasks,
+        ul.admin_plugins {
+            padding: 0;
 
+            li {
+                background-size: auto 1rem;
+                margin: 0 0 .6em 0;
+
+                a {
+                    color: @ini_existing;
+                    font-weight: 400;
+
+                    * {
+                        color: inherit;
+                    }
+
+                    span.icon {
+                        width: 1.6em;
+                        min-height: 1.6em;
+                        margin-top: -.3rem;
+                        margin-bottom: .3rem;
+
+                        svg {
+                            width: 26px;
+                            height: 26px;
+                            border: solid 1px @ini_background_content;
+                            border-radius: @ini_default_border_radius;
+                            fill: @ini_existing;
+                            transition: @transition background-color, @transition border-color, @transition fill;
+
+                            path {
+                                fill: @ini_existing;
+                                transition: @transition fill;
+                            }
+                        }
+                    }
+
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        span.icon {
+                            svg {
+                                background-color: @ini_existing;
+                                border-color: @ini_existing;
+                                fill: @ini_background_content;
+
+                                path {
+                                    fill: @ini_background_content;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* 1024px */
+
+@media @screen_max-md {
+    .do-admin {
+        div.ui-admin {
+            ul.admin_tasks {
+                width: 50%;
+                padding-top: 1rem;
+
+                li {
+                    white-space: normal;
+
+                    a {
+                        .display-flex(); // for better position with line breaks (white-space)
+
+                        span.icon {
+                            margin-top: -.3rem;
+                            margin-bottom: .3rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* 768px */
+
+@media @screen_max-xs {
+    .do-admin {
+        div.ui-admin {
+            ul.admin_tasks {
+                width: auto;
+                padding-top: 1rem;
+            }
+        }
+    }
+}

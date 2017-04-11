@@ -30,10 +30,10 @@ if($doPlugin !== null) {
         $title = $this->getLang('title_alldone');
     } elseif($count['late'] == 0) { // open tasks but none late
         $class = 'do_undone';
-        $title = sprintf($this->getLang('title_intime'), $count['undone']);
+        $title = sprintf(tpl_getLang('title_intime'), $count['undone']);
     } else { // late tasks
         $class = 'do_late';
-        $title = sprintf($this->getLang('title_late'), $count['undone'], $count['late']);
+        $title = sprintf(tpl_getLang('title_late'), $count['undone'], $count['late']);
     }
     $markup = "<li class=\"plugin__do_pagetasks " . $class . "\" title=\"'.$title.'\"><strong><span class=\"prefix\">" . tpl_getLang('prefix_tasks_page') . " </span><span class=\"num\">" . $num . "</span></strong></li>";
 

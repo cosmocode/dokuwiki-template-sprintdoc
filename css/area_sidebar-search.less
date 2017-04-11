@@ -5,35 +5,38 @@
  */
 
 .search.main-sidebar {
-;
     @main-ico-dummy: @font-size-big + @margin-small*2; //FIXME copied from area_main-sidebar-nav
-
     @icon-size: @page-header_height;
     @icon-search_font-size: @font-size-big;
+
     p.toggleSearch a,
     button[type="submit"] {
         .fontello();
         .hide-text-show-before();
         .icon-search();
+
         position: relative;
         width: @icon-size;
         min-height: @icon-size;
         overflow: visible;
         background-image: none;
-        background-color: transparent;
-        color: @color-nav;
+        background-color: transparent; // fix
+        border: solid 1px transparent;
         padding: 0;
         transition: @transition color, @transition background-color, @transition border-color;
+
         &:hover,
         &:focus,
         &:active {
-            background-color: @button_color;
-            border: solid 1px @button_background;
-            color: @button_background;
+            min-height: @icon-size;
+            background-color: @ini_button_color;
+            border: solid 1px @ini_button_background;
+
             &::after {
-                background-color: @button_background;
+                background-color: @ini_button_background;
             }
         }
+
         &::before {
             width: 100%;
             color: inherit;
@@ -42,51 +45,91 @@
             margin: 0;
         }
     }
+
     p.toggleSearch {
         display: none;
         margin: -2px 0 0; // reverse transparent border and box-sizing of a child
         padding: 0;
+
+        @media @screen_max-xxlg {
+            margin-top: -1px;
+        }
+
         a {
             min-width: (@toggle-showsidebar_width + 0.1); /* must be a bit a wider than @toggle-showsidebar_width to hide right border */
             width: @main-ico-dummy;
-            border: solid 1px transparent;
-            border-bottom: solid 1px @color-border;
-            border-radius: @fix_border-radius 0 0 0;
+            border-radius: @fix_border-radius;
+            color: @ini_nav_menu_color;
             text-decoration: none;
             box-sizing: border-box;
-            &:hover,
-            &:focus,
-            &:active {
-                border-radius: @fix_border-radius 0 0 @fix_border-radius;
-            }
+
             &::before {
                 position: absolute;
                 top: 50%;
                 left: 0;
+                color: inherit;
                 text-align: center;
                 margin-top: -(@icon-search_font-size / 2);
             }
+
+            &:hover,
+            &:focus,
+            &:active {
+                background-color: @ini_nav_menu_hover_bg;
+                border-color: @ini_nav_menu_hover_color;
+                color: @ini_nav_menu_hover_color;
+            }
         }
     }
-    /* + + +  form  + + + */
+
+    button[type="submit"] {
+        position: absolute;
+        top: 1px;
+        bottom: 1px;
+        right: 0;
+        height: auto;
+        min-height: (@icon-size - .2);
+        color: @quicksearch-button-color;
+
+        &:hover,
+        &:focus,
+        &:active {
+            top: 0;
+            bottom: 0;
+            min-height: @icon-size;
+            background-color: @ini_button_color;
+            border: solid 1px @ini_button_background;
+            color: @ini_button_background;
+        }
+    }
+
+
+/* + + +  form  + + + */
     form {
+        position: relative;
         display: block;
         margin: 0 0 @margin-default;
+
         .no {
+            display: block;
+
             #qsearch__in {
                 width: 100%;
                 padding-left: 10px;
-                padding-right: (@icon-size + 10);
+                padding-right: @icon-size;
             }
         }
+
         input {
             min-height: @icon-size;
             box-sizing: border-box;
         }
+
         button[type="submit"] {
             border: solid 1px transparent;
-            border-right-color: @color-border;
+            border-right-color: @ini_border;
             margin-left: -(@icon-size);
+
             &::after {
                 content: '';
                 position: absolute;
@@ -94,8 +137,30 @@
                 bottom: 15%;
                 width: 1px;
                 left: -1px;
-                background-color: @color-border;
+                background-color: @ini_border;
                 transition: @transition background-color;
+            }
+        }
+
+        div.ajax_qsearch {
+            box-shadow: none;
+            background-color: #FFF;
+            padding: 0;
+
+            strong,
+            ul li {
+                color: @quicksearch-button-color;
+                padding: .25rem .5rem;
+
+                * {
+                    color: inherit;
+                }
+            }
+
+            ul li {
+                &:nth-child(odd) {
+                    background-color: @suggestion-zebra;
+                }
             }
         }
     }
@@ -106,23 +171,31 @@
         width: 100%;
     }
 }
+
+
+/* + + + + +  wide page content  + + + + + */
 .wide-content {
     .search.main-sidebar {
         p.toggleSearch {
+            position: relative;
+            z-index: 1;
             display: block;
             float: left;
             width: 100%;
         }
+
         form {
             input {
                 border: 0 none;
             }
+
             .no {
                 #qsearch__in {
                     width: 0;
                     padding: 0;
                     margin: 0;
                 }
+
                 button[type="submit"] {
                     display: none;
                 }
