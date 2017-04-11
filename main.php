@@ -177,11 +177,28 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                         </div><!-- .search -->
 
                         <div id="dokuwiki__aside">
+
+                            <?php
+                            echo Template::getInstance()->getInclude(
+                                'sidebarheader',
+                                '<div class="sidebarheader">',
+                                '<div class="clearer"></div></div>'
+                            );
+                            ?>
+
                             <?php
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* sidebar */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
                                 include('tpl/main-sidebar-nav.php');
+                            ?>
+
+                            <?php
+                            echo Template::getInstance()->getInclude(
+                                'sidebarfooter',
+                                '<div class="sidebarfooter">',
+                                '<div class="clearer"></div></div>'
+                            );
                             ?>
                         </div><!-- .aside -->
 
