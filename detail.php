@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <?php
 /**
- * DokuWiki Image Detail Page
+ * DokuWiki sprintDoc Detail Template
  *
- * @author   Andreas Gohr <andi@splitbrain.org>
- * @author   Anika Henke <anika@selfthinker.org>
+ * @link     FIXME
+ * @author   Jana Deutschlaender <deutschlaender@cosmocode.de>
+ * @author   Michael Grosse <grosse@cosmocode.de>
  * @license  GPL 2 (http://www.gnu.org/licenses/gpl.html)
  */
+use dokuwiki\template\sprintdoc\Template;
 
-// must be run from within DokuWiki
-if (!defined('DOKU_INC')) {
-    die();
-}
+if (!defined('DOKU_INC')) die();                        /* must be run from within DokuWiki */
 header('X-UA-Compatible: IE=edge,chrome=1');
 
 global $JSINFO;
@@ -20,21 +19,44 @@ if (empty($JSINFO)) {
 }
 
 ?>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $conf['lang'] ?>"
-      lang="<?php echo $conf['lang'] ?>" dir="<?php echo $lang['direction'] ?>" class="no-js">
+<html class="edge no-js" lang="<?php echo $conf['lang'] ?>" dir="<?php echo $lang['direction'] ?>">
 <head>
-    <meta charset="UTF-8"/>
-    <title>
-        <?php echo hsc(tpl_img_getTag('IPTC.Headline', $IMG)) ?>
-        [<?php echo strip_tags($conf['title']) ?>]
-    </title>
-    <script>(function (H) {
-            H.className = H.className.replace(/\bno-js\b/, 'js')
-        })(document.documentElement)</script>
-    <?php tpl_metaheaders() ?>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <?php echo tpl_favicon(array('favicon', 'mobile')) ?>
-    <?php tpl_includeFile('meta.html') ?>
+<?php
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* meta and link relations */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+?>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<?php tpl_metaheaders() ?>
+<?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* page title */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+?>
+<title><?php echo hsc(tpl_img_getTag('IPTC.Headline', $IMG)) ?> [<?php echo strip_tags($conf['title']) ?>]</title>
+
+<script type="text/javascript">(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+<?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* favicons */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+?>
+<?php
+include('tpl/favicon_tiles.php');
+?>
+<?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Include Hook: meta.html */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+?>
+<?php tpl_includeFile('meta.html') ?>
 </head>
 
 <body id="dokuwiki__top" class="<?php echo tpl_classes(); ?> wide-content showSidebar">
@@ -177,8 +199,12 @@ if (empty($JSINFO)) {
                                     <?php tpl_img(900, 700); /* the image; parameters: maximum width, maximum height (and more) */ ?>
                                 </div>
 
-                                <div class="img_detail">
-                                    <h2><?php print nl2br(hsc(tpl_img_getTag('simple.title'))); ?></h2>
+                                <div class="img_detail"><?php
+                                    $simple_title = hsc(tpl_img_getTag('simple.title'));
+                                    if(strlen($simple_title) > 0) { ?>
+                                    <h2><?php print nl2br(hsc(tpl_img_getTag('simple.title'))); ?></h2><?php
+                                    }
+                                    ?>
 
                                     <?php
                                     tpl_img_meta();
