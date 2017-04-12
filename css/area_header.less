@@ -150,4 +150,35 @@
             }
         }
     }
+
+
+/* + + + + +  with magic matcher  + + + + + */
+    &.has-magicmatcher {
+        .logo {
+            @media @screen_min-md {
+                padding-top: 2rem;
+            }
+        }
+
+        .main-title.desktop-only {
+            @media @screen_min-md {
+                vertical-align: bottom;
+                padding-top: @height-context-bar;
+                padding-bottom: 1rem;
+            }
+
+            p.title {
+                @media @screen_min-md {
+                    margin-right: 16rem;
+                }
+            }
+
+            p.claim {
+                @media @screen_max-md {
+                    display: block;
+                    padding-bottom: 1rem;
+                }
+            }
+        }
+    }
 }
