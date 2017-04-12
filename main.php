@@ -106,6 +106,12 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="claim main-sidebar">
+                            <div class="menu-togglelink mobile-only">
+                                <a href="#">
+                                    <span class="sr-out"><?php echo tpl_getLang('a11y_sidebartoggle'); ?></span>
+                                </a>
+                            </div>
+
                             <?php if (tpl_getConf('logo') && file_exists(mediaFN(tpl_getConf('logo')))){
 
 
