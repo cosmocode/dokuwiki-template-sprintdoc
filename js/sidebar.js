@@ -57,7 +57,7 @@ jQuery(function () {
             var $main = $nav.find('nav.nav-main');
             if (!$main.length) return;
 
-            var ELEMENT = 'h1,h2,h3,h4,h5'; // FIXME move to config
+            var ELEMENT = JSINFO.template.sprintdoc.sidebar_toggle_elements;
             var $elements = $main.find(ELEMENT);
             $elements.each(function () {
                 var $me = jQuery(this),
@@ -98,6 +98,10 @@ jQuery(function () {
 
                 // replace element with toggler
                 $me.replaceWith($toggler);
+
+                if ($toggler.parent('li').length) {
+                    $toggler.parent('li').addClass('toggler');
+                }
             });
         },
 

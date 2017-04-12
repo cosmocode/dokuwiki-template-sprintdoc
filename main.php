@@ -14,6 +14,12 @@ use dokuwiki\template\sprintdoc\Template;
 if (!defined('DOKU_INC')) die();                        /* must be run from within DokuWiki */
 header('X-UA-Compatible: IE=edge,chrome=1');
 
+global $JSINFO;
+if (empty($JSINFO['template'])) {
+    $JSINFO['template'] = array();
+}
+$JSINFO['template']['sprintdoc'] = array('sidebar_toggle_elements' => tpl_getConf('sidebar_sections'));
+
 $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && !empty($_SERVER['REMOTE_USER']) );
 $showSidebar =  true; /*  */
 ?>
