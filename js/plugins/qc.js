@@ -6,7 +6,7 @@ jQuery(function () {
 
     // load summary
     jQuery('.page-attributes .plugin_qc a').load(
-        DOKU_BASE + '/lib/exe/ajax.php',
+        DOKU_BASE + 'lib/exe/ajax.php',
         {
             call: 'plugin_qc_short',
             id: JSINFO['id']
@@ -20,7 +20,7 @@ jQuery(function () {
         if ($panel.html() == '') {
             // load output
             $panel.load(
-                DOKU_BASE + '/lib/exe/ajax.php',
+                DOKU_BASE + 'lib/exe/ajax.php',
                 {
                     call: 'plugin_qc_long',
                     id: JSINFO['id']
