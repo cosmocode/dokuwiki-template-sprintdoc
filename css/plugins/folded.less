@@ -1,0 +1,35 @@
+/**
+ * This file provides styles for the toggle "folded"
+ */
+
+
+/* + + + + +  global  + + + + + */
+
+#dokuwiki__content {
+    a.folder {
+        background: transparent url("svg.php?svg=down.svg&f=existing") right center no-repeat;
+        color: @ini_existing;
+        padding-right: 20px;
+
+        &.open {
+            background-image: url("svg.php?svg=up.svg&f=existing");
+        }
+    }
+
+    div.folded {
+        box-shadow: @box-shadow-colored;
+        border: 1px solid fade(@ini_existing, 50%);
+        border-radius: 0;
+        margin-top: -.7rem;
+        margin-bottom: .7rem;
+        padding: .5em;
+
+        p {
+            margin: .5rem 0;
+        }
+    }
+
+    span.folded {
+        border: 1px dotted @ini_border;
+    }
+}

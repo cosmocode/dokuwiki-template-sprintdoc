@@ -49,6 +49,8 @@ class Template {
      */
     public function registerIncludes(\Doku_Event $event) {
         $event->data['footer'] = 'Footer below the page content';
+        $event->data['sidebarfooter'] = 'Footer below the sidebar';
+        $event->data['sidebarheader'] = 'Header above the sidebar';
     }
 
     /**

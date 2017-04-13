@@ -2,15 +2,39 @@
  * This file provides styles for the edit view (?do=edit), preview
  * and section edit buttons.
  */
-/* + + + + +  edit view  + + + + + */
-.dokuwiki {
 
-    .editBox {
+
+/* + + + + +  edit view  + + + + + */
+
+#dokuwiki__content {
+    div.section_highlight {
+        clear: right;
+    }
+
+    .secedit button {
+        clear: both;
+        font-size: 100%;
+        margin-top: .5rem;
+        margin-bottom: .5rem;
+    }
+
+    div.editBox {
+        background-color: #FFF;
+        border: solid 2px #FFF;
+        border-radius: @ini_default_border_radius;
+
         .editButtons {
             display: inline-block;
             padding-bottom: 1rem;
         }
+
+        * {
+            &:not(button) {
+                color: @color-editBox;
+            }
+        }
     }
+
 }
 
 
@@ -21,6 +45,7 @@
             margin-bottom: 1.5rem;
             clear: both;
         }
+
         #spr__meta-box {
             display: none;
         }

@@ -89,6 +89,12 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="claim main-sidebar">
+                            <div class="menu-togglelink mobile-only">
+                                <a href="#">
+                                    <span class="sr-out"><?php echo tpl_getLang('a11y_sidebartoggle'); ?></span>
+                                </a>
+                            </div>
+
                             <?php if (tpl_getConf('logo') && file_exists(mediaFN(tpl_getConf('logo')))){
 
 
@@ -98,11 +104,35 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
 /* upload your logo into the data/media folder (root of the media manager) and replace 'logo.png' in der template config accordingly: */
                                 include('tpl/main-sidebar-logo.php');
                              } ?>
-                            <?php if ($conf['tagline']): ?>
+                            <div class="main-title">
+                                <?php if ($conf['title']):
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Wiki Title Mobile */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */ ?>
+                                    <p class="title mobile-only"><?php echo $conf['title'] ?></p>
+                                <?php endif ?>
+                            </div><!-- .main-title -->
+                        </div><!-- .headings -->
+                    </div><!-- .col -->
+
+                    <div class="col-xs-12">
+                        <div class="main-title desktop-only">
+                            <?php if ($conf['title']):
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Wiki Title Desktop */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */ ?>
+                                <p class="title"><?php echo $conf['title'] ?></p>
+                            <?php endif ?>
+                            <?php if ($conf['tagline']):
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Wiki Tagline Desktop */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */ ?>
                                 <p class="claim"><?php echo $conf['tagline'] ?></p>
                             <?php endif ?>
-
-                        </div><!-- .headings -->
+                        </div><!-- .main-title -->
                     </div><!-- .col -->
                 </div><!-- .row -->
             </div><!-- .container -->
@@ -147,11 +177,28 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                         </div><!-- .search -->
 
                         <div id="dokuwiki__aside">
+
+                            <?php
+                            echo Template::getInstance()->getInclude(
+                                'sidebarheader',
+                                '<div class="sidebarheader">',
+                                '<div class="clearer"></div></div>'
+                            );
+                            ?>
+
                             <?php
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* sidebar */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
                                 include('tpl/main-sidebar-nav.php');
+                            ?>
+
+                            <?php
+                            echo Template::getInstance()->getInclude(
+                                'sidebarfooter',
+                                '<div class="sidebarfooter">',
+                                '<div class="clearer"></div></div>'
+                            );
                             ?>
                         </div><!-- .aside -->
 
@@ -219,7 +266,7 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                         <div class="breadcrumbs" data-do="<?php echo $ACT?>">
 
                             <div class="togglelink page_main-content">
-                                <a href="#">&lt; &gt;<span class="sr-out"><?php echo tpl_getLang('a11y_sidebartoggle')?></span></a>
+                                <a href="#"><span class="sr-out"><?php echo tpl_getLang('a11y_sidebartoggle')?></span></a>
                             </div>
 
                             <h6 class="sr-only" role="heading" aria-level="2"><?php echo  tpl_getLang('head_menu_status')  ?></h6>
