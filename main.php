@@ -88,9 +88,26 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
 /* Include Hook: header.html */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
             tpl_includeFile('header.html');
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* User Tools and MagicMatcher Bar */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+
+            /** @var \helper_plugin_magicmatcher_context $mm */
+            $mm = plugin_load('helper', 'magicmatcher_context');
+            $headerClass = ""; /* for additionial class in #dokuwiki__header */
+            $navClass = "";    /* for additionial class in #dokuwiki__usertools (header.html) */
+
+            if($mm){
+                $matcher = $mm->getIssueContextBar();
+                if($matcher !== ""){
+                    $headerClass = "has-magicmatcher";
+                    $navClass = "has-bar";
+                }
+            }
         ?>
 
-        <div id="dokuwiki__header" class="header no-print">
+        <div id="dokuwiki__header" class="header <?php echo $headerClass; ?> no-print">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
@@ -121,6 +138,7 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                             </div><!-- .main-title -->
                         </div><!-- .headings -->
                     </div><!-- .col -->
+
 
                     <div class="col-xs-12">
                         <div class="main-title desktop-only">
@@ -159,18 +177,6 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
-
-                        <div class="sidebarheader main-sidebar">
-                            <?php
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* Include Hook: sidebarheader.html */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                                tpl_includeFile('sidebarheader.html')
-                            ?>
-                        </div><!-- .sidebarheader -->
-
                         <div class="search main-sidebar">
                             <?php
 
@@ -181,13 +187,40 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                                 include('tpl/main-sidebar-search.php');
                             ?>
                         </div><!-- .search -->
+                        <div class="sidebarheader main-sidebar">
+                            <?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Include Hook: sidebarheader.html */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                            tpl_includeFile('sidebarheader.html')
+                            ?>
+                        </div><!-- .sidebarheader -->
 
                         <div id="dokuwiki__aside">
+
+                            <?php
+                            echo Template::getInstance()->getInclude(
+                                'sidebarheader',
+                                '<div class="sidebarheader">',
+                                '<div class="clearer"></div></div>'
+                            );
+                            ?>
+
                             <?php
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* sidebar */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
                                 include('tpl/main-sidebar-nav.php');
+                            ?>
+
+                            <?php
+                            echo Template::getInstance()->getInclude(
+                                'sidebarfooter',
+                                '<div class="sidebarfooter">',
+                                '<div class="clearer"></div></div>'
+                            );
                             ?>
                         </div><!-- .aside -->
 
@@ -208,16 +241,6 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* User Tools and MagicMatcher Bar */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                            /** @var \helper_plugin_magicmatcher_context $mm */
-                            $mm = plugin_load('helper', 'magicmatcher_context');
-                            $navClass = "";
-                            if($mm){
-                                $matcher = $mm->getIssueContextBar();
-                                if($matcher !== ""){
-                                    $navClass = "has-bar";
-                                }
-                            }
-
                             include('tpl/nav-usertools-buttons.php');
                             if($mm && $matcher !== ""){
                                 include('tpl/nav-magicmatcher.php');

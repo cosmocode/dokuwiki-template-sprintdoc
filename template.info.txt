@@ -1,7 +1,7 @@
 base     sprintdoc
 author   Jana Deutschlaender
 email    deutschlaender@cosmocode.de
-date     2016-12-05
+date     2017-04-13
 name     sprintDoc Template
 desc     DokuWiki Template for sprintDoc Project
 url      FIXME URL
