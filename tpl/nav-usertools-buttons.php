@@ -1,7 +1,7 @@
 <?php
     if (!defined('DOKU_INC')) die();
 
-    if ($conf['useacl'] && $showTools): ?>
+    if ($conf['useacl']): ?>
 
         <nav id="dokuwiki__usertools" class="nav-usertools <?php echo $navClass?>">
             <h6 class="sr-only" role="heading" aria-level="2"><?php echo $lang['user_tools']; ?></h6>
