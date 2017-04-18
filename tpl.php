@@ -97,4 +97,90 @@ class tpl {
 
       return $out;
   }
+
+    /**
+     * Assemble the tools for the current page
+     *
+     * It also includes the tools for some plugins, if they are installed and enabled. This does currently not trigger
+     * any events, but should be adjusted to the standard dokuwiki template, once that has svg-functionality implemented.
+     *
+     * @return array
+     */
+    static public function assemblePageTools() {
+      $data = array(
+          'view'  => 'main-svg',
+          'items' => array(
+              'edit'      => static::pageToolAction('edit'),
+              'revert'    => static::pageToolAction('revert'),
+              'revisions' => static::pageToolAction('revisions'),
+              'backlink'  => static::pageToolAction('backlink'),
+              'subscribe' => static::pageToolAction('subscribe'),
+          )
+      );
+
+      $data['items'] = array_map(function ($elem) {
+          return '<li>' . $elem . '</li>';
+      },array_filter($data['items']));
+
+      /**
+       * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+       * Begin shims as a temporary solution until the svg-approach is mainlined and the plugins have adapted
+       * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+       */
+      global $ACT;
+      if (act_clean($ACT) === 'show') {
+          /** @var \action_plugin_move_rename $move */
+          $move = plugin_load('action', 'move_rename');
+          if ($move && $move->getConf('pagetools_integration')) {
+              $attr = array(
+                  'style' => 'background-image: none;',
+              );
+              $item = \dokuwiki\template\sprintdoc\tpl::pageToolItem('', $move->getLang('renamepage'), __DIR__ . '/images/tools/41-format-paint.svg', $attr);
+              $data['items'][] = '<li class="plugin_move_page">' . $item . '</li>';
+          }
+
+          /** @var \action_plugin_odt_export $odt */
+          $odt = plugin_load('action', 'odt_export');
+          if ($odt && $odt->getConf('showexportbutton')) {
+              global $ID, $REV;
+              $params = array('do' => 'export_odt');
+              if ($REV) {
+                  $params['rev'] = $REV;
+              }
+              $attr = array(
+                  'class' => 'action export_pdf',
+                  'style' => 'background-image: none;',
+              );
+              $svg = __DIR__ . '/images/tools/43-file-delimeted.svg';
+              $item = \dokuwiki\template\sprintdoc\tpl::pageToolItem(wl($ID, $params, false, '&'), $odt->getLang('export_odt_button'), $svg, $attr);
+              $data['items'][] = '<li>' . $item . '</li>';
+          }
+
+          /** @var \action_plugin_dw2pdf $dw2pdf */
+          $dw2pdf = plugin_load('action', 'dw2pdf');
+          if ($dw2pdf && $dw2pdf->getConf('showexportbutton')) {
+              global $ID, $REV;
+
+              $params = array('do' => 'export_pdf');
+              if ($REV) {
+                  $params['rev'] = $REV;
+              }
+              $attr = array(
+                  'class' => 'action export_pdf',
+                  'style' => 'background-image: none;',
+              );
+              $svg = __DIR__ . '/images/tools/40-pdf-file.svg';
+              $item = \dokuwiki\template\sprintdoc\tpl::pageToolItem(wl($ID, $params, false, '&'), $dw2pdf->getLang('export_pdf_button'), $svg, $attr);
+              $data['items'][] = '<li>' . $item . '</li>';
+          }
+      }
+      /**
+       * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+       * End of shims
+       * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+       */
+
+      $data['items']['top'] = '<li>' . static::pageToolAction('top') . '</li>';
+      return $data;
+  }
 }
