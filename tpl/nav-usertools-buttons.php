@@ -32,11 +32,11 @@
                             $class = 'opentask opentasks';
                             break;
                     }
-                    $linktarget = tpl_getConf('tasks_page');
+
                     $doInner = "<span class=\"prefix\">".tpl_getLang('prefix_tasks_user')." </span><span class=\"num\">".count($tasks)."</span>";
                     if($linktarget){
                         if (substr($linktarget, 0, 1) !== ':') {
-                            $linktarget = tpl_getConf('user_ns'). $_SERVER['REMOTE_USER'] .':' . $linktarget;
+                            $linktarget = 'user:' . $_SERVER['REMOTE_USER'] .':' . 'dashboard';
                         }
                         if($num == 0){
                             echo '<li class="user-task '.$class.'"><strong>'.$doInner.'</strong></li>';

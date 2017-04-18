@@ -20,7 +20,7 @@ if (empty($JSINFO['template'])) {
 }
 $JSINFO['template']['sprintdoc'] = array('sidebar_toggle_elements' => tpl_getConf('sidebar_sections'));
 
-$showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && !empty($_SERVER['REMOTE_USER']) );
+$showTools = true;
 $showSidebar =  true; /*  */
 ?>
 <html class="edge no-js" lang="<?php echo $conf['lang'] ?>" dir="<?php echo $lang['direction'] ?>">
@@ -118,7 +118,7 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                                 </a>
                             </div>
 
-                            <?php if (tpl_getConf('logo') && file_exists(mediaFN(tpl_getConf('logo')))){
+                            <?php
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
@@ -126,7 +126,7 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* upload your logo into the data/media folder (root of the media manager) and replace 'logo.png' in der template config accordingly: */
                                 include('tpl/main-sidebar-logo.php');
-                             } ?>
+                            ?>
                             <div class="main-title">
                                 <?php if ($conf['title']):
 
