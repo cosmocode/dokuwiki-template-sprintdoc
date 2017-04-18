@@ -171,18 +171,6 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
-
-                        <div class="sidebarheader main-sidebar">
-                            <?php
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* Include Hook: sidebarheader.html */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                                tpl_includeFile('sidebarheader.html')
-                            ?>
-                        </div><!-- .sidebarheader -->
-
                         <div class="search main-sidebar">
                             <?php
 
@@ -193,6 +181,16 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                                 include('tpl/main-sidebar-search.php');
                             ?>
                         </div><!-- .search -->
+                        <div class="sidebarheader main-sidebar">
+                            <?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Include Hook: sidebarheader.html */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                            tpl_includeFile('sidebarheader.html')
+                            ?>
+                        </div><!-- .sidebarheader -->
 
                         <div id="dokuwiki__aside">
 
