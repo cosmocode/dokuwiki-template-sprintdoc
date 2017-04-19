@@ -288,7 +288,7 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* page quality / page tasks */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                                include('tpl/nav-page-quality-tasks.php');
+                                include('tpl/nav-page-attributes.php');
                             ?>
 
                             <?php
@@ -324,6 +324,7 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                                 include('tpl/nav-meta-box.php'); ?>
                             </div>
 
+                            <div class="qc-output"></div>
 
                             <div class="msg-area"><?php html_msgarea();/*msg('Information.', 0);msg('Success', 1);msg('Notification', 2);msg('Fehler', -1);*/ ?></div>
                             <?php

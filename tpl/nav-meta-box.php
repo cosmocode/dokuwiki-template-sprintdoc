@@ -12,7 +12,7 @@ $tabs = \dokuwiki\template\sprintdoc\Template::getInstance()->getMetaBoxTabs();
             if (empty($tab['tab']) || trim($tab['tab']) === '') {
                 continue;
             }
-            echo '<li>';
+            echo '<li class="' . $tab['id'] . '">';
             echo '<a href="#' . $tab['id'] . '" aria-expanded="false">';
             echo '<span class="prefix">';
             echo $tab['label'];
