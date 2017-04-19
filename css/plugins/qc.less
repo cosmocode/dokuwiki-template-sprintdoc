@@ -3,7 +3,7 @@
  */
 
 
-/* + + + + +  icon in page attributes3  + + + + + */
+/* + + + + +  icon in breadcrumb  + + + + + */
 
 .page-attributes .plugin_qc {
     .qc_icon {
@@ -19,8 +19,18 @@
 }
 
 
-// output
+/* + + + + +  slideout output  + + + + + */
 .qc-output {
+    min-width: 100%;
+    width: auto;
     font-size: 90%;
-    border-bottom: 1px solid @ini_border;
+    box-shadow: @box-shadow-bottom;
+    margin: -(@page_padding-top) -(@margin-default) 0;
+
+    .qc_icon {
+        background-color: #fff;
+        border-radius: @fix_border-radius;
+        vertical-align: top;
+        padding: .1rem;
+    }
 }

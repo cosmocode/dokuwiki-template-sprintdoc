@@ -40,8 +40,10 @@
             display: block;
             width: auto;
             min-height: 1.64rem;
+            background-color: @ini_nav_menu_hover_bg;
             border: 1px solid @wikiicons-border;
             border-radius: @ini_default_border_radius;
+            transition: @transition background-color, @transition border-color, @transition color;
 
             &:hover,
             &:focus,
@@ -58,7 +60,7 @@
         }
 
         .prefix {
-            .btn-prefix ();
+            .btn-prefix(.26rem);
             .icon-clipboard();
 
             display: block;

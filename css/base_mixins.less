@@ -175,7 +175,7 @@
     }
 }
 
-.btn-usertools-num () {
+.btn-usertools-num() {
     .num {
         position: absolute;
         right: -.4rem;
@@ -192,7 +192,7 @@
     }
 }
 
-.btn-prefix () {
+.btn-prefix(@margin-top:.3rem) {
     .fontello();
     .hide-text-show-before();
 
@@ -204,7 +204,7 @@
     }
 
     @media @screen_max-xxlg {
-        margin-top: .3rem;
+        margin-top: @margin-top;
     }
 
     @media @screen_max-md {
