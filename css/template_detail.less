@@ -1,0 +1,126 @@
+/**
+ * This file provides the design styles for the the detail template
+ * (media details)
+ *
+ * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
+ */
+#dokuwiki__detail {
+
+    // linked image
+    .img-link{
+
+        text-align: center;
+
+        a {
+            display: inline-block;
+            margin: 0 auto 1.4em;
+            position: relative;
+
+            img {
+                margin: 0;
+                display: block;
+                border: 1px dotted @ini_background;
+                position: relative;
+                z-index: 1;
+            }
+
+            &:hover,
+            &:focus,
+            &:active {
+                &:before{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    box-sizing: border-box;
+                    display: block;
+                    padding: @margin-small;
+
+                    z-index:2;
+                    background: @ini_button_background;
+                    color: @ini_button_color;
+                    content:attr(title);
+                }
+                img {
+                    border: 1px solid @ini_button_background;
+                }
+            }
+
+        }
+    }
+
+    // meta data
+    div.img_detail {
+        /* vertical minus margin of .img-detail corresponds to the padding of .page  */
+        margin: @margin-default -(@margin-default);
+
+        border: solid @ini_border_light;
+        border-width: 1px 0;
+        background-color: @ini_background_page_header;
+        h1, h2, h3, h4, h5, h6, p{
+            padding-left: @margin-default;
+            padding-right: @margin-default;
+        }
+
+        dl {
+            display: flex;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+
+
+            flex-direction: row;
+            -webkit-flex-direction: row;
+            -ms-flex-direction: row;
+
+            flex-wrap: wrap;
+            -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+
+            width: 100%;
+
+            dt, dd {
+                box-sizing: border-box;
+                margin: .2em 0;
+                padding: (@small-spacing * 2) @small-spacing;
+            }
+
+            dt {
+                width: 33.3%;
+                background-color: @ini_highlight;
+                color: @ini_highlight_text;
+
+            }
+            dd {
+                width: 66.6%;
+                padding-left: (@small-spacing * 2);
+            }
+
+        }
+        .os-map {
+            p {
+                text-align: right;
+            }
+            iframe {
+                padding: 0;
+                margin: 0;
+                border: solid @ini_button_background;
+                border-width: 1px 0;
+            }
+        }
+
+        @media @screen_max-md {
+            margin-right: -(@margin-default * 1.6);
+            h1, h2, h3, h4, h5, h6, p {
+                padding-right: (@margin-default * 1.6);
+            }
+        }
+
+        @media @screen_max-xs {
+            margin-left: -(@margin-small);
+            h1, h2, h3, h4, h5, h6, p {
+                padding-left: @margin-small;
+            }
+        }
+
+    }
+}
