@@ -17,7 +17,7 @@ echo Template::getResizedImgTag(
     'link',
     array(
         'rel' => 'shortcut icon',
-        'href' => array('wiki:favicon.ico', 'wiki:favicon.png')
+        'href' => array('wiki:favicon.ico', 'wiki:favicon.png', 'wiki:logo-square.png')
     ),
     0, 0 // no scaling
 );
@@ -29,7 +29,7 @@ foreach(array(57, 60, 72, 76, 114, 120, 144, 152, 180) as $size) {
         array(
             'rel' => 'apple-touch-icon',
             'sizes' => $size . 'x' . $size,
-            'href' => array('wiki:logo-' . $size . 'x' . $size . '.png', 'wiki:logo-square.png', 'wiki:logo.png')
+            'href' => array('wiki:logo-' . $size . 'x' . $size . '.png', 'wiki:logo-square.png', 'wiki:favicon.ico', 'wiki:favicon.png', 'wiki:logo.png'),
         ),
         $size, $size
     );
@@ -42,7 +42,7 @@ foreach(array(32, 96, 192) as $size) {
         array(
             'rel' => 'icon',
             'sizes' => $size . 'x' . $size,
-            'href' => array('wiki:logo-' . $size . 'x' . $size . '.png', 'wiki:logo-square.png', 'wiki:logo.png')
+            'href' => array('wiki:logo-' . $size . 'x' . $size . '.png', 'wiki:logo-square.png', 'wiki:favicon.ico', 'wiki:favicon.png', 'wiki:logo.png')
         ),
         $size, $size
     );
@@ -54,7 +54,7 @@ foreach(array(70, 310) as $size) {
         'meta',
         array(
             'name' => 'msapplication-square' . $size . 'x' . $size . 'logo',
-            'content' => array('wiki:logo-' . $size . 'x' . $size . '.png', 'wiki:logo-square.png', 'wiki:logo.png')
+            'content' => array('wiki:logo-' . $size . 'x' . $size . '.png', 'wiki:logo-square.png', 'wiki:favicon.ico', 'wiki:favicon.png', 'wiki:logo.png'),
         ),
         $size, $size
     );
