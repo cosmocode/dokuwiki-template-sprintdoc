@@ -25,7 +25,48 @@
     width: auto;
     font-size: 90%;
     box-shadow: @box-shadow-bottom;
-    margin: -(@page_padding-top) -(@margin-default) 0;
+    margin-bottom: 0;
+
+    @media @screen_min-xxs {
+        margin-top: -(@page_padding-top);
+        margin-right: -(@margin-default);
+        margin-left: -(@margin-default);
+        padding-left: @margin-default;
+        padding-right: @margin-default;
+    }
+
+    @media @screen_max-md {
+        margin-top: -(@page_padding-top + 2);
+        margin-right: -(@margin-default * 1.6);
+        margin-left: -(@margin-default);
+        padding-top: @margin-default;
+    }
+
+    @media @screen_max-xxs {
+        margin-left: -(@margin-small);
+        padding-left: @margin-small;
+        padding-right: @margin-default;
+    }
+
+    div,
+    p {
+        margin-left: 0;
+    }
+
+    dl {
+        dt,
+        dd {
+            @media @screen_max-xxs {
+                float: none;
+                display: inline-block;
+                width: 49%;
+                max-width: 10em;
+                vertical-align: top;
+                margin-left: 0;
+                padding-bottom: @small-spacing;
+            }
+        }
+    }
 
     .qc_icon {
         background-color: #fff;
