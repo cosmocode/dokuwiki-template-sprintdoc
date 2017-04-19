@@ -181,7 +181,7 @@ class Template {
             'img',
             array(
                 'class' => 'mobile-hide',
-                'src' => array(tpl_getConf('logo'), 'wiki:logo-wide.png', 'wiki:logo.png'),
+                'src' => array('wiki:logo-wide.png', 'wiki:logo.png'),
                 'alt' => $title,
             ),
             0, 0
@@ -190,7 +190,7 @@ class Template {
             'img',
             array(
                 'class' => 'mobile-only',
-                'src' => array('wiki:logo-32x32.png', 'wiki:favicon.png', 'wiki:logo-square.png', 'wiki:logo.png', tpl_getConf('logo')),
+                'src' => array('wiki:logo-32x32.png', 'wiki:favicon.png', 'wiki:logo-square.png', 'wiki:logo.png'),
                 'alt' => $title,
             ),
             32, 32

@@ -14,7 +14,13 @@ use dokuwiki\template\sprintdoc\Template;
 if (!defined('DOKU_INC')) die();                        /* must be run from within DokuWiki */
 header('X-UA-Compatible: IE=edge,chrome=1');
 
-$showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && !empty($_SERVER['REMOTE_USER']) );
+global $JSINFO;
+if (empty($JSINFO['template'])) {
+    $JSINFO['template'] = array();
+}
+$JSINFO['template']['sprintdoc'] = array('sidebar_toggle_elements' => tpl_getConf('sidebar_sections'));
+
+$showTools = true;
 $showSidebar =  true; /*  */
 ?>
 <html class="edge no-js" lang="<?php echo $conf['lang'] ?>" dir="<?php echo $lang['direction'] ?>">
@@ -82,9 +88,26 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
 /* Include Hook: header.html */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
             tpl_includeFile('header.html');
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* User Tools and MagicMatcher Bar */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+
+            /** @var \helper_plugin_magicmatcher_context $mm */
+            $mm = plugin_load('helper', 'magicmatcher_context');
+            $headerClass = ""; /* for additionial class in #dokuwiki__header */
+            $navClass = "";    /* for additionial class in #dokuwiki__usertools (header.html) */
+
+            if($mm){
+                $matcher = $mm->getIssueContextBar();
+                if($matcher !== ""){
+                    $headerClass = "has-magicmatcher";
+                    $navClass = "has-bar";
+                }
+            }
         ?>
 
-        <div id="dokuwiki__header" class="header no-print">
+        <div id="dokuwiki__header" class="header <?php echo $headerClass; ?> no-print">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
@@ -95,7 +118,7 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                                 </a>
                             </div>
 
-                            <?php if (tpl_getConf('logo') && file_exists(mediaFN(tpl_getConf('logo')))){
+                            <?php
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
@@ -103,7 +126,7 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* upload your logo into the data/media folder (root of the media manager) and replace 'logo.png' in der template config accordingly: */
                                 include('tpl/main-sidebar-logo.php');
-                             } ?>
+                            ?>
                             <div class="main-title">
                                 <?php if ($conf['title']):
 
@@ -115,6 +138,7 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                             </div><!-- .main-title -->
                         </div><!-- .headings -->
                     </div><!-- .col -->
+
 
                     <div class="col-xs-12">
                         <div class="main-title desktop-only">
@@ -153,18 +177,6 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
-
-                        <div class="sidebarheader main-sidebar">
-                            <?php
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* Include Hook: sidebarheader.html */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                                tpl_includeFile('sidebarheader.html')
-                            ?>
-                        </div><!-- .sidebarheader -->
-
                         <div class="search main-sidebar">
                             <?php
 
@@ -175,6 +187,16 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                                 include('tpl/main-sidebar-search.php');
                             ?>
                         </div><!-- .search -->
+                        <div class="sidebarheader main-sidebar">
+                            <?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Include Hook: sidebarheader.html */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                            tpl_includeFile('sidebarheader.html')
+                            ?>
+                        </div><!-- .sidebarheader -->
 
                         <div id="dokuwiki__aside">
 
@@ -219,16 +241,6 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* User Tools and MagicMatcher Bar */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                            /** @var \helper_plugin_magicmatcher_context $mm */
-                            $mm = plugin_load('helper', 'magicmatcher_context');
-                            $navClass = "";
-                            if($mm){
-                                $matcher = $mm->getIssueContextBar();
-                                if($matcher !== ""){
-                                    $navClass = "has-bar";
-                                }
-                            }
-
                             include('tpl/nav-usertools-buttons.php');
                             if($mm && $matcher !== ""){
                                 include('tpl/nav-magicmatcher.php');
@@ -276,7 +288,7 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* page quality / page tasks */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                                include('tpl/nav-page-quality-tasks.php');
+                                include('tpl/nav-page-attributes.php');
                             ?>
 
                             <?php
@@ -312,6 +324,7 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                                 include('tpl/nav-meta-box.php'); ?>
                             </div>
 
+                            <div class="qc-output"></div>
 
                             <div class="msg-area"><?php html_msgarea();/*msg('Information.', 0);msg('Success', 1);msg('Notification', 2);msg('Fehler', -1);*/ ?></div>
                             <?php

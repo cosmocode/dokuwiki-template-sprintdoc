@@ -1,0 +1,163 @@
+/**
+ * This file provides the design styles for page revisions
+ *
+ * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
+ */
+
+
+.dokuwiki {
+
+/* + + + + +  list of changes  + + + + + */
+    form.changes {
+        li {
+            .sizechange {
+                color: @color-editBox;
+
+                &.positive {
+                    background-color: #cfc;
+                }
+
+                &.negative {
+                    background-color: #fdd;
+                }
+            }
+        }
+
+        > .no > ul > li {
+            min-height: @formfield_min-height;
+            vertical-align: baseline;
+            margin-bottom: @small-spacing;
+
+            .li {
+                line-height: 150%;
+
+                > * {
+                    min-height: 10px;
+                }
+            }
+
+            a,
+            span,
+            img {
+                vertical-align: baseline;
+            }
+
+            img {
+                margin-left: @small-spacing;
+                margin-right: @small-spacing;
+            }
+
+            input[type="checkbox"] {
+                margin: 0 .5rem .2rem -1.5rem;
+            }
+
+            span.user bdi {
+                a {
+                    vertical-align: baseline;
+                }
+            }
+        }
+    }
+
+
+/* + + + + +  view of differents  + + + + + */
+    a.difflink {
+        color: @ini_existing;
+
+        * {
+            color: inherit;
+        }
+    }
+
+    .diffnav {
+        a {
+            background-color: @ini_background;
+            border: solid 1px @ini_background;
+            border-radius: @ini_default_border_radius;
+            color: @ini_nav_menu_color;
+            transition: @transition background-color, @transition color, @transition border-color;
+
+            &::before {
+                background-color: inherit;
+                border: 0 none;
+                color: inherit;
+            }
+
+            &:hover,
+            &:focus,
+            &:active {
+                background-color: @ini_nav_menu_color;
+                border: solid 1px @ini_nav_menu_color;
+                color: @ini_background;
+
+                &::before {
+                    background-color: inherit;
+                    color: inherit;
+                }
+            }
+        }
+    }
+
+    table.diff {
+        background-color: #fff;
+        border: solid 1px #fff;
+        border-top-width: 10px;
+        border-bottom-width: 10px;
+
+        &.diff_inline {
+            border-top-width: 0;
+
+            .diffnav {
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+        }
+
+        th {
+            background-color: @ini_background_content;
+            color: @ini_text;
+            padding-top: 10px;
+            padding-bottom: 10px;
+
+            &.minor {
+                color: #999;
+            }
+        }
+
+        td {
+            &.diff-blockheader {
+                background-color: #cfc;
+                color: @color-editBox;
+            }
+
+            &.diff-context {
+                background-color: #eee;
+                color: @color-editBox;
+            }
+        }
+
+        .diff-addedline {
+            background-color: #cfc;
+            color: @color-editBox;
+
+            strong {
+                background-color: transparent;
+                color: #f00;
+            }
+        }
+
+        .diff-deletedline {
+            background-color: #fdd;
+            color: @color-editBox;
+
+            * {
+                color: inherit;
+            }
+
+            strong {
+                background-color: transparent;
+                color: #f00;
+            }
+        }
+    }
+}

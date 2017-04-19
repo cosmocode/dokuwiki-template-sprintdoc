@@ -11,6 +11,20 @@ jQuery(function () {
     var setWideContent = function () {
             $nav.find('div.nav-panel').hide(); // close all panels
             jQuery('body').addClass('wide-content');
+            removeToggleStorage();
+        },
+
+        /**
+         * removes information about the toggle-state
+         */
+        removeToggleStorage = function () {
+            for (var index=0; index <= sessionStorage.length; index += 1) {
+                var item = sessionStorage.getItem('sidebar-section-' + index + '-open');
+                if (!item) {
+                    break;
+                }
+                sessionStorage.removeItem('sidebar-section-' + index + '-open');
+            }
         },
 
         /**
@@ -46,6 +60,7 @@ jQuery(function () {
                     focusFirstSubLink($panel);
                 }
             });
+            sessionStorage.setItem('sidebar-section-' + $toggler.data('index') + '-open', !isOpen);
         },
 
         /**
@@ -57,9 +72,13 @@ jQuery(function () {
             var $main = $nav.find('nav.nav-main');
             if (!$main.length) return;
 
-            var ELEMENT = 'h1,h2,h3,h4,h5'; // FIXME move to config
+            if(jQuery('body').hasClass('wide-content')) {
+                removeToggleStorage();
+            }
+
+            var ELEMENT = JSINFO.template.sprintdoc.sidebar_toggle_elements;
             var $elements = $main.find(ELEMENT);
-            $elements.each(function () {
+            $elements.each(function (index) {
                 var $me = jQuery(this),
 
                 // prepare text and the optional icon
@@ -83,6 +102,7 @@ jQuery(function () {
                         .text(text)
                         .wrapInner('<span class="lbl">')
                         .prepend($icon)
+                        .data('index', index)
                     ;
 
                 // wrap all following siblings til the next element in a wrapper
@@ -98,6 +118,15 @@ jQuery(function () {
 
                 // replace element with toggler
                 $me.replaceWith($toggler);
+
+                if ($toggler.parent('li').length) {
+                    $toggler.parent('li').addClass('toggler');
+                }
+
+                if (sessionStorage.getItem('sidebar-section-' + index + '-open') === 'true') {
+                    $wrap.css('display', 'block');
+                }
+
             });
         },
 
