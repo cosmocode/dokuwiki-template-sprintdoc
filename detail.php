@@ -1,93 +1,381 @@
 <!DOCTYPE html>
 <?php
 /**
- * DokuWiki Image Detail Page
+ * DokuWiki sprintDoc Detail Template
  *
- * @author   Andreas Gohr <andi@splitbrain.org>
- * @author   Anika Henke <anika@selfthinker.org>
+ * @link     FIXME
+ * @author   Jana Deutschlaender <deutschlaender@cosmocode.de>
+ * @author   Michael Grosse <grosse@cosmocode.de>
  * @license  GPL 2 (http://www.gnu.org/licenses/gpl.html)
  */
+use dokuwiki\template\sprintdoc\Template;
 
-// must be run from within DokuWiki
-if (!defined('DOKU_INC')) die();
+if (!defined('DOKU_INC')) die();                        /* must be run from within DokuWiki */
 header('X-UA-Compatible: IE=edge,chrome=1');
 
+global $JSINFO;
+if (empty($JSINFO)) {
+    $JSINFO = array();
+}
+
 ?>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $conf['lang']?>"
- lang="<?php echo $conf['lang']?>" dir="<?php echo $lang['direction'] ?>" class="no-js">
+<html class="edge no-js" lang="<?php echo $conf['lang'] ?>" dir="<?php echo $lang['direction'] ?>">
 <head>
-    <meta charset="UTF-8" />
-    <title>
-        <?php echo hsc(tpl_img_getTag('IPTC.Headline',$IMG))?>
-        [<?php echo strip_tags($conf['title'])?>]
-    </title>
-    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
-    <?php tpl_metaheaders()?>
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <?php echo tpl_favicon(array('favicon', 'mobile')) ?>
-    <?php tpl_includeFile('meta.html') ?>
+<?php
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* meta and link relations */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+?>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<?php tpl_metaheaders() ?>
+<?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* page title */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+?>
+<title><?php echo hsc(tpl_img_getTag('IPTC.Headline', $IMG)) ?> [<?php echo strip_tags($conf['title']) ?>]</title>
+
+<script type="text/javascript">(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+<?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* favicons */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+?>
+<?php
+include('tpl/favicon_tiles.php');
+?>
+<?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Include Hook: meta.html */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+?>
+<?php tpl_includeFile('meta.html') ?>
 </head>
 
-<body>
-    <div id="dokuwiki__detail" class="<?php echo tpl_classes(); ?>">
-        <?php html_msgarea() ?>
+<body id="dokuwiki__top" class="<?php echo tpl_classes(); ?> wide-content showSidebar">
+<div id="dokuwiki__site">
+    <?php
 
-        <?php if($ERROR): print $ERROR; ?>
-        <?php else: ?>
 
-            <?php if($REV) echo p_locale_xhtml('showrev');?>
-            <h1><?php echo hsc(tpl_img_getTag('IPTC.Headline', $IMG))?></h1>
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* template Include: tpl/nav-direct */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+    ?>
+    <?php include('tpl/nav-direct.php') ?>
+
+
+    <div class="page-wrapper <?php echo ($showSidebar) ? 'hasSidebar' : ''; ?>">
+        <?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Include Hook: header.html */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+            tpl_includeFile('header.html');
+        ?>
+
+        <div id="dokuwiki__header" class="header no-print">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="claim main-sidebar">
+                            <?php if (tpl_getConf('logo') && file_exists(mediaFN(tpl_getConf('logo')))) {
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Logo */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* upload your logo into the data/media folder (root of the media manager) and replace 'logo.png' in der template config accordingly: */
+                                include('tpl/main-sidebar-logo.php');
+                            } ?>
+                            <div class="main-title">
+                                <?php if ($conf['title']):
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Wiki Title Mobile */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */ ?>
+                                    <p class="title mobile-only"><?php echo $conf['title'] ?></p>
+                                <?php endif ?>
+                            </div><!-- .main-title -->
+
+                        </div><!-- .headings -->
+                    </div><!-- .col -->
+                    <div class="col-xs-12">
+                        <div class="main-title desktop-only">
+                            <?php if ($conf['title']):
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Wiki Title Desktop */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */ ?>
+                                <p class="title"><?php echo $conf['title'] ?></p>
+                            <?php endif ?>
+                            <?php if ($conf['tagline']):
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Wiki Tagline Desktop */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */ ?>
+                                <p class="claim"><?php echo $conf['tagline'] ?></p>
+                            <?php endif ?>
+                        </div><!-- .main-title -->
+                    </div><!-- .col -->
+
+                </div><!-- .row -->
+            </div><!-- .container -->
+        </div><!-- .header -->
+        <?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* headline menu area (Accessibility ) */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+        ?>
+        <div class="sr-only nav-area-head">
+            <h5 class="sr-only" aria-level="1"><?php echo tpl_getLang('nav-area-head') ?></h5>
+        </div><!-- .nav-area-head -->
+
+        <div class="tools">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+
+
+                        <div class="search main-sidebar">
+                            <?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* search form */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                            include('tpl/main-sidebar-search.php');
+                            ?>
+                        </div><!-- .search -->
+
+                        <div class="sidebarheader main-sidebar">
+                            <?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Include Hook: sidebarheader.html */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                            tpl_includeFile('sidebarheader.html')
+                            ?>
+                        </div><!-- .sidebarheader -->
+
+
+                        <div id="dokuwiki__aside">
+                            <?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* sidebar */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                            include('tpl/main-sidebar-nav.php');
+                            ?>
+                        </div><!-- .aside -->
+
+                    </div><!-- .col -->
+                </div><!-- .row -->
+            </div><!-- .container -->
+        </div><!-- .tools -->
+
+        <div class="top-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+
+                        <?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* User Tools but no MagicMatcher Bar */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                        $showTools = true;
+                        include('tpl/nav-usertools-buttons.php');
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* Include Hook: header.html */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                        tpl_includeFile('header.html');
+                        ?>
+
+                    </div><!-- .col -->
+                </div><!-- .row -->
+            </div><!-- .container -->
+        </div><!-- /top-header -->
+
+
+        <div id="dokuwiki__detail">
+
+            <?php tpl_flush(); /* flush the output buffer */ ?>
 
             <div class="content group">
-                <?php tpl_img(900, 700); /* the image; parameters: maximum width, maximum height (and more) */ ?>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="breadcrumbs" data-do="<?php echo $ACT ?>">
 
-                <div class="img_detail">
-                    <h2><?php print nl2br(hsc(tpl_img_getTag('simple.title'))); ?></h2>
+                                <div class="togglelink page_main-content">
+                                    <a href="#"><span class="sr-out"><?php echo tpl_getLang('a11y_sidebartoggle') ?></span></a>
+                                </div>
 
-                    <?php if(function_exists('tpl_img_meta')): ?>
-                        <?php tpl_img_meta(); ?>
-                    <?php else: /* deprecated since Release 2014-05-05 */ ?>
-                        <dl>
-                            <?php
-                                $config_files = getConfigFiles('mediameta');
-                                foreach ($config_files as $config_file) {
-                                    if(@file_exists($config_file)) {
-                                        include($config_file);
-                                    }
-                                }
+                                <h6 class="sr-only" role="heading" aria-level="2"><?php echo tpl_getLang('head_menu_status') ?></h6>
 
-                                foreach($fields as $key => $tag){
-                                    $t = array();
-                                    if (!empty($tag[0])) {
-                                        $t = array($tag[0]);
-                                    }
-                                    if(is_array($tag[3])) {
-                                        $t = array_merge($t,$tag[3]);
-                                    }
-                                    $value = tpl_img_getTag($t);
-                                    if ($value) {
-                                        echo '<dt>'.$lang[$tag[1]].':</dt><dd>';
-                                        if ($tag[2] == 'date') {
-                                            echo dformat($value);
+                                <?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* breadcrumb */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                                include('tpl/nav-breadcrumb.php');
+                                ?>
+
+                                <h6 class="sr-only" role="heading" aria-level="2"><?php echo $lang['page_tools'] ?></h6>
+
+                                <?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* page tools */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */ ?>
+                                <nav id="dokuwiki__pagetools">
+                                    <div class="tools">
+                                        <ul>
+                                            <?php
+                                            echo '<li>' . dokuwiki\template\sprintdoc\tpl::pageToolAction('mediaManager') . '</li>';
+                                            echo '<li>' . dokuwiki\template\sprintdoc\tpl::pageToolAction('img_backto') . '</li>';
+                                            ?>
+                                        </ul>
+                                    </div>
+                                </nav>
+
+                            </div>
+                            <div id="dokuwiki__content" class="page main-content">
+
+                                <div id="spr__meta-box"></div>
+                                <div class="msg-area"><?php html_msgarea();/*msg('Information.', 0);msg('Success', 1);msg('Notification', 2);msg('Fehler', -1);*/ ?></div>
+
+
+                                <?php if ($ERROR): print $ERROR; ?>
+                                <?php else: ?>
+
+                                <?php if ($REV) {
+                                    echo p_locale_xhtml('showrev');
+                                } ?>
+
+                                <h1><?php echo hsc(tpl_img_getTag('IPTC.Headline', $IMG)) ?></h1>
+                                <?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* image */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                                ?>
+                                <div class="img-link">
+                                    <?php tpl_img(900, 700); /* the image; parameters: maximum width, maximum height (and more) */ ?>
+                                </div>
+                                <?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* meta data of image */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                                ?>
+                                <div class="img_detail">
+                                    <?php
+                                        $simple_title = hsc(tpl_img_getTag('simple.title'));
+                                        if(strlen($simple_title) > 0) {
+                                    ?>
+                                    <h4><?php print nl2br(hsc(tpl_img_getTag('simple.title'))); ?></h4>
+                                    <?php
                                         } else {
-                                            echo hsc($value);
+                                            echo '<h4>' . tpl_getLang('meta_data') . '</h4>';
                                         }
-                                        echo '</dd>';
+                                    ?>
+
+                                    <?php
+                                    tpl_img_meta();
+
+
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* open street maps if geo data is available */
+/** @var helper_plugin_spatialhelper_index $spatial */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                                    $spatial = plugin_load('helper', 'spatialhelper_index');
+                                    if ($spatial && plugin_load('helper', 'geophp')) {
+                                        global $IMG;
+                                        $point = $spatial->getCoordsFromExif($IMG);
+                                        if ($point) {
+                                            $long = $point->getX();
+                                            $lat = $point->getY();
+                                            $latShort = round($lat, 3);
+                                            $longShort = round($long, 3);
+
+                                            $hrefOSM = "https://www.openstreetmap.org/?mlat=$lat&mlon=$long#map=18/$lat/$long";
+                                            $srcOSM = 'https://www.openstreetmap.org/export/embed.html?bbox=' . ($long - 0.004) . ',' . ($lat - 0.002) . ',' . ($long + 0.004) . ',' . ($lat + 0.002) . '&layer=mapnik&marker=' . $lat . ',' . $long;
+                                            echo '<div class="os-map">';
+                                            echo '<h4 lang="en">OSM (Open Street Maps):</h4>';
+                                            echo '<iframe width="100%" height="350" frameborder="0" src="' . $srcOSM . '"></iframe><br/><p><a class="button" target="_blank" title="' . tpl_getLang('osm_zoom_link_title') . '" href="' . $hrefOSM . '">' . tpl_getLang('osm_zoom_link_text') . '</a></p>';
+                                            echo '</div>';
+                                        }
                                     }
-                                }
-                            ?>
-                        </dl>
-                    <?php endif; ?>
-                    <?php //Comment in for Debug// dbg(tpl_img_getTag('Simple.Raw')); ?>
-                </div>
+                                    ?>
+                                    <?php //Comment in for Debug// dbg(tpl_img_getTag('Simple.Raw')); ?>
+                                </div>
+                            </div><!-- .main-content -->
+                        </div><!-- .col -->
+                    </div><!-- .row -->
+                </div><!-- .container -->
             </div><!-- /.content -->
 
-            <p class="back">
-                <?php tpl_action('mediaManager', 1) ?><br />
-                &larr; <?php tpl_action('img_backto', 1) ?>
-            </p>
 
         <?php endif; ?>
-    </div>
+        </div>
+    </div><!-- /wrapper -->
+
+
+    <!-- ********** FOOTER ********** -->
+
+    <div id="dokuwiki__footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+
+                    <div class="main-footer">
+                        <p>
+                            <?php
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* copyright */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                            tpl_license($img = false, $imgonly = false, $return = false, $wrap = false);
+                            ?>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div><!-- /footer -->
+
+
+    <?php tpl_includeFile('footer.html') ?>
+</div><!-- .dokuwiki__site -->
+
+<div class="no"><?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?></div>
+
 </body>
 </html>
