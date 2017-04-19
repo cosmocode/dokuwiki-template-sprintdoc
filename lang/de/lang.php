@@ -43,6 +43,9 @@ $lang['discussion']                 = 'Diskussion';
 $lang['back_to_article']            = 'Zurück zum Artikel';
 $lang['userpage']                   = 'Benutzer-Seite';
 
+$lang['osm_zoom_link_text']         = 'größere Karte anzeigen';
+$lang['osm_zoom_link_title']        = 'externer Link - öffnet in neuem Fenster';
+
 
 /**
  * colors

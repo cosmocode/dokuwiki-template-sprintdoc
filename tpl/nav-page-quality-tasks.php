@@ -13,7 +13,7 @@
     }
     if ($qc) {
         echo "<li class=\"plugin__qc do_none\"><a id=\"plugin__qc__link\" aria-expanded=\"false\" href=\"#plugin__qc__wrapper\"><span class=\"prefix\">".tpl_getLang('quality_trigger')."</span><span class=\"num\">0</span></strong></a>";
-        $qc->tplErrorCount();
+        //$qc->tplErrorCount();
         echo "</li>";
     }
     if ($doPlugin !== null ) {
