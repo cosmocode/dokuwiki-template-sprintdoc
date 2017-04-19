@@ -34,17 +34,12 @@
                     }
 
                     $doInner = "<span class=\"prefix\">".tpl_getLang('prefix_tasks_user')." </span><span class=\"num\">".count($tasks)."</span>";
-                    if($linktarget){
-                        if (substr($linktarget, 0, 1) !== ':') {
-                            $linktarget = 'user:' . $_SERVER['REMOTE_USER'] .':' . 'dashboard';
-                        }
-                        if($num == 0){
-                            echo '<li class="user-task '.$class.'"><strong>'.$doInner.'</strong></li>';
-                        }else{
-                            echo '<li class="user-task '.$class.'"><a href="'.wl($linktarget).'">'.$doInner.'</a></li>';
-                        }
-                    }
-                    else{
+
+                    $userpage = $doplugin->getConf('userpage');
+                    if ($userpage && $_SERVER['REMOTE_USER'] && $num > 0) {
+                        $linktarget = sprintf($userpage, $_SERVER['REMOTE_USER']) . ':' . 'dashboard';
+                        echo '<li class="user-task '.$class.'"><a href="'.wl($linktarget).'">'.$doInner.'</a></li>';
+                    } else {
                         echo '<li class="user-task '.$class.'"><strong>'.$doInner.'</strong></li>';
                     }
                 } ?>
