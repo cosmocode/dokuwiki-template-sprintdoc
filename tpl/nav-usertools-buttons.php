@@ -1,7 +1,7 @@
 <?php
     if (!defined('DOKU_INC')) die();
 
-    if ($conf['useacl'] && $showTools): ?>
+    if ($conf['useacl']): ?>
 
         <nav id="dokuwiki__usertools" class="nav-usertools <?php echo $navClass?>">
             <h6 class="sr-only" role="heading" aria-level="2"><?php echo $lang['user_tools']; ?></h6>
@@ -32,11 +32,11 @@
                             $class = 'opentask opentasks';
                             break;
                     }
-                    $linktarget = tpl_getConf('tasks_page');
+
                     $doInner = "<span class=\"prefix\">".tpl_getLang('prefix_tasks_user')." </span><span class=\"num\">".count($tasks)."</span>";
                     if($linktarget){
                         if (substr($linktarget, 0, 1) !== ':') {
-                            $linktarget = tpl_getConf('user_ns'). $_SERVER['REMOTE_USER'] .':' . $linktarget;
+                            $linktarget = 'user:' . $_SERVER['REMOTE_USER'] .':' . 'dashboard';
                         }
                         if($num == 0){
                             echo '<li class="user-task '.$class.'"><strong>'.$doInner.'</strong></li>';
