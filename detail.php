@@ -296,8 +296,10 @@ include('tpl/favicon_tiles.php');
                                         $simple_title = hsc(tpl_img_getTag('simple.title'));
                                         if(strlen($simple_title) > 0) {
                                     ?>
-                                    <h2><?php print nl2br(hsc(tpl_img_getTag('simple.title'))); ?></h2>
+                                    <h4><?php print nl2br(hsc(tpl_img_getTag('simple.title'))); ?></h4>
                                     <?php
+                                        } else {
+                                            echo '<h4>' . tpl_getLang('meta_data') . '</h4>';
                                         }
                                     ?>
 

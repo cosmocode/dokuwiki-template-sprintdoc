@@ -44,6 +44,7 @@ $lang['discussion']                 = 'Discussion';
 $lang['back_to_article']            = 'Back to article';
 $lang['userpage']                   = 'User page';
 
+$lang['meta_data']                  = 'Meta Data';
 $lang['osm_zoom_link_text']         = 'view larger map';
 $lang['osm_zoom_link_title']        = 'external link opens new window';
 
