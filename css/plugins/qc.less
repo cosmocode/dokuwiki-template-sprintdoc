@@ -1,79 +1,89 @@
 /**
- * This file provides styles for qc plugin
+ * Styles for the QC plugin
  */
 
 
-/* + + + + +  global  + + + + + */
+/* + + + + +  icon in breadcrumb  + + + + + */
 
-#dokuwiki__site {
-    .plugin__qc {
-        display: inline-block;
-        overflow: visible;
-        position: static;
-    }
+.page-attributes .plugin_qc {
+    .qc_icon {
+        margin: 0;
 
-    #plugin__qc__icon {
-        display: none;
-    }
-
-    #plugin__qc__link {
-        position: relative;
-
-        .prefix {
-            .icon-emo-happy();
-
-            width: 100%;
-            font-size: @font-size-default;
-
-            &::before {
-                width: 100%;
-                margin: 0;
-            }
+        svg {
+            margin-top: .1em;
+            width: 1.6em;
+            height: 1.6em;
+            font-size: (@font-size-small - .06);
         }
     }
+}
 
-    #plugin__qc__wrapper {
-        position: absolute;
-        right: 0;
-        z-index: 2000;
-        width: auto;
-        box-shadow: @box-shadow-bottom;
-        background: @ini_background_page_header;
-        background: -webkit-linear-gradient(top, @ini_background_page_header, @ini_background_content);
-        background: linear-gradient(top, @ini_background_page_header, @ini_background_content);
-        border: 0 none;
-        font-size: @font-size-default;
 
-        p {
-            font-size: @font-size-default;
-        }
+/* + + + + +  slideout output  + + + + + */
+.qc-output {
+    min-width: 100%;
+    width: auto;
+    font-size: 90%;
+    box-shadow: @box-shadow-bottom;
+    margin-bottom: 0;
 
-        #plugin__qc__out {
-            h1 {
-                font-size: @font-size-head3;
-            }
+    h2 {
+        font-size: 1.3rem;
+    }
+    h3 {
+         font-size: 1.1rem;
+    }
+    h4, h5, h6 {
+        font-size: 1rem;
+    }
 
-            h2 {
-                margin-top: 1.6em;
-                font-size: @font-size-head5;
-            }
-            > h1,
-            > h2,
-            > p,
-            > dl,
-            > div {
-                padding-left: 1rem;
+
+    @media @screen_min-xxs {
+        margin-top: -(@margin-default + 1);
+        margin-right: -(@margin-default);
+        margin-left: -(@margin-default);
+        padding-left: @margin-default;
+        padding-right: @margin-default;
+    }
+
+    @media @screen_max-md {
+        margin-top: -(@page_padding-top + 2);
+        margin-right: -(@margin-default * 1.6);
+        margin-left: -(@margin-default);
+        padding-top: @margin-default;
+    }
+
+    @media @screen_max-xxs {
+        margin-left: -(@margin-small);
+        padding-left: @margin-small;
+        padding-right: @margin-default;
+    }
+
+    div,
+    p {
+        margin-left: 0;
+    }
+
+    dl {
+        dt,
+        dd {
+            padding-bottom: @small-spacing;
+
+            @media @screen_max-xxs {
+                float: none;
+                display: inline-block;
+                width: 49%;
+                max-width: 10em;
+                vertical-align: top;
                 margin-left: 0;
             }
-
-            > div p {
-                padding-left: 0;
-                margin-left: 0;
-            }
         }
+    }
 
-        &[aria-hidden="false"] {
-            margin-top: .5rem;
-        }
+    .qc_icon {
+        background-color: #fff;
+        border-radius: @fix_border-radius;
+        vertical-align: top;
+        padding: .1rem;
     }
 }
