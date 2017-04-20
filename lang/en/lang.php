@@ -38,7 +38,11 @@ $lang['quality_trigger']            = 'toggle page analysis';
 $lang['prefix_tasks']               = 'open tasks: ';
 $lang['prefix_tasks_user']          = 'your open tasks: ';
 $lang['prefix_tasks_page']          = 'open tasks for this page: ';
-$lang['tasks_page_none']            = 'no open tasks for this page';
+$lang['tasks_page_none']            = 'There are no open tasks for this page.';
+$lang['tasks_page_intime']          = 'There are %1$d open tasks on this page.';
+$lang['tasks_page_late']            = 'There are %1$d open tasks on this page, %2$d are late.';
+$lang['tasks_user_none']            = 'You have no open tasks.';
+$lang['tasks_user_intime']          = 'You have %1$d open tasks.';
 
 $lang['discussion']                 = 'Discussion';
 $lang['back_to_article']            = 'Back to article';
