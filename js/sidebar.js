@@ -21,7 +21,7 @@ jQuery(function () {
             for (var index=0; index <= sessionStorage.length; index += 1) {
                 var item = sessionStorage.getItem('sidebar-section-' + index + '-open');
                 if (!item) {
-                    break;
+                    continue;
                 }
                 sessionStorage.removeItem('sidebar-section-' + index + '-open');
             }
