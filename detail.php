@@ -14,14 +14,20 @@ if (!defined('DOKU_INC')) die();                        /* must be run from with
 header('X-UA-Compatible: IE=edge,chrome=1');
 
 global $JSINFO;
-if (empty($JSINFO)) {
-    $JSINFO = array();
+if (empty($JSINFO['template'])) {
+    $JSINFO['template'] = array();
 }
+$JSINFO['template']['sprintdoc'] = array('sidebar_toggle_elements' => tpl_getConf('sidebar_sections'));
+
+$showTools = true;
+$showSidebar =  true;
 
 ?>
 <html class="edge no-js" lang="<?php echo $conf['lang'] ?>" dir="<?php echo $lang['direction'] ?>">
 <head>
 <?php
+
+
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* meta and link relations */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
@@ -247,7 +253,8 @@ include('tpl/favicon_tiles.php');
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* page tools */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */ ?>
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                                ?>
                                 <nav id="dokuwiki__pagetools">
                                     <div class="tools">
                                         <ul>
@@ -305,8 +312,6 @@ include('tpl/favicon_tiles.php');
 
                                     <?php
                                     tpl_img_meta();
-
-
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
