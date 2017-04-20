@@ -25,8 +25,19 @@
                 border-bottom: 1px solid @ini_border_light;
             }
 
+            .msg-area + * {
+                clear: both;
+                padding-top: 1em; // as h1
+            }
+
             #plugin__highlightparent {
+                clear: none;
                 display: block;
+
+                + * {
+                    clear: both;
+                    padding-top: 1em; // as h1
+                }
             }
         }
     }
