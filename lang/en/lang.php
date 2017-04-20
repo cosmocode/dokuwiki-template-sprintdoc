@@ -23,6 +23,7 @@ $lang['head_menu_status']           = 'site status';
 $lang['head_breadcrumb']            = 'location indicator';
 $lang['head_menu_trace']            = 'Last Visited Pages';
 $lang['head_meta_box']              = 'meta data for this page';
+$lang['head_menu_starred']          = 'Starred Pages';
 
 $lang['jump_to_quicksearch']        = 'Jump to quick search';
 
