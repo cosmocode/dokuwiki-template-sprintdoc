@@ -42,7 +42,7 @@ if($doPlugin !== null) {
 }
 
 if($starredPlugin !== null) {
-    echo '<li>';
+    echo '<li class="plugin_starred">';
     $starredPlugin->tpl_starred();
     echo '</li>';
 }

@@ -2,12 +2,28 @@
  * This file provides styles for starred plugin
  */
 
+.page-attributes {
 
-.page-attributes .starred svg {
-    height: 1.6em;
-    width: 1.6em;
+    li.plugin_starred {
+        .starred svg {
+            margin-top: .1em;
+            width: 1.6em;
+            height: 1.6em;
+            font-size: 0.82rem;
+            fill: @ini_nav_menu_color;
+        }
+
+        .starred.on svg {
+            fill: @ini_link;
+        }
+
+        a:hover,
+        a:active {
+            .starred svg {
+                fill: @ini_nav_menu_hover_bg;
+            }
+        }
+
+    }
 }
 
-.page-attributes .starred.on svg {
-    fill: @ini_link;
-}
