@@ -108,12 +108,20 @@
 
         span.lbl {
             flex-grow: 1;
+
+            // wordbreak to late in IE 10
+            @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+                width: 100%;
+                box-sizing: border-box;
+                padding-right: 13px;
+            }
         }
 
         span.ico {
+            .flex(0 0 auto);
+
             width: @menu-margin;
             height: @icon-size;
-            flex-grow: 0;
             border-right: 1px solid @ini_nav_menu_color;
             text-align: center;
             margin-right: 4%;
