@@ -21,7 +21,7 @@ if (empty($JSINFO['template'])) {
 $JSINFO['template']['sprintdoc'] = array('sidebar_toggle_elements' => tpl_getConf('sidebar_sections'));
 
 $showTools = true;
-$showSidebar =  true; /*  */
+$showSidebar =  true;
 ?>
 <html class="edge no-js" lang="<?php echo $conf['lang'] ?>" dir="<?php echo $lang['direction'] ?>">
 <head>
