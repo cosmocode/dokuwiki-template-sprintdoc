@@ -232,7 +232,7 @@ h6 {
 
 p {
     font-size: @font-size-default;
-    line-height: 135%;
+    line-height: @line-height-big;
 
     a,
     span,
@@ -371,6 +371,11 @@ dd {
 dl {
     font-size: @font-size-default;
     line-height: 140%;
+}
+
+dt,
+dd {
+    line-height: inherit;
 }
 
 dt {
