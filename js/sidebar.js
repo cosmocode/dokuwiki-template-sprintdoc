@@ -12,6 +12,7 @@ jQuery(function () {
             $nav.find('div.nav-panel').hide(); // close all panels
             jQuery('body').addClass('wide-content');
             removeToggleStorage();
+            sessionStorage.setItem('wide-content', true);
         },
 
         /**
@@ -32,7 +33,7 @@ jQuery(function () {
          */
         setDefaultContent = function () {
             jQuery('body').removeClass('wide-content');
-
+            sessionStorage.setItem('wide-content', false);
         },
 
         /**
@@ -166,6 +167,10 @@ jQuery(function () {
                     setWideContent();
                 }
             });
+
+            if (sessionStorage.getItem('wide-content') === 'true') {
+                setWideContent();
+            }
         },
 
         /**
