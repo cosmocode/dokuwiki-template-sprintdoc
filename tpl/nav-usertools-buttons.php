@@ -36,6 +36,7 @@
                     $userpage = $doplugin->getConf('userpage');
                     if ($userpage && $_SERVER['REMOTE_USER'] && $num > 0) {
                         $linktarget = sprintf($userpage, $_SERVER['REMOTE_USER']) . ':' . 'dashboard';
+                        $linktarget = str_replace('::', ':', $linktarget);
                         echo '<li class="user-task" title="'.$title.'"><a href="'.wl($linktarget).'">'.$doInner.'</a></li>';
                     } else {
                         echo '<li class="user-task" title="'.$title.'"><strong>'.$doInner.'</strong></li>';
