@@ -47,6 +47,8 @@ $lang['userpage']                   = 'User page';
 $lang['meta_data']                  = 'Meta Data';
 $lang['osm_zoom_link_text']         = 'view larger map';
 $lang['osm_zoom_link_title']        = 'external link opens new window';
+$lang['image_detail']               = 'image details';
+
 
 
 /**

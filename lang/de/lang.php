@@ -46,6 +46,7 @@ $lang['userpage']                   = 'Benutzer-Seite';
 $lang['meta_data']                  = 'Meta Daten des Bildes';
 $lang['osm_zoom_link_text']         = 'größere Karte anzeigen';
 $lang['osm_zoom_link_title']        = 'externer Link - öffnet in neuem Fenster';
+$lang['image_detail']               = 'Detailinformationen zum Bild';
 
 
 /**
