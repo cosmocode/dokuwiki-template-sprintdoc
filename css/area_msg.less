@@ -19,7 +19,10 @@
 }
 
 /* short fix: SPR-891 - Icons für Notifications in Message Area werden gekachelt */
-div.success, div.error, div.info, div.notify {
+div.success,
+div.error,
+div.info,
+div.notify {
     background-repeat: no-repeat;
     background-position: 8px 50%;
     border: 1px solid #eeb;
@@ -28,7 +31,7 @@ div.success, div.error, div.info, div.notify {
     padding: .4em;
     padding-left: 32px;
     overflow: hidden;
-    border-radius: 5px;
+    border-radius: @fix_border-radius;
 
     * {
         color: inherit;
