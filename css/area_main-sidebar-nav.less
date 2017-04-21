@@ -8,7 +8,8 @@
 
 #dokuwiki__aside {
     @icon-size: @font-size-big;
-    @menu-margin: @icon-size + @margin-small*2; // FIXME this is still wrong
+    @menu-margin: @icon-size + @margin-small * 2; // FIXME this is still wrong
+    @menu-margin-lg: 1.3rem;
 
     nav > p,
     .mmissuelist li,
@@ -36,6 +37,11 @@
                 list-style: none;
                 margin-left: 0;
             }
+        }
+
+        li:not([class]),
+        .li {
+            padding: .15em 0;
         }
     }
 
@@ -70,6 +76,10 @@
 
     > * {
         margin-left: @menu-margin; // moves *all* sidebar content to the right
+
+        @media @screen_md-lg {
+            margin-left: @menu-margin-lg;
+        }
     }
 
     a {
@@ -97,8 +107,12 @@
         color: @ini_nav_menu_color;
         font-size: @font-size-head6;
         font-weight: normal;
-        margin: -1px 0 (@font-size-head6 / 2) (@menu-margin * -1); // moves the toggles back to the left
+        margin: -1px 0 (@font-size-head6 / 2) -(@menu-margin); // moves the toggles back to the left
         transition: @transition color, @transition background-color, @transition border-color;
+
+        @media @screen_md-lg {
+            margin-left: -(@menu-margin-lg + 1);
+        }
 
         span {
             display: inline-block;
@@ -180,7 +194,14 @@
         }
     }
 
-    // the panel (hidden by default)
+
+/* + + + + +  active  + + + + + */
+    span.curid a {
+        font-weight: bold;
+    }
+
+
+/* + + + + +  the panel (hidden by default)  + + + + + */
     div.nav-panel {
         display: none;
         margin-top: .5rem;
@@ -233,7 +254,6 @@
             li:not([class]),
             .li {
                 font-size: @font-size-head6;
-                padding: .15em 0;
 
                 * {
                     font-size: inherit;
@@ -302,7 +322,6 @@
             li:not([class]),
             .li {
                 font-size: @font-size-default;
-                padding: .15em 0 .15em .25rem;
 
                 * {
                     font-size: inherit;
