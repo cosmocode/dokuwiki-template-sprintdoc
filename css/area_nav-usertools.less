@@ -25,6 +25,12 @@
             float: right;
             min-height: 28px;
 
+            @media @screen_max-xxs {
+                display: block;
+                float: none;
+                margin-bottom: @headericons-margin-xxs;
+            }
+
             > strong,
             > a {
                 display: block;
@@ -78,6 +84,16 @@
                 @media @screen_max-md {
                     min-height: @toggle-size;
                     padding-top: @space-max-md;
+                }
+
+                @media @screen_max-xxs {
+                    position: absolute;
+                    top: @headericons-margin-xxs;
+                    right: (@toggle-size + @headericons-margin-xxs);
+                    max-width: 225px;
+                    overflow-x: hidden;
+                    white-space: nowrap;
+                    margin: -1px 0 0;
                 }
 
                 > a {
