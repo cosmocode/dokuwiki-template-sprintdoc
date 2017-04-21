@@ -11,7 +11,11 @@
 
         ul,
         ol {
-            padding-left: @margin-small;
+            padding-left: 1.8rem;
+
+            @media @screen_md-lg {
+                padding-left: @menu-margin-lg;
+            }
 
             li {
                 margin-left: 0;

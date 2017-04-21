@@ -10,7 +10,7 @@
     @icon-search_font-size: @font-size-big;
 
     @media @screen_md-lg {
-        margin-left: -1rem;
+        margin-left: -(@menu-margin-lg);
     }
 
     p.toggleSearch a,
@@ -169,10 +169,13 @@
         }
     }
 
+
+/* + + + + +  suggestionlist  + + + + + */
     #qsearch__out {
         left: auto;
         top: auto;
         width: 100%;
+        min-width: 20rem;
     }
 }
 

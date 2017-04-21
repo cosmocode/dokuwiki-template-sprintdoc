@@ -8,8 +8,7 @@
 
 #dokuwiki__aside {
     @icon-size: @font-size-big;
-    @menu-margin: @icon-size + @margin-small * 2; // FIXME this is still wrong
-    @menu-margin-lg: 1.3rem;
+    @menu-margin: @icon-size + @margin-small * 2;
 
     nav > p,
     .mmissuelist li,
@@ -100,18 +99,18 @@
         .align-items();
 
         cursor: pointer;
-        height: @icon-size + @margin-small;
+        min-height: @icon-size + @margin-small;
         opacity: 1;
         border: 1px solid transparent;
         border-radius: @fix_border-radius;
         color: @ini_nav_menu_color;
         font-size: @font-size-head6;
         font-weight: normal;
-        margin: -1px 0 (@font-size-head6 / 2) -(@menu-margin); // moves the toggles back to the left
+        margin: -1px 0 (@font-size-head6 / 2) -(@menu-margin - .4); // moves the toggles back to the left (.4 from li margin)
         transition: @transition color, @transition background-color, @transition border-color;
 
         @media @screen_md-lg {
-            margin-left: -(@menu-margin-lg + 1);
+            margin-left: -(@menu-margin-lg + .8);
         }
 
         span {
