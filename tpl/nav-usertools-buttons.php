@@ -25,27 +25,21 @@
                 if ($doplugin !== null && isset($_SERVER['REMOTE_USER'])) {
                     $tasks = $doplugin->loadTasks(array('status' => array('undone'),'user'   => $_SERVER['REMOTE_USER']));
                     $num = count($tasks);
-                    switch ($num) {
-                        case 0: $class = 'noopentasks'; break;
-                        case 1:  $class = 'opentask'; break;
-                        default:
-                            $class = 'opentask opentasks';
-                            break;
+                    if ($num === 0) {
+                        $title = tpl_getLang('tasks_user_none');
+                    } else {
+                        $title = sprintf(tpl_getLang('tasks_user_intime'), $num);
                     }
 
                     $doInner = "<span class=\"prefix\">".tpl_getLang('prefix_tasks_user')." </span><span class=\"num\">".count($tasks)."</span>";
-                    if($linktarget){
-                        if (substr($linktarget, 0, 1) !== ':') {
-                            $linktarget = 'user:' . $_SERVER['REMOTE_USER'] .':' . 'dashboard';
-                        }
-                        if($num == 0){
-                            echo '<li class="user-task '.$class.'"><strong>'.$doInner.'</strong></li>';
-                        }else{
-                            echo '<li class="user-task '.$class.'"><a href="'.wl($linktarget).'">'.$doInner.'</a></li>';
-                        }
-                    }
-                    else{
-                        echo '<li class="user-task '.$class.'"><strong>'.$doInner.'</strong></li>';
+
+                    $userpage = $doplugin->getConf('userpage');
+                    if ($userpage && $_SERVER['REMOTE_USER'] && $num > 0) {
+                        $linktarget = sprintf($userpage, $_SERVER['REMOTE_USER']) . ':' . 'dashboard';
+                        $linktarget = str_replace('::', ':', $linktarget);
+                        echo '<li class="user-task" title="'.$title.'"><a href="'.wl($linktarget).'">'.$doInner.'</a></li>';
+                    } else {
+                        echo '<li class="user-task" title="'.$title.'"><strong>'.$doInner.'</strong></li>';
                     }
                 } ?>
 
