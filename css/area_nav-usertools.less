@@ -7,8 +7,10 @@
 
 .nav-usertools {
     &.has-bar {
-        margin-top: @height-context-bar;
-        padding-top: .5em;
+        @media @screen_min-md {
+            margin-top: @height-context-bar;
+            padding-top: .5em;
+        }
     }
 
 
