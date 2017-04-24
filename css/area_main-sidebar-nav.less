@@ -84,8 +84,14 @@
         }
     }
 
+    // the wrapper around the toggle to reserve space
+    div.nav {
+        height: @icon-size + @margin-small;
+        border: 1px solid transparent;
+    }
+
     // the toggle element
-    a.nav {
+    div.nav a {
         .display-flex();
         .align-items();
 
@@ -155,6 +161,11 @@
             border-color: @ini_nav_menu_hover_color;
             color: @ini_nav_menu_hover_color;
             text-decoration: none;
+
+            // always show label, even with collapsed sidebar
+            position: absolute;
+            z-index: 100;
+            width: 100%;
 
             span.ico {
                 border-color: inherit;
@@ -283,7 +294,6 @@
         }
     }
 }
-
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* max-width: 1439px */

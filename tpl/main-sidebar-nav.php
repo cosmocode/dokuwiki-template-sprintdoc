@@ -5,10 +5,10 @@
 </nav>
 
 <nav class="nav-sitetools">
-    <a class="nav" role="heading" aria-level="2">
+    <div class="nav"><a role="heading" aria-level="2">
         <span class="ico"><?php echo inlineSVG(__DIR__ . '/../img/sitemap.svg') ?></span>
         <span class="lbl"><?php echo $lang['site_tools']; ?></span>
-    </a>
+    </a></div>
     <div class="nav-panel level1">
         <ul>
             <?php
@@ -27,10 +27,10 @@
 
 
 <nav class="nav-usermenu">
-    <a class="nav" role="heading" aria-level="2">
+    <div class="nav"><a role="heading" aria-level="2">
         <span class="ico"><?php echo inlineSVG(__DIR__ . '/../img/account-settings.svg') ?></span>
         <span class="lbl"><?php echo $lang['user_tools']; ?></span>
-    </a>
+    </a></div>
     <div class="nav-panel level1">
         <ul>
             <?php /* dokuwiki user tools */
@@ -56,10 +56,10 @@ if($plugin_starred) $stars = $plugin_starred->loadStars();
 if($stars):
     ?>
     <nav class="nav-starred">
-        <a class="nav" role="heading" aria-level="2">
+        <div class="nav"><a role="heading" aria-level="2">
             <span class="ico"><?php echo inlineSVG(__DIR__ . '/../img/star-circle.svg') ?></span>
             <span class="lbl"><?php echo tpl_getLang('head_menu_starred'); ?></span>
-        </a>
+        </a></div>
         <div class="nav-panel level1 plugin_starred">
             <ul>
                 <?php
@@ -80,10 +80,10 @@ if($stars):
 
 <?php if($conf['breadcrumbs']): ?>
     <nav class="nav-trace">
-        <a class="nav" role="heading" aria-level="2">
+        <div class="nav"><a role="heading" aria-level="2">
             <span class="ico"><?php echo inlineSVG(__DIR__ . '/../img/apple-safari.svg') ?></span>
             <span class="lbl"><?php echo tpl_getLang('head_menu_trace'); ?></span>
-        </a>
+        </a></div>
         <div class="nav-panel level1">
             <ul>
                 <?php /* trace breadcrumbs as list */
