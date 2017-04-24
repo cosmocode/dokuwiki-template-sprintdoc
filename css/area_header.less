@@ -8,14 +8,13 @@
 #dokuwiki__header {
     @header-font-opacity: 1;
 
+    @media @screen_max-xs {
+        min-height: 120px;
+    }
+
+
 /* + + +  wiki logo  + + + */
     @media @screen_min-md {
-        div.claim {
-            display: table-cell;
-            height: 100%;
-            vertical-align: middle;
-        }
-
         .logo {
             padding: 1rem 0 .3rem;
 
@@ -48,7 +47,7 @@
     }
 
 
-/* + + +  wiki title + claim  + + + */
+/* + + + + +  DESKTOP  -  wiki title + claim  + + + + + */
     .main-title.desktop-only {
         @media @screen_min-md {
             display: table-cell;
@@ -70,13 +69,23 @@
                 display: block;
                 padding-bottom: 1rem;
             }
+
+            @media @screen_max-xs {
+                padding-right: (@toggle-size + @headericons-margin-xxs);
+            }
         }
     }
 
+
+/* + + + + +  MOBILE  -  wiki title wrapper  + + + + + */
     .main-title:not([class*="desktop-only"]) {
         @media @screen_max-md {
             display: table-cell;
             vertical-align: middle;
+        }
+
+        @media @screen_max-xs {
+            padding-right: (@toggle-size + @headericons-margin-xxs);
         }
     }
 
@@ -101,6 +110,16 @@
     }
 
 
+/* + + + + +  DESKTOP  -  wiki claim, logo, title wrapper  + + + + + */
+    @media @screen_min-md {
+        div.claim {
+            display: table-cell;
+            height: 100%;
+            vertical-align: middle;
+        }
+    }
+
+
 /* + + +  wiki claim  + + + */
     p.claim {
         opacity: @header-font-opacity;
@@ -116,7 +135,9 @@
 
 /* + + +  mobile nav togglelink  + + + */
     .menu-togglelink {
-        margin: .45rem -(@very-small-spacing) 0 0;
+        position: relative;
+        z-index: 1;
+        margin: @headericons-margin-xxs -(@very-small-spacing) 0 0;
 
         a {
             .fontello();
@@ -156,7 +177,7 @@
     &.has-magicmatcher {
         .logo {
             @media @screen_min-md {
-                padding-top: 2rem;
+                padding-top: 3rem;
             }
         }
 
