@@ -35,7 +35,6 @@ $lang['tab_tags']                   = 'Tags';
 $lang['quality_trigger']            = 'Seitenanalyse ein- bzw. ausblenden';
 
 $lang['prefix_tasks']               = 'offene Aufgaben: ';
-$lang['prefix_tasks_user']          = 'Ihre offenen Aufgaben: ';
 $lang['prefix_tasks_page']          = 'offene Aufgaben auf dieser Seite: ';
 $lang['tasks_page_none']            = 'keine offenen Aufgaben für diese Seite';
 

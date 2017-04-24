@@ -46,7 +46,7 @@
                 margin-bottom: @headericons-margin-xxs;
             }
 
-            > strong,
+            > span,
             > a {
                 display: block;
                 width: auto;
@@ -67,6 +67,10 @@
 
                 @media @screen_max-md {
                     min-height: @toggle-size;
+                }
+
+                @media @screen_only-lg {
+                    min-width: 2rem;
                 }
             }
 
@@ -222,46 +226,6 @@
                     }
                 }
             } // user
-
-            &.user-task {
-                position: relative;
-
-                a {
-                    position: relative;
-                    overflow: visible;
-                    white-space: normal;
-                    text-indent: 0;
-
-                    &::before {
-                        content: '';
-                        position: absolute;
-                    }
-                }
-
-                .prefix {
-                    .btn-prefix();
-                    .icon-clipboard();
-
-                    display: block;
-                    font-size: 1.2rem;
-                    text-align: center;
-                    margin-bottom: -1px;
-                }
-            } // user-task
-
-            &.noopentasks {
-                strong {
-                    background-color: @ini_background;
-                    border-color: @noopentasks-border;
-                    color: @ini_text_webframe;
-                }
-
-                .num {
-                    background-color: @noopentasks-border; // fix
-                    color: @noopentasks-color; // fix
-                    margin-top: 1px;
-                }
-            }
         } // li
 
 
