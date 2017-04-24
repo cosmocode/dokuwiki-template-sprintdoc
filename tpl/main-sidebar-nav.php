@@ -48,6 +48,35 @@
     </div>
 </nav>
 
+<?php
+/** @var helper_plugin_starred $plugin_starred */
+$plugin_starred = plugin_load('helper', 'starred');
+$stars = array();
+if($plugin_starred) $stars = $plugin_starred->loadStars();
+if($stars):
+    ?>
+    <nav class="nav-starred">
+        <a class="nav" role="heading" aria-level="2">
+            <span class="ico"><?php echo inlineSVG(__DIR__ . '/../img/star-circle.svg') ?></span>
+            <span class="lbl"><?php echo tpl_getLang('head_menu_starred'); ?></span>
+        </a>
+        <div class="nav-panel level1 plugin_starred">
+            <ul>
+                <?php
+                foreach($stars as $pid => $time) {
+                    echo '<li>';
+                    echo $plugin_starred->starHtml($ID, $pid);
+                    echo '&nbsp;';
+                    echo html_wikilink(":$pid");
+                    echo '</li>';
+                }
+                ?>
+            </ul>
+        </div>
+    </nav>
+<?php endif; ?>
+
+
 
 <?php if($conf['breadcrumbs']): ?>
     <nav class="nav-trace">

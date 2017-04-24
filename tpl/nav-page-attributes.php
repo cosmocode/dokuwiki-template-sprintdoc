@@ -5,9 +5,10 @@ if(!defined('DOKU_INC')) die();
 $doPlugin = plugin_load('helper', 'do');
 /** @var \helper_plugin_qc $qcPlugin */
 $qcPlugin = plugin_load('helper', 'qc');
+/** @var \action_plugin_starred $starredPlugin */
+$starredPlugin = plugin_load('action', 'starred');
 
-
-if($doPlugin !== null || $qcPlugin !== null) {
+if($doPlugin !== null || $qcPlugin !== null || $starredPlugin !== null) {
     echo '<ul class="page-attributes">';
 }
 
@@ -40,6 +41,12 @@ if($doPlugin !== null) {
     echo $markup;
 }
 
-if($doPlugin !== null || $qcPlugin !== null) {
+if($starredPlugin !== null) {
+    echo '<li class="plugin_starred">';
+    $starredPlugin->tpl_starred();
+    echo '</li>';
+}
+
+if($doPlugin !== null || $qcPlugin !== null || $starredPlugin !== null) {
     echo "</ul>";
 }
