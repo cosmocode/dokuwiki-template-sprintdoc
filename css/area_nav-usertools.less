@@ -5,7 +5,20 @@
  */
 
 
-.nav-usertools {
+#dokuwiki__usertools.nav-usertools {
+    @media @screen_min-md {
+        right: 1.25rem;
+    }
+
+    @media @screen_max-md {
+        position: absolute;
+        top: 0;
+        left: (@toggle-size + 1.25); // margin-left content
+        right: @headericons-margin-xxs;
+        margin-top: 0;
+        margin-right: 0;
+    }
+
     &.has-bar {
         @media @screen_min-md {
             margin-top: @height-context-bar;
@@ -27,7 +40,7 @@
             float: right;
             min-height: 28px;
 
-            @media @screen_max-xxs {
+            @media @screen_max-xs {
                 display: block;
                 float: none;
                 margin-bottom: @headericons-margin-xxs;
@@ -66,7 +79,7 @@
                 position: relative;
                 display: table-cell;
                 background-color: @ini_background;
-                border: solid 1px @noopentasks-border;//@ini_border_light;
+                border: solid 1px @wikiicons-border; // @ini_border_light;
                 border-radius: @ini_default_border_radius; // @ini_default_border_radius vs. @fix_border-radius
                 color: @ini_text_webframe;
                 padding-right: .3rem;
@@ -88,14 +101,18 @@
                     padding-top: @space-max-md;
                 }
 
-                @media @screen_max-xxs {
+                @media @screen_max-xs {
                     position: absolute;
                     top: @headericons-margin-xxs;
                     right: (@toggle-size + @headericons-margin-xxs);
-                    max-width: 225px;
-                    overflow-x: hidden;
+                    overflow: hidden;
                     white-space: nowrap;
                     margin: -1px 0 0;
+                }
+
+                @media @screen_max-xxs {
+                    left: -10px;
+                    width: auto;
                 }
 
                 > a {
@@ -133,6 +150,10 @@
                     @media @screen_max-md {
                         min-height: (@toggle-size - .1);
                         margin-top: -(@space-max-md);
+                    }
+
+                    @media @screen_max-xxs {
+                        min-height: (@toggle-size - .15);
                     }
 
                     &::before {
@@ -194,7 +215,7 @@
                             top: -.2rem;
                         }
 
-                        @media @screen_max-xxs {
+                        @media @screen_max-xs {
                             top: -.25rem;
 
                         }
