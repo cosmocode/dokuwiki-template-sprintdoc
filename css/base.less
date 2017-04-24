@@ -12,7 +12,7 @@
 @font_family_screen:       arial, sans-serif;
 @font_family_print:        "Times New Roman", serif;
 
-@nav_direct_background:    @ini_background_content;
+@nav_direct_background:    @ini_background;
 @nav_direct_color:         @ini_existing;
 
 @ini_sidebar_width:        (100 - @ini_site_width) - 4;
@@ -72,12 +72,12 @@
 
 
 /* edit mode */
-@highlight-odd-ini_text:  fade(@ini_background_content, 95%);
+@highlight-odd-ini_text:  fade(@ini_background, 95%);
 @highlight-even-ini_text: fade(@ini_text, 5%);
 @color-editBox:           #252525; // editmode for tables, revision states
 
 
-//@nolinkedicon-ini_background: fade(@ini_background, 10%);
+//@nolinkedicon-ini_background: fade(@ini_background_site, 10%);
 //@opacity-ini_nav_menu_color:  fade(@ini_nav_menu_color, 40%);
 
 
