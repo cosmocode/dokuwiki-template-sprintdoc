@@ -88,7 +88,7 @@ class Template {
      * @return array
      */
     public function getMetaBoxTabs() {
-        global $lang;
+        global $lang, $INFO;
         $tabs = array();
 
         $toc = tpl_toc(true);
@@ -106,7 +106,7 @@ class Template {
                 'id' => 'spr__tab-tags',
                 'label' => tpl_getLang('tab_tags'),
                 'tab' => $this->plugins['tagging']->tpl_tags(false),
-                'count' => null, // FIXME
+                'count' => count($this->plugins['tagging']->findItems(array('pid' => $INFO['id']), 'tag')),
             );
         }
 

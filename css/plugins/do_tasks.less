@@ -2,22 +2,21 @@
  * This file provides styles for do-task plugin
  */
 
-
 /* + + + + +  global  + + + + + */
 
 ul.page-attributes {
-    .plugin__do_pagetasks {
+    .plugin_do_pagetasks {
+        position: relative;
+        border-radius: @ini_default_border_radius; // @ini_default_border_radius vs. @fix_border-radius
+
+        strong {
+            overflow: hidden;
+            background-color: @ini_background;
+            border-color: @noopentasks-border;
+            color: @ini_text_webframe;
+        }
+
         &.do_none {
-            position: relative;
-            border-radius: @ini_default_border_radius; // @ini_default_border_radius vs. @fix_border-radius
-
-            strong {
-                overflow: hidden;
-                background-color: @ini_background;
-                border-color: @noopentasks-border;
-                color: @ini_text_webframe;
-            }
-
             .num {
                 background-color: @noopentasks-border; // fix
                 color: @noopentasks-color; // fix

@@ -35,7 +35,7 @@ if($doPlugin !== null) {
         $class = 'do_late';
         $title = sprintf(tpl_getLang('tasks_page_late'), $count['undone'], $count['late']);
     }
-    $markup = "<li class=\"plugin__do_pagetasks $class\" title=\"$title\"><strong><span class=\"prefix\">" . tpl_getLang('prefix_tasks_page') . " </span><span class=\"num\">{$count['undone']}</span></strong></li>";
+    $markup = "<li class=\"plugin_do_pagetasks $class\" title=\"$title\"><strong><span class=\"num\">{$count['undone']}</span><span class=\"prefix\">" . tpl_getLang('prefix_tasks_page') . " </span></strong></li>";
 
     echo $markup;
 }
@@ -43,15 +43,3 @@ if($doPlugin !== null) {
 if($doPlugin !== null || $qcPlugin !== null) {
     echo "</ul>";
 }
-
-
-
-/*
-
-
-$out = '<div class="plugin__do_pagetasks" title="' . $title . '"><span class="' . $class . '">';
-$out .= $count['undone'];
-$out .= '</span></div>';
-
-if($return) return $out;
-echo $out;*/
