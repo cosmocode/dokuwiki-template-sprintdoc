@@ -73,9 +73,16 @@
         z-index: 900;
     }
 
+/*  if z-index is needed for .tools col, then use this:
+
     .tools .row > .col-xs-12 {
+        z-index: 5; // SPR-945 sometimes too small space for suggestionlist
+    }
+
+    .wide-content .tools .row > .col-xs-12 {
         z-index: 1;
     }
+*/
 
     .header .row > .col-xs-12 {
         z-index: 2;
@@ -169,6 +176,18 @@
         }
     }
 }
+
+
+@media @screen_md-lg {
+    .wide-content.showSidebar {
+        .content {
+            .row > .col-xs-12 {
+                margin-left: 2.1rem;
+            }
+        }
+    }
+}
+
 
 @media @screen_max-md {
     .container {
