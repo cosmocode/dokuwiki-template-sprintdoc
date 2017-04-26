@@ -154,7 +154,6 @@
                 border: 2px solid @ini_nav_menu_color;
                 border-top-right-radius: 50%;
                 border-bottom-left-radius: 50%;
-                transition: @transition border-color;
             }
 
             // real icon
@@ -278,24 +277,30 @@
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* max-width: 1023px */
+/* max-width: 1439px */
 
-@media @screen_max-md {
-    // show when toggled
-    body.show-mobile-sidebar {
-        .search.main-sidebar {
-            display: block !important;
-            position: relative;
+@media @screen_max-xlg {
+    #dokuwiki__aside {
+        nav {
+            li:not([class]),
+            .li {
+                font-size: @font-size-default;
 
-            form {
-                margin-bottom: 1rem;
-
-                .no {
-                    display: block;
+                * {
+                    font-size: inherit;
+                    font-weight: inherit;
                 }
             }
         }
+    }
+}
 
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* max-width: 1023px */
+
+@media @screen_max-md {
+    body.show-mobile-sidebar {
         #dokuwiki__aside {
             > nav {
                 position: relative;
@@ -315,26 +320,6 @@
             .nav-panel,
             a.nav {
                 padding-right: .8em;
-            }
-        }
-    }
-}
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* max-width: 1439px */
-
-@media @screen_max-xlg {
-    #dokuwiki__aside {
-        nav {
-            li:not([class]),
-            .li {
-                font-size: @font-size-default;
-
-                * {
-                    font-size: inherit;
-                    font-weight: inherit;
-                }
             }
         }
     }

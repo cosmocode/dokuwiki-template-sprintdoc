@@ -63,11 +63,11 @@ $lang['image_detail']               = 'image details';
 $lang['__site_width__']             = 'content - width (in %)';
 
 $lang['__background__']             = 'website - background color';
-$lang['__text_webframe__']          = 'website unlinked: claim, title, footer, navigation - font color';
+$lang['__text_webframe__']          = 'claim, title, footer (unlinked), navigation (unlinked) - font color';
 
-$lang['__nav_menu_color__']         = 'link: navigation, footer, pagetools icons, tabbox - font color';
-$lang['__nav_menu_hover_color__']   = 'link: navigation (hover) - font color, border color; wiki icons - font color; wiki icons (hover) - background color';
-$lang['__nav_menu_hover_bg__']      = 'link: navigation (hover) - background color; wiki icons - background color; wiki icons (hover) - font color';
+$lang['__nav_menu_color__']         = 'navigation (link), footer (link), pagetools icons, tabbox - font color';
+$lang['__nav_menu_hover_color__']   = 'navigation (hover) - font color, border color; wiki icons - font color; wiki icons (hover) - background color';
+$lang['__nav_menu_hover_bg__']      = 'navigation (hover) - background color; wiki icons - background color; wiki icons (hover) - font color';
 
 $lang['__background_content__']     = 'content, breadcrumb, pagetools (hover) - background color';
 $lang['__text__']                   = 'content: text - font color';
@@ -90,8 +90,8 @@ $lang['__missing__']                = 'links to non-existing pages - font color'
 $lang['__button_color__']           = 'buttons - font color';
 $lang['__button_background__']      = 'buttons - background color';
 
-$lang['__background_alt__']         = 'table head, hover: table cell, struct Label - background color (alternative)';
-$lang['__text_alt__']               = 'table head unlinked, hover: table cell, struct Label - font color (alternative)';
+$lang['__background_alt__']         = 'table head, table cell (hover), struct Label (hover) - background color (alternative)';
+$lang['__text_alt__']               = 'table head (unlinked), table cell (hover), struct Label (hover) - font color (alternative)';
 
 $lang['__border__']                 = 'tables, form fields, blockquotes - border color';
 $lang['__default_border_radius__']  = 'wiki icons, content (top right) - border radius';

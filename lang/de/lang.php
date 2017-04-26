@@ -56,11 +56,11 @@ $lang['image_detail']               = 'Detailinformationen zum Bild';
 $lang['__site_width__']             = 'Content - Breite (in %)';
 
 $lang['__background__']             = 'Website - Hintergrundfarbe';
-$lang['__text_webframe__']          = 'Website unverlinkt: Claim, Titel, Footer, Navigation - Schriftfarbe';
+$lang['__text_webframe__']          = 'Claim, Titel, Footer (unverlinkt), Navigation (unverlinkt) - Schriftfarbe';
 
-$lang['__nav_menu_color__']         = 'verlinkt: Navigation, Footer, Pagetools Icons, Tabbox - Schriftfarbe';
-$lang['__nav_menu_hover_color__']   = 'verlinkt: Navigation (hover) - Schriftfarbe, Rahmenfarbe; Wiki Icons - Schriftfarbe; Wiki Icons (hover) - Hintergrundfarbe';
-$lang['__nav_menu_hover_bg__']      = 'verlinkt: Navigation (hover) - Hintergrundfarbe; Wiki Icons - Hintergrundfarbe; Wiki Icons (hover) - Schriftfarbe';
+$lang['__nav_menu_color__']         = 'Navigation (verlinkt), Footer (verlinkt), Pagetools Icons, Tabbox - Schriftfarbe';
+$lang['__nav_menu_hover_color__']   = 'Navigation (hover) - Schriftfarbe, Rahmenfarbe; Wiki Icons - Schriftfarbe; Wiki Icons (hover) - Hintergrundfarbe';
+$lang['__nav_menu_hover_bg__']      = 'Navigation (hover) - Hintergrundfarbe; Wiki Icons - Hintergrundfarbe; Wiki Icons (hover) - Schriftfarbe';
 
 $lang['__background_content__']     = 'Content, Breadcrumb, Pagetools (hover) - Hintergrundfarbe';
 $lang['__text__']                   = 'Content: Text - Schriftfarbe';
@@ -83,8 +83,8 @@ $lang['__missing__']                = 'Links zu nicht vorhandenen Wikiseiten - S
 $lang['__button_color__']           = 'Buttons - Schriftfarbe';
 $lang['__button_background__']      = 'Buttons - Hintergrundfarbe';
 
-$lang['__background_alt__']         = 'Tabellenkopf, hover: Tabellenzeile, struct Label - Hintergrundfarbe (alternativ)';
-$lang['__text_alt__']               = 'Tabellenkopf unverlinkt, hover: Tabellenzeile, struct Label - Schriftfarbe (alternativ)';
+$lang['__background_alt__']         = 'Tabellenkopf, Tabellenzeile (hover), struct Label (hover) - Hintergrundfarbe (alternativ)';
+$lang['__text_alt__']               = 'Tabellenkopf (unverlinkt), Tabellenzeile (hover), struct Label (hover) - Schriftfarbe (alternativ)';
 
 $lang['__border__']                 = 'Tabellen, Formularfelder, Zitate - Rahmenfarbe';
 $lang['__default_border_radius__']  = 'Wiki Icons, Content (oben rechts) - Borderradius';
