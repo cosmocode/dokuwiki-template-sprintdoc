@@ -325,7 +325,13 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                             </div>
 
                             <div class="qc-output"></div>
-
+                            <?php
+                            /** @var action_plugin_highlightparent $highlightParent */
+                            $highlightParent = plugin_load('action', 'highlightparent');
+                            if ($highlightParent) {
+                                echo $highlightParent->tpl();
+                            }
+                            ?>
                             <div class="msg-area"><?php html_msgarea();/*msg('Information.', 0);msg('Success', 1);msg('Notification', 2);msg('Fehler', -1);*/ ?></div>
                             <div class="clearer"></div>
                             <?php

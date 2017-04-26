@@ -23,25 +23,12 @@
                 /** @var \helper_plugin_do $doplugin */
                 $doplugin = plugin_load('helper','do');
                 if ($doplugin !== null && isset($_SERVER['REMOTE_USER'])) {
-                    $tasks = $doplugin->loadTasks(array('status' => array('undone'),'user'   => $_SERVER['REMOTE_USER']));
-                    $num = count($tasks);
-                    if ($num === 0) {
-                        $title = tpl_getLang('tasks_user_none');
-                    } else {
-                        $title = sprintf(tpl_getLang('tasks_user_intime'), $num);
+                    $icon = $doplugin->tpl_getUserTasksIconHTML();
+                    if ($icon) {
+                        echo '<li class="user-task">' . $icon . '</li>';
                     }
-
-                    $doInner = "<span class=\"prefix\">".tpl_getLang('prefix_tasks_user')." </span><span class=\"num\">".count($tasks)."</span>";
-
-                    $userpage = $doplugin->getConf('userpage');
-                    if ($userpage && $_SERVER['REMOTE_USER'] && $num > 0) {
-                        $linktarget = sprintf($userpage, $_SERVER['REMOTE_USER']) . ':' . 'dashboard';
-                        $linktarget = str_replace('::', ':', $linktarget);
-                        echo '<li class="user-task" title="'.$title.'"><a href="'.wl($linktarget).'">'.$doInner.'</a></li>';
-                    } else {
-                        echo '<li class="user-task" title="'.$title.'"><strong>'.$doInner.'</strong></li>';
-                    }
-                } ?>
+                }
+                ?>
 
             </ul>
         </nav><!-- #dokuwiki__usertools -->

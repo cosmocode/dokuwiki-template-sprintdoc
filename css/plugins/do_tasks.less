@@ -2,26 +2,82 @@
  * This file provides styles for do-task plugin
  */
 
-
 /* + + + + +  global  + + + + + */
 
 ul.page-attributes {
-    .plugin__do_pagetasks {
+    .plugin_do_pagetasks {
+        position: relative;
+        border-radius: @ini_default_border_radius; // @ini_default_border_radius vs. @fix_border-radius
+
+        strong {
+            overflow: hidden;
+            background-color: @ini_background_site;
+            border-color: @noopentasks-border;
+            color: @ini_text_webframe;
+        }
+
         &.do_none {
-            position: relative;
-            border-radius: @ini_default_border_radius; // @ini_default_border_radius vs. @fix_border-radius
-
-            strong {
-                overflow: hidden;
-                background-color: @ini_background;
-                border-color: @noopentasks-border;
-                color: @ini_text_webframe;
-            }
-
             .num {
                 background-color: @noopentasks-border; // fix
                 color: @noopentasks-color; // fix
             }
         }
     }
+}
+
+#dokuwiki__usertools.nav-usertools {
+    ul {
+        li {
+            &.user-task {
+                position: relative;
+
+                a {
+                    overflow: visible;
+                    white-space: normal; // Is this still needed?
+                    text-indent: 0;
+
+                    &::before {
+                        content: ''; // remove when fontello is removed from usertools
+                    }
+                }
+
+                svg {
+                    width: 20px;
+                    margin-top: 2px;
+
+                    @media @screen_max-md {
+                        margin-top: 4px;
+                    }
+                }
+
+                &:hover {
+                    :not(.noopentasks) {
+                        svg path {
+                            fill: @ini_background;
+                        }
+                    }
+                }
+
+                .noopentasks {
+                        background-color: @ini_background;
+                        border-color: @noopentasks-border;
+                        color: @ini_text_webframe;
+
+                    .num {
+                        background-color: @noopentasks-border; // fix
+                        color: @noopentasks-color; // fix
+                        margin-top: 1px;
+                    }
+                }
+
+                @media @screen_max-sm {
+                    display: none;
+                }
+            } // user-task
+        } // li
+    } // ul
+}
+
+.plugin__do_usertasks_list {
+    z-index: 5;
 }

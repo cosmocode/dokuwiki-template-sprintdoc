@@ -73,9 +73,16 @@
         z-index: 900;
     }
 
+/*  if z-index is needed for .tools col, then use this:
+
     .tools .row > .col-xs-12 {
+        z-index: 5; // SPR-945 sometimes too small space for suggestionlist
+    }
+
+    .wide-content .tools .row > .col-xs-12 {
         z-index: 1;
     }
+*/
 
     .header .row > .col-xs-12 {
         z-index: 2;
@@ -170,18 +177,21 @@
     }
 }
 
+
+@media @screen_md-lg {
+    .wide-content.showSidebar {
+        .content {
+            .row > .col-xs-12 {
+                margin-left: 2.1rem;
+            }
+        }
+    }
+}
+
+
 @media @screen_max-md {
     .container {
         margin: 0 1.25rem;
-    }
-
-    #dokuwiki__usertools {
-        margin-top: 0;
-        max-width: 75%;
-        position: absolute;
-        top: 0;
-        margin-right: 0;
-        right: 1.25rem;
     }
 
     .content {
@@ -212,10 +222,6 @@
 
     body.show-mobile-sidebar #dokuwiki__aside {
         left: @mobileMargin;
-    }
-
-    #dokuwiki__usertools {
-        right: @mobileMargin;
     }
 
     #dokuwiki__footer {

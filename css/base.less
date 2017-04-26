@@ -12,7 +12,7 @@
 @font_family_screen:       arial, sans-serif;
 @font_family_print:        "Times New Roman", serif;
 
-@nav_direct_background:    @ini_background_content;
+@nav_direct_background:    @ini_background;
 @nav_direct_color:         @ini_existing;
 
 @ini_sidebar_width:        (100 - @ini_site_width) - 4;
@@ -40,9 +40,11 @@
 
 /* + + +  for programmers customizing  + + + */
 
-@fix_border-radius:        3px;
+@fix_border-radius:        3px;           // inputs, editbox (textarea), buttons, content, code, quicksearch, msg
 
 @toggle-showsidebar_width: 3.07rem;       // shown sidebar after toggle
+
+@headericons-margin-xxs:  .45rem;         // screen xxs margin-top for header icons
 
 @page_padding-top:         @margin-small; // padding-top for 'dokuwiki__content'
 @page-header_height:       2.8rem;        // minimum: 2.8rem (height for breadcrumb, page-header, page-footer)
@@ -61,18 +63,21 @@
 @wikiicons-border:         #CCC; /* usertools, breadcrumbs icons, pagetools box-hover */
 
 
+
 /* navigation left */
+@menu-margin-lg: 1.3rem;
+
 @quicksearch-button-color: @noopentasks-color; /* autosuggest, submit in quicksearch */
 @suggestion-zebra:         #EEE;
 
 
 /* edit mode */
-@highlight-odd-ini_text:  fade(@ini_background_content, 95%);
+@highlight-odd-ini_text:  fade(@ini_background, 95%);
 @highlight-even-ini_text: fade(@ini_text, 5%);
 @color-editBox:           #252525; // editmode for tables, revision states
 
 
-//@nolinkedicon-ini_background: fade(@ini_background, 10%);
+//@nolinkedicon-ini_background: fade(@ini_background_site, 10%);
 //@opacity-ini_nav_menu_color:  fade(@ini_nav_menu_color, 40%);
 
 
@@ -152,8 +157,9 @@
 @screen_max-xxlg: ~"only screen and (max-width: " ~"@{break-max-xxlg}px)";
 
 @screen_only-md: ~"only screen and (min-width: 800px) and (max-width: " ~"@{break-max-md}px)";
-@screen_only-lg: ~"only screen and (min-width: " ~"@{break-min-md}px) and (max-width: " ~"@{break-max-xlg}px)";
 @screen_only-xlg: ~"only screen and (min-width: " ~"@{break-min-xlg}px) and (max-width: " ~"@{break-max-xxlg}px)";
+@screen_md-xlg: ~"only screen and (min-width: " ~"@{break-min-md}px) and (max-width: " ~"@{break-max-xlg}px)";
+@screen_md-lg: ~"only screen and (min-width: " ~"@{break-min-md}px) and (max-width: " ~"@{break-max-lg}px)";
 @screen_xs-lg: ~"only screen and (min-width: " ~"@{break-min-xs}px) and (max-width: " ~"@{break-max-md}px)";
 
 

@@ -47,9 +47,11 @@
 
             &.export {
                 bottom: 1px;
+                overflow-x: hidden;
                 background: transparent url("svg.php?svg=file-export.svg&f=existing") left center no-repeat;
                 background-size: auto 20px;
                 border: solid 1px @ini_border;
+                border-radius: 0 0 @fix_border-radius @fix_border-radius;
                 color: @ini_existing;
                 font-size: @font-size-small;
                 line-height: 1;
@@ -63,7 +65,7 @@
                     background-color: @ini_existing;
                     background-image: url("svg.php?svg=file-export.svg&f=background_content");
                     border-color: @ini_existing;
-                    color: @ini_background_content;
+                    color: @ini_background;
                     text-decoration: none;
                 }
             }

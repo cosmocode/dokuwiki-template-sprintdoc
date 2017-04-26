@@ -12,18 +12,19 @@ jQuery(function () {
             $nav.find('div.nav-panel').hide(); // close all panels
             jQuery('body').addClass('wide-content');
             removeToggleStorage();
+            window.sessionStorage.setItem('wide-content', true);
         },
 
         /**
          * removes information about the toggle-state
          */
         removeToggleStorage = function () {
-            for (var index=0; index <= sessionStorage.length; index += 1) {
-                var item = sessionStorage.getItem('sidebar-section-' + index + '-open');
+            for (var index=0; index <= window.sessionStorage.length; index += 1) {
+                var item = window.sessionStorage.getItem('sidebar-section-' + index + '-open');
                 if (!item) {
-                    break;
+                    continue;
                 }
-                sessionStorage.removeItem('sidebar-section-' + index + '-open');
+                window.sessionStorage.removeItem('sidebar-section-' + index + '-open');
             }
         },
 
@@ -32,7 +33,7 @@ jQuery(function () {
          */
         setDefaultContent = function () {
             jQuery('body').removeClass('wide-content');
-
+            window.sessionStorage.setItem('wide-content', false);
         },
 
         /**
@@ -60,7 +61,7 @@ jQuery(function () {
                     focusFirstSubLink($panel);
                 }
             });
-            sessionStorage.setItem('sidebar-section-' + $toggler.data('index') + '-open', !isOpen);
+            window.sessionStorage.setItem('sidebar-section-' + $toggler.data('index') + '-open', !isOpen);
         },
 
         /**
@@ -123,7 +124,7 @@ jQuery(function () {
                     $toggler.parent('li').addClass('toggler');
                 }
 
-                if (sessionStorage.getItem('sidebar-section-' + index + '-open') === 'true') {
+                if (window.sessionStorage.getItem('sidebar-section-' + index + '-open') === 'true') {
                     $wrap.css('display', 'block');
                 }
 
@@ -166,6 +167,10 @@ jQuery(function () {
                     setWideContent();
                 }
             });
+
+            if (window.sessionStorage.getItem('wide-content') === 'true') {
+                setWideContent();
+            }
         },
 
         /**

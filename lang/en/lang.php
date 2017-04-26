@@ -23,6 +23,7 @@ $lang['head_menu_status']           = 'site status';
 $lang['head_breadcrumb']            = 'location indicator';
 $lang['head_menu_trace']            = 'Last Visited Pages';
 $lang['head_meta_box']              = 'meta data for this page';
+$lang['head_menu_starred']          = 'Starred Pages';
 
 $lang['jump_to_quicksearch']        = 'Jump to quick search';
 
@@ -36,13 +37,10 @@ $lang['tab_issues']                 = 'Issues';
 $lang['quality_trigger']            = 'toggle page analysis';
 
 $lang['prefix_tasks']               = 'open tasks: ';
-$lang['prefix_tasks_user']          = 'your open tasks: ';
 $lang['prefix_tasks_page']          = 'open tasks for this page: ';
 $lang['tasks_page_none']            = 'There are no open tasks for this page.';
 $lang['tasks_page_intime']          = 'There are %1$d open tasks on this page.';
 $lang['tasks_page_late']            = 'There are %1$d open tasks on this page, %2$d are late.';
-$lang['tasks_user_none']            = 'You have no open tasks.';
-$lang['tasks_user_intime']          = 'You have %1$d open tasks.';
 
 $lang['discussion']                 = 'Discussion';
 $lang['back_to_article']            = 'Back to article';
