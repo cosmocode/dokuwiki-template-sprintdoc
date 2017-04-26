@@ -51,7 +51,8 @@ $lang['osm_zoom_link_text']         = 'view larger map';
 $lang['osm_zoom_link_title']        = 'external link opens new window';
 $lang['image_detail']               = 'image details';
 
-
+$lang['mode_edit'] = 'Editing Page';
+$lang['mode_detail'] = 'Image Details';
 
 /**
  * colors
