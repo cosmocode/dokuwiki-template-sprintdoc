@@ -5,12 +5,12 @@
 </nav>
 
 <nav class="nav-sitetools">
-    <div class="nav"><a role="heading" aria-level="2">
+    <div class="nav"><a href="#sidebar-site-tools" role="heading" aria-level="2">
         <span class="ico"><?php echo inlineSVG(__DIR__ . '/../img/sitemap.svg') ?></span>
         <span class="lbl"><?php echo $lang['site_tools']; ?></span>
     </a></div>
     <div class="nav-panel level1">
-        <ul>
+        <ul id="sidebar-site-tools">
             <?php
             tpl_toolsevent(
                 'sitetools',
@@ -27,12 +27,12 @@
 
 
 <nav class="nav-usermenu">
-    <div class="nav"><a role="heading" aria-level="2">
+    <div class="nav"><a href="#sidebar-user-tools" role="heading" aria-level="2">
         <span class="ico"><?php echo inlineSVG(__DIR__ . '/../img/account-settings.svg') ?></span>
         <span class="lbl"><?php echo $lang['user_tools']; ?></span>
     </a></div>
     <div class="nav-panel level1">
-        <ul>
+        <ul id="sidebar-user-tools">
             <?php /* dokuwiki user tools */
             tpl_toolsevent(
                 'usertools',
@@ -56,12 +56,12 @@ if($plugin_starred) $stars = $plugin_starred->loadStars();
 if($stars):
     ?>
     <nav class="nav-starred">
-        <div class="nav"><a role="heading" aria-level="2">
+        <div class="nav"><a href="#sidebar-menu-starred" role="heading" aria-level="2">
             <span class="ico"><?php echo inlineSVG(__DIR__ . '/../img/star-circle.svg') ?></span>
             <span class="lbl"><?php echo tpl_getLang('head_menu_starred'); ?></span>
         </a></div>
         <div class="nav-panel level1 plugin_starred">
-            <ul>
+            <ul id="sidebar-menu-starred">
                 <?php
                 foreach($stars as $pid => $time) {
                     echo '<li>';
@@ -80,12 +80,12 @@ if($stars):
 
 <?php if($conf['breadcrumbs']): ?>
     <nav class="nav-trace">
-        <div class="nav"><a role="heading" aria-level="2">
+        <div class="nav"><a href="#sidebar-menu_trace" role="heading" aria-level="2">
             <span class="ico"><?php echo inlineSVG(__DIR__ . '/../img/apple-safari.svg') ?></span>
             <span class="lbl"><?php echo tpl_getLang('head_menu_trace'); ?></span>
         </a></div>
         <div class="nav-panel level1">
-            <ul>
+            <ul id="sidebar-menu_trace">
                 <?php /* trace breadcrumbs as list */
                 // FIXME move to helper class
                 $crumbs = breadcrumbs();
