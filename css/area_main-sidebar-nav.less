@@ -10,9 +10,7 @@
     @icon-size: @font-size-big;
     @menu-margin: @icon-size + @margin-small * 2;
 
-    nav > p,
-    .mmissuelist li,
-    .mmissuelist div {
+    nav > p {
         color: @ini_nav_menu_color;
 
         &.noissue {
@@ -41,35 +39,6 @@
         li:not([class]),
         .li {
             padding: .15em 0;
-        }
-    }
-
-
-    /* jira itemlist */
-    .mmissuelist {
-        li {
-            &.noissue {
-                list-style-type: none;
-                margin-left: 0;
-            }
-
-            a {
-                display: inline-block;
-            }
-        }
-
-        img {
-            vertical-align: bottom;
-            margin-right: .3rem;
-        }
-
-        .mm__status {
-            padding-left: .3rem;
-            padding-right: .3rem;
-        }
-
-        form {
-            vertical-align: text-top;
         }
     }
 
