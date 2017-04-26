@@ -71,8 +71,8 @@
 
     .diffnav {
         a {
-            background-color: @ini_background;
-            border: solid 1px @ini_background;
+            background-color: @ini_background_site;
+            border: solid 1px @ini_background_site;
             border-radius: @ini_default_border_radius;
             color: @ini_nav_menu_color;
             transition: @transition background-color, @transition color, @transition border-color;
@@ -88,7 +88,7 @@
             &:active {
                 background-color: @ini_nav_menu_color;
                 border: solid 1px @ini_nav_menu_color;
-                color: @ini_background;
+                color: @ini_background_site;
 
                 &::before {
                     background-color: inherit;
@@ -114,7 +114,7 @@
         }
 
         th {
-            background-color: @ini_background_content;
+            background-color: @ini_background;
             color: @ini_text;
             padding-top: 10px;
             padding-bottom: 10px;
