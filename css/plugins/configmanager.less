@@ -7,8 +7,16 @@
 
 #dokuwiki__content {
     #config__manager {
+        fieldset {
+            box-sizing: border-box;
+            background-color: @background_darker;
+            margin-left: 0;
+            margin-right: 0;
+        }
+
         .selectiondefault {
             background-color: transparent;
+            color: inherit;
         }
 
         tr {
@@ -16,11 +24,62 @@
                 background-color: transparent;
                 color: inherit;
             }
+
+            &:hover {
+                td {
+                    color: inherit;
+                }
+            }
         }
 
         tr.default {
             .input {
                 background-color: transparent;
+            }
+        }
+
+        td.label {
+            padding: .8em 0 1em 1em;
+
+            span.outkey {
+                background-color: @ini_background_content;
+                color: inherit;
+                font-size: 90%;
+
+                a {
+                    font-size: inherit;
+                }
+            }
+
+            label {
+                line-height: @line-height-big;
+            }
+        }
+    }
+}
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* max-width: 1024px */
+
+@media @screen_max-md {
+    #dokuwiki__content {
+        #config__manager {
+            td.label {
+                label {
+                    font-size: @font-size-small;
+                }
+            }
+
+            .selectiondefault {
+                float: none;
+                max-width: 100%;
+                width: auto;
+
+                label {
+                    width: 90%;
+                    font-size: @font-size-small;
+                }
             }
         }
     }
