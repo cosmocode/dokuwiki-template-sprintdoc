@@ -36,6 +36,11 @@
         border: 0 none;
     }
 
+    + .msg-area + a {
+        clear: right;
+        margin-top: 20px;
+    }
+
     .tab-container {
         display: table;
 
@@ -123,6 +128,7 @@
                 * {
                     cursor: pointer;
                     color: inherit;
+                    font-size: inherit;
                 }
 
                 .prefix {
@@ -292,8 +298,37 @@
         }
     }
 
-    + .msg-area + a {
-        clear: right;
-        margin-top: 20px;
+
+/* + + + + +  tab issues  + + + + + */
+    #spr__tab-issues {
+        ul.mmissuelist {
+            padding-left: 0;
+            margin-top: 1rem;
+        
+            li {
+                &.noissue {
+                    list-style-type: none;
+                    margin-left: 0;
+                }
+
+                a {
+                    display: inline-block;
+                }
+            }
+
+            img {
+                vertical-align: bottom;
+                margin-right: .3rem;
+            }
+
+            .mm__status {
+                padding-left: .3rem;
+                padding-right: .3rem;
+            }
+
+            form {
+                vertical-align: text-top;
+            }
+        }
     }
 }

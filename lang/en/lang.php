@@ -38,6 +38,8 @@ $lang['quality_trigger']            = 'toggle page analysis';
 
 $lang['prefix_tasks']               = 'open tasks: ';
 $lang['prefix_tasks_page']          = 'open tasks for this page: ';
+$lang['prefix_tasks_user']          = 'Your open tasks: ';
+
 $lang['tasks_page_none']            = 'There are no open tasks for this page.';
 $lang['tasks_page_intime']          = 'There are %1$d open tasks on this page.';
 $lang['tasks_page_late']            = 'There are %1$d open tasks on this page, %2$d are late.';
@@ -60,14 +62,14 @@ $lang['mode_detail']                = 'Image Details';
 
 $lang['__site_width__']             = 'content - width (in %)';
 
-$lang['__background__']             = 'website - background color';
-$lang['__text_webframe__']          = 'website unlinked: claim, title, footer, navigation - font color';
+$lang['__background_site__']        = 'website - background color';
+$lang['__text_webframe__']          = 'claim, title, footer (unlinked), navigation (unlinked) - font color';
 
-$lang['__nav_menu_color__']         = 'link: navigation, footer, pagetools icons, tabbox - font color';
-$lang['__nav_menu_hover_color__']   = 'link: navigation (hover) - font color, border color; wiki icons - font color; wiki icons (hover) - background color';
-$lang['__nav_menu_hover_bg__']      = 'link: navigation (hover) - background color; wiki icons - background color; wiki icons (hover) - font color';
+$lang['__nav_menu_color__']         = 'navigation (link), footer (link), pagetools icons, tabbox - font color';
+$lang['__nav_menu_hover_color__']   = 'navigation (hover) - font color, border color; wiki icons - font color; wiki icons (hover) - background color';
+$lang['__nav_menu_hover_bg__']      = 'navigation (hover) - background color; wiki icons - background color; wiki icons (hover) - font color';
 
-$lang['__background_content__']     = 'content, breadcrumb, pagetools (hover) - background color';
+$lang['__background__']             = 'content, breadcrumb, pagetools (hover) - background color';
 $lang['__text__']                   = 'content: text - font color';
 
 $lang['__background_neu__']         = 'Content neutral (not too different from the content background) - background color';
@@ -88,8 +90,8 @@ $lang['__missing__']                = 'links to non-existing pages - font color'
 $lang['__button_color__']           = 'buttons - font color';
 $lang['__button_background__']      = 'buttons - background color';
 
-$lang['__background_alt__']         = 'table head, hover: table cell, struct Label - background color (alternative)';
-$lang['__text_alt__']               = 'table head unlinked, hover: table cell, struct Label - font color (alternative)';
+$lang['__background_alt__']         = 'table head, table cell (hover), struct Label (hover) - background color (alternative)';
+$lang['__text_alt__']               = 'table head (unlinked), table cell (hover), struct Label (hover) - font color (alternative)';
 
 $lang['__border__']                 = 'tables, form fields, blockquotes - border color';
 $lang['__default_border_radius__']  = 'wiki icons, content (top right) - border radius';

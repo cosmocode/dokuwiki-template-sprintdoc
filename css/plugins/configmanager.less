@@ -7,8 +7,18 @@
 
 #dokuwiki__content {
     #config__manager {
+        fieldset {
+            min-width: 100%;
+            overflow-x: auto;
+            box-sizing: border-box;
+            background-color: @background_darker;
+            margin-left: 0;
+            margin-right: 0;
+        }
+
         .selectiondefault {
             background-color: transparent;
+            color: inherit;
         }
 
         tr {
@@ -16,11 +26,136 @@
                 background-color: transparent;
                 color: inherit;
             }
+
+            &:hover {
+                td {
+                    color: inherit;
+                }
+            }
         }
 
         tr.default {
             .input {
                 background-color: transparent;
+            }
+        }
+
+        td.label {
+            padding: .8em 0 1.2em 1em;
+
+            span.outkey {
+                background-color: @ini_background;
+                color: inherit;
+                font-size: (@font-size-small - .06);
+                font-weight: bold;
+                padding: 0 @very-small-spacing;
+
+                a {
+                    font-size: inherit;
+                }
+            }
+
+            label {
+                line-height: @line-height-big;
+            }
+        }
+    }
+}
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* max-width: 1024px */
+
+@media @screen_max-md {
+    #dokuwiki__content {
+        #config__manager {
+            td {
+                &.label {
+                    label,
+                    span {
+                        font-size: @font-size-small;
+                    }
+                }
+
+                &.label + td {
+                    font-size: @font-size-small;
+
+                    span {
+                        font-size: inherit;
+                    }
+                }
+
+                select,
+                input.edit {
+                    font-size: @font-size-small;
+                }
+            }
+
+            .selectiondefault {
+                label {
+                    font-size: @font-size-small;
+                }
+            }
+        }
+    }
+}
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* max-width: 768px */
+
+@media @screen_max-sm {
+    #dokuwiki__content {
+        #config__manager {
+            table {
+                border-top: 0 none;
+            }
+
+            td {
+                padding-top: 0;
+
+                &.label {
+                    display: block;
+                    width: 100%;
+                    border: 0 none;
+                    border-top: 1px solid @ini_border;
+                    border-bottom: 0 none;
+                    padding: .8em .5em .3em;
+
+
+                    span.outkey {
+                        margin-left: 0;
+                    }
+                }
+
+                .input {
+                    width: 100%;
+                }
+
+
+                &.value,
+                &.label + td {
+                    display: block;
+                    width: 100%;
+                    border: 0 none;
+                    margin-bottom: 1.2rem;
+                }
+
+                select,
+                input.edit {
+                    width: 100%;
+                    text-overflow: ellipsis;
+                }
+            }
+
+            .selectiondefault {
+                float: none;
+                max-width: 100%;
+                width: auto;
+
+                label {
+                    width: 90%;
+                }
             }
         }
     }
