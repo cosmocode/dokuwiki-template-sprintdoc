@@ -8,6 +8,8 @@
 #dokuwiki__content {
     #config__manager {
         fieldset {
+            min-width: 100%;
+            overflow-x: auto;
             box-sizing: border-box;
             background-color: @background_darker;
             margin-left: 0;
@@ -67,9 +69,82 @@
 @media @screen_max-md {
     #dokuwiki__content {
         #config__manager {
-            td.label {
+            td {
+                &.label {
+                    label,
+                    span {
+                        font-size: @font-size-small;
+                    }
+                }
+
+                &.label + td {
+                    font-size: @font-size-small;
+
+                    span {
+                        font-size: inherit;
+                    }
+                }
+
+                select,
+                input.edit {
+                    font-size: @font-size-small;
+                }
+            }
+
+            .selectiondefault {
                 label {
                     font-size: @font-size-small;
+                }
+            }
+        }
+    }
+}
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* max-width: 768px */
+
+@media @screen_max-sm {
+    #dokuwiki__content {
+        #config__manager {
+            table {
+                border-top: 0 none;
+            }
+
+            td {
+                padding-top: 0;
+
+                &.label {
+                    display: block;
+                    width: 100%;
+                    border: 0 none;
+                    border-top: 1px solid @ini_border;
+                    border-bottom: 0 none;
+                    padding: .8em .5em .3em;
+
+
+                    span.outkey {
+                        margin-left: 0;
+                    }
+                }
+
+                .input {
+                    width: 100%;
+                }
+
+
+                &.value,
+                &.label + td {
+                    display: block;
+                    width: 100%;
+                    border: 0 none;
+                    margin-bottom: 1.2rem;
+                }
+
+                select,
+                input.edit {
+                    width: 100%;
+                    text-overflow: ellipsis;
                 }
             }
 
@@ -80,7 +155,6 @@
 
                 label {
                     width: 90%;
-                    font-size: @font-size-small;
                 }
             }
         }
