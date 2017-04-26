@@ -48,6 +48,9 @@ $lang['osm_zoom_link_title']        = 'externer Link - öffnet in neuem Fenster'
 $lang['image_detail']               = 'Detailinformationen zum Bild';
 
 
+$lang['mode_edit']                  = 'Seite bearbeiten';
+$lang['mode_detail']                = 'Details zum Bild';
+
 /**
  * colors
  */
