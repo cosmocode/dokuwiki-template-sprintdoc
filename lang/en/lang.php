@@ -20,7 +20,7 @@ $lang['head_magic_matcher']         = 'MagicMatcher';
 $lang['head_quick_search']          = 'quick search';
 $lang['head_menu_main']             = 'main menu';
 $lang['head_menu_status']           = 'site status';
-$lang['head_breadcrumb']            = 'location indicator';
+$lang['head_breadcrumb_youarehere'] = 'location indicator';
 $lang['head_menu_trace']            = 'Last Visited Pages';
 $lang['head_meta_box']              = 'meta data for this page';
 $lang['head_menu_starred']          = 'Starred Pages';
@@ -53,6 +53,8 @@ $lang['osm_zoom_link_text']         = 'view larger map';
 $lang['osm_zoom_link_title']        = 'external link opens new window';
 $lang['image_detail']               = 'image details';
 
+$lang['mode_edit']                  = 'Editing Page';
+$lang['mode_detail']                = 'Image Details';
 
 /**
  * colors

@@ -205,4 +205,50 @@ class Template {
             echo $mobile;
         }
     }
+
+    /**
+     * Add the current mode information to the hierarchical breadcrumbs
+     */
+    public function breadcrumbSuffix() {
+        global $ACT;
+        global $lang;
+        global $INPUT;
+        global $ID;
+        global $conf;
+        global $IMG;
+        if($ACT == 'show') return;
+
+        // find an apropriate label for the current mode
+        if($ACT) {
+            $label = tpl_getLang('mode_' . $ACT);
+            if(!$label) {
+                if(isset($lang['btn_' . $ACT])) {
+                    $label = $lang['btn_' . $ACT];
+                } else {
+                    $label = $ACT;
+                }
+            }
+        } else {
+            // actually we would need to create a proper namespace breadcrumb path here,
+            // but this is the most simplest thing we can do for now
+            if(defined('DOKU_MEDIADETAIL')) {
+                $label = hsc(noNS($IMG));
+            } else {
+                return;
+            }
+        }
+
+        if($ACT == 'admin' && $INPUT->has('page')) {
+            $link = wl($ID, array('do' => 'admin'));
+            echo '<bdi> : <a href="' . $link . '"><strong>' . $label . '</strong></a></bdi>';
+
+            /** @var \DokuWiki_Admin_Plugin $plugin */
+            $plugin = plugin_load('admin', $INPUT->str('page'));
+            if(!$plugin) return;
+
+            $label = $plugin->getMenuText($conf['lang']);
+        }
+
+        echo '<bdi><span class="curid"> : <strong>' . $label . '</strong></span></bdi>';
+    }
 }

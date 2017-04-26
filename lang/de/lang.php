@@ -20,7 +20,7 @@ $lang['head_magic_matcher']         = 'MagicMatcher';
 $lang['head_quick_search']          = 'wikiübergreifende Schnellsuche';
 $lang['head_menu_main']             = 'Hauptmenü';
 $lang['head_menu_status']           = 'Seitenstatus';
-$lang['head_breadcrumb']            = 'Standortanzeiger';
+$lang['head_breadcrumb_youarehere'] = 'Standortanzeiger';
 $lang['head_menu_trace']            = 'Zuletzt Angesehen';
 $lang['head_meta_box']              = 'Metainformationen zur Seite';
 $lang['head_menu_starred']          = 'gemerkte Seite';
@@ -53,6 +53,9 @@ $lang['osm_zoom_link_text']         = 'größere Karte anzeigen';
 $lang['osm_zoom_link_title']        = 'externer Link - öffnet in neuem Fenster';
 $lang['image_detail']               = 'Detailinformationen zum Bild';
 
+
+$lang['mode_edit']                  = 'Seite bearbeiten';
+$lang['mode_detail']                = 'Details zum Bild';
 
 /**
  * colors
