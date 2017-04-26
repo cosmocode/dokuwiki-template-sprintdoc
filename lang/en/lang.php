@@ -37,13 +37,12 @@ $lang['tab_issues']                 = 'Issues';
 $lang['quality_trigger']            = 'toggle page analysis';
 
 $lang['prefix_tasks']               = 'open tasks: ';
-$lang['prefix_tasks_user']          = 'your open tasks: ';
 $lang['prefix_tasks_page']          = 'open tasks for this page: ';
+$lang['prefix_tasks_user']          = 'Your open tasks: ';
+
 $lang['tasks_page_none']            = 'There are no open tasks for this page.';
 $lang['tasks_page_intime']          = 'There are %1$d open tasks on this page.';
 $lang['tasks_page_late']            = 'There are %1$d open tasks on this page, %2$d are late.';
-$lang['tasks_user_none']            = 'You have no open tasks.';
-$lang['tasks_user_intime']          = 'You have %1$d open tasks.';
 
 $lang['discussion']                 = 'Discussion';
 $lang['back_to_article']            = 'Back to article';
@@ -55,21 +54,20 @@ $lang['osm_zoom_link_title']        = 'external link opens new window';
 $lang['image_detail']               = 'image details';
 
 
-
 /**
  * colors
  */
 
 $lang['__site_width__']             = 'content - width (in %)';
 
-$lang['__background__']             = 'website - background color';
+$lang['__background_site__']        = 'website - background color';
 $lang['__text_webframe__']          = 'claim, title, footer (unlinked), navigation (unlinked) - font color';
 
 $lang['__nav_menu_color__']         = 'navigation (link), footer (link), pagetools icons, tabbox - font color';
 $lang['__nav_menu_hover_color__']   = 'navigation (hover) - font color, border color; wiki icons - font color; wiki icons (hover) - background color';
 $lang['__nav_menu_hover_bg__']      = 'navigation (hover) - background color; wiki icons - background color; wiki icons (hover) - font color';
 
-$lang['__background_content__']     = 'content, breadcrumb, pagetools (hover) - background color';
+$lang['__background__']             = 'content, breadcrumb, pagetools (hover) - background color';
 $lang['__text__']                   = 'content: text - font color';
 
 $lang['__background_neu__']         = 'Content neutral (not too different from the content background) - background color';

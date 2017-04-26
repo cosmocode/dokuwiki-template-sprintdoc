@@ -23,6 +23,7 @@ $lang['head_menu_status']           = 'Seitenstatus';
 $lang['head_breadcrumb']            = 'Standortanzeiger';
 $lang['head_menu_trace']            = 'Zuletzt Angesehen';
 $lang['head_meta_box']              = 'Metainformationen zur Seite';
+$lang['head_menu_starred']          = 'gemerkte Seite';
 
 $lang['jump_to_quicksearch']        = 'Springe zur Schnellsuche';
 
@@ -31,13 +32,17 @@ $lang['meta_box_tags_none']         = 'Keine Tags verknüpft';
 $lang['js']['meta_box_toc_none']    = 'kein Inhaltsverzeichnis vorhanden';
 
 $lang['tab_tags']                   = 'Tags';
+$lang['tab_issues']                 = 'Issues';
 
 $lang['quality_trigger']            = 'Seitenanalyse ein- bzw. ausblenden';
 
 $lang['prefix_tasks']               = 'offene Aufgaben: ';
-$lang['prefix_tasks_user']          = 'Ihre offenen Aufgaben: ';
 $lang['prefix_tasks_page']          = 'offene Aufgaben auf dieser Seite: ';
+$lang['prefix_tasks_user']          = 'Ihre offenen Aufgaben: ';
+
 $lang['tasks_page_none']            = 'keine offenen Aufgaben für diese Seite';
+$lang['tasks_page_intime']          = 'Es gibt %1$d offenen Aufgaben für diese Seite.';
+$lang['tasks_page_late']            = 'Es gibt %1$d offenen Aufgaben für diese Seite, %2$d sind zu spät.';
 
 $lang['discussion']                 = 'Diskussion';
 $lang['back_to_article']            = 'Zurück zum Artikel';
@@ -55,14 +60,14 @@ $lang['image_detail']               = 'Detailinformationen zum Bild';
 
 $lang['__site_width__']             = 'Content - Breite (in %)';
 
-$lang['__background__']             = 'Website - Hintergrundfarbe';
+$lang['__background_site__']        = 'Website - Hintergrundfarbe';
 $lang['__text_webframe__']          = 'Claim, Titel, Footer (unverlinkt), Navigation (unverlinkt) - Schriftfarbe';
 
 $lang['__nav_menu_color__']         = 'Navigation (verlinkt), Footer (verlinkt), Pagetools Icons, Tabbox - Schriftfarbe';
 $lang['__nav_menu_hover_color__']   = 'Navigation (hover) - Schriftfarbe, Rahmenfarbe; Wiki Icons - Schriftfarbe; Wiki Icons (hover) - Hintergrundfarbe';
 $lang['__nav_menu_hover_bg__']      = 'Navigation (hover) - Hintergrundfarbe; Wiki Icons - Hintergrundfarbe; Wiki Icons (hover) - Schriftfarbe';
 
-$lang['__background_content__']     = 'Content, Breadcrumb, Pagetools (hover) - Hintergrundfarbe';
+$lang['__background__']             = 'Content, Breadcrumb, Pagetools (hover) - Hintergrundfarbe';
 $lang['__text__']                   = 'Content: Text - Schriftfarbe';
 
 $lang['__background_neu__']         = 'Content neutral (nicht zu unterschiedlich zum Content-Hintergrund) - Hintergrundfarbe';
