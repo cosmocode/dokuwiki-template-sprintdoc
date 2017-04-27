@@ -172,10 +172,6 @@ jQuery(function () {
             }
         },
 
-        addTemplateMenuesCurrentStates = function () {
-
-        },
-
         /**
          * Make sure the content area is always as high as the sidebar
          */
@@ -229,12 +225,48 @@ jQuery(function () {
                 var $body = jQuery('body');
                 $body.toggleClass('show-mobile-sidebar');
             });
+        },
+
+        /**
+         * set is-active class if body has at least one of the given selectors
+         * @param selectorArray Array of selectors
+         * @param $nav container in which the $toggler is situated
+         */
+        setActive = function(selectorArray, $nav) {
+            for(var i=0; i< selectorArray.length; i++) {
+                var mode = selectorArray[i];
+                if(jQuery('body').is('.do-'+mode)){
+                    setTogglerClass($nav.find('.nav'),'is-active');
+                    alert('a[href*="do='+mode+'"]');
+                    $nav.find('a[href*="do='+mode+'"]').wrapAll('<span class="curid"></span>');
+                }
+            }
+        },
+
+        /**
+         * sets active states in site tool menu and user tool menu for certain modes
+         * adds sessionStorage behaviour
+         *
+         */
+        initTemplateMenues = function () {
+            var $body = jQuery('body'),
+                $siteTools = $nav.find('> .nav-sitetools'),
+                $userTools = $nav.find('> .nav-usermenu'),
+                $templateMenus = $nav.find('> nav:not(.nav-main)'),
+
+                stModes = ['recent', 'media', 'index'],
+                utModes = ['profile','admin'];
+
+            setActive(stModes,$siteTools);
+            setActive(utModes,$userTools);
+
         };
 
     // main
     initContentNav();
     initSidebarToggling();
     initMenuHandling();
+    initTemplateMenues();
     initContentMinHeight();
     initSearchToggling();
     initMobileToggling();
