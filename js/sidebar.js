@@ -24,7 +24,7 @@ jQuery(function () {
                 if (!item) {
                     continue;
                 }
-                window.sessionStorage.removeItem('sidebar-section-' + index + '-open');
+                window.sessionStorage.setItem('sidebar-section-' + index + '-open', 'false');
             }
         },
 
@@ -254,11 +254,19 @@ jQuery(function () {
                 $templateMenus = $nav.find('> nav:not(.nav-main)'),
 
                 stModes = ['recent', 'media', 'index'],
-                utModes = ['profile','admin'];
+                utModes = ['profile','admin'],
+                isWideContent = false;
 
             /* set active states for site tool menu and user tool menu */
             setActive(stModes,$siteTools);
             setActive(utModes,$userTools);
+
+            if(jQuery('body').is('.wide-content')) {
+                window.sessionStorage.setItem('wide-content', true);
+                isWideContent = true;
+            }
+
+
 
             /* set data attributes for sessionStorage and check onload if one of the template menus should be opened */
             $templateMenus.each(function( index ) {
@@ -267,13 +275,24 @@ jQuery(function () {
                     $toggler = ($t.is('a')) ? $t : $t.find('a:last'),
                     tIndex = y + index;
                 $toggler.data('index', tIndex);
-                if (window.sessionStorage.getItem('sidebar-section-' + tIndex + '-open') === 'true') {
-                    jQuery(this).find('.nav-panel').css('display', 'block');
-                    setTogglerClass($toggler,'is-open');
+
+                var item = window.sessionStorage.getItem('sidebar-section-' + tIndex + '-open');
+                if (item) {
+                    if(isWideContent) {
+                        window.sessionStorage.setItem('sidebar-section-' + tIndex + '-open', 'false');
+                    } else {
+                        if (item === 'true') {
+                            jQuery(this).find('.nav-panel').css('display', 'block');
+                            setTogglerClass($toggler, 'is-open');
+                        }
+                    }
                 }
+                //console.log(window.sessionStorage);
+
             });
 
         };
+
 
     // main
     initContentNav();
