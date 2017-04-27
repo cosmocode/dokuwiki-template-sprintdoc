@@ -237,7 +237,6 @@ jQuery(function () {
                 var mode = selectorArray[i];
                 if(jQuery('body').is('.do-'+mode)){
                     setTogglerClass($nav.find('.nav'),'is-active');
-                    alert('a[href*="do='+mode+'"]');
                     $nav.find('a[href*="do='+mode+'"]').wrapAll('<span class="curid"></span>');
                 }
             }
@@ -245,7 +244,7 @@ jQuery(function () {
 
         /**
          * sets active states in site tool menu and user tool menu for certain modes
-         * adds sessionStorage behaviour
+         * adds sessionStorage behaviour equivalent approach to content menus
          *
          */
         initTemplateMenues = function () {
@@ -257,16 +256,30 @@ jQuery(function () {
                 stModes = ['recent', 'media', 'index'],
                 utModes = ['profile','admin'];
 
+            /* set active states for site tool menu and user tool menu */
             setActive(stModes,$siteTools);
             setActive(utModes,$userTools);
+
+            /* set data attributes for sessionStorage and check onload if one of the template menus should be opened */
+            $templateMenus.each(function( index ) {
+                var $t = jQuery(this).find('.nav'),
+                    y = $nav.find('.nav-main').find('.nav').length,
+                    $toggler = ($t.is('a')) ? $t : $t.find('a:last'),
+                    tIndex = y + index;
+                $toggler.data('index', tIndex);
+                if (window.sessionStorage.getItem('sidebar-section-' + tIndex + '-open') === 'true') {
+                    jQuery(this).find('.nav-panel').css('display', 'block');
+                    setTogglerClass($toggler,'is-open');
+                }
+            });
 
         };
 
     // main
     initContentNav();
     initSidebarToggling();
-    initMenuHandling();
     initTemplateMenues();
+    initMenuHandling();
     initContentMinHeight();
     initSearchToggling();
     initMobileToggling();
