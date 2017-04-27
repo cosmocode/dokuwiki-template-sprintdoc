@@ -59,9 +59,15 @@ ul.page-attributes {
                 }
 
                 .noopentasks {
-                        background-color: @ini_background;
+                    span {
+                        background-color: @ini_background_site;
                         border-color: @noopentasks-border;
                         color: @ini_text_webframe;
+                    }
+
+                    svg path {
+                        fill: @ini_text_webframe;
+                    }
 
                     .num {
                         background-color: @noopentasks-border; // fix
