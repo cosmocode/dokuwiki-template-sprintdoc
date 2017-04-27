@@ -59,6 +59,9 @@ jQuery(function () {
             $panel.dw_toggle(!isOpen, function () {
                 if (!isOpen) {
                     focusFirstSubLink($panel);
+                    $toggler.addClass('is-open');
+                } else {
+                    $toggler.removeClass('is-open');
                 }
             });
             window.sessionStorage.setItem('sidebar-section-' + $toggler.data('index') + '-open', !isOpen);
@@ -106,14 +109,17 @@ jQuery(function () {
                     ;
                 $toggler = jQuery('<div class="nav">').prepend($toggler);
 
+
                 // wrap all following siblings til the next element in a wrapper
                 var $wrap = jQuery('<div>')
                     .addClass('nav-panel');
                 var $sibs = $me.nextAll();
+
                 for (var i = 0; i < $sibs.length; i++) {
                     var $sib = jQuery($sibs[i]);
                     if ($sib.is(ELEMENT)) break;
                     $sib.detach().appendTo($wrap);
+                    addContentMenuCurrentStates($sib, $toggler);
                 }
                 $wrap.insertAfter($me);
 
@@ -126,6 +132,7 @@ jQuery(function () {
 
                 if (window.sessionStorage.getItem('sidebar-section-' + index + '-open') === 'true') {
                     $wrap.css('display', 'block');
+                    setTogglerClass($toggler,'is-open');
                 }
 
             });
@@ -139,6 +146,34 @@ jQuery(function () {
                 toggleNav(jQuery(this));
                 e.preventDefault();
             });
+        },
+
+        /**
+         * adds a given class to the toggler link
+         * @param $toggler link or parent of link to whom the class is added
+         * @param classVal class to be added
+         */
+        setTogglerClass = function ($toggler, classVal) {
+            if($toggler.is('a')) {
+                $toggler.addClass(classVal);
+            } else {
+                $toggler.find('a').addClass(classVal);
+            }
+        },
+
+        /**
+         * marks a $toggler link as active if the following menu has an active state
+         * @param $menuObj jQuery Object of the menu / container
+         * @param $toggler
+         */
+        addContentMenuCurrentStates = function ($menuObj, $toggler) {
+            if($menuObj[0] && String($menuObj[0].innerHTML).indexOf('curid') > 0) {
+                setTogglerClass($toggler,'is-active');
+            }
+        },
+
+        addTemplateMenuesCurrentStates = function () {
+
         },
 
         /**
