@@ -10,6 +10,29 @@
     @icon-size: @font-size-big;
     @menu-margin: @icon-size + @margin-small * 2;
 
+    @media @screen_md-lg {
+        margin-left: -1.25rem;
+    }
+
+    @media @screen_max-md {
+        display: none;
+    }
+
+    > ul,
+    > ol,
+    > nav {
+        padding-left: 0;
+
+        ul,
+        ol {
+            padding-left: 0;
+
+            li {
+                margin-left: 0;
+            }
+        }
+    }
+
     nav > p {
         color: @ini_nav_menu_color;
 
@@ -39,14 +62,6 @@
         li:not([class]),
         .li {
             padding: .15em 0;
-        }
-    }
-
-    > * {
-        margin-left: @menu-margin; // moves *all* sidebar content to the right
-
-        @media @screen_md-lg {
-            margin-left: @menu-margin-lg;
         }
     }
 
@@ -81,12 +96,8 @@
         color: @ini_nav_menu_color;
         font-size: @font-size-head6;
         font-weight: normal;
-        margin: -1px 0 (@font-size-head6 / 2) -(@menu-margin - .4); // moves the toggles back to the left (.4 from li margin)
+        margin: -1px 0 (@font-size-head6 / 2); // moves the toggles back to the left (.4 from li margin)
         transition: @transition color, @transition background-color, @transition border-color;
-
-        @media @screen_md-lg {
-            margin-left: -(@menu-margin-lg + .8);
-        }
 
         span {
             display: inline-block;
@@ -146,15 +157,13 @@
         &:hover,
         &:focus,
         &:active {
+            position: relative; // always show label, even with collapsed sidebar
+            z-index: 100;
+            width: 100%;
             background-color: @ini_nav_menu_hover_bg;
             border-color: @ini_nav_menu_hover_color;
             color: @ini_nav_menu_hover_color;
             text-decoration: none;
-
-            // always show label, even with collapsed sidebar
-            position: absolute;
-            z-index: 100;
-            width: 100%;
 
             span.ico {
                 border-color: inherit;
@@ -172,16 +181,6 @@
         }
     }
 
-    // without wrapping UL
-    nav > a.nav,
-    nav div.nav a{
-        margin-left: -3.5rem;
-
-        @media @screen_md-lg {
-            margin-left: -2.5rem;
-        }
-    }
-
 
 /* + + + + +  active  + + + + + */
     span.curid a {
@@ -193,6 +192,7 @@
     div.nav-panel {
         display: none;
         margin-top: .5rem;
+        margin-left: @menu-margin;
 
         ul {
             margin-bottom: 1rem;
@@ -203,34 +203,6 @@
         }
     }
 }
-
-
-/* + + + + + +  wide page content  border-bottom between a.nav (short width)  + + + + +
-.wide-content {
-    #dokuwiki__aside {
-        a.nav {
-            position: relative;
-
-            &::after {
-                content: '';
-                position: absolute;
-                bottom: -1px;
-                left: 0;
-                width: 100%;
-                height: 1px;
-                border-bottom: solid 1px @ini_border;
-            }
-
-            &:hover,
-            &:focus,
-            &:active {
-                &::after {
-                    display: none;
-                }
-            }
-        }
-    }
-} */
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
@@ -283,6 +255,16 @@
 @media @screen_max-md {
     body.show-mobile-sidebar {
         #dokuwiki__aside {
+            display: block !important;
+            position: absolute;
+            left: 1.25rem; // left margin of content container
+            z-index: 200; // above all
+            box-shadow: @box-shadow-right-bottom;
+            min-width: 45%;
+            max-width: 90%;
+            height: auto;
+            background: @ini_background_site;
+
             > nav {
                 position: relative;
                 z-index: 2;
@@ -298,7 +280,7 @@
                 border-left-width: 0;
             }
 
-            .nav-panel,
+            div.nav-panel,
             a.nav {
                 padding-right: .8em;
             }
@@ -324,4 +306,3 @@
         }
     }
 }
-
