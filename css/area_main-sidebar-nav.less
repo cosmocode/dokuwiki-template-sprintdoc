@@ -33,19 +33,19 @@
         }
     }
 
-    nav > p {
-        color: @ini_nav_menu_color;
+    nav {
+        > p {
+            color: @ini_nav_menu_color;
 
-        &.noissue {
-            color: @ini_text_webframe;
+            &.noissue {
+                color: @ini_text_webframe;
 
-            * {
-                color: inherit;
+                * {
+                    color: inherit;
+                }
             }
         }
-    }
 
-    nav {
         li {
             color: @ini_nav_menu_color;
 
@@ -77,54 +77,146 @@
         }
     }
 
-    // the wrapper around the toggle to reserve space
+
+/* + + +  the wrapper around the toggle to reserve space  + + + */
     div.nav {
-        height: @icon-size + @margin-small;
-        border: 1px solid transparent;
-    }
-
-    // the toggle element
-    div.nav a {
-        .display-flex();
-        .align-items();
-
-        cursor: pointer;
         min-height: @icon-size + @margin-small;
-        opacity: 1;
         border: 1px solid transparent;
-        border-radius: @fix_border-radius;
-        color: @ini_nav_menu_color;
-        font-size: @font-size-head6;
-        font-weight: normal;
-        margin: -1px 0 (@font-size-head6 / 2); // moves the toggles back to the left (.4 from li margin)
-        transition: @transition color, @transition background-color, @transition border-color;
 
-        span {
-            display: inline-block;
-            vertical-align: middle;
-            color: inherit;
-        }
+        // the toggle element
+        a {
+            display: table;
+            width: 100%;
 
-        span.lbl {
-            flex-grow: 1;
+            cursor: pointer;
+            min-height: @icon-size + @margin-small;
+            opacity: 1;
+            border: 1px solid transparent;
+            border-radius: @fix_border-radius;
+            color: @ini_nav_menu_color;
+            font-size: @font-size-head6;
+            font-weight: normal;
+            margin: -1px 0 (@font-size-head6 / 2); // moves the toggles back to the left (.4 from li margin)
+            transition: @transition color, @transition background-color, @transition border-color;
 
-            // wordbreak too late in IE 10
-            @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+            span {
+                display: inline-block;
+                vertical-align: middle;
+                color: inherit;
+            }
+
+            &:hover,
+            &:focus,
+            &:active {
+                position: relative; // always show label, even with collapsed sidebar
+                z-index: 100;
                 width: 100%;
-                box-sizing: border-box;
-                padding-right: 13px;
+                background-color: @ini_nav_menu_hover_bg;
+                border-color: @ini_nav_menu_hover_color;
+                color: @ini_nav_menu_hover_color;
+                text-decoration: none;
+
+                span.ico {
+                    &:after {
+                        background-color: @ini_nav_menu_hover_color;
+                    }
+
+                    strong {
+                        border-color: inherit;
+                    }
+
+                    svg {
+                        path {
+                            fill: @ini_nav_menu_hover_color;
+                        }
+                    }
+                }
+            }
+
+/* + + +  submenu entry is active  + + + */
+            &.is-active {
+                font-weight: bold;
+            }
+
+
+/* + + +  toggle: open  + + + */
+            &.is-open {
+                background-color: @ini_nav_menu_hover_color;
+                border-color: @ini_nav_menu_hover_color;
+                color: @ini_nav_menu_hover_bg;
+
+                span.ico {
+                    &:after {
+                        background-color: @ini_nav_menu_hover_bg;
+                    }
+
+                    strong {
+                        border-color: @ini_nav_menu_hover_bg;
+                    }
+
+                    svg {
+                        path {
+                            fill: @ini_nav_menu_hover_bg;
+                        }
+                    }
+                }
+
+                &:hover,
+                &:focus,
+                &:active {
+                    background-color: @ini_nav_menu_hover_bg;
+                    border-color: @ini_nav_menu_hover_color;
+                    color: @ini_nav_menu_hover_color;
+
+                    span.ico {
+                        &:after {
+                            background-color: @ini_nav_menu_hover_color;
+                        }
+
+                        strong {
+                            border-color: inherit;
+                        }
+
+                        svg {
+                            path {
+                                fill: @ini_nav_menu_hover_color;
+                            }
+                        }
+                    }
+                }
             }
         }
 
         span.ico {
-            .flex(0 0 auto);
-
+            position: relative;
+            display: table-cell;
             width: @menu-margin;
+            min-width: @menu-margin;
             height: @icon-size;
-            border-right: 1px solid @ini_nav_menu_color;
             text-align: center;
-            margin-right: 4%;
             color: inherit;
+
+            &::after {
+                @border-height: 1.5rem;
+
+                content: '';
+                position: absolute;
+                right: 0;
+                top: 50%;
+                bottom: auto;
+                height: @border-height;
+                width: 1px;
+                background-color: @ini_nav_menu_color;
+                margin-top: -(@border-height / 2);
+
+                // wordbreak too late in IE 10
+                @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+                    top: .5rem;
+                    bottom: .5rem;
+                    height: 100%;
+                    margin: 0;
+                }
+            }
 
             // simple fake icon
             strong {
@@ -154,30 +246,9 @@
             }
         }
 
-        &:hover,
-        &:focus,
-        &:active {
-            position: relative; // always show label, even with collapsed sidebar
-            z-index: 100;
-            width: 100%;
-            background-color: @ini_nav_menu_hover_bg;
-            border-color: @ini_nav_menu_hover_color;
-            color: @ini_nav_menu_hover_color;
-            text-decoration: none;
-
-            span.ico {
-                border-color: inherit;
-
-                strong {
-                    border-color: inherit;
-                }
-
-                svg {
-                    path {
-                        fill: @ini_nav_menu_hover_color;
-                    }
-                }
-            }
+        span.lbl {
+            display: table-cell;
+            padding-left: .5rem;
         }
     }
 
