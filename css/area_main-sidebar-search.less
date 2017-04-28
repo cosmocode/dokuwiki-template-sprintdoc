@@ -184,12 +184,14 @@
 @media @screen_min-md {
     .wide-content {
         .search.main-sidebar {
+            display: block;
+
             p.toggleSearch {
                 position: relative;
                 z-index: 1;
                 display: block;
                 float: left;
-                width: 100%;
+                width: auto;
             }
 
             form {
@@ -209,6 +211,15 @@
                     }
                 }
             }
+        }
+    }
+}
+
+
+@media @screen_max-md {
+    .show-mobile-sidebar {
+        .search.main-sidebar {
+            display: block;
         }
     }
 }

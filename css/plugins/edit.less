@@ -1,6 +1,6 @@
 /**
  * This file provides styles for the edit view (?do=edit), preview
- * and section edit buttons.
+ * and "section edit button" and "editbutton_table edit button".
  */
 
 
@@ -9,9 +9,18 @@
 #dokuwiki__content {
     div.section_highlight {
         clear: right;
+        background: repeating-linear-gradient(
+            -45deg,
+            @highlight-odd-ini_text,
+            @highlight-odd-ini_text 10px,
+            @highlight-even-ini_text 10px,
+            @highlight-even-ini_text 20px,
+        );
+        border-color: @ini_background_page_header;
         padding-top: 0 !important; // heredity
     }
 
+    // "section edit button" and "editbutton_table edit button"
     .secedit button {
         clear: both;
         font-size: 100%;
