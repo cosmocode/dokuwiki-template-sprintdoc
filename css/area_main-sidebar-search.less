@@ -181,30 +181,32 @@
 
 
 /* + + + + +  wide page content  + + + + + */
-.wide-content {
-    .search.main-sidebar {
-        p.toggleSearch {
-            position: relative;
-            z-index: 1;
-            display: block;
-            float: left;
-            width: 100%;
-        }
-
-        form {
-            input {
-                border: 0 none;
+@media @screen_min-md {
+    .wide-content {
+        .search.main-sidebar {
+            p.toggleSearch {
+                position: relative;
+                z-index: 1;
+                display: block;
+                float: left;
+                width: 100%;
             }
 
-            .no {
-                #qsearch__in {
-                    width: 0;
-                    padding: 0;
-                    margin: 0;
+            form {
+                input {
+                    border: 0 none;
                 }
 
-                button[type="submit"] {
-                    display: none;
+                .no {
+                    #qsearch__in {
+                        width: 0;
+                        padding: 0;
+                        margin: 0;
+                    }
+
+                    button[type="submit"] {
+                        display: none;
+                    }
                 }
             }
         }

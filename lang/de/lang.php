@@ -20,9 +20,10 @@ $lang['head_magic_matcher']         = 'MagicMatcher';
 $lang['head_quick_search']          = 'wikiübergreifende Schnellsuche';
 $lang['head_menu_main']             = 'Hauptmenü';
 $lang['head_menu_status']           = 'Seitenstatus';
-$lang['head_breadcrumb']            = 'Standortanzeiger';
+$lang['head_breadcrumb_youarehere'] = 'Standortanzeiger';
 $lang['head_menu_trace']            = 'Zuletzt Angesehen';
 $lang['head_meta_box']              = 'Metainformationen zur Seite';
+$lang['head_menu_starred']          = 'gemerkte Seite';
 
 $lang['jump_to_quicksearch']        = 'Springe zur Schnellsuche';
 
@@ -31,12 +32,17 @@ $lang['meta_box_tags_none']         = 'Keine Tags verknüpft';
 $lang['js']['meta_box_toc_none']    = 'kein Inhaltsverzeichnis vorhanden';
 
 $lang['tab_tags']                   = 'Tags';
+$lang['tab_issues']                 = 'Issues';
 
 $lang['quality_trigger']            = 'Seitenanalyse ein- bzw. ausblenden';
 
 $lang['prefix_tasks']               = 'offene Aufgaben: ';
 $lang['prefix_tasks_page']          = 'offene Aufgaben auf dieser Seite: ';
+$lang['prefix_tasks_user']          = 'Ihre offenen Aufgaben: ';
+
 $lang['tasks_page_none']            = 'keine offenen Aufgaben für diese Seite';
+$lang['tasks_page_intime']          = 'Es gibt %1$d offenen Aufgaben für diese Seite.';
+$lang['tasks_page_late']            = 'Es gibt %1$d offenen Aufgaben für diese Seite, %2$d sind zu spät.';
 
 $lang['discussion']                 = 'Diskussion';
 $lang['back_to_article']            = 'Zurück zum Artikel';
@@ -48,6 +54,9 @@ $lang['osm_zoom_link_title']        = 'externer Link - öffnet in neuem Fenster'
 $lang['image_detail']               = 'Detailinformationen zum Bild';
 
 
+$lang['mode_edit']                  = 'Seite bearbeiten';
+$lang['mode_detail']                = 'Details zum Bild';
+
 /**
  * colors
  */
@@ -55,11 +64,11 @@ $lang['image_detail']               = 'Detailinformationen zum Bild';
 $lang['__site_width__']             = 'Content - Breite (in %)';
 
 $lang['__background_site__']        = 'Website - Hintergrundfarbe';
-$lang['__text_webframe__']          = 'Website unverlinkt: Claim, Titel, Footer, Navigation - Schriftfarbe';
+$lang['__text_webframe__']          = 'Claim, Titel, Footer (unverlinkt), Navigation (unverlinkt) - Schriftfarbe';
 
-$lang['__nav_menu_color__']         = 'verlinkt: Navigation, Footer, Pagetools Icons, Tabbox - Schriftfarbe';
-$lang['__nav_menu_hover_color__']   = 'verlinkt: Navigation (hover) - Schriftfarbe, Rahmenfarbe; Wiki Icons - Schriftfarbe; Wiki Icons (hover) - Hintergrundfarbe';
-$lang['__nav_menu_hover_bg__']      = 'verlinkt: Navigation (hover) - Hintergrundfarbe; Wiki Icons - Hintergrundfarbe; Wiki Icons (hover) - Schriftfarbe';
+$lang['__nav_menu_color__']         = 'Navigation (verlinkt), Footer (verlinkt), Pagetools Icons, Tabbox - Schriftfarbe';
+$lang['__nav_menu_hover_color__']   = 'Navigation (hover) - Schriftfarbe, Rahmenfarbe; Wiki Icons - Schriftfarbe; Wiki Icons (hover) - Hintergrundfarbe';
+$lang['__nav_menu_hover_bg__']      = 'Navigation (hover) - Hintergrundfarbe; Wiki Icons - Hintergrundfarbe; Wiki Icons (hover) - Schriftfarbe';
 
 $lang['__background__']             = 'Content, Breadcrumb, Pagetools (hover) - Hintergrundfarbe';
 $lang['__text__']                   = 'Content: Text - Schriftfarbe';
@@ -82,8 +91,8 @@ $lang['__missing__']                = 'Links zu nicht vorhandenen Wikiseiten - S
 $lang['__button_color__']           = 'Buttons - Schriftfarbe';
 $lang['__button_background__']      = 'Buttons - Hintergrundfarbe';
 
-$lang['__background_alt__']         = 'Tabellenkopf, hover: Tabellenzeile, struct Label - Hintergrundfarbe (alternativ)';
-$lang['__text_alt__']               = 'Tabellenkopf unverlinkt, hover: Tabellenzeile, struct Label - Schriftfarbe (alternativ)';
+$lang['__background_alt__']         = 'Tabellenkopf, Tabellenzeile (hover), struct Label (hover) - Hintergrundfarbe (alternativ)';
+$lang['__text_alt__']               = 'Tabellenkopf (unverlinkt), Tabellenzeile (hover), struct Label (hover) - Schriftfarbe (alternativ)';
 
 $lang['__border__']                 = 'Tabellen, Formularfelder, Zitate - Rahmenfarbe';
 $lang['__default_border_radius__']  = 'Wiki Icons, Content (oben rechts) - Borderradius';

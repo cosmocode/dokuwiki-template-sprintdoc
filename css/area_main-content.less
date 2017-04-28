@@ -6,7 +6,7 @@
 
 
 #dokuwiki__content.main-content {
-    .level2 {
+    div[class^="level"] {
         p a.media {
             img {
                 border: 1px dotted @ini_background_site;
@@ -23,7 +23,8 @@
     }
 
     > div,
-    .section_highlight > div {
+    .section_highlight > div,
+    div[class^="level"] {
         > ul,
         > ol {
             &:not([class="tabs"]) > li {

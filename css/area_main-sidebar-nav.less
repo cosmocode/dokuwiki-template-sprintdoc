@@ -10,9 +10,7 @@
     @icon-size: @font-size-big;
     @menu-margin: @icon-size + @margin-small * 2;
 
-    nav > p,
-    .mmissuelist li,
-    .mmissuelist div {
+    nav > p {
         color: @ini_nav_menu_color;
 
         &.noissue {
@@ -44,35 +42,6 @@
         }
     }
 
-
-    /* jira itemlist */
-    .mmissuelist {
-        li {
-            &.noissue {
-                list-style-type: none;
-                margin-left: 0;
-            }
-
-            a {
-                display: inline-block;
-            }
-        }
-
-        img {
-            vertical-align: bottom;
-            margin-right: .3rem;
-        }
-
-        .mm__status {
-            padding-left: .3rem;
-            padding-right: .3rem;
-        }
-
-        form {
-            vertical-align: text-top;
-        }
-    }
-
     > * {
         margin-left: @menu-margin; // moves *all* sidebar content to the right
 
@@ -93,8 +62,14 @@
         }
     }
 
+    // the wrapper around the toggle to reserve space
+    div.nav {
+        height: @icon-size + @margin-small;
+        border: 1px solid transparent;
+    }
+
     // the toggle element
-    a.nav {
+    div.nav a {
         .display-flex();
         .align-items();
 
@@ -154,7 +129,6 @@
                 border: 2px solid @ini_nav_menu_color;
                 border-top-right-radius: 50%;
                 border-bottom-left-radius: 50%;
-                transition: @transition border-color;
             }
 
             // real icon
@@ -176,6 +150,11 @@
             border-color: @ini_nav_menu_hover_color;
             color: @ini_nav_menu_hover_color;
             text-decoration: none;
+
+            // always show label, even with collapsed sidebar
+            position: absolute;
+            z-index: 100;
+            width: 100%;
 
             span.ico {
                 border-color: inherit;
@@ -278,24 +257,30 @@
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* max-width: 1023px */
+/* max-width: 1439px */
 
-@media @screen_max-md {
-    // show when toggled
-    body.show-mobile-sidebar {
-        .search.main-sidebar {
-            display: block !important;
-            position: relative;
+@media @screen_max-xlg {
+    #dokuwiki__aside {
+        nav {
+            li:not([class]),
+            .li {
+                font-size: @font-size-default;
 
-            form {
-                margin-bottom: 1rem;
-
-                .no {
-                    display: block;
+                * {
+                    font-size: inherit;
+                    font-weight: inherit;
                 }
             }
         }
+    }
+}
 
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* max-width: 1023px */
+
+@media @screen_max-md {
+    body.show-mobile-sidebar {
         #dokuwiki__aside {
             > nav {
                 position: relative;
@@ -320,7 +305,6 @@
     }
 }
 
-
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* max-width: 1439px */
 
@@ -339,3 +323,4 @@
         }
     }
 }
+

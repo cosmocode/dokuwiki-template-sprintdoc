@@ -48,10 +48,10 @@ jQuery(function () {
         /**
          * Toggle a navigation panel
          *
-         * @param {jQuery} $toggler The h6 toggler
+         * @param {jQuery} $toggler The a toggler
          */
          toggleNav = function ($toggler) {
-            var $panel = $toggler.next('div.nav-panel');
+            var $panel = $toggler.parent().next('div.nav-panel');
             var isOpen = $panel.is(':visible');
             // open sidebar on interaction
             setDefaultContent();
@@ -96,7 +96,6 @@ jQuery(function () {
 
                 // make the new toggler
                 var $toggler = jQuery('<a>')
-                        .addClass('nav')
                         .attr('href', '#')
                         .attr('role', 'heading')
                         .attr('aria-level', '2')
@@ -105,6 +104,7 @@ jQuery(function () {
                         .prepend($icon)
                         .data('index', index)
                     ;
+                $toggler = jQuery('<div class="nav">').prepend($toggler);
 
                 // wrap all following siblings til the next element in a wrapper
                 var $wrap = jQuery('<div>')
@@ -135,7 +135,7 @@ jQuery(function () {
          * Initialize the open/close toggling of menu entries
          */
         initMenuHandling = function () {
-            $nav.on('click', 'a.nav', function (e) {
+            $nav.on('click', 'div.nav a', function (e) {
                 toggleNav(jQuery(this));
                 e.preventDefault();
             });
