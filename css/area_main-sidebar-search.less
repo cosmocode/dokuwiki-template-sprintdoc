@@ -184,14 +184,12 @@
 @media @screen_min-md {
     .wide-content {
         .search.main-sidebar {
-            display: block;
-
             p.toggleSearch {
                 position: relative;
                 z-index: 1;
                 display: block;
                 float: left;
-                width: auto;
+                width: 100%;
             }
 
             form {
@@ -217,9 +215,22 @@
 
 
 @media @screen_max-md {
-    .show-mobile-sidebar {
+    // show when toggled
+    body.show-mobile-sidebar {
+        p.toggleSearch {
+            display: none !important;
+        }
+
         .search.main-sidebar {
-            display: block;
+            display: block !important;
+            position: relative;
+            z-index: 1;
+            margin-left: -1px;
+            margin-right: -1px;
+
+            form {
+                margin-bottom: 1rem;
+            }
         }
     }
 }

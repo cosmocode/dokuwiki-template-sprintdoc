@@ -33,6 +33,14 @@
         padding: 0;
         margin: (@very-small-spacing * 2) -.25rem 0 0;
 
+        @media @screen_max-md {
+            margin-right: .5rem;
+        }
+
+        @media @screen_max-xxs {
+            margin-right: -.3rem;
+        }
+
         li {
             .btn-usertools-wrapper(); // uniform li
             .btn-usertools-num();
@@ -108,7 +116,7 @@
                 @media @screen_max-xs {
                     position: absolute;
                     top: @headericons-margin-xxs;
-                    right: (@toggle-size + @headericons-margin-xxs);
+                    right: 2.9rem;
                     overflow: hidden;
                     white-space: nowrap;
                     margin: -1px 0 0;
@@ -116,6 +124,7 @@
 
                 @media @screen_max-xxs {
                     left: -10px;
+                    right: (@toggle-size + @headericons-margin-xxs);
                     width: auto;
                 }
 
@@ -178,11 +187,11 @@
                     &:focus,
                     &:active {
                         background-color: @ini_nav_menu_hover_color;
-                        border-color: @ini_nav_menu_hover_color;
                         color: @ini_nav_menu_hover_bg;
 
                         &::before {
                             opacity: 1;
+                            border-color: @ini_nav_menu_hover_bg;
                         }
 
                         bdi,
