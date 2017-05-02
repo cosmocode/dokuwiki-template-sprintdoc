@@ -91,10 +91,9 @@
 
         // the toggle element
         a {
+            cursor: pointer;
             display: table;
             width: 100%;
-
-            cursor: pointer;
             min-height: @icon-size + @margin-small;
             opacity: 1;
             border: 1px solid transparent;
@@ -103,6 +102,8 @@
             font-size: @font-size-head6;
             font-weight: normal;
             margin: -1px 0 (@font-size-head6 / 2); // moves the toggles back to the left (.4 from li margin)
+            padding-bottom: .4rem;
+            padding-top: .4rem;
             transition: @transition color, @transition background-color, @transition border-color;
 
             span {
@@ -200,6 +201,7 @@
             min-width: @menu-margin;
             height: @icon-size;
             text-align: center;
+            vertical-align: middle;
             color: inherit;
 
             &::after {
@@ -217,7 +219,7 @@
 
                 // wordbreak too late in IE 10
                 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-                    top: .5rem;
+                    top: 0;
                     bottom: .5rem;
                     height: 100%;
                     margin: 0;
