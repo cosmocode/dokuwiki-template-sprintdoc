@@ -45,6 +45,10 @@ jQuery(function () {
             $elem.find('a').first().focus();
         },
 
+        removeOpenStates = function() {
+            $nav.find('.is-open').removeClass('is-open');
+        },
+
         /**
          * Toggle a navigation panel
          *
@@ -196,6 +200,7 @@ jQuery(function () {
                     setDefaultContent();
                 } else {
                     setWideContent();
+                    removeOpenStates();
                 }
             });
 
