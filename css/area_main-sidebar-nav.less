@@ -301,26 +301,6 @@
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* max-width: 1439px */
-
-@media @screen_max-xlg {
-    #dokuwiki__aside {
-        nav {
-            li:not([class]),
-            .li {
-                font-size: @font-size-default;
-
-                * {
-                    font-size: inherit;
-                    font-weight: inherit;
-                }
-            }
-        }
-    }
-}
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* max-width: 1023px */
 
 @media @screen_max-md {
@@ -359,21 +339,35 @@
     }
 }
 
+
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* max-width: 1439px */
+/* max-width: 768px */
 
-@media @screen_max-xlg {
-    #dokuwiki__aside {
-        nav {
-            li:not([class]),
-            .li {
-                font-size: @font-size-default;
+@media @screen_max-xs {
+    body.show-mobile-sidebar {
+        .page-wrapper > .tools {
+            top: 2.5rem;
+        }
 
-                * {
-                    font-size: inherit;
-                    font-weight: inherit;
-                }
-            }
+        #dokuwiki__aside {
+            left: 1.25rem;
+            right: 1.25rem;
+            width: auto;
+            max-width: 100%;
+            margin-top: -1rem;
+        }
+    }
+}
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* max-width: 480px */
+
+@media @screen_max-xxs {
+    body.show-mobile-sidebar {
+        #dokuwiki__aside {
+            left: 4px;
+            right: 4px;
         }
     }
 }
