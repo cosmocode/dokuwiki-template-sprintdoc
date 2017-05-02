@@ -39,6 +39,14 @@ ul.page-attributes {
                     &::before {
                         content: ''; // remove when fontello is removed from usertools
                     }
+
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        svg path {
+                            fill: @ini_background;
+                        }
+                    }
                 }
 
                 svg {
@@ -47,14 +55,6 @@ ul.page-attributes {
 
                     @media @screen_max-md {
                         margin-top: 4px;
-                    }
-                }
-
-                &:hover {
-                    :not(.noopentasks) {
-                        svg path {
-                            fill: @ini_background;
-                        }
                     }
                 }
 
