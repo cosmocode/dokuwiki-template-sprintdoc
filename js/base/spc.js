@@ -103,7 +103,6 @@
         try{
             var focusobj = document.getElementById(fid);
             if(focusobj) focusobj.focus();
-            if(focusobj) console.log(focusobj);
         }catch(err){
             this._debug('exception: '+err);
         }

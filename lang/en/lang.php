@@ -7,12 +7,12 @@
 
 
 $lang['direct_prefix']              = 'jump to';
-$lang['direct_content_main']        = 'main content';
-$lang['direct_menu_main']           = 'main menu';
+$lang['direct_content_main']        = 'Main Content';
+$lang['direct_quick_search']        = 'Search';
+$lang['direct_content_toggle']      = 'Toggle Content Width';
 
 $lang['adjunct_start_logo_text']    = 'Logo: ';
 $lang['adjunct_linked_logo_text']   = '. homepage link';
-$lang['a11y_search']                = 'Jump to the search';
 $lang['a11y_sidebartoggle']         = 'Open/Close Sidebar';
 
 $lang['nav-area-head']              = 'menus and quick search';
