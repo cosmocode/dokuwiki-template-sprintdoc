@@ -1,33 +1,24 @@
 /**
- * This styles the section editing buttons and highlighting
+ * This styles the "section editing button"
  */
 
 
 #dokuwiki__content.main-content {
-    div.section_highlight {
-        clear: right;
-        background: repeating-linear-gradient(
-            -45deg,
-            @highlight-odd-ini_text,
-            @highlight-odd-ini_text 10px,
-            @highlight-even-ini_text 10px,
-            @highlight-even-ini_text 20px,
-        );
-        border-color: @ini_background_page_header;
-    }
-
     .editbutton_section {
         position: relative;
         z-index: 2;
         top: 0;
         float: right;
+        margin-top: 0; // for best position of edit-tab beneeth table
 
         form div.no {
             button {
+                margin-top: -.4rem;
                 padding-right: 0;
             }
         }
 
+        // "section editing button"
         button {
             background-color: transparent;
             color: transparent;

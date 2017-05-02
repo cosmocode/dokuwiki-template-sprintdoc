@@ -10,19 +10,42 @@
     @icon-size: @font-size-big;
     @menu-margin: @icon-size + @margin-small * 2;
 
-    nav > p {
-        color: @ini_nav_menu_color;
+    @media @screen_md-lg {
+        margin-left: -1.25rem;
+    }
 
-        &.noissue {
-            color: @ini_text_webframe;
+    @media @screen_max-md {
+        display: none;
+    }
 
-            * {
-                color: inherit;
+    > ul,
+    > ol,
+    > nav {
+        padding-left: 0;
+
+        ul,
+        ol {
+            padding-left: 0;
+
+            li {
+                margin-left: 0;
             }
         }
     }
 
     nav {
+        > p {
+            color: @ini_nav_menu_color;
+
+            &.noissue {
+                color: @ini_text_webframe;
+
+                * {
+                    color: inherit;
+                }
+            }
+        }
+
         li {
             color: @ini_nav_menu_color;
 
@@ -39,14 +62,12 @@
         li:not([class]),
         .li {
             padding: .15em 0;
-        }
-    }
 
-    > * {
-        margin-left: @menu-margin; // moves *all* sidebar content to the right
 
-        @media @screen_md-lg {
-            margin-left: @menu-margin-lg;
+/* + + + + +  active  + + + + + */
+            span.curid {
+                font-weight: bold;
+            }
         }
     }
 
@@ -62,58 +83,146 @@
         }
     }
 
-    // the wrapper around the toggle to reserve space
+
+/* + + +  the wrapper around the toggle to reserve space  + + + */
     div.nav {
-        height: @icon-size + @margin-small;
-        border: 1px solid transparent;
-    }
-
-    // the toggle element
-    div.nav a {
-        .display-flex();
-        .align-items();
-
-        cursor: pointer;
         min-height: @icon-size + @margin-small;
-        opacity: 1;
         border: 1px solid transparent;
-        border-radius: @fix_border-radius;
-        color: @ini_nav_menu_color;
-        font-size: @font-size-head6;
-        font-weight: normal;
-        margin: -1px 0 (@font-size-head6 / 2) -(@menu-margin - .4); // moves the toggles back to the left (.4 from li margin)
-        transition: @transition color, @transition background-color, @transition border-color;
 
-        @media @screen_md-lg {
-            margin-left: -(@menu-margin-lg + .8);
-        }
+        // the toggle element
+        a {
+            display: table;
+            width: 100%;
 
-        span {
-            display: inline-block;
-            vertical-align: middle;
-            color: inherit;
-        }
+            cursor: pointer;
+            min-height: @icon-size + @margin-small;
+            opacity: 1;
+            border: 1px solid transparent;
+            border-radius: @fix_border-radius;
+            color: @ini_nav_menu_color;
+            font-size: @font-size-head6;
+            font-weight: normal;
+            margin: -1px 0 (@font-size-head6 / 2); // moves the toggles back to the left (.4 from li margin)
+            transition: @transition color, @transition background-color, @transition border-color;
 
-        span.lbl {
-            flex-grow: 1;
+            span {
+                display: inline-block;
+                vertical-align: middle;
+                color: inherit;
+            }
 
-            // wordbreak too late in IE 10
-            @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+            &:hover,
+            &:focus,
+            &:active {
+                position: relative; // always show label, even with collapsed sidebar
+                z-index: 100;
                 width: 100%;
-                box-sizing: border-box;
-                padding-right: 13px;
+                background-color: @ini_nav_menu_hover_bg;
+                border-color: @ini_nav_menu_hover_color;
+                color: @ini_nav_menu_hover_color;
+                text-decoration: none;
+
+                span.ico {
+                    &:after {
+                        background-color: @ini_nav_menu_hover_color;
+                    }
+
+                    strong {
+                        border-color: inherit;
+                    }
+
+                    svg {
+                        path {
+                            fill: @ini_nav_menu_hover_color;
+                        }
+                    }
+                }
+            }
+
+/* + + +  submenu entry is active  + + + */
+            &.is-active {
+                font-weight: bold;
+            }
+
+
+/* + + +  toggle: open  + + + */
+            &.is-open {
+                background-color: @ini_nav_menu_hover_color;
+                border-color: @ini_nav_menu_hover_color;
+                color: @ini_nav_menu_hover_bg;
+
+                span.ico {
+                    &:after {
+                        background-color: @ini_nav_menu_hover_bg;
+                    }
+
+                    strong {
+                        border-color: @ini_nav_menu_hover_bg;
+                    }
+
+                    svg {
+                        path {
+                            fill: @ini_nav_menu_hover_bg;
+                        }
+                    }
+                }
+
+                &:hover,
+                &:focus,
+                &:active {
+                    background-color: @ini_nav_menu_hover_bg;
+                    border-color: @ini_nav_menu_hover_color;
+                    color: @ini_nav_menu_hover_color;
+
+                    span.ico {
+                        &:after {
+                            background-color: @ini_nav_menu_hover_color;
+                        }
+
+                        strong {
+                            border-color: inherit;
+                        }
+
+                        svg {
+                            path {
+                                fill: @ini_nav_menu_hover_color;
+                            }
+                        }
+                    }
+                }
             }
         }
 
         span.ico {
-            .flex(0 0 auto);
-
+            position: relative;
+            display: table-cell;
             width: @menu-margin;
+            min-width: @menu-margin;
             height: @icon-size;
-            border-right: 1px solid @ini_nav_menu_color;
             text-align: center;
-            margin-right: 4%;
             color: inherit;
+
+            &::after {
+                @border-height: 1.5rem;
+
+                content: '';
+                position: absolute;
+                right: 0;
+                top: 50%;
+                bottom: auto;
+                height: @border-height;
+                width: 1px;
+                background-color: @ini_nav_menu_color;
+                margin-top: -(@border-height / 2);
+
+                // wordbreak too late in IE 10
+                @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+                    top: .5rem;
+                    bottom: .5rem;
+                    height: 100%;
+                    margin: 0;
+                }
+            }
 
             // simple fake icon
             strong {
@@ -143,48 +252,10 @@
             }
         }
 
-        &:hover,
-        &:focus,
-        &:active {
-            background-color: @ini_nav_menu_hover_bg;
-            border-color: @ini_nav_menu_hover_color;
-            color: @ini_nav_menu_hover_color;
-            text-decoration: none;
-
-            // always show label, even with collapsed sidebar
-            position: absolute;
-            z-index: 100;
-            width: 100%;
-
-            span.ico {
-                border-color: inherit;
-
-                strong {
-                    border-color: inherit;
-                }
-
-                svg {
-                    path {
-                        fill: @ini_nav_menu_hover_color;
-                    }
-                }
-            }
+        span.lbl {
+            display: table-cell;
+            padding-left: .5rem;
         }
-    }
-
-    // without wrapping UL
-    nav > a.nav {
-        margin-left: -3.5rem;
-
-        @media @screen_md-lg {
-            margin-left: -2.5rem;
-        }
-    }
-
-
-/* + + + + +  active  + + + + + */
-    span.curid a {
-        font-weight: bold;
     }
 
 
@@ -192,6 +263,7 @@
     div.nav-panel {
         display: none;
         margin-top: .5rem;
+        margin-left: @menu-margin;
 
         ul {
             margin-bottom: 1rem;
@@ -202,34 +274,6 @@
         }
     }
 }
-
-
-/* + + + + + +  wide page content  border-bottom between a.nav (short width)  + + + + +
-.wide-content {
-    #dokuwiki__aside {
-        a.nav {
-            position: relative;
-
-            &::after {
-                content: '';
-                position: absolute;
-                bottom: -1px;
-                left: 0;
-                width: 100%;
-                height: 1px;
-                border-bottom: solid 1px @ini_border;
-            }
-
-            &:hover,
-            &:focus,
-            &:active {
-                &::after {
-                    display: none;
-                }
-            }
-        }
-    }
-} */
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
@@ -282,6 +326,16 @@
 @media @screen_max-md {
     body.show-mobile-sidebar {
         #dokuwiki__aside {
+            display: block !important;
+            position: absolute;
+            left: 1.25rem; // left margin of content container
+            z-index: 200; // above all
+            box-shadow: @box-shadow-right-bottom;
+            min-width: 45%;
+            max-width: 90%;
+            height: auto;
+            background: @ini_background_site;
+
             > nav {
                 position: relative;
                 z-index: 2;
@@ -297,7 +351,7 @@
                 border-left-width: 0;
             }
 
-            .nav-panel,
+            div.nav-panel,
             a.nav {
                 padding-right: .8em;
             }
@@ -323,4 +377,3 @@
         }
     }
 }
-

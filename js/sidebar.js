@@ -24,7 +24,7 @@ jQuery(function () {
                 if (!item) {
                     continue;
                 }
-                window.sessionStorage.removeItem('sidebar-section-' + index + '-open');
+                window.sessionStorage.setItem('sidebar-section-' + index + '-open', 'false');
             }
         },
 
@@ -45,6 +45,10 @@ jQuery(function () {
             $elem.find('a').first().focus();
         },
 
+        removeOpenStates = function() {
+            $nav.find('.is-open').removeClass('is-open');
+        },
+
         /**
          * Toggle a navigation panel
          *
@@ -59,6 +63,9 @@ jQuery(function () {
             $panel.dw_toggle(!isOpen, function () {
                 if (!isOpen) {
                     focusFirstSubLink($panel);
+                    $toggler.addClass('is-open');
+                } else {
+                    $toggler.removeClass('is-open');
                 }
             });
             window.sessionStorage.setItem('sidebar-section-' + $toggler.data('index') + '-open', !isOpen);
@@ -106,14 +113,17 @@ jQuery(function () {
                     ;
                 $toggler = jQuery('<div class="nav">').prepend($toggler);
 
+
                 // wrap all following siblings til the next element in a wrapper
                 var $wrap = jQuery('<div>')
                     .addClass('nav-panel');
                 var $sibs = $me.nextAll();
+
                 for (var i = 0; i < $sibs.length; i++) {
                     var $sib = jQuery($sibs[i]);
                     if ($sib.is(ELEMENT)) break;
                     $sib.detach().appendTo($wrap);
+                    addContentMenuCurrentStates($sib, $toggler);
                 }
                 $wrap.insertAfter($me);
 
@@ -126,6 +136,7 @@ jQuery(function () {
 
                 if (window.sessionStorage.getItem('sidebar-section-' + index + '-open') === 'true') {
                     $wrap.css('display', 'block');
+                    setTogglerClass($toggler,'is-open');
                 }
 
             });
@@ -139,6 +150,30 @@ jQuery(function () {
                 toggleNav(jQuery(this));
                 e.preventDefault();
             });
+        },
+
+        /**
+         * adds a given class to the toggler link
+         * @param $toggler link or parent of link to whom the class is added
+         * @param classVal class to be added
+         */
+        setTogglerClass = function ($toggler, classVal) {
+            if($toggler.is('a')) {
+                $toggler.addClass(classVal);
+            } else {
+                $toggler.find('a').addClass(classVal);
+            }
+        },
+
+        /**
+         * marks a $toggler link as active if the following menu has an active state
+         * @param $menuObj jQuery Object of the menu / container
+         * @param $toggler
+         */
+        addContentMenuCurrentStates = function ($menuObj, $toggler) {
+            if($menuObj[0] && String($menuObj[0].innerHTML).indexOf('curid') > 0) {
+                setTogglerClass($toggler,'is-active');
+            }
         },
 
         /**
@@ -165,6 +200,7 @@ jQuery(function () {
                     setDefaultContent();
                 } else {
                     setWideContent();
+                    removeOpenStates();
                 }
             });
 
@@ -194,11 +230,79 @@ jQuery(function () {
                 var $body = jQuery('body');
                 $body.toggleClass('show-mobile-sidebar');
             });
+        },
+
+        /**
+         * set is-active class if body has at least one of the given selectors
+         * @param selectorArray Array of selectors
+         * @param $nav container in which the $toggler is situated
+         */
+        setActive = function(selectorArray, $nav) {
+            for(var i=0; i< selectorArray.length; i++) {
+                var mode = selectorArray[i];
+                if(jQuery('body').is('.do-'+mode)){
+                    setTogglerClass($nav.find('.nav'),'is-active');
+                    $nav.find('a[href*="do='+mode+'"]').wrapAll('<span class="curid"></span>');
+                }
+            }
+        },
+
+        /**
+         * sets active states in site tool menu and user tool menu for certain modes
+         * adds sessionStorage behaviour equivalent approach to content menus
+         *
+         */
+        initTemplateMenues = function () {
+            var $body = jQuery('body'),
+                $siteTools = $nav.find('> .nav-sitetools'),
+                $userTools = $nav.find('> .nav-usermenu'),
+                $templateMenus = $nav.find('> nav:not(.nav-main)'),
+
+                stModes = ['recent', 'media', 'index'],
+                utModes = ['profile','admin'],
+                isWideContent = false;
+
+            /* set active states for site tool menu and user tool menu */
+            setActive(stModes,$siteTools);
+            setActive(utModes,$userTools);
+
+            if(jQuery('body').is('.wide-content')) {
+                window.sessionStorage.setItem('wide-content', true);
+                isWideContent = true;
+            }
+
+
+
+            /* set data attributes for sessionStorage and check onload if one of the template menus should be opened */
+            $templateMenus.each(function( index ) {
+                var $t = jQuery(this).find('.nav'),
+                    y = $nav.find('.nav-main').find('.nav').length,
+                    $toggler = ($t.is('a')) ? $t : $t.find('a:last'),
+                    tIndex = y + index;
+                $toggler.data('index', tIndex);
+
+                var item = window.sessionStorage.getItem('sidebar-section-' + tIndex + '-open');
+                if (item) {
+                    if(isWideContent) {
+                        window.sessionStorage.setItem('sidebar-section-' + tIndex + '-open', 'false');
+                    } else {
+                        if (item === 'true') {
+                            jQuery(this).find('.nav-panel').css('display', 'block');
+                            setTogglerClass($toggler, 'is-open');
+                        }
+                    }
+                }
+                //console.log(window.sessionStorage);
+
+            });
+
         };
+
 
     // main
     initContentNav();
     initSidebarToggling();
+    initTemplateMenues();
     initMenuHandling();
     initContentMinHeight();
     initSearchToggling();
