@@ -1,5 +1,10 @@
 
-
+/**
+ * Sets up the behaviour of the meta box
+ *
+ * @author Andreas Gohr <gohr@cosmocode.de>
+ * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
+ */
 (function($) {
 
 

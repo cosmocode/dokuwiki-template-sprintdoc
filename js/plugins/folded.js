@@ -1,6 +1,8 @@
 /**
  * prevents Uncaught TypeError in detail template if folded plug-in is installed
  *
+ * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
+ *
  */
 (function($) {
 

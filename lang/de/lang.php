@@ -8,11 +8,11 @@
 
 $lang['direct_prefix']              = 'Direkt';
 $lang['direct_content_main']        = 'Hauptinhalt dieser Seite';
-$lang['direct_menu_main']           = 'Hauptmenü';
+$lang['direct_quick_search']        = 'Schnellsuche';
+$lang['direct_content_toggle']      = 'Breite des Contents ändern';
 
 $lang['adjunct_start_logo_text']    = 'Logo: ';
 $lang['adjunct_linked_logo_text']   = '. Link zur Startseite';
-$lang['a11y_search']                = 'geh zur Suche';
 $lang['a11y_sidebartoggle']         = 'Sidebar öffnen/schliessen';
 
 $lang['nav-area-head']              = 'Navigationsmenüs und Suche';
