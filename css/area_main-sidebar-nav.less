@@ -256,6 +256,7 @@
 
         span.lbl {
             display: table-cell;
+            font-size: inherit;
             padding-left: .5rem;
         }
     }
@@ -325,6 +326,10 @@
                 &:first-child {
                     margin-top: 1.2rem;
                 }
+
+                a {
+                    font-size: @font-size-small;
+                }
             }
 
             a.nav {
@@ -335,6 +340,7 @@
 
             div.nav-panel,
             a.nav {
+                margin-top: 0;
                 padding-right: .8em;
             }
         }
@@ -370,6 +376,12 @@
         #dokuwiki__aside {
             left: 4px;
             right: 4px;
+
+            > nav {
+                a {
+                    font-size: @font-size-default;
+                }
+            }
         }
     }
 }
