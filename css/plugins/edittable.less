@@ -26,6 +26,10 @@
                 padding-right: .3em;
                 transition: @transition background-color, @transition border-color, @transition color;
 
+                @media @screen_md-xlg {
+                    margin-top: -1px; // for best position of edit-tab beneeth table
+                }
+
                 &:hover,
                 &:focus,
                 &:active {
