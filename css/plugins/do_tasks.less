@@ -31,10 +31,13 @@ ul.page-attributes {
             &.user-task {
                 position: relative;
 
-                a {
-                    overflow: visible;
-                    white-space: normal; // Is this still needed?
-                    text-indent: 0;
+                button {
+                    border-radius: @ini_default_border_radius;
+                    border: 1px solid @wikiicons-border;
+                    padding: .14rem 0 0 0;
+                    min-width: 2rem;
+                    min-height: 28px;
+                    background: @ini_background none;
 
                     &::before {
                         content: ''; // remove when fontello is removed from usertools
@@ -43,6 +46,9 @@ ul.page-attributes {
                     &:hover,
                     &:focus,
                     &:active {
+                        background: @ini_nav_menu_hover_color none;
+                        border: none;
+
                         svg path {
                             fill: @ini_background;
                         }
@@ -52,6 +58,10 @@ ul.page-attributes {
                 svg {
                     width: 20px;
                     margin-top: 2px;
+
+                    path {
+                        fill: @ini_nav_menu_hover_color;
+                    }
 
                     @media @screen_max-md {
                         margin-top: 4px;
