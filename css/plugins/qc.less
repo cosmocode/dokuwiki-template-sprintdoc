@@ -16,6 +16,16 @@
             font-size: (@font-size-small - .06);
         }
     }
+
+    a {
+        &:hover,
+        &:focus,
+        &:active {
+            svg path {
+                fill: @ini_nav_menu_hover_bg;
+            }
+        }
+    }
 }
 
 
