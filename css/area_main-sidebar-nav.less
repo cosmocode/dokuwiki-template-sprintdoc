@@ -34,6 +34,9 @@
     }
 
     nav {
+        &.nav-main {
+            margin-bottom: 1rem;
+        }
         > p {
             color: @ini_nav_menu_color;
 
@@ -230,14 +233,15 @@
             strong {
                 display: inline-block;
                 font-size: @icon-size * 0.5;
-                width: @icon-size * 0.9;
-                height: @icon-size * 0.9;
+                width: @icon-size * 0.98;
+                height: @icon-size * 0.98;
                 line-height: @icon-size * 0.9;
                 margin: @icon-size * 0.05;
+                padding: 0 .05em .05em;
                 vertical-align: baseline;
                 text-align: center;
                 color: inherit;
-                border: 2px solid @ini_nav_menu_color;
+                border: 2px solid fade(@ini_nav_menu_color, 80%);
                 border-top-right-radius: 50%;
                 border-bottom-left-radius: 50%;
             }
