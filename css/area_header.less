@@ -142,32 +142,22 @@
         a {
             .fontello();
             .icon-menu();
+            .btn-hover();
 
             display: block;
             min-height: @toggle-size;
             min-width: @toggle-size;
             box-sizing: border-box;
-            background-color: #fff;
             border: 1px solid @ini_border;
             border-radius: @ini_default_border_radius; // @ini_default_border_radius vs. @fix_border-radius
-            color: @ini_nav_menu_color;
             font-size: 1rem;
             text-align: center;
             text-decoration: none;
             line-height: 1;
-            transition: @transition color, @transition background-color, @transition border-color;
 
             &::before {
                 font-size: 1.5rem;
                 margin: .1rem 0 0;
-            }
-
-            &:hover,
-            &:active,
-            &:focus {
-                background-color: @ini_nav_menu_hover_bg;
-                border-color: @ini_nav_menu_hover_color;
-                color: @ini_nav_menu_hover_color;
             }
         }
     }

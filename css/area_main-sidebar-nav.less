@@ -91,10 +91,9 @@
 
         // the toggle element
         a {
+            cursor: pointer;
             display: table;
             width: 100%;
-
-            cursor: pointer;
             min-height: @icon-size + @margin-small;
             opacity: 1;
             border: 1px solid transparent;
@@ -103,6 +102,8 @@
             font-size: @font-size-head6;
             font-weight: normal;
             margin: -1px 0 (@font-size-head6 / 2); // moves the toggles back to the left (.4 from li margin)
+            padding-bottom: .4rem;
+            padding-top: .4rem;
             transition: @transition color, @transition background-color, @transition border-color;
 
             span {
@@ -200,6 +201,7 @@
             min-width: @menu-margin;
             height: @icon-size;
             text-align: center;
+            vertical-align: middle;
             color: inherit;
 
             &::after {
@@ -217,7 +219,7 @@
 
                 // wordbreak too late in IE 10
                 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-                    top: .5rem;
+                    top: 0;
                     bottom: .5rem;
                     height: 100%;
                     margin: 0;
@@ -254,6 +256,7 @@
 
         span.lbl {
             display: table-cell;
+            font-size: inherit;
             padding-left: .5rem;
         }
     }
@@ -301,26 +304,6 @@
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* max-width: 1439px */
-
-@media @screen_max-xlg {
-    #dokuwiki__aside {
-        nav {
-            li:not([class]),
-            .li {
-                font-size: @font-size-default;
-
-                * {
-                    font-size: inherit;
-                    font-weight: inherit;
-                }
-            }
-        }
-    }
-}
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* max-width: 1023px */
 
 @media @screen_max-md {
@@ -343,6 +326,10 @@
                 &:first-child {
                     margin-top: 1.2rem;
                 }
+
+                a {
+                    font-size: @font-size-small;
+                }
             }
 
             a.nav {
@@ -353,25 +340,46 @@
 
             div.nav-panel,
             a.nav {
+                margin-top: 0;
                 padding-right: .8em;
             }
         }
     }
 }
 
+
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* max-width: 1439px */
+/* max-width: 768px */
 
-@media @screen_max-xlg {
-    #dokuwiki__aside {
-        nav {
-            li:not([class]),
-            .li {
-                font-size: @font-size-default;
+@media @screen_max-xs {
+    body.show-mobile-sidebar {
+        .page-wrapper > .tools {
+            top: 2.5rem;
+        }
 
-                * {
-                    font-size: inherit;
-                    font-weight: inherit;
+        #dokuwiki__aside {
+            left: 1.25rem;
+            right: 1.25rem;
+            width: auto;
+            max-width: 100%;
+            margin-top: -1rem;
+        }
+    }
+}
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* max-width: 480px */
+
+@media @screen_max-xxs {
+    body.show-mobile-sidebar {
+        #dokuwiki__aside {
+            left: 4px;
+            right: 4px;
+
+            > nav {
+                a {
+                    font-size: @font-size-default;
                 }
             }
         }
