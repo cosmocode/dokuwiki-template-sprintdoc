@@ -1,5 +1,9 @@
 /**
  * Sets up the sidebar behaviour
+ *
+ *  @author Andreas Gohr <gohr@cosmocode.de>
+ *  @author Michael Große <gohr@cosmocode.de>
+ *  @author Jana Deutschlaender <deutschlaender@cosmocode.de>
  */
 jQuery(function () {
     var $nav = jQuery('#dokuwiki__aside');
@@ -266,7 +270,7 @@ jQuery(function () {
             setActive(stModes,$siteTools);
             setActive(utModes,$userTools);
 
-            if(jQuery('body').is('.wide-content')) {
+            if($body.is('.wide-content')) {
                 window.sessionStorage.setItem('wide-content', true);
                 isWideContent = true;
             }

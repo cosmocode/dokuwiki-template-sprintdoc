@@ -1,5 +1,8 @@
 /**
  * Add custom QC functionality instead of using the plugin's mechanism
+ *
+ * @author Andreas Gohr <gohr@cosmocode.de>
+ * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
  */
 jQuery(function () {
     var $panel = jQuery('div.qc-output').hide();

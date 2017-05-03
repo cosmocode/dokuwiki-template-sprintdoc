@@ -232,7 +232,7 @@ include('tpl/favicon_tiles.php');
                             <div class="breadcrumbs" data-do="<?php echo tpl_getLang('image_detail') ?>">
 
                                 <div class="togglelink page_main-content">
-                                    <a href="#"><span class="sr-out"><?php echo tpl_getLang('a11y_sidebartoggle') ?></span></a>
+                                    <a id="spr__toggle-content" href="#"><span class="sr-out"><?php echo tpl_getLang('a11y_sidebartoggle') ?></span></a>
                                 </div>
 
                                 <h6 class="sr-only" role="heading" aria-level="2"><?php echo tpl_getLang('head_menu_status') ?></h6>

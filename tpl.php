@@ -83,7 +83,7 @@ class tpl {
                       $args['rel'] = 'nofollow';
                   }
 
-      $args['href'] = $link;
+      $args['href'] = $link ?: '#';
 
       $svg = inlineSVG($svg);
       if(!$svg) $svg = inlineSVG(__DIR__ . '/images/tools/' . self::$icons['default']);
