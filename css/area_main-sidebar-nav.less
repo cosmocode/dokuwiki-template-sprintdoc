@@ -35,7 +35,7 @@
 
     nav {
         &.nav-main {
-            margin-bottom: 1rem;
+            margin-bottom: @nav-margin;
         }
 
         > p {
@@ -48,6 +48,11 @@
                     color: inherit;
                 }
             }
+        }
+
+        ul,
+        div.nav {
+            margin-bottom: 0;
         }
 
         li {
@@ -105,7 +110,7 @@
             color: @ini_nav_menu_color;
             font-size: @font-size-head6;
             font-weight: normal;
-            margin: -1px 0 (@font-size-head6 / 2); // moves the toggles back to the left (.4 from li margin)
+            margin: -1px 0 @very-small-spacing;
             padding-bottom: .4rem;
             padding-top: .4rem;
             transition: @transition color, @transition background-color, @transition border-color;
