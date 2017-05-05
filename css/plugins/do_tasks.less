@@ -37,7 +37,7 @@ ul.page-attributes {
                     padding: .14rem 0 0 0;
                     min-width: 2rem;
                     min-height: 28px;
-                    background: @ini_background none;
+                    background-color: @ini_nav_menu_hover_bg;
 
                     &::before {
                         content: ''; // remove when fontello is removed from usertools
@@ -46,11 +46,11 @@ ul.page-attributes {
                     &:hover,
                     &:focus,
                     &:active {
-                        background: @ini_nav_menu_hover_color none;
+                        background-color: @ini_nav_menu_hover_color;
                         border: none;
 
                         svg path {
-                            fill: @ini_background;
+                            fill: @ini_nav_menu_hover_bg;
                         }
                     }
                 }

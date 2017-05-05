@@ -9,11 +9,7 @@
             width: 1.6em;
             height: 1.6em;
             font-size: 0.82rem;
-            fill: @ini_nav_menu_color;
-        }
-
-        .starred.on svg {
-            fill: @ini_link;
+            fill: @ini_nav_menu_hover_color;
         }
 
         a:hover,
@@ -30,11 +26,14 @@
 nav.nav-starred {
     ul {
         list-style: none;
+
         &#sidebar-menu-starred {
             margin-left: 0;
         }
+
         li {
             margin-left: 0;
+
             svg {
                 vertical-align: middle;
             }
