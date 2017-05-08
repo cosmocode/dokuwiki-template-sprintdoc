@@ -25,19 +25,24 @@ ul.page-attributes {
     }
 }
 
+
+/* + + + + +  usertool icon in header  + + + + + */
 #dokuwiki__usertools.nav-usertools {
     ul {
         li {
             &.user-task {
+                .btn-usertools-wrapper();
+                .btn-usertools-num();
+
                 position: relative;
 
-                button {
+                .plugin__do_usertasks {
+                    width: 100%;
+                    min-width: @toggle-size;
+                    min-height: @toggle-size;
                     border-radius: @ini_default_border_radius;
                     border: 1px solid @wikiicons-border;
                     padding: .14rem 0 0 0;
-                    min-width: 2rem;
-                    min-height: 28px;
-                    background-color: @ini_nav_menu_hover_bg;
 
                     &::before {
                         content: ''; // remove when fontello is removed from usertools
@@ -55,17 +60,17 @@ ul.page-attributes {
                     }
                 }
 
+                button {
+                    background-color: @ini_nav_menu_hover_bg;
+                }
+
                 svg {
-                    width: 20px;
-                    height: 20px; // for IE 11
+                    width: 1.2rem;
+                    height: 1.2rem; // for IE 11
                     margin-bottom: 2px;
 
                     path {
                         fill: @ini_nav_menu_hover_color;
-                    }
-
-                    @media @screen_max-md {
-                        margin-top: 4px;
                     }
                 }
 
@@ -87,7 +92,7 @@ ul.page-attributes {
                     }
                 }
 
-                @media @screen_max-sm {
+                @media @screen_max-xs {
                     display: none;
                 }
             } // user-task

@@ -46,12 +46,15 @@
             .btn-usertools-num();
 
             float: right;
-            min-height: 28px;
 
             @media @screen_max-xs {
                 display: block;
                 float: none;
                 margin-bottom: @headericons-margin-xxs;
+            }
+
+            @media @screen_max-xxs {
+                margin-bottom: (@headericons-margin-xxs - .2);
             }
 
             > span,
@@ -67,14 +70,6 @@
 
                 @media @screen_md-xlg {
                     padding-top: .14rem;
-                }
-
-                @media @screen_max-xxlg {
-                    min-height: 28px;
-                }
-
-                @media @screen_max-md {
-                    min-height: @toggle-size;
                 }
 
                 @media @screen_only-lg {
@@ -118,7 +113,7 @@
                 @media @screen_max-xs {
                     position: absolute;
                     top: @headericons-margin-xxs;
-                    right: 2.9rem;
+                    right: (@toggle-size + @headericons-margin-xxs + @space-max-xlg + .5); // 1.75rem + .45 + .5 + (button login/out margin-right)
                     overflow: hidden;
                     white-space: nowrap;
                     margin: -1px 0 0;
@@ -126,7 +121,7 @@
 
                 @media @screen_max-xxs {
                     left: -10px;
-                    right: (@toggle-size + @headericons-margin-xxs);
+                    right: (@toggle-size + @headericons-margin-xxs); // 1.75rem + .45rem
                     width: auto;
                 }
 
