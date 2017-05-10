@@ -12,7 +12,6 @@
     .justify-content(flex-end);
 
     position: relative;
-    z-index: 1; // put meta-box above positioned content-elements such as aggregations, edit-buttons
     float: right;
     max-width: 40%;
     margin-top: -(@page_padding-top); // reverse padding-top of .page container
@@ -158,7 +157,6 @@
             }
 
             &.active {
-                z-index: 1; // put the active tab above the meta-content in .tab-pane.active
 
                 > a {
                     cursor: default;
@@ -306,7 +304,7 @@
         ul.mmissuelist {
             padding-left: 0;
             margin-top: 1rem;
-        
+
             li {
                 &.noissue {
                     list-style-type: none;
