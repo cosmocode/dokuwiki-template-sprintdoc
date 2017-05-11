@@ -63,15 +63,67 @@
     }
 }
 
-/* + + + + +  z-indeces  + + + + + */
-@media @screen_min-md {
+/* + + + + +  z-indices  + + + + + */
+@media screen {
     .nav-direct p {
-        z-index: 1000;
+        z-index: 1000; // keyboard-navigation overlays always on top
     }
 
     .top-header {
-        z-index: 900;
+        z-index: 2; // put MagicMatcher-Dropdowns above .content and metabox-tabs
     }
+
+    #dokuwiki__aside div.nav a {
+        &:hover, &:focus, &:active {
+            z-index: 100; // show label/link above content on hover etc.
+        }
+    }
+
+    #spr__meta-box {
+        z-index: 1; // put meta-box above positioned content-elements such as aggregations, edit-buttons
+        ul.meta-tabs > li.active {
+            z-index: 1; // put the active tab above the meta-content in .tab-pane.active
+        }
+    }
+
+    nav#dokuwiki__pagetools {
+        z-index: 100; // put labels of the pagetools above content on hover etc.
+    }
+
+    #dokuwiki__detail .img-link a::before {
+        z-index: 2; // put 'view original file'-overlay above image
+    }
+
+    /* plug-in do_tasks */
+    .plugin__do_usertasks_list {
+        z-index: 200; // put tasks-list above pagetools
+    }
+
+    /* plug-in editable */
+    #dokuwiki__content.main-content div.editbutton_table {
+        z-index: 1; // for IE
+    }
+
+    /* plug-in tabinclude */
+    div#dwpl-ti-container li.dwpl-ti-tab div.selected {
+        z-index: 1; // put .slected tab above div.dwpl-ti-content-box
+    }
+}
+
+@media @screen_min-md {
+    .wide-content .search.main-sidebar p.toggleSearch {
+        z-index: 1; // put search-toggle-button above #dw__search
+    }
+}
+
+@media @screen_max-md {
+    body.show-mobile-sidebar #dokuwiki__aside {
+            z-index: 200; // mobile sidebar above all except nav-direct
+    }
+}
+/* + + + + +  end of z-indices  + + + + + */
+
+@media @screen_min-md {
 
     .content .row > .col-xs-12 {
         border-radius: 0 @ini_default_border_radius @fix_border-radius @fix_border-radius; // @ini_default_border_radius vs. @fix_border-radius

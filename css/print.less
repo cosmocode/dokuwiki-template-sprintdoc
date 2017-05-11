@@ -4,3 +4,138 @@
  * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
  */
 
+@color-print: #000;
+@background-print: transparent;
+@border-color-print: #ccc;
+html, body {
+    background: @background-print;
+}
+
+a:link, a:visited {
+    text-decoration: underline;
+    color: @color-print  !important;
+    background: @background-print  !important;
+}
+
+#spr__direct,
+.top-header,
+.main-footer,
+.menu-togglelink,
+.main-title.desktop-only,
+#spr__meta-box,
+.content .row > .col-xs-12 #dokuwiki__content::before,
+.page-wrapper > .tools,
+.breadcrumbs {
+    display: none !important;
+}
+
+.content .row > .col-xs-12 {
+    box-shadow: none;
+}
+
+.dokuwiki div.page,
+.main-sidebar.claim,
+.page-footer{
+    padding: 20pt 20pt 0;
+}
+
+/* admin  */
+
+// Extension Manager
+#extension__manager {
+    form.search {
+        margin-bottom: 20pt;
+        display: inline-block;
+    }
+}
+
+#extension__list {
+    .extensionList {
+        padding: 0;
+        border-bottom: 1pt solid @border-color-print;
+
+        li {
+            border-top: 1pt solid @border-color-print;
+            margin-left: 0;
+
+            list-style-type: none;
+            &::after {
+                display: table;
+                content: ' ';
+                clear: both;
+                height: 10pt;
+            }
+
+            a.info,
+            .actions.col{
+                display: none;
+            }
+
+            .screenshot {
+                float: left;
+                margin: 0 10pt 5pt 0;
+                border: 1pt solid @border-color-print;
+            }
+        }
+    }
+}
+
+
+
+// Configuration Settings
+#dokuwiki__content #config__manager td.label {
+
+}
+
+
+.do-admin div.ui-admin ul.admin_tasks,
+.do-admin div.ui-admin ul.admin_plugins{
+    li {
+        list-style-type: none;
+        min-height: 2em;
+
+        a {
+            span.icon {
+                width: 22pt;
+                height: 22pt;
+                border: 1pt solid @border-color-print;
+                display: inline-block;
+                float: left;
+                clear: left;
+                margin: 0 10pt 0 0;
+
+                &:empty {
+                    &:before {
+                        content: "?";
+                        display: inline-block;
+                        padding-top: 1pt;
+                    }
+                }
+
+                svg {
+                    width: 20pt;
+                    height: 20pt;
+                    path {
+                        fill: @color-print;
+                    }
+
+                }
+            }
+            span.prompt {
+                min-height: 26pt;
+                display: inline-block;
+                margin: 0;
+                padding-top: 4pt;
+            }
+        }
+
+    }
+
+}
+
+/*Template Style Settings*/
+#plugin__styling {
+    button {
+        display: none !important;
+    }
+}
