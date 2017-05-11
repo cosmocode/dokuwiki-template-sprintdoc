@@ -21,6 +21,7 @@
 .pagetools-item(img_backto, 12);
 */
 
+
 #dokuwiki__aside {
     @media @screen_max-md {
         display: none !important;
@@ -31,7 +32,6 @@ nav#dokuwiki__pagetools {
     @toolbox-size: 30px;
 
     top: 3.05rem;
-    z-index: 100;
 
     @media @screen_min-md {
         right: -2.5rem;
@@ -80,6 +80,27 @@ nav#dokuwiki__pagetools {
                 &:focus,
                 &:active {
                     background-color: transparent;
+                }
+
+                &:focus {
+                    box-shadow: @box-shadow;
+                    background-image: none;
+                    background-color: @ini_background;
+                    color: @ini_existing;
+                    padding-top: 2px;
+                    padding-bottom: 2px;
+                    padding-right: 0;
+
+                    span {
+                        position: relative;
+                        display: inline;
+                        width: auto;
+                        height: auto;
+                    }
+
+                    svg {
+                        fill: @ini_existing;
+                    }
                 }
 
                 span {

@@ -1,12 +1,11 @@
 /**
- * This styles the "section editing button"
+ * This styles the "section editing button" (data-plugin)
  */
 
 
 #dokuwiki__content.main-content {
-    .editbutton_section {
+    .secedit:not([class*="plugin"]):not([class*="table"]) {
         position: relative;
-        z-index: 2;
         top: 0;
         float: right;
         margin-top: 0; // for best position of edit-tab beneeth table

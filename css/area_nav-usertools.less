@@ -33,17 +33,28 @@
         padding: 0;
         margin: (@very-small-spacing * 2) -.25rem 0 0;
 
+        @media @screen_max-md {
+            margin-right: .5rem;
+        }
+
+        @media @screen_max-xxs {
+            margin-right: -.3rem;
+        }
+
         li {
             .btn-usertools-wrapper(); // uniform li
             .btn-usertools-num();
 
             float: right;
-            min-height: 28px;
 
             @media @screen_max-xs {
                 display: block;
                 float: none;
                 margin-bottom: @headericons-margin-xxs;
+            }
+
+            @media @screen_max-xxs {
+                margin-bottom: (@headericons-margin-xxs - .2);
             }
 
             > span,
@@ -61,18 +72,12 @@
                     padding-top: .14rem;
                 }
 
-                @media @screen_max-xxlg {
-                    min-height: 28px;
-                }
-
-                @media @screen_max-md {
-                    min-height: @toggle-size;
-                }
-
                 @media @screen_only-lg {
                     min-width: 2rem;
                 }
             }
+
+            /* !!! &.user-task FIND in plugins/do_tasks.less !!! */
 
             &.user {
                 @space-min-xxlg: .35rem;
@@ -83,7 +88,7 @@
                 position: relative;
                 display: table-cell;
                 background-color: @ini_background_site;
-                border: solid 1px @wikiicons-border; // @ini_border_light;
+                border: solid 1px @wikiicons-border;
                 border-radius: @ini_default_border_radius; // @ini_default_border_radius vs. @fix_border-radius
                 color: @ini_text_webframe;
                 padding-right: .3rem;
@@ -108,7 +113,7 @@
                 @media @screen_max-xs {
                     position: absolute;
                     top: @headericons-margin-xxs;
-                    right: (@toggle-size + @headericons-margin-xxs);
+                    right: (@toggle-size + @headericons-margin-xxs + @space-max-xlg + .5); // 1.75rem + .45 + .5 + (button login/out margin-right)
                     overflow: hidden;
                     white-space: nowrap;
                     margin: -1px 0 0;
@@ -116,6 +121,7 @@
 
                 @media @screen_max-xxs {
                     left: -10px;
+                    right: (@toggle-size + @headericons-margin-xxs); // 1.75rem + .45rem
                     width: auto;
                 }
 
@@ -178,11 +184,11 @@
                     &:focus,
                     &:active {
                         background-color: @ini_nav_menu_hover_color;
-                        border-color: @ini_nav_menu_hover_color;
                         color: @ini_nav_menu_hover_bg;
 
                         &::before {
                             opacity: 1;
+                            border-color: @ini_nav_menu_hover_bg;
                         }
 
                         bdi,

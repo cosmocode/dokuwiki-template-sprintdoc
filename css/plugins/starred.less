@@ -4,19 +4,20 @@
 
 .page-attributes {
     li.plugin_starred {
-        .starred svg {
-            margin-top: .1em;
-            width: 1.6em;
-            height: 1.6em;
-            font-size: 0.82rem;
-            fill: @ini_nav_menu_color;
-        }
+        .starred {
+            display: block;
+            padding-top: .05rem;
 
-        .starred.on svg {
-            fill: @ini_link;
+            svg {
+                width: 1.6em;
+                height: 1.6em;
+                font-size: 0.82rem;
+                fill: @ini_nav_menu_hover_color;
+            }
         }
 
         a:hover,
+        a:focus,
         a:active {
             .starred svg {
                 fill: @ini_nav_menu_hover_bg;
@@ -27,12 +28,20 @@
 }
 
 nav.nav-starred {
+    margin-top: @nav-margin;
+
     ul {
         list-style: none;
+
+        &#sidebar-menu-starred {
+            margin-left: 0;
+        }
+
         li {
             margin-left: 0;
+
             svg {
-                vertical-align: middle;
+                vertical-align: text-top;
             }
         }
     }

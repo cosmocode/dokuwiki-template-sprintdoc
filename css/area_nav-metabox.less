@@ -2,6 +2,7 @@
  * This file provides the design styles for the metatabbox
  *
  * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
+ * @author Silke Pisulla <pisulla@cosmocode.de>
  */
 
 
@@ -11,7 +12,6 @@
     .justify-content(flex-end);
 
     position: relative;
-    z-index: 10;
     float: right;
     max-width: 40%;
     margin-top: -(@page_padding-top); // reverse padding-top of .page container
@@ -157,7 +157,6 @@
             }
 
             &.active {
-                z-index: 1;
 
                 > a {
                     cursor: default;
@@ -228,11 +227,12 @@
                 ul {
                     list-style: none;
                     padding-left: 0;
+                }
 
-                    li {
-                        margin-left: 0;
-                        padding-left: 1em;
-                    }
+                li {
+                    list-style-image: none; // overwrite universally styles
+                    margin-left: 0;
+                    padding-left: 1em;
                 }
             }
 
@@ -304,7 +304,7 @@
         ul.mmissuelist {
             padding-left: 0;
             margin-top: 1rem;
-        
+
             li {
                 &.noissue {
                     list-style-type: none;
@@ -328,6 +328,78 @@
 
             form {
                 vertical-align: text-top;
+            }
+        }
+    }
+
+
+/* + + + + +  tab issues  + + + + + */
+/* see plugins/magic-matcher.less   */
+    #spr__tab-issues {
+        ul.mmissuelist {
+            padding-left: 0;
+            margin-top: .5rem;
+            margin-bottom: .6rem;
+
+            li {
+                list-style-type: none;
+                margin-top: .3rem;
+                margin-left: .5rem;
+
+                &.noissue {
+                    list-style-type: none;
+                    margin-left: 0;
+                }
+            }
+
+            a {
+                display: inline-block;
+                font-size: @font-size-small;
+
+                * {
+                    font-size: inherit;
+                }
+            }
+
+            img {
+                vertical-align: bottom;
+                margin-right: .3rem;
+            }
+
+            .mm__status {
+                display: inline-block;
+                text-decoration: none;
+                padding-left: .3rem;
+                padding-right: .3rem;
+            }
+
+            form {
+                vertical-align: text-top;
+
+                button {
+                    background: @ini_existing;
+                    border-color: @ini_existing;
+                    color: @ini_background;
+                    font-size: @font-size-small;
+                    padding: .2em .3em;
+
+                    &[name="removeIssue"] {
+                        min-width: 20px;
+                        font-size: .94rem;
+                        font-weight: bold;
+                        line-height: 95%;
+                        text-align: center;
+                        padding: 0 .1rem .1rem;
+                        margin-left: .5rem;
+                    }
+
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        background: @ini_background;
+                        color: @ini_existing;
+                    }
+                }
             }
         }
     }

@@ -4,6 +4,7 @@
  * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
  */
 
+
 .search.main-sidebar {
     @main-ico-dummy: @font-size-big + @margin-small*2; //FIXME copied from area_main-sidebar-nav
     @icon-size: @page-header_height;
@@ -180,15 +181,16 @@
 }
 
 
-/* + + + + +  wide page content  + + + + + */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* min-width: 1024px */
+
 @media @screen_min-md {
+
+    // wide page content
     .wide-content {
         .search.main-sidebar {
-            display: block;
-
             p.toggleSearch {
                 position: relative;
-                z-index: 1;
                 display: block;
                 float: left;
                 width: auto;
@@ -216,10 +218,26 @@
 }
 
 
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* max-width: 1023px */
+
 @media @screen_max-md {
-    .show-mobile-sidebar {
+
+    // show when toggled
+    body.show-mobile-sidebar {
+        p.toggleSearch {
+            display: none !important;
+        }
+
         .search.main-sidebar {
-            display: block;
+            display: block !important;
+            position: relative;
+            margin-left: -1px;
+            margin-right: -1px;
+
+            form {
+                margin-bottom: 1rem;
+            }
         }
     }
 }

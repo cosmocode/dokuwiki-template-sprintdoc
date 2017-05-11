@@ -103,7 +103,6 @@
         try{
             var focusobj = document.getElementById(fid);
             if(focusobj) focusobj.focus();
-            if(focusobj) console.log(focusobj);
         }catch(err){
             this._debug('exception: '+err);
         }
@@ -196,3 +195,65 @@
         }
     }
 };
+
+
+// + + + + + + + + + + + + + + + + + + + + + + + + + + + +
+// shuffle func for random values
+// + + + + + + + + + + + + + + + + + + + + + + + + + + + +
+Array.prototype.shuffle = function(){
+    var tmp, rand;
+    for(var i =0; i < this.length; i++){
+        rand = Math.floor(Math.random() * this.length);
+        tmp = this[i];
+        this[i] = this[rand];
+        this[rand] =tmp;
+    }
+};
+
+// + + + + + + + + + + + + + + + + + + + + + + + + + + + +
+// js trim func for ie
+// + + + + + + + + + + + + + + + + + + + + + + + + + + + +
+if(typeof String.prototype.trim !== 'function') {
+    String.prototype.trim = function() {
+        return this.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+    };
+}
+
+/**
+ * simplify setting and getting state out of a node
+ * $("#my_id").data("my_data_attr") equals $$("#my_id").my_data_attr and
+ * $("#my_id").data("my_data_attr", "my_data_val") equals $$("#my_id").my_data_attr = my_data_val
+ * you can also do
+ * $$("#my_id").my_data_val = $$("#my_id").my_data_val + 1.
+ */
+var $$ = function(param) {
+    var node = $(param)[0];
+    var id = $.data(node);
+    $.cache[id] = $.cache[id] || {};
+    $.cache[id].node = node;
+    return $.cache[id];
+};
+var alertFB = false;
+if (typeof console === "undefined" || typeof console.log === "undefined") {
+    console = {};
+    if (alertFB) {
+        console.log = function(msg) {
+            alert(msg);
+        };
+    } else {
+        console.log = function() {};
+    }
+}
+
+/**
+ * custom event handler ‘show’/’hide’ events for using .on()
+ */
+(function ($) {
+    $.each(['show', 'hide'], function (i, e) {
+        var el = $.fn[e];
+        $.fn[e] = function () {
+            this.trigger(e);
+            return el.apply(this, arguments);
+        };
+    });
+})(jQuery);

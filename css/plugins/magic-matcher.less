@@ -1,5 +1,8 @@
 /**
  * This file provides styles for magic matcher plugin
+ *
+ * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
+ * @author Silke Pisulla <pisulla@cosmocode.de>
  */
 
 
@@ -44,7 +47,6 @@
 
     #magicmatcher__context {
         position: relative;
-        z-index: 100;
         width: 100%;
         min-height: @height-context-bar;
         box-sizing: border-box;
@@ -103,6 +105,59 @@ a.jiralink {
 }
 
 
+/* + + + + +  tooltip in metabox  + + + + + */
+.dokuwiki {
+    .serverToolTip {
+        box-shadow: @box-shadow;
+        border-radius: @fix_border-radius;
+        font-size: @font-size-default;
+
+        h1.issueTitle {
+            font-size: @font-size-default;
+        }
+
+        h2 {
+            font-size: @font-size-small;
+        }
+
+        ul {
+            margin-top: @small-spacing;
+        }
+
+        p,
+        li {
+            font-size: (@font-size-small - .06);
+
+            * {
+                font-size: inherit;
+            }
+        }
+
+        p {
+            margin-top: @small-spacing;
+            margin-bottom: @small-spacing;
+        }
+
+        .components {
+            .component {
+                font-size: (@font-size-small - .06);
+            }
+        }
+
+        .labels {
+            .label {
+                font-size: (@font-size-small - .06);
+            }
+        }
+
+        .descriptionTeaser {
+            font-size: (@font-size-small - .06);
+            margin-top: (@small-spacing * 2);
+            margin-bottom: (@small-spacing * 2);
+        }
+    }
+}
+
 /* + + + + +  no js version  + + + + + */
 .no-js {
     #spr__magic-matcher {
@@ -144,4 +199,3 @@ a.jiralink {
         display: none;
     }
 }
-

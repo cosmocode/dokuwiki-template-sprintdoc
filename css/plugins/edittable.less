@@ -1,5 +1,5 @@
 /**
- * This file provides styles for qc edittable plugin
+ * This file provides styles for "edittable plugin"
  */
 
 
@@ -8,9 +8,8 @@
 #dokuwiki__content.main-content {
     div.editbutton_table {
         position: relative; // for IE
-        z-index: 1; // for IE
         float: left;
-        margin-top: -1.46rem !important; // overwrite inline styles
+        margin-top: -1.4em !important; // overwrite inline styles
 
         form div.no {
             button,
@@ -22,7 +21,7 @@
                 border-radius: 0 0 @fix_border-radius @fix_border-radius;
                 color: @ini_existing;
                 font-size: @font-size-small;
-                margin-top: 0; // for best position of edit-tab beneath table
+                margin-top: -1px; // for best position of edit-tab beneeth table
                 padding-right: .3em;
                 transition: @transition background-color, @transition border-color, @transition color;
 
