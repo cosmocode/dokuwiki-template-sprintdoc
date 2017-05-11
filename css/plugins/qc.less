@@ -16,6 +16,16 @@
             font-size: (@font-size-small - .06);
         }
     }
+
+    a {
+        &:hover,
+        &:focus,
+        &:active {
+            svg path {
+                fill: @ini_nav_menu_hover_bg;
+            }
+        }
+    }
 }
 
 
@@ -25,6 +35,7 @@
     width: auto;
     font-size: 90%;
     box-shadow: @box-shadow-bottom;
+    border-bottom: solid 1px @ini_border_light;
     margin-bottom: 0;
 
     h2 {
