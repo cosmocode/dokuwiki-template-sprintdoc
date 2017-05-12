@@ -77,14 +77,9 @@
                 }
             }
 
-            /* !!! &.user-task FIND in plugins/do_tasks.less !!! */
+/* !!! &.user-task FIND in plugins/do_tasks.less !!! */
 
             &.user {
-                @space-min-xxlg: .35rem;
-                @space-max-xxlg: .4rem;
-                @space-max-xlg: .5rem;
-                @space-max-md: .35rem;
-
                 position: relative;
                 display: table-cell;
                 background-color: @ini_background_site;
@@ -93,36 +88,34 @@
                 color: @ini_text_webframe;
                 padding-right: .3rem;
 
-                @media @screen_min-xxlg {
-                    padding-top: @space-min-xxlg;
-                }
-
-                @media @screen_max-xxlg {
-                    padding-top: @space-max-xxlg;
-                }
-
-                @media @screen_max-xlg {
-                    padding-top: @space-max-xlg;
+                @media @screen_min-md {
+                    padding-top: .35rem;
                 }
 
                 @media @screen_max-md {
                     min-height: @toggle-size;
-                    padding-top: @space-max-md;
+                    padding-top: .3rem;
+                }
+
+                @media @screen_max-sm {
+                    padding-top: .35rem;
                 }
 
                 @media @screen_max-xs {
                     position: absolute;
                     top: @headericons-margin-xxs;
-                    right: (@toggle-size + @headericons-margin-xxs + @space-max-xlg + .5); // 1.75rem + .45 + .5 + (button login/out margin-right)
+                    right: (@toggle-size + @headericons-margin-xxs + 1); // 1.75rem + 1 + (button login/out margin-right)
                     overflow: hidden;
                     white-space: nowrap;
                     margin: -1px 0 0;
+                    padding-top: .4rem;
                 }
 
                 @media @screen_max-xxs {
                     left: -10px;
                     right: (@toggle-size + @headericons-margin-xxs); // 1.75rem + .45rem
                     width: auto;
+                    padding-top: .35rem;
                 }
 
                 > a {
@@ -130,7 +123,6 @@
                     .align-items();
 
                     position: relative;
-                    min-height: 26px;
                     height: 1rem; // for IE11
                     overflow: visible;
                     background: @ini_nav_menu_hover_bg; // for removing bg-image
@@ -141,29 +133,27 @@
                     margin-right: -.3rem;
                     padding: 0 .2em 0 0;
 
-                    @media @screen_only-xlg {
-                        padding-bottom: .1em;
-                    }
-
                     @media @screen_min-xxlg {
-                        margin-top: -(@space-min-xxlg);
+                        min-height: (@toggle-size - .1);
+                        margin-top: -.4rem;
                     }
 
                     @media @screen_max-xxlg {
-                        margin-top: -(@space-max-xxlg);
-                    }
-
-                    @media @screen_max-xlg {
-                        margin-top: -(@space-max-xlg);
+                        min-height: (@toggle-size - .15);
+                        margin-top: -.35rem;
                     }
 
                     @media @screen_max-md {
                         min-height: (@toggle-size - .1);
-                        margin-top: -(@space-max-md);
+                        margin-top: -.35rem;
                     }
 
-                    @media @screen_max-xxs {
-                        min-height: (@toggle-size - .15);
+                    @media @screen_max-sm {
+                        margin-top: -.35rem;
+                    }
+
+                    @media @screen_max-xs {
+                        margin-top: -.4rem;
                     }
 
                     &::before {
@@ -188,7 +178,7 @@
 
                         &::before {
                             opacity: 1;
-                            border-color: @ini_nav_menu_hover_bg;
+                            border-color: @ini_nav_menu_hover_color;
                         }
 
                         bdi,
