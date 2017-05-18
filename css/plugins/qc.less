@@ -31,33 +31,29 @@
 
 /* + + + + +  slideout output  + + + + + */
 .qc-output {
+    position: relative;
     min-width: 100%;
     width: auto;
+    background-color: @ini_background !important;
     font-size: 90%;
     box-shadow: @box-shadow-bottom;
     border-bottom: solid 1px @ini_border_light;
     margin-bottom: 0;
-
-    h2 {
-        font-size: 1.3rem;
-    }
-    h3 {
-         font-size: 1.1rem;
-    }
-    h4, h5, h6 {
-        font-size: 1rem;
-    }
-
+    padding-top: 0 !important; // for JS overwrite
 
     @media @screen_min-xxs {
-        margin-top: -(@margin-default + 1);
         margin-right: -(@margin-default);
         margin-left: -(@margin-default);
         padding-left: @margin-default;
         padding-right: @margin-default;
     }
 
+    @media @screen_min-md {
+        top: -(@margin-small);
+    }
+
     @media @screen_max-md {
+        top: 0;
         margin-top: -(@page_padding-top + 2);
         margin-right: -(@margin-default * 1.6);
         margin-left: -(@margin-default);
@@ -68,6 +64,21 @@
         margin-left: -(@margin-small);
         padding-left: @margin-small;
         padding-right: @margin-default;
+    }
+
+    h1 {
+        @media @screen_min-md {
+            padding-top: 0;
+        }
+    }
+    h2 {
+        font-size: 1.3rem;
+    }
+    h3 {
+         font-size: 1.1rem;
+    }
+    h4, h5, h6 {
+        font-size: 1rem;
     }
 
     div,
