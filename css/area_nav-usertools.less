@@ -61,6 +61,7 @@
             > a {
                 display: block;
                 width: auto;
+                min-width: (@toggle-size + .25);
                 min-height: @toggle-size;
                 overflow: hidden;
                 border: 1px solid @wikiicons-border;
@@ -70,10 +71,6 @@
 
                 @media @screen_md-xlg {
                     padding-top: .14rem;
-                }
-
-                @media @screen_only-lg {
-                    min-width: 2rem;
                 }
             }
 
@@ -235,10 +232,6 @@
             position: relative;
             line-height: 1;
             text-decoration: none;
-
-            @media @screen_md-xlg {
-                min-width: 2rem;
-            }
 
             &::before {
                 .center-middle();
