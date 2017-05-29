@@ -245,11 +245,6 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                             if($mm && $matcher !== ""){
                                 include('tpl/nav-magicmatcher.php');
                             }
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* Include Hook: header.html */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                            tpl_includeFile('header.html');
                         ?>
 
                     </div><!-- .col -->
