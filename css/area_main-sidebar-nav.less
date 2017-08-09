@@ -35,8 +35,9 @@
 
     nav {
         &.nav-main {
-            margin-bottom: 1rem;
+            margin-bottom: @nav-margin;
         }
+
         > p {
             color: @ini_nav_menu_color;
 
@@ -47,6 +48,11 @@
                     color: inherit;
                 }
             }
+        }
+
+        ul,
+        div.nav {
+            margin-bottom: 0;
         }
 
         li {
@@ -104,7 +110,7 @@
             color: @ini_nav_menu_color;
             font-size: @font-size-head6;
             font-weight: normal;
-            margin: -1px 0 (@font-size-head6 / 2); // moves the toggles back to the left (.4 from li margin)
+            margin: -1px 0 @very-small-spacing;
             padding-bottom: .4rem;
             padding-top: .4rem;
             transition: @transition color, @transition background-color, @transition border-color;
@@ -199,8 +205,8 @@
         span.ico {
             position: relative;
             display: table-cell;
-            width: @menu-margin;
-            min-width: @menu-margin;
+            width: (@menu-margin - .1);
+            min-width: (@menu-margin - .1);
             height: @icon-size;
             text-align: center;
             vertical-align: middle;
@@ -231,18 +237,18 @@
             // simple fake icon
             strong {
                 display: inline-block;
-                font-size: @icon-size * 0.5;
                 width: @icon-size * 0.98;
                 height: @icon-size * 0.98;
-                line-height: @icon-size * 0.9;
-                margin: @icon-size * 0.05;
-                padding: 0 .05em .05em;
-                vertical-align: baseline;
-                text-align: center;
-                color: inherit;
                 border: 2px solid fade(@ini_nav_menu_color, 80%);
                 border-top-right-radius: 50%;
                 border-bottom-left-radius: 50%;
+                color: inherit;
+                font-size: @icon-size * 0.5;
+                line-height: @icon-size * 0.9;
+                vertical-align: baseline;
+                text-align: center;
+                margin: @icon-size * 0.05;
+                padding: 0 .05em .05em;
             }
 
             // real icon
@@ -276,6 +282,7 @@
 
             ul {
                 margin-bottom: 0;
+                margin-left: 16px;
             }
         }
     }
