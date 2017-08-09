@@ -1,20 +1,30 @@
 /**
  * This file provides the styles for printing.
  *
- * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
+ * @author Jana Deutschlaender <deutschlaender@cosmocode.de>,
+           Silke Pisulla <pisulla@cosmocode.de>
  */
+
+
+/* + + + + +  variables  + + + + + */
 
 @color-print: #000;
 @background-print: transparent;
 @border-color-print: #ccc;
-html, body {
+
+
+/*  + + + + + print styles  + + + + + */
+
+html,
+body {
     background: @background-print;
 }
 
-a:link, a:visited {
+a:link,
+a:visited {
+    background: @background-print !important;
+    color: @color-print !important;
     text-decoration: underline;
-    color: @color-print  !important;
-    background: @background-print  !important;
 }
 
 #spr__direct,
@@ -26,7 +36,10 @@ a:link, a:visited {
 .content .row > .col-xs-12 #dokuwiki__content::before,
 .page-wrapper > .tools,
 .breadcrumbs,
-.structaggregation > a.export {
+.structaggregation > a.export,
+#dokuwiki__content .structaggregation > a,
+#dokuwiki__content a.folder,
+/* lightbox is shown: */ #dokuwiki__top[style="overflow: hidden;"] .page-wrapper {
     display: none !important;
 }
 
@@ -36,51 +49,51 @@ a:link, a:visited {
 
 .dokuwiki div.page,
 .main-sidebar.claim,
-.page-footer{
+.page-footer {
     padding: 20pt 20pt 0;
 }
 
-/* admin  */
+
+/* + + + + +  admin  + + + + + */
 
 // Extension Manager
 #extension__manager {
     form.search {
-        margin-bottom: 20pt;
         display: inline-block;
+        margin-bottom: 20pt;
     }
 }
 
 #extension__list {
     .extensionList {
-        padding: 0;
         border-bottom: 1pt solid @border-color-print;
+        padding: 0;
 
         li {
+            list-style-type: none;
             border-top: 1pt solid @border-color-print;
             margin-left: 0;
 
-            list-style-type: none;
             &::after {
-                display: table;
-                content: ' ';
+                content: '';
                 clear: both;
+                display: table;
                 height: 10pt;
             }
 
             a.info,
-            .actions.col{
+            .actions.col {
                 display: none;
             }
 
             .screenshot {
                 float: left;
-                margin: 0 10pt 5pt 0;
                 border: 1pt solid @border-color-print;
+                margin: 0 10pt 5pt 0;
             }
         }
     }
 }
-
 
 
 // Configuration Settings
@@ -88,25 +101,24 @@ a:link, a:visited {
 
 }
 
-
 .do-admin div.ui-admin ul.admin_tasks,
-.do-admin div.ui-admin ul.admin_plugins{
+.do-admin div.ui-admin ul.admin_plugins {
     li {
         list-style-type: none;
         min-height: 2em;
 
         a {
             span.icon {
+                float: left;
+                clear: left;
+                display: inline-block;
                 width: 22pt;
                 height: 22pt;
                 border: 1pt solid @border-color-print;
-                display: inline-block;
-                float: left;
-                clear: left;
                 margin: 0 10pt 0 0;
 
                 &:empty {
-                    &:before {
+                    &::before {
                         content: "?";
                         display: inline-block;
                         padding-top: 1pt;
@@ -116,12 +128,13 @@ a:link, a:visited {
                 svg {
                     width: 20pt;
                     height: 20pt;
+
                     path {
                         fill: @color-print;
                     }
-
                 }
             }
+
             span.prompt {
                 min-height: 26pt;
                 display: inline-block;
@@ -129,14 +142,49 @@ a:link, a:visited {
                 padding-top: 4pt;
             }
         }
-
     }
-
 }
 
-/*Template Style Settings*/
+
+/* + + + + +  Template Style Settings  + + + + + */
+
+.page-footer {
+    border-top: 1pt solid @border-color-print;
+    margin-top: 13pt;
+}
+
 #plugin__styling {
     button {
         display: none !important;
     }
+}
+
+
+/* data plugin */
+.dataplugin_entry dl {
+    border: 1pt solid @border-color-print;
+    padding: 7pt;
+    margin: 7pt 0;
+
+    dt {
+        clear: left;
+        float: left;
+        width: 22%;
+        font-weight: bold;
+        text-align: right;
+        margin-right: 5pt;
+    }
+}
+
+
+/* tabbox */
+div#dwpl-ti-container .dwpl-ti,
+.dwpl-ti-permalink-header,
+.dwpl-ti-permalink-footer {
+    display: none !important;
+}
+
+div#dwpl-ti-container div.dwpl-ti-content-box {
+    box-shadow: none;
+    border: 0 none;
 }
