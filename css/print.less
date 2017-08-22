@@ -38,6 +38,7 @@ a:visited {
 .content .row > .col-xs-12 #dokuwiki__content::before,
 .page-wrapper > .tools,
 .breadcrumbs,
+.wikilink1[href*="id=pagefooter"],
 .structaggregation > a.export,
 #dokuwiki__content .structaggregation > a,
 #dokuwiki__content a.folder {
@@ -79,6 +80,17 @@ a:visited {
         display: inline-block;
         margin-bottom: 20pt;
     }
+    form.install {
+        display: none;
+    }
+    ul.tabs {
+        li.active {
+            a {
+                font-weight: bold;
+                text-decoration: none;
+            }
+        }
+    }
 }
 
 #extension__list {
@@ -108,13 +120,186 @@ a:visited {
                 border: 1pt solid @border-color-print;
                 margin: 0 10pt 5pt 0;
             }
+
+            h2, h2 * {
+                font-size: 100%;
+            }
+        }
+    }
+}
+
+#user__manager {
+    table input,
+    .import_users input{
+        display: none !important;
+    }
+}
+#acl__detail #acl__user {
+    display: none;
+}
+
+.do-admin #dokuwiki__content {
+
+    #confmanager {
+        .popup,
+        .confmanager_singleLine#local,
+        button,
+        .button.saveButton {
+            display: none !important;
+        }
+
+        .confmanager_singleLine {
+            div.defaultValue {
+                word-break: break-all;
+            }
+        }
+
+    }
+
+    > form > fieldset {
+
+        border-color: @border-color-print;
+
+        > textarea.edit[readonly] {
+            border: 0 none;
+            min-height: 2250pt;
+            overflow:visible;
+            display: block;
+            page-break-inside: auto;
+
+            + br + label[for="autosubmit"] {
+                margin-top: 20pt;
+
+                input {
+                    margin-right: 5pt;
+                }
+            }
+        }
+    }
+
+    #magicmatcher__repoadmin {
+
+        button {
+            display: none;
+        }
+        .service-wrapper {
+            padding-top: 1rem;
+        }
+    }
+
+    .plugin_move_form {
+        legend {
+            display: none;
+        }
+    }
+
+    #plugin__qc_admin {
+        table .centeralign {
+            .qc_icon svg + span {
+                vertical-align: top;
+            }
+        }
+    }
+
+    .doku_form.struct_newschema {
+        button {
+            display: none;
+        }
+    }
+    form.plugin_tagging {
+        display: none;
+    }
+
+    #plugin__upgrade_meter {
+        ol li .stage {
+            padding-left: .4em;
+        }
+    }
+
+    #plugin__upgrade {
+        code {
+            word-break: break-all;
+            font-size: .82rem;
         }
     }
 }
 
 
+
 /* + + +  Configuration Settings  + + + */
-#dokuwiki__content #config__manager td.label {
+#dokuwiki__content #config__manager {
+    fieldset {
+        padding: 0;
+
+        legend {
+            padding: 0 .5em;
+            text-align: center;
+            background-color: #fff;
+        }
+         > .table > table {
+             border: 0 solid @border-color-print;
+             width: 100%;
+             tr {
+                 border-top: 1pt solid @border-color-print;
+
+                 &:first-child {
+                     border-top-width: 0;
+                 }
+                 td {
+                     border-width: 0;
+                 }
+             }
+         }
+    }
+    td.value,
+    td.label {
+        font-size: 100%;
+        padding: .6em 0 .8em 1em;
+    }
+    td.label {
+        width: 35%;
+        span.outkey, span.outkey * {
+            font-size: 100%;
+        }
+        label {
+            display: block;
+        }
+        span.outkey, label {
+            padding-left: .2rem;
+        }
+    }
+
+    td.value {
+        input[type="text"] {
+            border: 0 none;
+        }
+
+        select {
+            max-width: 80%;
+            box-sizing: border-box;
+            border: 1px solid transparent;
+            background: transparent;
+        }
+        .selectiondefault {
+            position: relative;
+
+            input.checkbox {
+                position: absolute;
+                top:0;
+                left: 0;
+            }
+
+            label, input[type="text"] {
+                position: relative;
+                top:0;
+                left: 0;
+                margin-left: 20pt;
+                margin-top: .5em;
+                padding-left: 0;
+                background-color: transparent;
+            }
+        }
+    }
 
 }
 
@@ -166,14 +351,21 @@ a:visited {
 /* + + + + + + + + + + + + + + + + + + + + + + + */
 /* + + + + +  Template Style Settings  + + + + + */
 
+
+
 .page-footer {
     border-top: 1pt solid @border-color-print;
     margin-top: 13pt;
 }
 
-#plugin__styling {
+#dokuwiki__content #plugin__styling {
+
     button {
         display: none !important;
+    }
+
+    .styling input[type="text"] {
+        border: 0 none;
     }
 }
 
@@ -195,6 +387,21 @@ a:visited {
 }
 
 
+#dokuwiki__detail {
+    div.img_detail dl {
+        dt {
+            display: inline-block;
+            width: 20%;
+            background-color: transparent;
+        }
+        dd {
+            display: inline-block;
+            width: 75%;
+        }
+    }
+}
+
+
 /* + + +  tabbox  + + + */
 div#dwpl-ti-container .dwpl-ti,
 .dwpl-ti-permalink-header,
@@ -208,7 +415,7 @@ div#dwpl-ti-container div.dwpl-ti-content-box {
 }
 
 
-/* + + +  medie nmanager  + + + */
+/* + + +  media nmanager  + + + */
 #mediamanager__page {
     .namespaces,
     .filelist .tabs,

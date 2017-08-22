@@ -9,7 +9,8 @@
 #dokuwiki__detail {
 
 /* + + + + +  linked image  + + + + + */
-    .img-link {
+    @media screen {
+        .img-link {
         text-align: center;
 
         a {
@@ -54,43 +55,49 @@
             }
         }
     }
+    }
 
 
 /* + + + + +  meta data  + + + + + */
     div.img_detail {
 
-        /* vertical minus margin of .img-detail corresponds to the padding of .page */
-        background-color: @ini_background_page_header;
-        border: solid @ini_border_light;
-        border-width: 1px 0;
-        margin: @margin-default -(@margin-default);
+        @media screen {
+            /* vertical minus margin of .img-detail corresponds to the padding of .page */
+            background-color: @ini_background_page_header;
+            border: solid @ini_border_light;
+            border-width: 1px 0;
+            margin: @margin-default -(@margin-default);
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        p {
-            padding-left: @margin-default;
-            padding-right: @margin-default;
-        }
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            p {
+                padding-left: @margin-default;
+                padding-right: @margin-default;
+            }
 
-        > h4 {
-            padding-top: (@margin-default / 2);
+            > h4 {
+                padding-top: (@margin-default / 2);
+            }
         }
 
         dl {
-            .display-flex();
-            .flex-wrap();
 
-            width: 100%;
+            @media screen {
+                .display-flex();
+                .flex-wrap();
 
-            dt,
-            dd {
-                box-sizing: border-box;
-                margin: .2em 0;
-                padding: (@small-spacing * 2) @small-spacing;
+                width: 100%;
+
+                dt,
+                dd {
+                    box-sizing: border-box;
+                    margin: .2em 0;
+                    padding: (@small-spacing * 2) @small-spacing;
+                }
             }
 
             dt {
@@ -105,16 +112,18 @@
                     width: 40%;
                 }
             }
+            @media screen {
 
-            dd {
-                padding-left: (@small-spacing * 2);
+                dd {
+                    padding-left: (@small-spacing * 2);
 
-                @media @screen_min-xs {
-                    width: 66.6%;
-                }
+                    @media @screen_min-xs {
+                        width: 66.6%;
+                    }
 
-                @media @screen_max-xs {
-                    width: 59.9%;
+                    @media @screen_max-xs {
+                        width: 59.9%;
+                    }
                 }
             }
         }
