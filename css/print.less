@@ -1,22 +1,34 @@
 /**
  * This file provides the styles for printing.
  *
- * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
+ * @author Jana Deutschlaender <deutschlaender@cosmocode.de>,
+           Silke Pisulla <pisulla@cosmocode.de>
  */
+
+
+/* + + + + +  variables  + + + + + */
 
 @color-print: #000;
 @background-print: transparent;
 @border-color-print: #ccc;
-html, body {
+@border-dark-print: #777;
+
+
+/*  + + + + + print styles  + + + + + */
+
+html,
+body {
     background: @background-print;
 }
 
-a:link, a:visited {
+a:link,
+a:visited {
+    background: @background-print !important;
+    color: @color-print !important;
     text-decoration: underline;
-    color: @color-print  !important;
-    background: @background-print  !important;
 }
 
+/* lightbox is shown: */ #dokuwiki__top[style="overflow: hidden;"] .page-wrapper,
 #spr__direct,
 .top-header,
 .main-footer,
@@ -25,7 +37,11 @@ a:link, a:visited {
 #spr__meta-box,
 .content .row > .col-xs-12 #dokuwiki__content::before,
 .page-wrapper > .tools,
-.breadcrumbs {
+.breadcrumbs,
+.wikilink1[href*="id=pagefooter"],
+.structaggregation > a.export,
+#dokuwiki__content .structaggregation > a,
+#dokuwiki__content a.folder {
     display: none !important;
 }
 
@@ -35,77 +51,276 @@ a:link, a:visited {
 
 .dokuwiki div.page,
 .main-sidebar.claim,
-.page-footer{
+.page-footer {
     padding: 20pt 20pt 0;
 }
 
-/* admin  */
 
-// Extension Manager
+/* + + + + + + + + + + + + + + */
+/* + + + + +  admin  + + + + + */
+
+/* + + +  acl_manager  + + + */
+#acl__tree {
+    display: none;
+}
+
+#acl__detail {
+    .aclpage {
+        display: block;
+        font-size: 110%;
+        margin-top: 13pt;
+        padding-bottom: 13pt;
+    }
+}
+
+
+/* + + +  Extension Manager  + + + */
 #extension__manager {
     form.search {
-        margin-bottom: 20pt;
         display: inline-block;
+        margin-bottom: 20pt;
+    }
+    form.install {
+        display: none;
+    }
+    ul.tabs {
+        li.active {
+            a {
+                font-weight: bold;
+                text-decoration: none;
+            }
+        }
     }
 }
 
 #extension__list {
     .extensionList {
-        padding: 0;
         border-bottom: 1pt solid @border-color-print;
+        padding: 0;
 
         li {
+            list-style-type: none;
             border-top: 1pt solid @border-color-print;
             margin-left: 0;
 
-            list-style-type: none;
             &::after {
-                display: table;
-                content: ' ';
+                content: '';
                 clear: both;
+                display: table;
                 height: 10pt;
             }
 
             a.info,
-            .actions.col{
+            .actions.col {
                 display: none;
             }
 
             .screenshot {
                 float: left;
-                margin: 0 10pt 5pt 0;
                 border: 1pt solid @border-color-print;
+                margin: 0 10pt 5pt 0;
             }
+
+            h2, h2 * {
+                font-size: 100%;
+            }
+        }
+    }
+}
+
+#user__manager {
+    table input,
+    .import_users input{
+        display: none !important;
+    }
+}
+#acl__detail #acl__user {
+    display: none;
+}
+
+.do-admin #dokuwiki__content {
+
+    #confmanager {
+        .popup,
+        .confmanager_singleLine#local,
+        button,
+        .button.saveButton {
+            display: none !important;
+        }
+
+        .confmanager_singleLine {
+            div.defaultValue {
+                word-break: break-all;
+            }
+        }
+
+    }
+
+    > form > fieldset {
+
+        border-color: @border-color-print;
+
+        > textarea.edit[readonly] {
+            border: 0 none;
+            min-height: 2250pt;
+            overflow:visible;
+            display: block;
+            page-break-inside: auto;
+
+            + br + label[for="autosubmit"] {
+                margin-top: 20pt;
+
+                input {
+                    margin-right: 5pt;
+                }
+            }
+        }
+    }
+
+    #magicmatcher__repoadmin {
+
+        button {
+            display: none;
+        }
+        .service-wrapper {
+            padding-top: 1rem;
+        }
+    }
+
+    .plugin_move_form {
+        legend {
+            display: none;
+        }
+    }
+
+    #plugin__qc_admin {
+        table .centeralign {
+            .qc_icon svg + span {
+                vertical-align: top;
+            }
+        }
+    }
+
+    .doku_form.struct_newschema {
+        button {
+            display: none;
+        }
+    }
+    form.plugin_tagging {
+        display: none;
+    }
+
+    #plugin__upgrade_meter {
+        ol li .stage {
+            padding-left: .4em;
+        }
+    }
+
+    #plugin__upgrade {
+        code {
+            word-break: break-all;
+            font-size: .82rem;
         }
     }
 }
 
 
 
-// Configuration Settings
-#dokuwiki__content #config__manager td.label {
+/* + + +  Configuration Settings  + + + */
+#dokuwiki__content #config__manager {
+    fieldset {
+        padding: 0;
+
+        legend {
+            padding: 0 .5em;
+            text-align: center;
+            background-color: #fff;
+        }
+         > .table > table {
+             border: 0 solid @border-color-print;
+             width: 100%;
+             tr {
+                 border-top: 1pt solid @border-color-print;
+
+                 &:first-child {
+                     border-top-width: 0;
+                 }
+                 td {
+                     border-width: 0;
+                 }
+             }
+         }
+    }
+    td.value,
+    td.label {
+        font-size: 100%;
+        padding: .6em 0 .8em 1em;
+    }
+    td.label {
+        width: 35%;
+        span.outkey, span.outkey * {
+            font-size: 100%;
+        }
+        label {
+            display: block;
+        }
+        span.outkey, label {
+            padding-left: .2rem;
+        }
+    }
+
+    td.value {
+        input[type="text"] {
+            border: 0 none;
+        }
+
+        select {
+            max-width: 80%;
+            box-sizing: border-box;
+            border: 1px solid transparent;
+            background: transparent;
+        }
+        .selectiondefault {
+            position: relative;
+
+            input.checkbox {
+                position: absolute;
+                top:0;
+                left: 0;
+            }
+
+            label, input[type="text"] {
+                position: relative;
+                top:0;
+                left: 0;
+                margin-left: 20pt;
+                margin-top: .5em;
+                padding-left: 0;
+                background-color: transparent;
+            }
+        }
+    }
 
 }
 
-
 .do-admin div.ui-admin ul.admin_tasks,
-.do-admin div.ui-admin ul.admin_plugins{
+.do-admin div.ui-admin ul.admin_plugins {
     li {
         list-style-type: none;
         min-height: 2em;
 
         a {
             span.icon {
+                float: left;
+                clear: left;
+                display: inline-block;
                 width: 22pt;
                 height: 22pt;
                 border: 1pt solid @border-color-print;
-                display: inline-block;
-                float: left;
-                clear: left;
                 margin: 0 10pt 0 0;
 
                 &:empty {
-                    &:before {
+                    &::before {
                         content: "?";
                         display: inline-block;
                         padding-top: 1pt;
@@ -115,12 +330,13 @@ a:link, a:visited {
                 svg {
                     width: 20pt;
                     height: 20pt;
+
                     path {
                         fill: @color-print;
                     }
-
                 }
             }
+
             span.prompt {
                 min-height: 26pt;
                 display: inline-block;
@@ -128,14 +344,188 @@ a:link, a:visited {
                 padding-top: 4pt;
             }
         }
-
     }
-
 }
 
-/*Template Style Settings*/
-#plugin__styling {
+
+/* + + + + + + + + + + + + + + + + + + + + + + + */
+/* + + + + +  Template Style Settings  + + + + + */
+
+
+
+.page-footer {
+    border-top: 1pt solid @border-color-print;
+    margin-top: 13pt;
+}
+
+#dokuwiki__content #plugin__styling {
+
     button {
         display: none !important;
+    }
+
+    .styling input[type="text"] {
+        border: 0 none;
+    }
+}
+
+
+/* + + +  data plugin  + + + */
+.dataplugin_entry dl {
+    border: 1pt solid @border-color-print;
+    padding: 7pt;
+    margin: 7pt 0;
+
+    dt {
+        clear: left;
+        float: left;
+        width: 22%;
+        font-weight: bold;
+        text-align: right;
+        margin-right: 5pt;
+    }
+}
+
+
+#dokuwiki__detail {
+    div.img_detail dl {
+        dt {
+            display: inline-block;
+            width: 20%;
+            background-color: transparent;
+        }
+        dd {
+            display: inline-block;
+            width: 75%;
+        }
+    }
+}
+
+
+/* + + +  tabbox  + + + */
+div#dwpl-ti-container .dwpl-ti,
+.dwpl-ti-permalink-header,
+.dwpl-ti-permalink-footer {
+    display: none !important;
+}
+
+div#dwpl-ti-container div.dwpl-ti-content-box {
+    box-shadow: none;
+    border: 0 none;
+}
+
+
+/* + + +  media nmanager  + + + */
+#mediamanager__page {
+    .namespaces,
+    .filelist .tabs,
+    .panelHeader form {
+        display: none;
+    }
+
+    ul.rows {
+        width: auto;
+        padding: 0;
+    }
+
+    .filelist li {
+        clear: both;
+        list-style-type: none;
+        margin: 7pt 0 0;
+
+        dl {
+            position: relative;
+            display: table;
+            border-top: solid 1pt @border-color-print;
+            padding-top: 2rem;
+        }
+
+        dt {
+            display: table-cell;
+            width: 10%;
+            height: 40px;
+
+            .size,
+            .filesize {
+                width: 15%;
+            }
+
+            .date {
+                width: 20%;
+            }
+        }
+
+        dd {
+            display: table-cell;
+
+            &.name {
+                position: absolute;
+                top: .5rem;
+                left: 0;
+                display: block;
+                font-weight: bold;
+                margin: 0;
+            }
+        }
+    }
+}
+
+
+/* + + +  forms  + + + */
+form {
+    button {
+        &[type="submit"],
+        &[type="reset"] {
+            display: none;
+        }
+    }
+
+    fieldset {
+        label,
+        label.block {
+            display: block;
+            text-align: left;
+        }
+
+        br + br {
+            display: none;
+        }
+
+        label {
+            clear: both;
+
+            > input {
+                &:first-child {
+                    float: left;
+                }
+
+                + span {
+                    float: left;
+                    display: inline-block;
+                    padding-left: 7pt;
+                    padding-bottom: 13pt;
+                }
+            }
+        }
+
+        label.block {
+            display: block;
+            text-align: left;
+
+            > span {
+                float: none;
+                padding-bottom: 0;
+
+                &:first-child {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    input,
+    textarea,
+    select {
+        border: 1pt solid @border-dark-print;
     }
 }

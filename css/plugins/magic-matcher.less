@@ -169,6 +169,27 @@ a.jiralink {
     }
 }
 
+.do-admin #dokuwiki__content {
+    #magicmatcher__repoadmin,
+    #magicmatcher_adminimport {
+        .tabs li {
+            a {
+                cursor: pointer;
+            }
+            &.active {
+                a {
+                    cursor: default;
+                }
+            }
+        }
+
+        .service_wrapper > a{
+            display: inline-block;
+            margin-top: 20px;
+        }
+    }
+}
+
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* max-width: 1023px */
