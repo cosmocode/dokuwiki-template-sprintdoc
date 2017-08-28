@@ -270,7 +270,7 @@ jQuery(function () {
             setActive(stModes,$siteTools);
             setActive(utModes,$userTools);
 
-            if($body.is('.wide-content')) {
+            if($body.is('.do-show') && $body.is('.wide-content')) {
                 window.sessionStorage.setItem('wide-content', true);
                 isWideContent = true;
             }
