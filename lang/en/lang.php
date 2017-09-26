@@ -24,6 +24,7 @@ $lang['head_breadcrumb_youarehere'] = 'location indicator';
 $lang['head_menu_trace']            = 'Last Visited Pages';
 $lang['head_meta_box']              = 'meta data for this page';
 $lang['head_menu_starred']          = 'Starred Pages';
+$lang['head_menu_tool-select']      = 'Tools';
 
 $lang['jump_to_quicksearch']        = 'Jump to quick search';
 

@@ -161,6 +161,21 @@
         }
     }
 
+    /* + + +  mobile select for doku wiki tools   + + + */
+    .menu-tool-select {
+        position: relative;
+        z-index: 1000;
+        display: none;
+        @media @screen_max-xxs {
+            display: block;
+        }
+
+        select {
+            display:  block;
+            width:100%;
+        }
+    }
+
 
 /* + + + + +  with magic matcher  + + + + + */
     &.has-magicmatcher {

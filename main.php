@@ -136,6 +136,11 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                                     <p class="title mobile-only"><?php echo $conf['title'] ?></p>
                                 <?php endif ?>
                             </div><!-- .main-title -->
+
+                            <div class="menu-tool-select">
+                                <h5 class="sr-only" role="heading" aria-level="2"><?php echo tpl_getLang('head_menu_tool-select') ?></h5>
+                                <?php tpl_actiondropdown($lang['tools'], "test"); ?>
+                            </div><!-- .menu-tool-select -->
                         </div><!-- .headings -->
                     </div><!-- .col -->
 
