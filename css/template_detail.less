@@ -60,7 +60,6 @@
 
 /* + + + + +  meta data  + + + + + */
     div.img_detail {
-
         @media screen {
             /* vertical minus margin of .img-detail corresponds to the padding of .page */
             background-color: @ini_background_page_header;
@@ -85,7 +84,6 @@
         }
 
         dl {
-
             @media screen {
                 .display-flex();
                 .flex-wrap();
@@ -112,18 +110,16 @@
                     width: 40%;
                 }
             }
-            @media screen {
 
-                dd {
-                    padding-left: (@small-spacing * 2);
+            dd {
+                padding-left: (@small-spacing * 2);
 
-                    @media @screen_min-xs {
-                        width: 66.6%;
-                    }
+                @media @screen_min-xs {
+                    width: 66.6%;
+                }
 
-                    @media @screen_max-xs {
-                        width: 59.9%;
-                    }
+                @media @screen_max-xs {
+                    width: 59.9%;
                 }
             }
         }
