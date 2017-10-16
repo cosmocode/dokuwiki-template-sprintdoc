@@ -314,9 +314,31 @@
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* max-width: 1440px */
+
+@media @screen_max-xlg {
+    #dokuwiki__aside {
+        div.nav {
+            a {
+                margin-left: 1px;
+            }
+        }
+    }
+}
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* max-width: 1023px */
 
 @media @screen_max-md {
+    #dokuwiki__aside {
+        div.nav {
+            a {
+                margin-left: 0;
+            }
+        }
+    }
+
     body.show-mobile-sidebar {
         #dokuwiki__aside {
             display: block !important;
