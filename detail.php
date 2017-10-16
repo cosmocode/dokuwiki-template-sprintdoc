@@ -92,7 +92,13 @@ include('tpl/favicon_tiles.php');
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="claim main-sidebar">
-                            <?php if (tpl_getConf('logo') && file_exists(mediaFN(tpl_getConf('logo')))) {
+                            <div class="menu-togglelink mobile-only">
+                                <a href="#">
+                                    <span class="sr-out"><?php echo tpl_getLang('a11y_sidebartoggle'); ?></span>
+                                </a>
+                            </div>
+
+                            <?php
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
@@ -100,7 +106,7 @@ include('tpl/favicon_tiles.php');
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* upload your logo into the data/media folder (root of the media manager) and replace 'logo.png' in der template config accordingly: */
                                 include('tpl/main-sidebar-logo.php');
-                            } ?>
+                            ?>
                             <div class="main-title">
                                 <?php if ($conf['title']):
 
@@ -112,8 +118,14 @@ include('tpl/favicon_tiles.php');
                                 <?php endif ?>
                             </div><!-- .main-title -->
 
+                            <div class="menu-tool-select">
+                                <h5 class="sr-only" role="heading" aria-level="2"><?php echo tpl_getLang('head_menu_tool-select') ?></h5>
+                                <?php tpl_actiondropdown($lang['tools'], "test"); ?>
+                            </div><!-- .menu-tool-select -->
                         </div><!-- .headings -->
                     </div><!-- .col -->
+
+
                     <div class="col-xs-12">
                         <div class="main-title desktop-only">
                             <?php if ($conf['title']):
@@ -145,6 +157,7 @@ include('tpl/favicon_tiles.php');
 /* headline menu area (Accessibility ) */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
         ?>
+
         <div class="sr-only nav-area-head">
             <h5 class="sr-only" aria-level="1"><?php echo tpl_getLang('nav-area-head') ?></h5>
         </div><!-- .nav-area-head -->
@@ -153,8 +166,6 @@ include('tpl/favicon_tiles.php');
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
-
-
                         <div class="search main-sidebar">
                             <?php
 
@@ -162,7 +173,7 @@ include('tpl/favicon_tiles.php');
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* search form */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                            include('tpl/main-sidebar-search.php');
+                                include('tpl/main-sidebar-search.php');
                             ?>
                         </div><!-- .search -->
 
@@ -173,19 +184,35 @@ include('tpl/favicon_tiles.php');
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* Include Hook: sidebarheader.html */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                            tpl_includeFile('sidebarheader.html')
+                                tpl_includeFile('sidebarheader.html')
                             ?>
                         </div><!-- .sidebarheader -->
 
-
                         <div id="dokuwiki__aside">
+
+                            <?php
+                            echo Template::getInstance()->getInclude(
+                                'sidebarheader',
+                                '<div class="sidebarheader">',
+                                '<div class="clearer"></div></div>'
+                            );
+                            ?>
+
                             <?php
 
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* sidebar */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                            include('tpl/main-sidebar-nav.php');
+                                include('tpl/main-sidebar-nav.php');
+                            ?>
+
+                            <?php
+                            echo Template::getInstance()->getInclude(
+                                'sidebarfooter',
+                                '<div class="sidebarfooter">',
+                                '<div class="clearer"></div></div>'
+                            );
                             ?>
                         </div><!-- .aside -->
 
@@ -193,6 +220,7 @@ include('tpl/favicon_tiles.php');
                 </div><!-- .row -->
             </div><!-- .container -->
         </div><!-- .tools -->
+
 
         <div class="top-header">
             <div class="container">
