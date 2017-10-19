@@ -130,12 +130,18 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                             <div class="main-title">
                                 <?php if ($conf['title']):
 
+
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* Wiki Title Mobile */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */ ?>
                                     <p class="title mobile-only"><?php echo $conf['title'] ?></p>
                                 <?php endif ?>
                             </div><!-- .main-title -->
+
+                            <div class="menu-tool-select">
+                                <h5 class="sr-only" role="heading" aria-level="2"><?php echo tpl_getLang('head_menu_tool-select') ?></h5>
+                                <?php tpl_actiondropdown($lang['tools'], "test"); ?>
+                            </div><!-- .menu-tool-select -->
                         </div><!-- .headings -->
                     </div><!-- .col -->
 
@@ -144,12 +150,14 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                         <div class="main-title desktop-only">
                             <?php if ($conf['title']):
 
+
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* Wiki Title Desktop */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */ ?>
                                 <p class="title"><?php echo $conf['title'] ?></p>
                             <?php endif ?>
                             <?php if ($conf['tagline']):
+
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* Wiki Tagline Desktop */
@@ -158,6 +166,7 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                             <?php endif ?>
                         </div><!-- .main-title -->
                     </div><!-- .col -->
+
                 </div><!-- .row -->
             </div><!-- .container -->
         </div><!-- .header -->
@@ -187,6 +196,7 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                                 include('tpl/main-sidebar-search.php');
                             ?>
                         </div><!-- .search -->
+
                         <div class="sidebarheader main-sidebar">
                             <?php
 
@@ -194,7 +204,7 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* Include Hook: sidebarheader.html */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                            tpl_includeFile('sidebarheader.html')
+                                tpl_includeFile('sidebarheader.html')
                             ?>
                         </div><!-- .sidebarheader -->
 
@@ -209,6 +219,8 @@ $classWideContent = ($ACT === "show") ? "": "wide-content ";
                             ?>
 
                             <?php
+
+
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* sidebar */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */

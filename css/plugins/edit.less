@@ -42,6 +42,26 @@
                 color: @color-editBox;
             }
         }
+
+        @media @screen_max-xs {
+            div.summary {
+                label[for=edit__summary] {
+                    white-space: normal;
+                    display: block;
+                    width: 100%;
+                    span {
+                        display: inline-block;
+                        padding-bottom: .4rem;
+                    }
+                    input#edit__summary{
+                        max-width: 100%;
+                        box-sizing: border-box;
+                    }
+                }
+            }
+        }
+
+
     }
 }
 

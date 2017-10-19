@@ -24,6 +24,7 @@ $lang['head_breadcrumb_youarehere'] = 'Standortanzeiger';
 $lang['head_menu_trace']            = 'Zuletzt Angesehen';
 $lang['head_meta_box']              = 'Metainformationen zur Seite';
 $lang['head_menu_starred']          = 'gemerkte Seite';
+$lang['head_menu_tool-select']      = 'Werkzeuge';
 
 $lang['jump_to_quicksearch']        = 'Springe zur Schnellsuche';
 

@@ -50,11 +50,13 @@
             @media @screen_max-xs {
                 display: block;
                 float: none;
+
                 margin-bottom: @headericons-margin-xxs;
             }
 
             @media @screen_max-xxs {
                 margin-bottom: (@headericons-margin-xxs - .2);
+                display: none;
             }
 
             > span,
@@ -110,7 +112,7 @@
 
                 @media @screen_max-xxs {
                     left: -10px;
-                    right: (@toggle-size + @headericons-margin-xxs); // 1.75rem + .45rem
+                    right: 0;
                     width: auto;
                     padding-top: .35rem;
                 }
