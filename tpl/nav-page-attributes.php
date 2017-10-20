@@ -14,7 +14,8 @@ if($doPlugin !== null || $qcPlugin !== null || $starredPlugin !== null) {
 
 
 if($qcPlugin && $qcPlugin->shouldShow()) {
-    echo '<li class="plugin_qc"><a href="#">…</a></li>'; // filled by javascript
+    $qcPrefix = tpl_getLang('quality_trigger');
+    echo '<li class="plugin_qc"><strong class="sr-out">'.$qcPrefix.':</strong><a href="#"></a></li>'; // filled by javascript
 }
 
 
