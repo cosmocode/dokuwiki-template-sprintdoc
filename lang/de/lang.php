@@ -11,55 +11,54 @@ $lang['direct_content_main']        = 'Hauptinhalt dieser Seite';
 $lang['direct_quick_search']        = 'Schnellsuche';
 $lang['direct_content_toggle']      = 'Breite des Contents ändern';
 
-$lang['adjunct_start_logo_text']    = 'Logo: ';
-$lang['adjunct_linked_logo_text']   = '. Link zur Startseite';
-$lang['a11y_sidebartoggle']         = 'Sidebar öffnen/schliessen';
+$lang['adjunct_linked_logo_text']   = ' - Link zur Startseite';
+$lang['a11y_sidebartoggle']         = 'Navigation anzeigen/verbergen';
 
 $lang['nav-area-head']              = 'Navigationsmenüs und Suche';
 $lang['head_magic_matcher']         = 'MagicMatcher';
-$lang['head_quick_search']          = 'wikiübergreifende Schnellsuche';
-$lang['head_menu_main']             = 'Hauptmenü';
+$lang['head_quick_search']          = 'Wikiübergreifende Schnellsuche';
 $lang['head_menu_status']           = 'Seitenstatus';
 $lang['head_breadcrumb_youarehere'] = 'Standortanzeiger';
 $lang['head_menu_trace']            = 'Zuletzt Angesehen';
 $lang['head_meta_box']              = 'Metainformationen zur Seite';
-$lang['head_menu_starred']          = 'gemerkte Seite';
+$lang['head_menu_starred']          = 'Gemerkte Seiten';
 $lang['head_menu_tool-select']      = 'Werkzeuge';
 
 $lang['jump_to_quicksearch']        = 'Springe zur Schnellsuche';
 
+/** it will be shown from plugin lang.php:
 $lang['meta_box_jira_tickets_none'] = 'Keine Jira-Tickets verknüpft';
 $lang['meta_box_tags_none']         = 'Keine Tags verknüpft';
 $lang['js']['meta_box_toc_none']    = 'kein Inhaltsverzeichnis vorhanden';
+$lang['prefix_tasks_user']          = 'Ihre offenen Aufgaben: ';
+*/
 
 $lang['tab_tags']                   = 'Tags';
 $lang['tab_issues']                 = 'Issues';
 
-$lang['quality_trigger']            = 'Seitenanalyse ein- bzw. ausblenden';
+$lang['quality_trigger']            = 'Seitenanalyse anzeigen/verbergen';
 
-$lang['prefix_tasks']               = 'offene Aufgaben: ';
 $lang['prefix_tasks_page']          = 'offene Aufgaben auf dieser Seite: ';
-$lang['prefix_tasks_user']          = 'Ihre offenen Aufgaben: ';
 
 $lang['tasks_page_none']            = 'keine offenen Aufgaben für diese Seite';
-$lang['tasks_page_intime']          = 'Es gibt %1$d offenen Aufgaben für diese Seite.';
-$lang['tasks_page_late']            = 'Es gibt %1$d offenen Aufgaben für diese Seite, %2$d sind zu spät.';
+$lang['tasks_page_intime']          = 'offenen Aufgaben für diese Seite: %1$d';
+$lang['tasks_page_late']            = 'offenen Aufgaben für diese Seite: %1$d, zu spät: %2$d';
 
-$lang['discussion']                 = 'Diskussion';
-$lang['back_to_article']            = 'Zurück zum Artikel';
-$lang['userpage']                   = 'Benutzer-Seite';
+$lang['discussion']                 = 'xxx Diskussion';
+$lang['back_to_article']            = 'xxx Zurück zum Artikel';
+$lang['userpage']                   = 'xxx Benutzer-Seite';
 
-$lang['meta_data']                  = 'Meta Daten des Bildes';
+$lang['meta_data']                  = 'Meta Daten des Bildes'; /** wird aufgerufen aber nicht ausgegeben - Fehler? */
 $lang['osm_zoom_link_text']         = 'größere Karte anzeigen';
-$lang['osm_zoom_link_title']        = 'externer Link - öffnet in neuem Fenster';
+$lang['osm_zoom_link_title']        = 'externer Link - öffnet in neuem Fenster'; /** in streetmaps - konnte ich nicht finden */
+
 $lang['image_detail']               = 'Detailinformationen zum Bild';
 
-
 $lang['mode_edit']                  = 'Seite bearbeiten';
-$lang['mode_detail']                = 'Details zum Bild';
+
 
 /**
- * colors
+ * preferences colors
  */
 
 $lang['__site_width__']             = 'Content - Breite (in %)';

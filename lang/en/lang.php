@@ -9,16 +9,14 @@
 $lang['direct_prefix']              = 'jump to';
 $lang['direct_content_main']        = 'Main Content';
 $lang['direct_quick_search']        = 'Search';
-$lang['direct_content_toggle']      = 'Toggle Content Width';
+$lang['direct_content_toggle']      = 'Change Content Width';
 
-$lang['adjunct_start_logo_text']    = 'Logo: ';
-$lang['adjunct_linked_logo_text']   = '. homepage link';
-$lang['a11y_sidebartoggle']         = 'Open/Close Sidebar';
+$lang['adjunct_linked_logo_text']   = ' - homepage link';
+$lang['a11y_sidebartoggle']         = 'Show/Hide Navigation';
 
 $lang['nav-area-head']              = 'menus and quick search';
 $lang['head_magic_matcher']         = 'MagicMatcher';
 $lang['head_quick_search']          = 'quick search';
-$lang['head_menu_main']             = 'main menu';
 $lang['head_menu_status']           = 'site status';
 $lang['head_breadcrumb_youarehere'] = 'location indicator';
 $lang['head_menu_trace']            = 'Last Visited Pages';
@@ -28,22 +26,23 @@ $lang['head_menu_tool-select']      = 'Tools';
 
 $lang['jump_to_quicksearch']        = 'Jump to quick search';
 
+/** it will be shown from plugin lang.php:
 $lang['meta_box_jira_tickets_none'] = 'jira associated tickets found: none';
 $lang['meta_box_tags_none']         = 'tags found: none';
 $lang['js']['meta_box_toc_none']    = 'no Table of Contents available';
+$lang['prefix_tasks_user']          = 'Your open tasks: ';
+*/
 
 $lang['tab_tags']                   = 'Tags';
 $lang['tab_issues']                 = 'Issues';
 
-$lang['quality_trigger']            = 'toggle page analysis';
+$lang['quality_trigger']            = 'Show/Hide page analysis';
 
-$lang['prefix_tasks']               = 'open tasks: ';
 $lang['prefix_tasks_page']          = 'open tasks for this page: ';
-$lang['prefix_tasks_user']          = 'Your open tasks: ';
 
-$lang['tasks_page_none']            = 'There are no open tasks for this page.';
-$lang['tasks_page_intime']          = 'There are %1$d open tasks on this page.';
-$lang['tasks_page_late']            = 'There are %1$d open tasks on this page, %2$d are late.';
+$lang['tasks_page_none']            = 'no open tasks on this page';
+$lang['tasks_page_intime']          = 'open tasks on this page: %1$d';
+$lang['tasks_page_late']            = 'open tasks on this page: %1$d, to late: %2$d';
 
 $lang['discussion']                 = 'Discussion';
 $lang['back_to_article']            = 'Back to article';
@@ -52,13 +51,14 @@ $lang['userpage']                   = 'User page';
 $lang['meta_data']                  = 'Meta Data';
 $lang['osm_zoom_link_text']         = 'view larger map';
 $lang['osm_zoom_link_title']        = 'external link opens new window';
+
 $lang['image_detail']               = 'image details';
 
 $lang['mode_edit']                  = 'Editing Page';
-$lang['mode_detail']                = 'Image Details';
+
 
 /**
- * colors
+ * preferences colors
  */
 
 $lang['__site_width__']             = 'content - width (in %)';
