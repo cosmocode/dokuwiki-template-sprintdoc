@@ -92,7 +92,8 @@ $lang['__button_color__']           = 'Buttons - Schriftfarbe';
 $lang['__button_background__']      = 'Buttons - Hintergrundfarbe';
 
 $lang['__background_alt__']         = 'Tabellenkopf, Tabellenzeile (hover), struct Label (hover) - Hintergrundfarbe (alternativ)';
-$lang['__text_alt__']               = 'Tabellenkopf (unverlinkt), Tabellenzeile (hover), struct Label (hover) - Schriftfarbe (alternativ)';
+$lang['__text_alt__']               = 'Tabellenkopf: unverlinkt, Tabellenzeile (hover), struct Label (hover) - Schriftfarbe (alternativ)';
+$lang['__link_alt__']               = 'Tabellenkopf: verlinkt - Schriftfarbe (alternativ)';
 
 $lang['__border__']                 = 'Tabellen, Formularfelder, Zitate - Rahmenfarbe';
 $lang['__default_border_radius__']  = 'Wiki Icons, Content (oben rechts) - Borderradius';

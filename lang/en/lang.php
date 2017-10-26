@@ -92,7 +92,8 @@ $lang['__button_color__']           = 'buttons - font color';
 $lang['__button_background__']      = 'buttons - background color';
 
 $lang['__background_alt__']         = 'table head, table cell (hover), struct Label (hover) - background color (alternative)';
-$lang['__text_alt__']               = 'table head (unlinked), table cell (hover), struct Label (hover) - font color (alternative)';
+$lang['__text_alt__']               = 'table head: unlinked, table cell (hover), struct Label (hover) - font color (alternative)';
+$lang['__link_alt__']               = 'table head: linked - font color (alternative)';
 
 $lang['__border__']                 = 'tables, form fields, blockquotes - border color';
 $lang['__default_border_radius__']  = 'wiki icons, content (top right) - border radius';

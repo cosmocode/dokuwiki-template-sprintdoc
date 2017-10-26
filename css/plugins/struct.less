@@ -18,8 +18,14 @@
             line-height: @line-height-default;
 
             a {
-                color: @ini_existing;
+                //color: @ini_existing;
                 line-height: @line-height-default;
+            }
+        }
+
+        th {
+            a {
+                color: @ini_link_alt;
             }
         }
 
@@ -65,15 +71,19 @@
                     background-color: @ini_existing;
                     background-image: url("svg.php?svg=file-export.svg&f=background");
                     border-color: @ini_existing;
-                    color: @ini_background;
+                    //color: @ini_background;
                     text-decoration: none;
                 }
             }
         }
     }
 
-    #plugin__struct_output{
+    #plugin__struct_output {
         margin-right: 0;
+
+        th {
+            background-color: @ini_background_alt;
+        }
     }
 
     .struct_entry_form {
@@ -163,6 +173,6 @@ form {
                     padding-top: 1rem;
                 }
             }
-        }
+        } // fieldset
     }
-}
+} // form
