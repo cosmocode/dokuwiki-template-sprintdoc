@@ -31,7 +31,15 @@
 nav#dokuwiki__pagetools {
     @toolbox-size: 30px;
 
+    @page-tools_svg-size: 25px;
+    @page-tools_svg-space: (@toolbox-size - @page-tools_svg-size) / 2;
+    @item-width: (@page-tools_svg-size + @page-tools_svg-space + @page-tools_svg-space);
+    @item-height: (@page-tools_svg-size + @page-tools_svg-space);
+
     top: 3.05rem;
+    position: absolute;
+
+    width: @item-width;
 
     @media @screen_min-md {
         right: -2.5rem;
@@ -44,25 +52,37 @@ nav#dokuwiki__pagetools {
     @media @screen_max-xxs {
         display: none;
     }
+    div.tools {
+        position: fixed;
+        width: @item-width;
+    }
 
     ul {
-        li {
-            @page-tools_svg-size: 25px;
-            @page-tools_svg-space: (@toolbox-size - @page-tools_svg-size) / 2;
+        position: absolute;
+        right: 0;
+        text-align: right;
+        margin: 0;
+        padding: 0;
+        /* add transparent border to prevent jumping when proper border is added on hover */
+        border: 1px solid transparent;
 
-            * {
-                font-size: @font-size-default;
-            }
+        li {
+            padding: 0;
+            margin: 0;
+            list-style: none;
 
             a {
-                .fontello-double();
+                display: inline-table;
+                /* add transparent border to prevent jumping when proper border is added on focus */
+                border: 1px solid transparent;
+                white-space: nowrap;
+                vertical-align: middle;
+                height: @item-height;
 
                 position: relative;
-                height: auto;
-                min-height: @toolbox-size; // for nav:hover
-                width: @toolbox-size; // for nav:hover
+                line-height: 20px;
                 font-size: @font-size-default;
-                padding: 2px @toolbox-size 2px 2px;
+                padding: 2px 0 2px 2px;
 
                 @media @screen_min-md {
                     color: @ini_nav_menu_color;
@@ -70,10 +90,6 @@ nav#dokuwiki__pagetools {
 
                 @media @screen_max-md {
                     color: @ini_existing;
-                }
-
-                * {
-                    color: inherit;
                 }
 
                 &::before {
@@ -91,9 +107,6 @@ nav#dokuwiki__pagetools {
                     background-image: none;
                     background-color: @ini_background;
                     color: @ini_existing;
-                    padding-top: 2px;
-                    padding-bottom: 2px;
-                    padding-right: 0;
 
                     span {
                         position: relative;
@@ -152,7 +165,6 @@ nav#dokuwiki__pagetools {
                     background-image: none;
                     border-color: transparent;
                     color: inherit;
-                    padding: 2px 0 2px 2px;
 
                     svg {
                         border: solid 1px transparent;
