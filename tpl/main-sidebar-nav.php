@@ -10,10 +10,10 @@
         <span class="lbl"><?php echo $lang['site_tools']; ?></span>
     </a></div>
     <div class="nav-panel level1">
-        <ul id="sidebar-site-tools">
+        <ul id="sidebar-site-tools" class="toollist">
             <?php
             if (file_exists(DOKU_INC . 'inc/Menu/SiteMenu.php')) {
-                echo (new \dokuwiki\Menu\SiteMenu())->getListItems();
+                echo (new \dokuwiki\Menu\SiteMenu())->getListItems('toollist__listitem ');
             } else {
                 //Pre-Greebo Backwards compatibility
                 tpl_toolsevent(
@@ -37,10 +37,10 @@
         <span class="lbl"><?php echo $lang['user_tools']; ?></span>
     </a></div>
     <div class="nav-panel level1">
-        <ul id="sidebar-user-tools">
+        <ul id="sidebar-user-tools" class="toollist">
             <?php /* dokuwiki user tools */
             if (file_exists(DOKU_INC . 'inc/Menu/UserMenu.php')) {
-                echo (new \dokuwiki\Menu\UserMenu())->getListItems();
+                echo (new \dokuwiki\Menu\UserMenu())->getListItems('toollist__listitem ');
             } else {
                 //Pre-Greebo Backwards compatibility
                 tpl_toolsevent(
