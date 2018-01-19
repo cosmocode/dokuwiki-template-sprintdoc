@@ -221,6 +221,32 @@
                     }
                 }
             } // user
+
+            &.log {
+
+                button {
+                    padding: 2px 0 0 2px;
+                    min-height: @toggle-size; // overrides button[type="submit"] styles
+                    border: solid 1px @wikiicons-border;
+                    .btn-hover();
+
+                    &:hover svg, &:focus svg {
+                        transition: @transition fill;
+                        fill: @ini_nav_menu_hover_bg;
+                    }
+                }
+
+                span {
+                    display: none;
+                }
+
+                svg {
+                    fill: @ini_nav_menu_hover_color;
+                    height: @font-size-default + (@font-scale-factor * 4);
+                }
+
+
+            } // log
         } // li
 
 
