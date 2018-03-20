@@ -111,7 +111,9 @@ class SVG {
             } else {
                 // get it from material design icons
                 $file = getCacheName($svg, '.svg');
-                io_download(self::CDNBASE . $svg, $file);
+                if (!file_exists($file)) {
+                    io_download(self::CDNBASE . $svg, $file);
+                }
             }
 
         }
