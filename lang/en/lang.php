@@ -44,9 +44,11 @@ $lang['tasks_page_none']            = 'no open tasks on this page';
 $lang['tasks_page_intime']          = 'open tasks on this page: %1$d';
 $lang['tasks_page_late']            = 'open tasks on this page: %1$d, to late: %2$d';
 
+/** is not used
 $lang['discussion']                 = 'Discussion';
 $lang['back_to_article']            = 'Back to article';
 $lang['userpage']                   = 'User page';
+*/
 
 $lang['meta_data']                  = 'Meta Data';
 $lang['osm_zoom_link_text']         = 'view larger map';

@@ -44,9 +44,11 @@ $lang['tasks_page_none']            = 'keine offenen Aufgaben für diese Seite';
 $lang['tasks_page_intime']          = 'offenen Aufgaben für diese Seite: %1$d';
 $lang['tasks_page_late']            = 'offenen Aufgaben für diese Seite: %1$d, zu spät: %2$d';
 
+/** is not used
 $lang['discussion']                 = 'xxx Diskussion';
 $lang['back_to_article']            = 'xxx Zurück zum Artikel';
 $lang['userpage']                   = 'xxx Benutzer-Seite';
+ */
 
 $lang['meta_data']                  = 'Meta Daten des Bildes'; /** wird aufgerufen aber nicht ausgegeben - Fehler? */
 $lang['osm_zoom_link_text']         = 'größere Karte anzeigen';
