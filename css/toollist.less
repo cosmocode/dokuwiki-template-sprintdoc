@@ -1,0 +1,30 @@
+/**
+ * Styles for site tools and user tools in sidebar
+ *
+ * Using BEM methodology as far as possible
+ */
+
+.toollist {
+}
+
+.toollist__listitem {
+    list-style: none;
+
+    a {
+        display: inline-flex;
+        flex-direction: row-reverse;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
+    span {
+        font-size: @font-size-default;
+    }
+
+    svg {
+        width: @font-size-default;
+        vertical-align: middle;
+        fill: @ini_nav_menu_color;
+        margin-right: .2em;
+    }
+}

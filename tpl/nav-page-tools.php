@@ -11,12 +11,16 @@ if (!defined('DOKU_INC')) {
         <?php include('nav-status.php'); ?>
         <ul>
             <?php
-            $data = dokuwiki\template\sprintdoc\tpl::assemblePageTools();
+            if (file_exists(DOKU_INC . '/inc/Menu/PageMenu.php')) {
+                echo (new \dokuwiki\Menu\PageMenu())->getListItems();
+            } else {
+                //Pre-Greebo Backwards compatibility
+                $data = dokuwiki\template\sprintdoc\tpl::assemblePageTools();
 
-            foreach ($data['items'] as $k => $html) {
-                echo $html;
+                foreach ($data['items'] as $k => $html) {
+                    echo $html;
+                }
             }
-
             ?>
         </ul>
     </div>

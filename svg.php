@@ -111,7 +111,9 @@ class SVG {
             } else {
                 // get it from material design icons
                 $file = getCacheName($svg, '.svg');
-                io_download(self::CDNBASE . $svg, $file);
+                if (!file_exists($file)) {
+                    io_download(self::CDNBASE . $svg, $file);
+                }
             }
 
         }
@@ -316,9 +318,18 @@ class SVG {
      */
     protected function initReplacements() {
         global $conf;
-        define('SIMPLE_TEST', 1); // hacky shit
-        include DOKU_INC . 'lib/exe/css.php';
-        $ini = css_styleini($conf['template']);
+        if (!class_exists('\dokuwiki\StyleUtils')) {
+            // Pre-Greebo Compatibility
+
+            define('SIMPLE_TEST', 1); // hacky shit
+            include DOKU_INC . 'lib/exe/css.php';
+            $ini = css_styleini($conf['template']);
+            $this->replacements = $ini['replacements'];
+            return;
+        }
+
+        $stuleUtils = new \dokuwiki\StyleUtils();
+        $ini = $stuleUtils->cssStyleini('sprintdoc');
         $this->replacements = $ini['replacements'];
     }
 }

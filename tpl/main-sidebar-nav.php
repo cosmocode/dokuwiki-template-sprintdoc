@@ -10,16 +10,21 @@
         <span class="lbl"><?php echo $lang['site_tools']; ?></span>
     </a></div>
     <div class="nav-panel level1">
-        <ul id="sidebar-site-tools">
+        <ul id="sidebar-site-tools" class="toollist">
             <?php
-            tpl_toolsevent(
-                'sitetools',
-                array(
-                    'recent' => tpl_action('recent', 1, 'li', 1),
-                    'media' => tpl_action('media', 1, 'li', 1),
-                    'index' => tpl_action('index', 1, 'li', 1),
-                )
-            );
+            if (file_exists(DOKU_INC . 'inc/Menu/SiteMenu.php')) {
+                echo (new \dokuwiki\Menu\SiteMenu())->getListItems('toollist__listitem ');
+            } else {
+                //Pre-Greebo Backwards compatibility
+                tpl_toolsevent(
+                    'sitetools',
+                    array(
+                        'recent' => tpl_action('recent', 1, 'li', 1),
+                        'media' => tpl_action('media', 1, 'li', 1),
+                        'index' => tpl_action('index', 1, 'li', 1),
+                    )
+                );
+            }
             ?>
         </ul>
     </div>
@@ -32,17 +37,22 @@
         <span class="lbl"><?php echo $lang['user_tools']; ?></span>
     </a></div>
     <div class="nav-panel level1">
-        <ul id="sidebar-user-tools">
+        <ul id="sidebar-user-tools" class="toollist">
             <?php /* dokuwiki user tools */
-            tpl_toolsevent(
-                'usertools',
-                array(
-                    'login' => tpl_action('login', 1, 'li', 1),
-                    'profile' => tpl_action('profile', 1, 'li', 1),
-                    'admin' => tpl_action('admin', 1, 'li', 1),
-                    'register' => tpl_action('register', 1, 'li', 1),
-                )
-            );
+            if (file_exists(DOKU_INC . 'inc/Menu/UserMenu.php')) {
+                echo (new \dokuwiki\Menu\UserMenu())->getListItems('toollist__listitem ');
+            } else {
+                //Pre-Greebo Backwards compatibility
+                tpl_toolsevent(
+                    'usertools',
+                    array(
+                        'login' => tpl_action('login', 1, 'li', 1),
+                        'profile' => tpl_action('profile', 1, 'li', 1),
+                        'admin' => tpl_action('admin', 1, 'li', 1),
+                        'register' => tpl_action('register', 1, 'li', 1),
+                    )
+                );
+            }
             ?>
         </ul>
     </div>

@@ -221,11 +221,35 @@
                     }
                 }
             } // user
+
         } // li
 
 
 /* + + +  icons  + + + */
-        a {
+        .menuitem, button {
+            padding: 2px 0 0 2px;
+            min-height: @toggle-size; // overrides button[type="submit"] styles
+            border: solid 1px @wikiicons-border; // overrides button[type="submit"] styles
+            .btn-hover();
+
+            &:hover svg, &:focus svg {
+                transition: @transition fill;
+                fill: @ini_nav_menu_hover_bg;
+            }
+
+            svg {
+                fill: @ini_nav_menu_hover_color;
+                height: @font-size-default + (@font-scale-factor * 4);
+            }
+
+            span {
+                display: none;
+            }
+
+        }
+
+
+        a { // Pre-Greebo backwards compatibility, remove after transitioning to Greebo
             .fontello();
             .hide-text-show-before();
             .btn-hover();
