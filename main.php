@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 
 /**
@@ -23,6 +22,7 @@ $JSINFO['template']['sprintdoc'] = array('sidebar_toggle_elements' => tpl_getCon
 $showTools = true;
 $showSidebar =  true;
 ?>
+<!DOCTYPE html>
 <html class="edge no-js" lang="<?php echo $conf['lang'] ?>" dir="<?php echo $lang['direction'] ?>">
 <head>
 <?php
