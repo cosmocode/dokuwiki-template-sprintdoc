@@ -344,8 +344,8 @@ include('tpl/favicon_tiles.php');
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* open street maps if geo data is available */
-/** @var helper_plugin_spatialhelper_index $spatial */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                                    /** @var \helper_plugin_spatialhelper_index $spatial */
                                     $spatial = plugin_load('helper', 'spatialhelper_index');
                                     if ($spatial && plugin_load('helper', 'geophp')) {
                                         global $IMG;
