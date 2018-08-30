@@ -5,6 +5,17 @@
 
 /* + + + + +  global  + + + + + */
 
+#plugin__highlightparent {
+    clear: none;
+    display: block;
+    position: relative;
+
+    + * {
+        clear: both;
+        padding-top: 1em; // as h1
+    }
+}
+
 @media @screen_max-md {
     #plugin__highlightparent {
         clear: both;
