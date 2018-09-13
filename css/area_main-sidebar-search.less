@@ -152,13 +152,20 @@
             background-color: #FFF;
             padding: 0;
 
-            strong,
+            strong {
+                color: @quicksearch-button-color;
+                padding: 0.25rem 0.5rem
+            }
+
             ul li {
                 color: @quicksearch-button-color;
-                padding: .25rem .5rem;
 
-                * {
+                a {
+                    display: block;
+                    padding: 0.25rem 0.5rem;
+                    overflow: hidden;
                     color: inherit;
+                    text-overflow: ellipsis;
                 }
             }
 
