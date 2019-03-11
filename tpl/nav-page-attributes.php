@@ -7,6 +7,8 @@ $doPlugin = plugin_load('helper', 'do');
 $qcPlugin = plugin_load('helper', 'qc');
 /** @var \action_plugin_starred $starredPlugin */
 $starredPlugin = plugin_load('action', 'starred');
+/** @var \helper_plugin_quicksubscribe $quickSubPlugin */
+$quickSubPlugin = plugin_load('helper', 'quicksubscribe');
 
 if($doPlugin !== null || $qcPlugin !== null || $starredPlugin !== null) {
     echo '<ul class="page-attributes">';
@@ -45,6 +47,12 @@ if($doPlugin !== null) {
 if($starredPlugin !== null) {
     echo '<li class="plugin_starred">';
     $starredPlugin->tpl_starred();
+    echo '</li>';
+}
+
+if($quickSubPlugin !== null) {
+    echo '<li class="plugin_quicksubscribe">';
+    echo $quickSubPlugin->tpl_subscribe();
     echo '</li>';
 }
 
