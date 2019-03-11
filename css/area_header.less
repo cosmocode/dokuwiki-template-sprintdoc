@@ -212,6 +212,8 @@
 /* + + + + +  layout option compact  + + + + + */
 .header-compact {
     #dokuwiki__header {
+        min-height: 2.7rem;
+
         .main-title.desktop-only p.claim,
         p.claim {
             display: none;
@@ -258,11 +260,7 @@
                 font-size: 1rem;
             }
         }
-
-        @media @screen_max-sm {
-            min-height: 2.7rem;
-        }
-
+        
         @media @screen_max-xxs {
             min-height: 70px; // needed for menu select toolbar
 
