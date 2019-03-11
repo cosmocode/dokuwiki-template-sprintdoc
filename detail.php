@@ -65,7 +65,7 @@ include('tpl/favicon_tiles.php');
 <?php tpl_includeFile('meta.html') ?>
 </head>
 
-<body id="dokuwiki__top" class="<?php echo tpl_classes(); ?> wide-content showSidebar">
+<body id="dokuwiki__top" class="<?php echo tpl_classes(); ?> wide-content showSidebar <?php echo tpl_getConf('header_layout'); ?>">
 <div id="dokuwiki__site">
     <?php
 

@@ -207,3 +207,75 @@
         }
     }
 }
+
+
+/* + + + + +  layout option compact  + + + + + */
+.header-compact {
+    #dokuwiki__header {
+        .main-title.desktop-only p.claim,
+        p.claim {
+            display: none;
+        }
+
+        // desktop
+        @media @screen_min-md {
+            div.claim {
+                vertical-align: top;
+            }
+
+            .main-title.desktop-only {
+                vertical-align: top;
+            }
+
+            .main-title.desktop-only,
+            .logo {
+                padding-top: 0.4rem
+            }
+        }
+
+        // mobile middle
+        @media @screen_max-md {
+
+            .logo {
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 3rem;
+
+                .mobile-only {
+                    margin: .4rem;
+                    height: 1.75rem;
+                }
+            }
+
+            .main-title:not([class*="desktop-only"]) {
+                display: inline-block;
+                vertical-align: top;
+                padding-left: 1.75rem;
+            }
+
+            p.title {
+                font-size: 1rem;
+            }
+        }
+
+        @media @screen_max-sm {
+            min-height: 2.7rem;
+        }
+
+        @media @screen_max-xxs {
+            min-height: 70px; // needed for menu select toolbar
+
+            .logo {
+                left: 2rem;
+            }
+
+            .menu-tool-select {
+                padding-top: .3rem;
+            }
+
+        }
+
+
+    }
+}
