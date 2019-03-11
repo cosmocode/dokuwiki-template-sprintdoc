@@ -9,3 +9,12 @@ $meta['sidebar_sections'] = array(
                                     'li.level1 > .li',
                                 ),
                             );
+
+$meta['header_layout'] = array(
+                            'multichoice',
+                            '_choices' => array(
+                                'header-default',
+                                'header-compact',
+                                'header-hidden',
+                            ),
+                        );
