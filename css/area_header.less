@@ -216,7 +216,10 @@
 
         .main-title.desktop-only p.claim,
         p.claim {
-            display: none;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            max-width: 35em;
         }
 
         // desktop
@@ -237,6 +240,11 @@
 
         // mobile middle
         @media @screen_max-md {
+
+            .main-title.desktop-only p.claim,
+            p.claim {
+                display: none;
+            }
 
             .logo {
                 display: block;
