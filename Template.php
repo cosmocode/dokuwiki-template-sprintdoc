@@ -127,7 +127,7 @@ class Template {
         }
 
         // decide what to show
-        if ($this->nav === 'sitetree') {
+        if ($this->nav === 'sitemap') {
             // site tree created by sitemapnavi plugin
             $nav = '<nav class="nav-sitemapnavi" id="plugin__sitemapnavi">';
             $nav .= $this->plugins['sitemapnavi']->getSiteMap(':');
