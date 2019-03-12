@@ -59,6 +59,9 @@ $lang['image_detail']               = 'image details';
 $lang['mode_edit']                  = 'Editing Page';
 
 
+$lang['nav_sidebar']                = 'Navigation';
+$lang['nav_sitemap']                = 'Site Tree';
+
 /**
  * preferences colors
  */

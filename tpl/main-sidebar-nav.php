@@ -1,8 +1,7 @@
-<nav class="nav-main">
-    <?php /* main navigation, loaded from sidebar, fixed up by javascript */
-    tpl_include_page($conf['sidebar'], 1, 1);
-    ?>
-</nav>
+
+<?php
+echo \dokuwiki\template\sprintdoc\Template::getInstance()->getNavigation();
+?>
 
 <nav class="nav-sitetools">
     <div class="nav"><a href="#sidebar-site-tools" role="heading" aria-level="2">

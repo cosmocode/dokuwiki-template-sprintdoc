@@ -11,14 +11,18 @@ namespace dokuwiki\template\sprintdoc;
  */
 class Template {
 
-    /**
-     * @var array loaded plugins
-     */
+    /** @var array loaded plugins */
     protected $plugins = array(
         'sqlite' => null,
         'tagging' => null,
         'magicmatcher' => null,
+        'tplinc' => null,
+        'sitemapnavi' => null,
     );
+
+    /** @var string the type of special navigation to use */
+    protected $nav = '';
+
 
     /**
      * Get the singleton instance
@@ -36,10 +40,24 @@ class Template {
      */
     protected function __construct() {
         $this->initializePlugins();
+        $this->initNavigationCookie();
 
         /** @var \Doku_Event_Handler */
         global $EVENT_HANDLER;
         $EVENT_HANDLER->register_hook('PLUGIN_TPLINC_LOCATIONS_SET', 'BEFORE', $this, 'registerIncludes');
+    }
+
+    /**
+     * Load all the plugins we support directly
+     */
+    protected function initializePlugins() {
+        $this->plugins['sqlite'] = plugin_load('helper', 'sqlite');
+        if($this->plugins['sqlite']) {
+            $this->plugins['tagging'] = plugin_load('helper', 'tagging');
+            $this->plugins['magicmatcher'] = plugin_load('syntax', 'magicmatcher_issuelist');
+        }
+        $this->plugins['tplinc'] = plugin_load('helper', 'tplinc');
+        $this->plugins['sitemapnavi'] = plugin_load('helper', 'sitemapnavi');
     }
 
     /**
@@ -71,15 +89,57 @@ class Template {
     }
 
     /**
-     * Load all the plugins we support directly
+     * Sets a cookie to remember the requested special navigation
      */
-    protected function initializePlugins() {
-        $this->plugins['sqlite'] = plugin_load('helper', 'sqlite');
-        if($this->plugins['sqlite']) {
-            $this->plugins['tagging'] = plugin_load('helper', 'tagging');
-            $this->plugins['magicmatcher'] = plugin_load('syntax', 'magicmatcher_issuelist');
+    protected function initNavigationCookie() {
+        if ($this->plugins['sitemapnavi'] === null) return;
+        global $INPUT;
+
+        $nav = $INPUT->str('nav');
+        if($nav) {
+            set_doku_pref('nav', $nav);
+            $this->nav = $INPUT->str('nav');
+        } else {
+            $this->nav = get_doku_pref('nav', 'sidebar');
         }
-        $this->plugins['tplinc'] = plugin_load('helper', 'tplinc');
+    }
+
+    /**
+     * Return the navigation for the sidebar
+     *
+     * Defaults to the standard sidebar mechanism, but supports also the sitemapnavi plugin
+     *
+     * @return string
+     */
+    public function getNavigation() {
+        global $ID;
+        global $conf;
+
+        // add tabs if multiple navigation types available
+        $header = '';
+        if ($this->plugins['sitemapnavi'] !== null) {
+            $header = '<ul class="sidebar-tabs">';
+            $header .= '<li class="' . ($this->nav === 'sidebar' ? 'active' : '') . '">' .
+                '<a href="' . wl($ID, ['nav' => 'sidebar']) . '">'.tpl_getLang('nav_sidebar').'</a></li>';
+            $header .= '<li class="' . ($this->nav === 'sitemap' ? 'active' : '') . '">' .
+                '<a href="' . wl($ID, ['nav' => 'sitemap']) . '">'.tpl_getLang('nav_sitemap').'</a></li>';
+            $header .= '</ul>';
+        }
+
+        // decide what to show
+        if ($this->nav === 'sitetree') {
+            // site tree created by sitemapnavi plugin
+            $nav = '<nav class="nav-sitemapnavi" id="plugin__sitemapnavi">';
+            $nav .= $this->plugins['sitemapnavi']->getSiteMap(':');
+            $nav .= '</nav>';
+        } else {
+            // main navigation, loaded from standard sidebar, fixed up by javascript
+            $nav = '<nav class="nav-main">';
+            $nav .= tpl_include_page($conf['sidebar'], false, true);
+            $nav .= '</nav>';
+        }
+
+        return $header . $nav;
     }
 
     /**

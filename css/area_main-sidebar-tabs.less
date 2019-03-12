@@ -1,0 +1,19 @@
+#dokuwiki__aside ul.sidebar-tabs {
+    margin-top: 0;
+    margin-bottom: @nav-margin;
+
+    border-bottom: 1px solid @ini_nav_menu_color;
+
+    li {
+        display: inline-block;
+        border: 1px solid @ini_nav_menu_color;
+        padding: 0.25em 0.5em;
+        margin-bottom: -1px;
+        border-top-right-radius: @fix_border-radius;
+        border-top-left-radius: @fix_border-radius;
+
+        &.active {
+            border-bottom: 1px solid @ini_background_site;
+        }
+    }
+}

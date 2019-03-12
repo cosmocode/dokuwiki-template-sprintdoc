@@ -59,6 +59,10 @@ $lang['image_detail']               = 'Detailinformationen zum Bild';
 $lang['mode_edit']                  = 'Seite bearbeiten';
 
 
+$lang['nav_sidebar']                = 'Navigation';
+$lang['nav_sitemap']                = 'Seitenbaum';
+
+
 /**
  * preferences colors
  */

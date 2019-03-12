@@ -9,6 +9,7 @@
  */
 
 use dokuwiki\template\sprintdoc\Template;
+Template::getInstance();
 
 if (!defined('DOKU_INC')) die();                        /* must be run from within DokuWiki */
 header('X-UA-Compatible: IE=edge,chrome=1');
