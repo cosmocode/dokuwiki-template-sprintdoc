@@ -15,6 +15,5 @@ $meta['header_layout'] = array(
                             '_choices' => array(
                                 'header-default',
                                 'header-compact',
-                                'header-hidden',
                             ),
                         );
