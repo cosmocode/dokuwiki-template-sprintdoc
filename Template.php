@@ -189,9 +189,10 @@ class Template {
      * @param array $attributes
      * @param int $w
      * @param int $h
+     * @param bool $crop
      * @return string
      */
-    public static function getResizedImgTag($tag, $attributes, $w, $h) {
+    public static function getResizedImgTag($tag, $attributes, $w, $h, $crop = true) {
         $attr = '';
         $medias = array();
 
@@ -214,7 +215,7 @@ class Template {
         if($media === '') return '';
 
         // replace the array
-        $media = ml($media, array('w' => $w, 'h' => $h, 'crop' => 1), true, '&');
+        $media = ml($media, array('w' => $w, 'h' => $h, 'crop' => (int) $crop), true, '&');
         $attributes[$attr] = $media;
 
         // return the full tag
@@ -244,7 +245,7 @@ class Template {
                 'src' => array('wiki:logo-wide.png', 'wiki:logo.png'),
                 'alt' => $title,
             ),
-            0, 0
+            0, 50, false
         );
         $mobile = self::getResizedImgTag(
             'img',
