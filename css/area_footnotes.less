@@ -8,15 +8,15 @@
 .dokuwiki div.footnotes {
   div.fn {
     margin-bottom: .2rem;
-    display: table;//
-    vertical-align: top;//
+    display: table;
+    vertical-align: top;
 
-    sup, //
+    > sup,
     .content {
       display: table-cell;
     }
 
-    sup { //
+    > sup {
       vertical-align: top;
 
       // footnote anchor
@@ -26,13 +26,9 @@
       }
     }
 
-    .content { //
+    .content {
       vertical-align: top;
       line-height: 135%;
-    }
-
-    > sup {
-
     }
 
     // footnote text
@@ -49,8 +45,7 @@
 sup,
 .main-content sup,
 .main-content > div > p sup,
-.main-content > div > ul > li .li sup
- {
+.main-content > div > ul > li .li sup {
   a.fn_top {
     font-size: .7rem;
     font-weight: bold;
