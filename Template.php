@@ -135,6 +135,11 @@ class Template {
         } else {
             // main navigation, loaded from standard sidebar, fixed up by javascript
             $nav = '<nav class="nav-main">';
+            // immeadiately hide the navigation (if javascript available)
+            // it will be restyled and made visible again by our script later
+            $nav .= '<script type="application/javascript">
+                        document.getElementsByClassName("nav-main")[0].style.visibility = "hidden";
+                     </script>';
             $nav .= tpl_include_page($conf['sidebar'], false, true);
             $nav .= '</nav>';
         }

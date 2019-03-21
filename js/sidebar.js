@@ -144,6 +144,9 @@ jQuery(function () {
                 }
 
             });
+
+            // fade in the navigation (was hidden until now
+            $main.css({opacity: 0, visibility: "visible"}).animate({opacity: 1}, 200);
         },
 
         /**
