@@ -1,10 +1,6 @@
 /**
  * This file provides the design styles the navigational elements in the sidebar
- *
- * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
- * @author Andreas Gohr <gohr@cosmocode.de>
  */
-
 
 #dokuwiki__aside {
     @icon-size: @font-size-big;
@@ -62,7 +58,7 @@
             padding: .15em 0;
 
 
-/* + + + + +  active  + + + + + */
+            /* + + + + +  active  + + + + + */
             span.curid {
                 font-weight: bold;
             }
@@ -81,8 +77,7 @@
         }
     }
 
-
-/* + + +  the wrapper around the toggle to reserve space  + + + */
+    /* + + +  the wrapper around the toggle to reserve space  + + + */
     div.nav {
         min-height: @icon-size + @margin-small;
         border: 1px solid transparent;
@@ -137,13 +132,12 @@
                 }
             }
 
-/* + + +  submenu entry is active  + + + */
+            /* + + +  submenu entry is active  + + + */
             &.is-active {
                 font-weight: bold;
             }
 
-
-/* + + +  toggle: open  + + + */
+            /* + + +  toggle: open  + + + */
             &.is-open {
                 background-color: @ini_nav_menu_hover_color;
                 border-color: @ini_nav_menu_hover_color;
@@ -259,8 +253,7 @@
         }
     }
 
-
-/* + + + + +  the panel (hidden by default)  + + + + + */
+    /* + + + + +  the panel (hidden by default)  + + + + + */
     div.nav-panel {
         display: none;
         margin-top: .5rem;
@@ -277,10 +270,8 @@
     }
 }
 
-
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* min-width: 1440px */
-
 @media @screen_min-xlg {
     #dokuwiki__aside {
         nav {
@@ -301,10 +292,8 @@
     }
 }
 
-
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* max-width: 1440px */
-
 @media @screen_max-xlg {
     #dokuwiki__aside {
         div.nav {
@@ -315,10 +304,8 @@
     }
 }
 
-
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* max-width: 1023px */
-
 @media @screen_max-md {
     #dokuwiki__aside {
         div.nav {
@@ -366,10 +353,8 @@
     }
 }
 
-
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* max-width: 768px */
-
 @media @screen_max-xs {
     body.show-mobile-sidebar {
         .page-wrapper > .tools {
@@ -386,10 +371,8 @@
     }
 }
 
-
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* max-width: 480px */
-
 @media @screen_max-xxs {
     body.show-mobile-sidebar {
         #dokuwiki__aside {

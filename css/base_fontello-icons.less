@@ -1,9 +1,7 @@
 /**
  * This file provides styles for web fonts and icon fonts
- *
- * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
+ * (If you add new icons in the fontello set you have to add the icon class and associated character encoding here)
  */
-
 
 /* icon font */
 .setIconFontFace('fontello','fontello');
@@ -12,12 +10,7 @@
     .fontello();
 }
 
-
 /* + + + + +  fontello codes  + + + + + */
-/**
- * If in the Fontello-Packet an icon is added, the code should be supplemented here:
-*/
-
 .icon-emo-happy          { &::before { content: '\e804'; } } /* '' */
 .icon-emo-wink           { &::before { content: '\e805'; } } /* '' */
 .icon-emo-unhappy        { &::before { content: '\e806'; } } /* '' */
@@ -94,7 +87,6 @@
 
 
 /* + + + + +  additional "after" for nav-pagetools  + + + + + */
-
 .icon-pencil {
     &::before,
     &::after { content: '\e840'; }

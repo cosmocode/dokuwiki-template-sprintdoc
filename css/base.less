@@ -1,14 +1,10 @@
 /**
  * This file provides the basic vars and reset styles.
- *
- * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
  */
-
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* global vars */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-
 @font_family_screen:       arial, sans-serif;
 @font_family_print:        "Times New Roman", serif;
 
@@ -39,9 +35,7 @@
 @box-shadow-right-bottom:  .1em .3rem .5em rgba(153,153,153,.5);
 @box-shadow-bottom:        0 .1em .5em rgba(153,153,153,.5); // qc-wrapper (breadcrumb), struct inline-editor
 
-
 /* + + +  for programmers customizing  + + + */
-
 @fix_border-radius:        3px;           // inputs, editbox (textarea), buttons, content, code, quicksearch, msg
 
 @toggle-showsidebar_width: 3.47rem;       // shown sidebar after toggle
@@ -57,14 +51,11 @@
 
 @code-background:          #F6F6F6; /* code, pre, samp, kbd */
 
-
 /* icons */
 @noopentasks-background:   #ECECEC; /* metabox tabs + num in icons + tabinclude */
 @noopentasks-border:       #BBB; /* metabox tabs + num in icons + code, pre, samp, kbd */
 @noopentasks-color:        #666; /* metabox tabs + num in icons + code, pre, samp, kbd */
 @wikiicons-border:         #CCC; /* usertools, breadcrumbs icons, pagetools box-hover */
-
-
 
 /* navigation left */
 @menu-margin-lg: 1.3rem;
@@ -72,20 +63,17 @@
 @quicksearch-button-color: @noopentasks-color; /* autosuggest, submit in quicksearch */
 @suggestion-zebra:         #EEE;
 
-
 /* edit mode */
 @highlight-odd-ini_text:  fade(@ini_background, 95%);
 @highlight-even-ini_text: fade(@ini_text, 5%);
 @color-editBox:           #252525; // editmode for tables, revision states
 
-
 //@nolinkedicon-ini_background: fade(@ini_background_site, 10%);
 //@opacity-ini_nav_menu_color:  fade(@ini_nav_menu_color, 40%);
 
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* fonts */
-
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 @font-size-very-small:     .73rem;
 @font-size-small:          .88rem;
 @font-size-default:        1rem;
@@ -108,10 +96,9 @@
 @font-size-head2: @font-size-default + (@font-scale-factor * 7);
 @font-size-head1: @font-size-default + (@font-scale-factor * 9);
 
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* breakpoints */
-
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 @break-min-xxs: 480;
 @break-max-xxs: (@break-min-xxs - 1);
 
@@ -133,10 +120,9 @@
 @break-min-xxlg: 1600;
 @break-max-xxlg: (@break-min-xxlg - 1);
 
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* media queries for breakpoints */
-
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 @screen_min-xxs: ~"only screen and (min-width: " ~"@{break-min-xxs}px)";
 @screen_max-xxs: ~"only screen and (max-width: " ~"@{break-max-xxs}px)";
 
@@ -164,10 +150,9 @@
 @screen_md-lg: ~"only screen and (min-width: " ~"@{break-min-md}px) and (max-width: " ~"@{break-max-lg}px)";
 @screen_xs-lg: ~"only screen and (min-width: " ~"@{break-min-xs}px) and (max-width: " ~"@{break-max-md}px)";
 
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* col width */
-
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 @c12:               100%;
 @c11:               91.66666667%;
 @c10:               83.33333333%;
@@ -187,7 +172,6 @@
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* all media */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-
 html,
 body {
     .reset();
@@ -259,10 +243,9 @@ nav > ul {
     }
 }
 
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* css behaviour */
-
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 .sr-out {
     .sr-out();
 }
@@ -303,7 +286,6 @@ nav > ul {
         display: inline-block;
     }
 }
-
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* screen only */
@@ -441,11 +423,9 @@ nav > ul {
     }
 }
 
-
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* print only */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-
 @media print {
     body {
         font-size: 12pt;

@@ -1,14 +1,10 @@
 /**
  * This file provides less mixins for all other style modules
- *
- * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
  */
-
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* Fonts */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-
 .setLocalFontFace(@fontFamily,@fontWeight,@localFontName,@localFontNameVar,@filename) {
     @font-face {
         font-family: @fontFamily;
@@ -102,11 +98,9 @@
     }
 }
 
-
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* Screenreader / Hide */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-
 .sr-out() {
     display: block;
     width: 1px;
@@ -139,7 +133,6 @@
         clip: auto;
     }
 }
-
 
 /* + + + + +  small icon-buttons (breadcrumb, page-header)  + + + + + */
 .btn-hover {
@@ -288,10 +281,8 @@
     -ms-flex-wrap: wrap;
 }
 
-
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* positioning */
-
 .center-middle() {
     position: absolute;
     top: 50%;
@@ -301,11 +292,9 @@
     -webkit-transform: translateX(-50%) translateY(-50%);
 }
 
-
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* Screenreader / Hide */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-
 .reset() {
     background: transparent;
     border: none 0; outline: 0; vertical-align: baseline;
@@ -329,7 +318,6 @@
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* Col Grid */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-
 .make-grid(@class) {
     .float-grid-columns(@class);
     .grid-columns(1, @class, width);
