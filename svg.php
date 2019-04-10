@@ -2,6 +2,7 @@
 
 namespace dokuwiki\template\sprintdoc;
 
+define('NOSESSION', 1);
 if(!defined('DOKU_INC')) define('DOKU_INC', dirname(__FILE__) . '/../../../');
 require_once(DOKU_INC . 'inc/init.php');
 

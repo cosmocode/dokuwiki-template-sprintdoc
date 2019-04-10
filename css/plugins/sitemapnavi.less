@@ -1,10 +1,17 @@
 #plugin__sitemapnavi {
-    padding-left: @nav-margin*2.5;
     padding-bottom: @nav-margin;
     margin-bottom: @nav-margin;
     border-bottom: 1px solid @ini_nav_menu_color;
 
+    label {
+        padding-left: 0.5em;
+    }
+
     li {
         line-height: @line-height-bigger;
     }
+}
+
+.wide-content #plugin__sitemapnavi {
+    display: none;
 }
