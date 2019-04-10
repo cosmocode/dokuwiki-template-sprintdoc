@@ -1,0 +1,59 @@
+/**
+ * This file provides the design styles for the footnotes.
+ *
+ */
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* footnotes section  */
+.dokuwiki div.footnotes {
+  div.fn {
+    margin-bottom: .2rem;
+    display: table;
+    vertical-align: top;
+
+    > sup,
+    .content {
+      display: table-cell;
+    }
+
+    > sup {
+      vertical-align: top;
+
+      // footnote anchor
+      a.fn_bot {
+        font-size: .86em;
+        padding-right: .2em;
+      }
+    }
+
+    .content {
+      vertical-align: top;
+      line-height: 135%;
+    }
+
+    // footnote text
+    div.content {
+      line-height: 135%;
+    }
+  }
+}
+
+
+
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* footnotes in content  */
+.main-content sup,
+.main-content > div > p sup,
+.main-content > div > ul > li .li sup {
+  a.fn_top {
+    font-size: .7rem;
+    font-weight: bold;
+    padding-right: .2em;
+  }
+}
+
+.insitu-footnote {
+  line-height: 130%;
+}
+
+
