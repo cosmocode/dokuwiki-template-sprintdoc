@@ -1,9 +1,6 @@
 /**
  * This file provides the design styles for the direct / menu jump links.
- *
- * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
  */
-
 
 #dokuwiki__usertools.nav-usertools {
     @media @screen_min-md {
@@ -26,8 +23,7 @@
         }
     }
 
-
-/* + + + + +  icon list  + + + + + */
+    /* + + + + +  icon list  + + + + + */
     ul {
         float: right;
         padding: 0;
@@ -76,8 +72,7 @@
                 }
             }
 
-/* !!! &.user-task FIND in plugins/do_tasks.less !!! */
-
+            /* !!! &.user-task FIND in plugins/do_tasks.less !!! */
             &.user {
                 position: relative;
                 display: table-cell;
@@ -221,11 +216,9 @@
                     }
                 }
             } // user
-
         } // li
 
-
-/* + + +  icons  + + + */
+        /* + + +  icons  + + + */
         .menuitem, button {
             padding: 2px 0 0 2px;
             min-height: @toggle-size; // overrides button[type="submit"] styles
@@ -245,9 +238,7 @@
             span {
                 display: none;
             }
-
         }
-
 
         a { // Pre-Greebo backwards compatibility, remove after transitioning to Greebo
             .fontello();
@@ -297,7 +288,6 @@
         } // a
     } // ul
 } // nav-usertools
-
 
 /* + + + + +  layout option compact  + + + + + */
 .header-compact {
@@ -366,4 +356,3 @@
         }
     }
 }
-

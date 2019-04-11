@@ -1,17 +1,12 @@
 /**
  * This file provides the design styles for forms.
- *
- * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
  */
 
-
 /* for all of the form styles, style.ini colours are not used on purpose (except for fieldset border) */
-
 form {
     display: inline;
     margin: 0;
     padding: 0;
-
 
     // multiline label
     fieldset > label.block > span:first-child {
@@ -115,7 +110,6 @@ input[type="image"] {
     //box-shadow: none; :in ie picture and checkbox disappear
 }
 
-
 input:active,
 input:focus,
 textarea:active,
@@ -131,7 +125,6 @@ input[type="file"] {
     padding-top: .1rem;
     padding-bottom: .1rem;
 }
-
 
 /* + + + + +  buttons  + + + + + */
 button {
@@ -154,7 +147,6 @@ button {
         border-color: #999;
     }
 }
-
 
 /* + + +  all types of submit-buttons  + + + */
 form input[type=submit], // heredity 'adnewpage'
@@ -213,7 +205,6 @@ button[type=submit] {
     }
 }
 
-
 /* + + +  all types of buttons not being submit-buttons  + + + */
 input.button,
 input[type=button] {
@@ -236,7 +227,6 @@ input[type=button] {
         background-image: linear-gradient(to bottom, #ffffff 0%, #f4f4f4 30%, #dddddd 99%, #bbbbbb 99%);
     }
 }
-
 
 /* + + +  all disabled buttons  + + + */
 input[disabled],
@@ -277,10 +267,8 @@ button::-moz-focus-inner {
     padding: 0;
 }
 
-
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* media queries - Styles for auth forms */
-
 @media @screen_max-xs {
     .tpl_sprintdoc {
         #dw__login,

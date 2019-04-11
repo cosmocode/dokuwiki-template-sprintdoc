@@ -1,14 +1,10 @@
 /**
  * This file provides styles for the general layout structure.
- *
- * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
  */
 
-
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* Col Grid */
+/* col grid */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-
 .make-grid(xs);
 
 @media screen {
@@ -17,6 +13,9 @@
     }
 }
 
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* font sizing */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 @media @screen_min-xxs {
     html {
         font-size: 100%; //16px
@@ -62,7 +61,9 @@
     }
 }
 
-/* + + + + +  z-indices  + + + + + */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* z-indices */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 @media screen {
     .nav-direct p {
         z-index: 1000; // keyboard-navigation overlays always on top
@@ -124,8 +125,12 @@
             z-index: 200; // mobile sidebar above all except nav-direct
     }
 }
-/* + + + + +  end of z-indices  + + + + + */
 
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+/* screen sizing */
+/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+
+// >= 1024
 @media @screen_min-md {
 
     .content .row > .col-xs-12 {
@@ -226,7 +231,7 @@
     }
 }
 
-
+// > 1024
 @media @screen_md-lg {
     .wide-content.showSidebar {
         .content {
@@ -236,7 +241,6 @@
         }
     }
 }
-
 
 @media @screen_max-md {
     .container {

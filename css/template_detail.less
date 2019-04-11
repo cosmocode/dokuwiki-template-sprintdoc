@@ -1,64 +1,61 @@
 /**
  * This file provides the design styles for the the detail template
  * (media details)
- *
- * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
  */
-
 
 #dokuwiki__detail {
 
-/* + + + + +  linked image  + + + + + */
+    /* + + + + +  linked image  + + + + + */
     @media screen {
         .img-link {
-        text-align: center;
+            text-align: center;
 
-        a {
-            position: relative;
-            left: 0;
-            display: inline-block;
-            max-width: 100%;
-            color: @ini_button_color;
-            margin: 0 auto 1.4em;
-
-            &::before {
-                position: absolute;
-                top: 0;
-                left: 0;
-                display: block;
-                width: 100%;
-                box-sizing: border-box;
-                background: @ini_button_background;
-                line-height: @line-height-default;
-                padding: @margin-small;
-            }
-
-            img {
-                margin: 0;
-                display: block;
-                border: 1px dotted @ini_background_site;
+            a {
                 position: relative;
-            }
-
-            &:hover,
-            &:focus,
-            &:active {
-                text-decoration: none;
+                left: 0;
+                display: inline-block;
+                max-width: 100%;
+                color: @ini_button_color;
+                margin: 0 auto 1.4em;
 
                 &::before {
-                    content: attr(title);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: block;
+                    width: 100%;
+                    box-sizing: border-box;
+                    background: @ini_button_background;
+                    line-height: @line-height-default;
+                    padding: @margin-small;
                 }
 
                 img {
-                    border: 1px solid @ini_button_background;
+                    margin: 0;
+                    display: block;
+                    border: 1px dotted @ini_background_site;
+                    position: relative;
+                }
+
+                &:hover,
+                &:focus,
+                &:active {
+                    text-decoration: none;
+
+                    &::before {
+                        content: attr(title);
+                    }
+
+                    img {
+                        border: 1px solid @ini_button_background;
+                    }
                 }
             }
         }
     }
-    }
 
 
-/* + + + + +  meta data  + + + + + */
+    /* + + + + +  meta data  + + + + + */
     div.img_detail {
         @media screen {
             /* vertical minus margin of .img-detail corresponds to the padding of .page */

@@ -1,9 +1,6 @@
 /**
  * This file provides the design styles for the page header.
- *
- * @author Jana Deutschlaender <deutschlaender@cosmocode.de>
  */
-
 
 #dokuwiki__header {
     @header-font-opacity: 1;
@@ -12,8 +9,7 @@
         min-height: 120px;
     }
 
-
-/* + + +  wiki logo  + + + */
+    /* + + +  wiki logo  + + + */
     @media @screen_min-md {
         .logo {
             padding: 1rem 0 .3rem;
@@ -46,8 +42,7 @@
         }
     }
 
-
-/* + + + + +  DESKTOP  -  wiki title + claim  + + + + + */
+    /* + + + + +  DESKTOP  -  wiki title + claim  + + + + + */
     .main-title.desktop-only {
         @media @screen_min-md {
             display: table-cell;
@@ -76,8 +71,7 @@
         }
     }
 
-
-/* + + + + +  MOBILE  -  wiki title wrapper  + + + + + */
+    /* + + + + +  MOBILE  -  wiki title wrapper  + + + + + */
     .main-title:not([class*="desktop-only"]) {
         @media @screen_max-md {
             display: table-cell;
@@ -89,8 +83,7 @@
         }
     }
 
-
-/* + + +  wiki title  + + + */
+    /* + + +  wiki title  + + + */
     p.title {
         background-color: @ini_background_site;
         opacity: @header-font-opacity;
@@ -109,8 +102,7 @@
         }
     }
 
-
-/* + + + + +  DESKTOP  -  wiki claim, logo, title wrapper  + + + + + */
+    /* + + + + +  DESKTOP  -  wiki claim, logo, title wrapper  + + + + + */
     @media @screen_min-md {
         div.claim {
             display: table-cell;
@@ -119,8 +111,7 @@
         }
     }
 
-
-/* + + +  wiki claim  + + + */
+    /* + + +  wiki claim  + + + */
     p.claim {
         opacity: @header-font-opacity;
         color: @ini_text_webframe;
@@ -132,8 +123,7 @@
         }
     }
 
-
-/* + + +  mobile nav togglelink  + + + */
+    /* + + +  mobile nav togglelink  + + + */
     .menu-togglelink {
         position: relative;
         margin: @headericons-margin-xxs -(@very-small-spacing) 0 0;
@@ -176,8 +166,7 @@
         }
     }
 
-
-/* + + + + +  with magic matcher  + + + + + */
+    /* + + + + +  with magic matcher  + + + + + */
     &.has-magicmatcher {
         .logo {
             @media @screen_min-md {
@@ -207,7 +196,6 @@
         }
     }
 }
-
 
 /* + + + + +  layout option compact  + + + + + */
 .header-compact {
@@ -284,9 +272,6 @@
             .menu-tool-select {
                 padding-top: .3rem;
             }
-
         }
-
-
     }
 }
