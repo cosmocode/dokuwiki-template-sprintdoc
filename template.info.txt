@@ -1,7 +1,7 @@
 base     sprintdoc
 author   Jana Deutschlaender
 email    dokuwiki@cosmocode.de
-date     2019-03-21
+date     2019-04-03
 name     sprintDoc Template
 desc     modern, responsive template that integrates multiple plugins
 url      https://www.dokuwiki.org/template:sprintdoc
