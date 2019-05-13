@@ -9,6 +9,13 @@ jQuery(function () {
     var $nav = jQuery('#dokuwiki__aside');
     if (!$nav.length) return;
 
+    // id of the current sidebar, used to differentiate states
+    var sidebarId = '';
+    var divId = jQuery('#sidebarId');
+    if (typeof divId !== 'undefined') {
+        sidebarId = divId.attr('class').split(' ')[0];
+    }
+
         /**
          * closes sidebar
          */
@@ -24,11 +31,11 @@ jQuery(function () {
          */
         removeToggleStorage = function () {
             for (var index=0; index <= window.sessionStorage.length; index += 1) {
-                var item = window.sessionStorage.getItem('sidebar-section-' + index + '-open');
+                var item = window.sessionStorage.getItem('sidebar-section-' + sidebarId + '-' + index + '-open');
                 if (!item) {
                     continue;
                 }
-                window.sessionStorage.setItem('sidebar-section-' + index + '-open', 'false');
+                window.sessionStorage.setItem('sidebar-section-' + sidebarId + '-' + index + '-open', 'false');
             }
         },
 
@@ -72,7 +79,7 @@ jQuery(function () {
                     $toggler.removeClass('is-open');
                 }
             });
-            window.sessionStorage.setItem('sidebar-section-' + $toggler.data('index') + '-open', !isOpen);
+            window.sessionStorage.setItem('sidebar-section-' + sidebarId + '-' + $toggler.data('index') + '-open', !isOpen);
         },
 
         /**
@@ -138,7 +145,7 @@ jQuery(function () {
                     $toggler.parent('li').addClass('toggler');
                 }
 
-                if (window.sessionStorage.getItem('sidebar-section-' + index + '-open') === 'true') {
+                if (window.sessionStorage.getItem('sidebar-section-' + sidebarId + '-' + index + '-open') === 'true') {
                     $wrap.css('display', 'block');
                     setTogglerClass($toggler,'is-open');
                 }
@@ -288,10 +295,10 @@ jQuery(function () {
                     tIndex = y + index;
                 $toggler.data('index', tIndex);
 
-                var item = window.sessionStorage.getItem('sidebar-section-' + tIndex + '-open');
+                var item = window.sessionStorage.getItem('sidebar-section-' + sidebarId + '-' + tIndex + '-open');
                 if (item) {
                     if(isWideContent) {
-                        window.sessionStorage.setItem('sidebar-section-' + tIndex + '-open', 'false');
+                        window.sessionStorage.setItem('sidebar-section-' + sidebarId + '-' + tIndex + '-open', 'false');
                     } else {
                         if (item === 'true') {
                             jQuery(this).find('.nav-panel').css('display', 'block');
