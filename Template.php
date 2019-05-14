@@ -116,7 +116,7 @@ class Template {
         global $conf;
 
         // id of the current sidebar, each sidebar must have its own state
-        $header = sprintf('<div id="sidebarId" class="%s"></div>', page_findnearest($conf['sidebar']));
+        $header = sprintf('<div id="sidebarId" class="%s"></div>', md5(page_findnearest($conf['sidebar'])));
         // add tabs if multiple navigation types available
         if ($this->plugins['sitemapnavi'] !== null) {
             $header .= '<ul class="sidebar-tabs">';
