@@ -115,10 +115,11 @@ class Template {
         global $ID;
         global $conf;
 
+        // id of the current sidebar, each sidebar must have its own state
+        $header = sprintf('<div id="sidebarId" class="%s"></div>', md5(page_findnearest($conf['sidebar'])));
         // add tabs if multiple navigation types available
-        $header = '';
         if ($this->plugins['sitemapnavi'] !== null) {
-            $header = '<ul class="sidebar-tabs">';
+            $header .= '<ul class="sidebar-tabs">';
             $header .= '<li class="' . ($this->nav === 'sidebar' ? 'active' : '') . '">' .
                 '<a href="' . wl($ID, ['nav' => 'sidebar']) . '">'.tpl_getLang('nav_sidebar').'</a></li>';
             $header .= '<li class="' . ($this->nav === 'sitemap' ? 'active' : '') . '">' .
