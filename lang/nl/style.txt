@@ -1,0 +1,1 @@
+Gebruik de Media Manager voor het wijzigen van de favicon. Upload  een "favicon.ico" naar de "wiki" of root namespace en deze wordt automatisch gebruikt. Bij een gesloten Wiki wordt aanbevolen om de "wiki" of root namespace leesbaar te maken in de ACL settings, anders is de favicon niet zichtbaar voor niet ingelogde gebruikers.
