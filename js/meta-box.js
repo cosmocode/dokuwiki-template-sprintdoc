@@ -64,11 +64,27 @@
         };
 
 
+    var stickyBox = function ($metaBox, topOffset, leftOffset) {
+        if (window.pageYOffset >= topOffset) {
+            $metaBox.addClass("sticky").attr("style", "left: " + leftOffset + "px");
+        } else {
+            $metaBox.removeClass("sticky").removeAttr("style");
+        }
+    };
+
+
     $(function(){
         var $metaBox = $('#spr__meta-box');
         if (!$metaBox.length) return;
 
         registerClickForTabsInMetaBox($metaBox);
+
+        var topOffset = $metaBox.offset().top;
+        window.onscroll = function () {
+            // check while scrolling, or window resizing will break horizontal positioning
+            var leftOffset = $metaBox.offset().left;
+            stickyBox($metaBox, topOffset, leftOffset)
+        };
     });
 
 

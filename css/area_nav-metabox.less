@@ -25,11 +25,22 @@
         top: .2rem;
         right: auto;
         float: none;
-        display: block;
         max-width: 100%;
         min-height: @page-header_height;
         height: auto;
         border: 0 none;
+    }
+
+    &.sticky {
+        position: fixed;
+        top: 0;
+
+        ul.meta-tabs > li > a {
+            border-top-color: @ini_background_site;
+            border-bottom-color: @noopentasks-border;
+            border-radius: 0 0 @ini_default_border_radius @ini_default_border_radius;
+
+        }
     }
 
     + .msg-area + a {
@@ -113,6 +124,7 @@
                 }
 
                 @media @screen_max-md {
+                    background-color: @ini_background;
                     top: 0;
                     border: 1px solid @ini_existing;
                     color: @ini_existing;
@@ -199,7 +211,8 @@
 
             &.active {
                 display: block;
-                overflow: hidden;
+                max-height: 80vh;
+                overflow: auto;
             }
 
             a {
