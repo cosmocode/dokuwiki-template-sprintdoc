@@ -25,11 +25,27 @@
         top: .2rem;
         right: auto;
         float: none;
-        display: block;
         max-width: 100%;
         min-height: @page-header_height;
         height: auto;
         border: 0 none;
+    }
+
+    &.sticky {
+        position: fixed;
+        top: 0;
+
+        ul.meta-tabs > li > a {
+            border-top-color: @ini_background_site;
+            border-bottom-color: @noopentasks-border;
+            border-radius: 0 0 @ini_default_border_radius @ini_default_border_radius;
+
+        }
+
+        .meta-content .tab-pane.active {
+            max-height: 80vh;
+            overflow: auto;
+        }
     }
 
     + .msg-area + a {
@@ -99,7 +115,6 @@
                 position: relative;
                 display: block;
                 font-size: @font-size-small;
-                line-height: 1.42857143;
                 transition: @transition background-color, @transition border-color, @transition color;
 
                 @media @screen_min-md {
@@ -113,6 +128,7 @@
                 }
 
                 @media @screen_max-md {
+                    background-color: @ini_background;
                     top: 0;
                     border: 1px solid @ini_existing;
                     color: @ini_existing;
@@ -199,7 +215,6 @@
 
             &.active {
                 display: block;
-                overflow: hidden;
             }
 
             a {
