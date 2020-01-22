@@ -41,6 +41,11 @@
             border-radius: 0 0 @ini_default_border_radius @ini_default_border_radius;
 
         }
+
+        .meta-content .tab-pane.active {
+            max-height: 80vh;
+            overflow: auto;
+        }
     }
 
     + .msg-area + a {
@@ -210,8 +215,6 @@
 
             &.active {
                 display: block;
-                max-height: 80vh;
-                overflow: auto;
             }
 
             a {
