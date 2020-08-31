@@ -86,7 +86,7 @@ class SVG {
 
     const IMGDIR = __DIR__ . '/img/';
     const BACKGROUNDCLASS = 'sprintdoc-background';
-    const CDNBASE = 'https://cdn.rawgit.com/Templarian/MaterialDesign/master/svg/';
+    const CDNBASE = 'https://raw.githubusercontent.com/Templarian/MaterialDesign/master/svg/';
 
     protected $file;
     protected $replacements;
