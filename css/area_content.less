@@ -21,9 +21,13 @@
                 border-bottom: 1px solid @ini_border_light;
             }
 
-            .msg-area + * {
-                clear: both;
-                padding-top: 1em; // as h1
+            .page-content {
+                padding-top: @page-header_height;
+
+                .msg-area + * {
+                    clear: both;
+                    padding-top: 1em; // as h1
+                }
             }
         }
     }
