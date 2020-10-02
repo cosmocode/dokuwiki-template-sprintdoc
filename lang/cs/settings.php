@@ -1,17 +1,16 @@
 <?php
 /**
- * English language file for config
- *
+ * Czech language file for config
  */
 
 
-$lang['sidebar_sections']   = 'Auto-toggle the sidebar into sections on these elements:';
-$lang['sidebar_sections_o_h1']   = '1st order headings';
-$lang['sidebar_sections_o_h1,h2']   = '1st and 2nd order headings';
-$lang['sidebar_sections_o_h1,h2,h3,h4,h5']   = 'All headings';
-$lang['sidebar_sections_o_li.level1 > .li']   = 'Top-level list items';
+$lang['sidebar_sections']   = 'Automaticky přepínat postranní panel do sekcí na těchto prvcích:';
+$lang['sidebar_sections_o_h1']   = '!. nadpis v pořadí';
+$lang['sidebar_sections_o_h1,h2']   = '1. a 2. nadpisy v pořadí';
+$lang['sidebar_sections_o_h1,h2,h3,h4,h5']   = 'Všechny nadpisy';
+$lang['sidebar_sections_o_li.level1 > .li']   = 'První položka v seznamu';
 
-$lang['header_layout']   = 'Adjust header layout:';
-$lang['header_layout_o_default']   = 'generous header layout for long wiki titel and tagline';
-$lang['header_layout_o_compact']   = 'compact header layout for short wiki title and hidden tagline';
+$lang['header_layout']   = 'Nastavit rozvrže`ní záhlaví:';
+$lang['header_layout_o_default']   = 'široké záhlaví s dlouhým nadpisem a sloganem';
+$lang['header_layout_o_compact']   = 'kompaktní záhlaví s krátkým nadpisem a skrytým sloganem';
 
