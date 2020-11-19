@@ -1,0 +1,22 @@
+#dokuwiki__content.main-content {
+    h1, h2, h3, h4, h5 {
+        a.anchor {
+            vertical-align: middle;
+            margin-left: 0.25em;
+            display: none;
+            position: absolute;
+
+            svg {
+                width: 1em;
+                height: 1em;
+                fill: @ini_link;
+            }
+        }
+
+        &:hover {
+            a.anchor {
+                display: inline-block;
+            }
+        }
+    }
+}

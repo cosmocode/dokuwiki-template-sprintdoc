@@ -10,4 +10,5 @@
 /* DOKUWIKI:include js/meta-box.js */
 /* DOKUWIKI:include js/sidebar.js */
 /* DOKUWIKI:include js/direct.js */
+/* DOKUWIKI:include js/anchor.js */
 
