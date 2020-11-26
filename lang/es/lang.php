@@ -6,25 +6,25 @@
  */
 
 
-$lang['direct_prefix']              = 'jump to';
-$lang['direct_content_main']        = 'Main Content';
-$lang['direct_quick_search']        = 'Search';
-$lang['direct_content_toggle']      = 'Change Content Width';
+$lang['direct_prefix']              = 'ir a';
+$lang['direct_content_main']        = 'Contenido Principal';
+$lang['direct_quick_search']        = 'Buscar';
+$lang['direct_content_toggle']      = 'Cambiar Ancho del Contenido';
 
-$lang['adjunct_linked_logo_text']   = ' - homepage link';
-$lang['a11y_sidebartoggle']         = 'Show/Hide Navigation';
+$lang['adjunct_linked_logo_text']   = ' - enlace a inicio';
+$lang['a11y_sidebartoggle']         = 'Mostrar/Ocultar Navegación';
 
-$lang['nav-area-head']              = 'menus and quick search';
+$lang['nav-area-head']              = 'menues y búsqueda rápida';
 $lang['head_magic_matcher']         = 'MagicMatcher';
-$lang['head_quick_search']          = 'quick search';
-$lang['head_menu_status']           = 'site status';
-$lang['head_breadcrumb_youarehere'] = 'location indicator';
-$lang['head_menu_trace']            = 'Last Visited Pages';
-$lang['head_meta_box']              = 'meta data for this page';
-$lang['head_menu_starred']          = 'Starred Pages';
-$lang['head_menu_tool-select']      = 'Tools';
+$lang['head_quick_search']          = 'búsqueda rápida';
+$lang['head_menu_status']           = 'estado del sitio';
+$lang['head_íconos wiki_youarehere'] = 'indicador de ubicación';
+$lang['head_menu_trace']            = 'Últimas Páginas Vistadas';
+$lang['head_meta_box']              = 'meta data de esta página';
+$lang['head_menu_starred']          = 'Páginas Favoritas';
+$lang['head_menu_tool-select']      = 'Herramientas';
 
-$lang['jump_to_quicksearch']        = 'Jump to quick search';
+$lang['jump_to_quicksearch']        = 'Ir a búsqueda rápida';
 
 /** it will be shown from plugin lang.php:
 $lang['meta_box_jira_tickets_none'] = 'jira associated tickets found: none';
@@ -33,16 +33,16 @@ $lang['js']['meta_box_toc_none']    = 'no Table of Contents available';
 $lang['prefix_tasks_user']          = 'Your open tasks: ';
 */
 
-$lang['tab_tags']                   = 'Tags';
-$lang['tab_issues']                 = 'Issues';
+$lang['tab_tags']                   = 'Etiquetas';
+$lang['tab_issues']                 = 'Asuntos';
 
-$lang['quality_trigger']            = 'Show/Hide page analysis';
+$lang['quality_trigger']            = 'Mostrar/Ocultar análisis de página';
 
-$lang['prefix_tasks_page']          = 'open tasks for this page: ';
+$lang['prefix_tasks_page']          = 'tareas pendientes para esta página: ';
 
-$lang['tasks_page_none']            = 'no open tasks on this page';
-$lang['tasks_page_intime']          = 'open tasks on this page: %1$d';
-$lang['tasks_page_late']            = 'open tasks on this page: %1$d, to late: %2$d';
+$lang['tasks_page_none']            = 'no hay tareas pendientes en esta página';
+$lang['tasks_page_intime']          = 'tareas pendientes en esta página: %1$d';
+$lang['tasks_page_late']            = 'tareas pendientes en esta página: %1$d, vencidas: %2$d';
 
 /** is not used
 $lang['discussion']                 = 'Discussion';
@@ -51,54 +51,54 @@ $lang['userpage']                   = 'User page';
 */
 
 $lang['meta_data']                  = 'Meta Data';
-$lang['osm_zoom_link_text']         = 'view larger map';
-$lang['osm_zoom_link_title']        = 'external link opens new window';
+$lang['osm_zoom_link_text']         = 'ver mapa más grande';
+$lang['osm_zoom_link_title']        = 'enlaces externas abren en nueva ventana';
 
-$lang['image_detail']               = 'image details';
+$lang['image_detail']               = 'detalles de la imagen';
 
-$lang['mode_edit']                  = 'Editing Page';
+$lang['mode_edit']                  = 'Página de Edición';
 
 
-$lang['nav_sidebar']                = 'Navigation';
-$lang['nav_sitemap']                = 'Site Tree';
+$lang['nav_sidebar']                = 'Navegación';
+$lang['nav_sitemap']                = 'Árbol del Sitio';
 
 /**
  * preferences colors
  */
 
-$lang['__site_width__']             = 'content - width (in %)';
+$lang['__site_width__']             = 'contenido - ancho (en %)';
 
-$lang['__background_site__']        = 'website - background color';
-$lang['__text_webframe__']          = 'claim, title, footer (unlinked), navigation (unlinked) - font color';
+$lang['__background_site__']        = 'sitio web - color de fondo';
+$lang['__text_webframe__']          = 'claim, título, pié (no enlazado), navegacion (no enlazado) - color de fuente';
 
-$lang['__nav_menu_color__']         = 'navigation (link), footer (link), pagetools icons, tabbox - font color';
-$lang['__nav_menu_hover_color__']   = 'navigation (hover) - font color, border color; wiki icons - font color; wiki icons (hover) - background color';
-$lang['__nav_menu_hover_bg__']      = 'navigation (hover) - background color; wiki icons - background color; wiki icons (hover) - font color';
+$lang['__nav_menu_color__']         = 'navegación (link), pié (enlace), íconos de herramientas de página, tabbox - color de fuente';
+$lang['__nav_menu_hover_color__']   = 'navegación (hover) - color de fuente, color de borde; íconos wiki - color de fuente; íconos wiki (hover) - color de fondo';
+$lang['__nav_menu_hover_bg__']      = 'navegación (hover) - color de fondo; íconos wiki - color de fondo; íconos wiki (hover) - color de fuente';
 
-$lang['__background__']             = 'content, breadcrumb, pagetools (hover) - background color';
-$lang['__text__']                   = 'content: text - font color';
+$lang['__background__']             = 'contenido, traza, herramientas de página (hover) - color de fondo';
+$lang['__text__']                   = 'contenido: text - color de fuente';
 
-$lang['__background_neu__']         = 'Content neutral (not too different from the content background) - background color';
-$lang['__text_neu__']               = 'content neutral: text - font color';
+$lang['__background_neu__']         = 'contenido neutral (no demasiado diferente del fondo del contenido) - color de fondo';
+$lang['__text_neu__']               = 'contenido neutral: texto - color de fuente';
 
-$lang['__background_page_header__'] = 'content: header, footer, tabinclude tab controlls deactivate - background color';
-$lang['__background_page_footer__'] = 'content: footer, tabinclude tab controlls deactivate - font color';
+$lang['__background_page_header__'] = 'contenido: cabezal, pié, tabinclude tab controlls deactivate - color de fondo';
+$lang['__background_page_footer__'] = 'contenido: pié, tabinclude tab controlls deactivate - color de fuente';
 
-$lang['__border_light__']           = 'content: header, footer - border color';
+$lang['__border_light__']           = 'contenido: cabezal, pié - color de borde';
 
-$lang['__highlight__']              = 'text emphasize (e.g. for search results) - background color';
-$lang['__highlight_text__']         = 'text emphasize (e.g. for search results) - font color';
+$lang['__highlight__']              = 'texto enfatizado (ej. para resultados de búsqueda) - color de fondo';
+$lang['__highlight_text__']         = 'texto enfatizado (ej. para resultados de búsqueda) - color de fuente';
 
-$lang['__existing__']               = 'links to wikipages, pencil, pagetools (hover) - font color; tabbox (hover) - font color, border color';
-$lang['__link__']                   = 'links to non wikipages (external links) - font color';
-$lang['__missing__']                = 'links to non-existing pages - font color';
+$lang['__existing__']               = 'enlaces a páginas de la wiki, lápiz, herramientas de página (hover) - color de fuente; tabbox (hover) - color de fuente, color de borde';
+$lang['__link__']                   = 'enlaces a páginas no de la wiki (enlaces externos) - color de fuente';
+$lang['__missing__']                = 'enlaces a páginas no existentess - color de fuente';
 
-$lang['__button_color__']           = 'buttons - font color';
-$lang['__button_background__']      = 'buttons - background color';
+$lang['__button_color__']           = 'botones - color de fuente';
+$lang['__button_background__']      = 'botones - color de fondo';
 
-$lang['__background_alt__']         = 'table head, table cell (hover), struct Label (hover) - background color (alternative)';
-$lang['__text_alt__']               = 'table head: unlinked, table cell (hover), struct Label (hover) - font color (alternative)';
-$lang['__link_alt__']               = 'table head: linked - font color (alternative)';
+$lang['__background_alt__']         = 'cabezal de tabla, celda de tabla (hover), struct Label (hover) - color de fondo (alternativo)';
+$lang['__text_alt__']               = 'cabezal de tabla: no enlazadod, celda de tabla (hover), struct Label (hover) - color de fuente (alternativo)';
+$lang['__link_alt__']               = 'cabezal de tabla: enlazado - color de fuente (alternativo)';
 
-$lang['__border__']                 = 'tables, form fields, blockquotes - border color';
-$lang['__default_border_radius__']  = 'wiki icons, content (top right) - border radius';
+$lang['__border__']                 = 'tablas, campos de formularios, bloques de citas - color de borde';
+$lang['__default_border_radius__']  = 'íconos wiki, contenido (arriba a la derecha) - radio del borde';
