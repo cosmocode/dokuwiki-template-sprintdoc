@@ -1,0 +1,1 @@
+Si desea cambiar el favicon, use el Administrador de Ficheros para subir un ''favicon.ico'' en el subespacio ''wiki'' o RAIZ, y se utilizará automáticamente. Si usa una wiki cerrada, se recomienda dar permiso de lectura para todo el mundo en la configuracion de ACL, en el espacio de nombres ''wiki'' (o RAIZ), o los usuarios no conectados, no podrán ver el favicon.
