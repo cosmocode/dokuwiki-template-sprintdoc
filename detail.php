@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 /**
  * DokuWiki sprintDoc Detail Template
@@ -23,6 +22,7 @@ $showTools = true;
 $showSidebar =  true;
 
 ?>
+<!DOCTYPE html>
 <html class="edge no-js" lang="<?php echo $conf['lang'] ?>" dir="<?php echo $lang['direction'] ?>">
 <head>
 <?php

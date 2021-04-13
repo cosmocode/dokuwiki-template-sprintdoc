@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 /**
  * DokuWiki Media Manager Popup
@@ -12,6 +11,7 @@ if (!defined('DOKU_INC')) die();
 header('X-UA-Compatible: IE=edge,chrome=1');
 
 ?>
+<!DOCTYPE html>
 <html class="edge no-js" lang="<?php echo $conf['lang'] ?>" dir="<?php echo $lang['direction'] ?>">
 <head>
     <?php

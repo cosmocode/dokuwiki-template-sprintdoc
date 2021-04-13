@@ -1,4 +1,3 @@
-
 <?php
 echo \dokuwiki\template\sprintdoc\Template::getInstance()->getNavigation();
 ?>
