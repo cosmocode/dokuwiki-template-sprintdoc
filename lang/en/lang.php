@@ -21,6 +21,7 @@ $lang['head_menu_status']           = 'site status';
 $lang['head_breadcrumb_youarehere'] = 'location indicator';
 $lang['head_menu_trace']            = 'Last Visited Pages';
 $lang['head_meta_box']              = 'meta data for this page';
+$lang['head_menu_aclinfo']          = 'Page Permissions';
 $lang['head_menu_starred']          = 'Starred Pages';
 $lang['head_menu_tool-select']      = 'Tools';
 

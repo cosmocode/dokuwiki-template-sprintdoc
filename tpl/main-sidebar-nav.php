@@ -57,6 +57,32 @@ echo \dokuwiki\template\sprintdoc\Template::getInstance()->getNavigation();
 </nav>
 
 <?php
+/** @var helper_plugin_aclinfo $plugin_aclinfo */
+$plugin_aclinfo = plugin_load('helper', 'aclinfo');
+$aclinfo = array();
+if($plugin_aclinfo) $aclinfo = $plugin_aclinfo->getACLInfo($ID);
+if($aclinfo):
+    ?>
+    <nav class="nav-aclinfo">
+        <div class="nav"><a href="#sidebar-menu-aclinfo" role="heading" aria-level="2">
+            <span class="ico"><?php echo inlineSVG(__DIR__ . '/../img/key.svg') ?></span>
+            <span class="lbl"><?php echo tpl_getLang('head_menu_aclinfo'); ?></span>
+        </a></div>
+        <div class="nav-panel level1 plugin_aclinfo">
+            <ul id="sidebar-menu-aclinfo">
+                <?php
+                foreach($aclinfo as $entry) {
+                    echo '<li>';
+                    echo $plugin_aclinfo->getACLInfoString($entry);
+                    echo '</li>';
+                }
+                ?>
+            </ul>
+        </div>
+    </nav>
+<?php endif; ?>
+
+<?php
 /** @var helper_plugin_starred $plugin_starred */
 $plugin_starred = plugin_load('helper', 'starred');
 $stars = array();
