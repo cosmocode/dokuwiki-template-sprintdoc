@@ -3,7 +3,7 @@
 /**
  * @license    GPL 2 (http://www.gnu.org/licenses/gpl.html)
  *
- * @author Schplurtz le Déboulonné <Schplurtz@laposte.net>
+ * @author Schplurtz le Déboulonné <schplurtz@laposte.net>
  * @author ISKANDER REKIK <rekik.iskander@gmail.com>
  */
 $lang['direct_prefix']         = 'sauter à ';
@@ -38,6 +38,7 @@ $lang['nav_sidebar']           = 'Navigation';
 $lang['nav_sitemap']           = 'Arborescence du site';
 $lang['__site_width__']        = 'contenu - largeur en %';
 $lang['__background_site__']   = 'site - coleur de fond';
+$lang['__text_webframe__']     = 'Annonce, titre, pied de page (sans lien), navigation (sans lien) - couleur de police';
 $lang['__nav_menu_color__']    = 'navigation (lien), pied de page (lien), icône outils de page, boîte d\'onglets - couleur de police';
 $lang['__nav_menu_hover_color__'] = 'navigation (survol) - couleur de police, de bord ; icônes du wiki - couleur de police ; icônes du wiki (survol) - couleur de fond';
 $lang['__nav_menu_hover_bg__'] = 'navigation (survol) - couleur de fond ; icônes du wiki - couleur de fond ; icônes du wiki (survol) - couleur de police';
@@ -45,6 +46,8 @@ $lang['__background__']        = 'contenu, miettes, outils de page (survol) - co
 $lang['__text__']              = 'contenu : texte - couleur de police';
 $lang['__background_neu__']    = 'Conteur neutre (pas trop différent du fond du contenu) - couleur de fond';
 $lang['__text_neu__']          = 'contenu neutre : texte - couleur de police';
+$lang['__background_page_header__'] = 'Contenu : entête, pied de page, contrôle d\'onglet tabinclude inactifs - couleur de fond';
+$lang['__background_page_footer__'] = 'contenu : pied de page, contrôle d\'onglet tabinclude inactifs - couleur de police';
 $lang['__border_light__']      = 'contenu : entête, pied de page - couleur de bordure';
 $lang['__highlight__']         = 'texe emphatique (e.g. résultats de recherche) - couleur de fond';
 $lang['__highlight_text__']    = 'texe emphatique (e.g. résultats de recherche) - couleur de police';
