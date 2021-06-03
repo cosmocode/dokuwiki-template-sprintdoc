@@ -248,7 +248,7 @@ class Template {
             'img',
             array(
                 'class' => 'mobile-hide',
-                'src' => array('wiki:logo-wide.png', 'wiki:logo.png'),
+                'src' => array('wiki:logo-wide.svg', 'wiki:logo.svg', 'wiki:logo-wide.png', 'wiki:logo.png'),
                 'alt' => $title,
             ),
             0, 250, false
@@ -257,7 +257,10 @@ class Template {
             'img',
             array(
                 'class' => 'mobile-only',
-                'src' => array('wiki:logo-32x32.png', 'wiki:favicon.png', 'wiki:logo-square.png', 'wiki:logo.png'),
+                'src' => array(
+                    'wiki:logo-32x32.svg', 'wiki:favicon.svg', 'wiki:logo-square.svg', 'wiki:logo.svg',
+                    'wiki:logo-32x32.png', 'wiki:favicon.png', 'wiki:logo-square.png', 'wiki:logo.png'
+                ),
                 'alt' => $title,
             ),
             32, 32
