@@ -251,7 +251,7 @@ class Template {
                 'src' => array('wiki:logo-wide.png', 'wiki:logo.png'),
                 'alt' => $title,
             ),
-            0, 50, false
+            0, 250, false
         );
         $mobile = self::getResizedImgTag(
             'img',
