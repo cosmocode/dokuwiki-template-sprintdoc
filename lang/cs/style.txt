@@ -1,0 +1,1 @@
+Pokud chcete zménit //favicon//, jednoduše použijte Správu médií pro nahrátí ''favicon.ico'' do prostoru ''wiki'' nebo ''root''. Potom bude ikona automaticky použita. Pokud máte neveřejnou wiki, je doporučené nastavit prostor ''wiki'' (nebo root) čitelný pro všechny, jinak favicon nebude zobrazena nepřihlášeným uživatelům.
