@@ -1,0 +1,1 @@
+若您想變更 favicon，只要將一個 ''favicon.ico'' 檔案上傳到 ''wiki'' 或 root 分類名稱下，系統就會自動使用該檔案。如果您使用封閉的 wiki，建議您在 ACL 設定中將 ''wiki''（或 root）分類名稱設為公開，不然未登入的使用者將無法看到您的 favicon。
