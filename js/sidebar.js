@@ -124,7 +124,6 @@ jQuery(function () {
                     ;
                 $toggler = jQuery('<div class="nav">').prepend($toggler);
 
-
                 // wrap all following siblings til the next element in a wrapper
                 var $wrap = jQuery('<div>')
                     .addClass('nav-panel');
@@ -136,20 +135,29 @@ jQuery(function () {
                     $sib.detach().appendTo($wrap);
                     addContentMenuCurrentStates($sib, $toggler);
                 }
-                $wrap.insertAfter($me);
+
+                /*
+                 * if there is only one subitem with a link, disable toggling
+                 * and use a direct link.
+                 */
+                var $links = jQuery($wrap[0]).find('a');
+                if ($links.length == 1) {
+                    $toggler.children().first().attr('href', jQuery($links[0]).attr('href'));
+                } else {
+                    $wrap.insertAfter($me);
+
+                    if ($toggler.parent('li').length) {
+                        $toggler.parent('li').addClass('toggler');
+                    }
+
+                    if (window.sessionStorage.getItem('sidebar-section-' + sidebarId + '-' + index + '-open') === 'true') {
+                        $wrap.css('display', 'block');
+                        setTogglerClass($toggler,'is-open');
+                    }
+                }
 
                 // replace element with toggler
                 $me.replaceWith($toggler);
-
-                if ($toggler.parent('li').length) {
-                    $toggler.parent('li').addClass('toggler');
-                }
-
-                if (window.sessionStorage.getItem('sidebar-section-' + sidebarId + '-' + index + '-open') === 'true') {
-                    $wrap.css('display', 'block');
-                    setTogglerClass($toggler,'is-open');
-                }
-
             });
 
             // fade in the navigation (was hidden until now
@@ -161,8 +169,10 @@ jQuery(function () {
          */
         initMenuHandling = function () {
             $nav.on('click', 'div.nav a', function (e) {
-                toggleNav(jQuery(this));
-                e.preventDefault();
+                if (jQuery(this).attr('href').startsWith('#')) {
+                    toggleNav(jQuery(this));
+                    e.preventDefault();
+                }
             });
         },
 
