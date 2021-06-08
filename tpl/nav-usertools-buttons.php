@@ -22,7 +22,7 @@
 
                 <?php
                 if (!empty($_SERVER['REMOTE_USER'])) {
-                    echo '<li class="user"><span><span class="sr-only">'.$lang['loggedinas'].' </span>'.userlink().'</span></li>';
+                    echo '<li class="user"><span class="sr-only">'.$lang['loggedinas'].' </span>'.userlink().'</li>';
                 }?>
 
                 <?php /* dokuwiki user tools */

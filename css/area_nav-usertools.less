@@ -66,17 +66,34 @@
                 border-radius: @ini_default_border_radius; // @ini_default_border_radius vs. @fix_border-radius
                 text-align: center;
                 margin: 0;
+
+                @media @screen_md-xlg {
+                    padding-top: .14rem;
+                }
             }
 
             /* !!! &.user-task FIND in plugins/do_tasks.less !!! */
             &.user {
                 position: relative;
-                display: table;
+                display: table-cell;
                 background-color: @ini_background_site;
                 border: solid 1px @wikiicons-border;
                 border-radius: @ini_default_border_radius; // @ini_default_border_radius vs. @fix_border-radius
                 color: @ini_text_webframe;
                 padding-right: .3rem;
+
+                @media @screen_min-md {
+                    padding-top: .35rem;
+                }
+
+                @media @screen_max-md {
+                    min-height: @toggle-size;
+                    padding-top: .3rem;
+                }
+
+                @media @screen_max-sm {
+                    padding-top: .35rem;
+                }
 
                 @media @screen_max-xs {
                     position: absolute;
@@ -85,19 +102,14 @@
                     overflow: hidden;
                     white-space: nowrap;
                     margin: -1px 0 0;
+                    padding-top: .4rem;
                 }
 
                 @media @screen_max-xxs {
                     left: -10px;
                     right: 0;
                     width: auto;
-                }
-
-                > span {
-                    display: table-cell;
-                    vertical-align: middle;
-                    border: unset;
-                    min-width: unset;
+                    padding-top: .35rem;
                 }
 
                 > a {
@@ -188,6 +200,19 @@
                         left: -2px;
                         font-size: 1.4rem;
                         margin: 0;
+
+                        @media @screen_min-xxlg {
+                            top: -.25rem;
+                        }
+
+                        @media @screen_max-xxlg {
+                            top: -.2rem;
+                        }
+
+                        @media @screen_max-xs {
+                            top: -.25rem;
+
+                        }
                     }
                 }
             } // user
@@ -277,13 +302,11 @@
 
                 li.user {
                     color: @ini_background_site;
-                    margin: 0;
 
                     bdi {
                         position: absolute;
                         width: 0;
                         padding: 0;
-                        margin: 0;
                         text-indent: -10000px;
 
                         &:before {
@@ -291,7 +314,6 @@
                             background-color: @ini_background_site;
                             color: @ini_nav_menu_color;
                             text-indent: 0;
-                            left: -4px;
                         }
                     }
 
