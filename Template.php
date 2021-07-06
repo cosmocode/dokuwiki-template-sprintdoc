@@ -149,6 +149,21 @@ class Template {
     }
 
     /**
+     * Default class defining is the sidebar should collapse
+     *
+     * @return string
+     */
+    public function fullWidthClass() {
+        global $ACT;
+        // no auto collapsing? empty class
+        if (!tpl_getConf('autocollapse')) return '';
+        // mode show? empty class
+        if ($ACT === "show") return '';
+        // anything else? wide content
+        return 'wide-content ';
+    }
+
+    /**
      * Get all the tabs to display
      *
      * @return array

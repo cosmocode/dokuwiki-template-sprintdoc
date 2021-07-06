@@ -68,7 +68,7 @@ $showSidebar =  true;
 
 
 /* #dokuwiki__top used as anchor for "back to top" button/link links */
-$classWideContent = ($ACT === "show") ? "": "wide-content ";
+$classWideContent = (Template::getInstance())->fullWidthClass();
 ?>
 <body id="dokuwiki__top" class="<?php echo ($ACT) ? 'do-'.$ACT : 'do-none'; ?> <?php echo $classWideContent; ?><?php echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo tpl_getConf('header_layout'); ?>">
 

@@ -17,3 +17,5 @@ $meta['header_layout'] = array(
                                 'header-compact',
                             ),
                         );
+
+$meta['autocollapse'] = array('onoff');

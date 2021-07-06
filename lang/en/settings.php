@@ -15,3 +15,4 @@ $lang['header_layout']   = 'Adjust header layout:';
 $lang['header_layout_o_default']   = 'generous header layout for long wiki titel and tagline';
 $lang['header_layout_o_compact']   = 'compact header layout for short wiki title and hidden tagline';
 
+$lang['autocollapse'] = 'Automatically collapse the sidebar when viewing non-content pages for more screen estate.';
