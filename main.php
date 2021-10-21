@@ -347,6 +347,13 @@ $classWideContent = (Template::getInstance())->fullWidthClass();
                                 echo $highlightParent->tpl();
                             }
                             ?>
+                            <?php
+                            /** @var helper_plugin_translation $translation */
+                            $translation = plugin_load('helper','translation');
+                            if ($translation) {
+                                echo $translation->showTranslations();
+                            }
+                            ?>
                             <div class="page-content">
                                 <div class="msg-area"><?php html_msgarea();/*msg('Information.', 0);msg('Success', 1);msg('Notification', 2);msg('Fehler', -1);*/ ?></div>
                                 <div class="clearer"></div>

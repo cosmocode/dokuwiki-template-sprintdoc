@@ -1,0 +1,32 @@
+/**
+ * This file provides styles for the translation plugin
+ */
+
+
+.dokuwiki div.plugin_translation {
+    clear: none;
+    display: block;
+    position: relative;
+    float: none;
+
+    + * {
+        clear: both;
+        padding-top: 1em; // as h1
+    }
+
+    ul li {
+        a.wikilink1:link,
+        a.wikilink1:hover,
+        a.wikilink1:active,
+        a.wikilink1:visited {
+            background-color: @ini_link;
+        }
+    }
+}
+
+@media @screen_max-md {
+    .dokuwiki div.plugin_translation {
+        clear: both;
+        margin-top: 1rem;
+    }
+}
