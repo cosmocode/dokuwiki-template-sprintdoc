@@ -141,7 +141,7 @@ jQuery(function () {
                  * and use a direct link.
                  */
                 var $links = jQuery($wrap[0]).find('a');
-                if ($links.length == 1) {
+                if ($links.length === 1 && $links.first().attr('href') !== '#') {
                     $toggler.children().first().attr('href', jQuery($links[0]).attr('href'));
                 } else {
                     $wrap.insertAfter($me);
