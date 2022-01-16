@@ -3,7 +3,7 @@
 /**
  * @license    GPL 2 (http://www.gnu.org/licenses/gpl.html)
  *
- * @author Schplurtz le Déboulonné <Schplurtz@laposte.net>
+ * @author Schplurtz le Déboulonné <schplurtz@laposte.net>
  */
 $lang['sidebar_sections']      = 'Convertir automatique les en sections ces éléments :';
 $lang['sidebar_sections_o_h1'] = 'titres de premier rang';
@@ -13,3 +13,4 @@ $lang['sidebar_sections_o_li.level1 > .li'] = 'items de premier niveau des liste
 $lang['header_layout']         = 'Ajuster la disposition de l\'entête :';
 $lang['header_layout_o_default'] = 'Disposition d\'entête généreuse pour un titre long et un descriptif';
 $lang['header_layout_o_compact'] = 'Disposition compacte de l\'entête pour un titre court sans descriptif';
+$lang['autocollapse']          = 'Réduire automatiquement la barre latérale lors de l\'affichage de pages sans contenu, pour utiliser davantage d\'espace.';
