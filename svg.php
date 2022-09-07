@@ -133,8 +133,8 @@ class SVG {
 
         header('Content-Type: image/svg+xml');
         $cachekey = md5($file . serialize($params) . $conf['template'] . filemtime(__FILE__));
-        $cache = new \cache($cachekey, '.svg');
-        $cache->_event = 'SVG_CACHE';
+        $cache = new \dokuwiki\Cache\Cache($cachekey, '.svg');
+        $cache->setEvent('SVG_CACHE');
 
         http_cached($cache->cache, $cache->useCache(array('files' => array($file, __FILE__))));
         if($params['e']) {
