@@ -45,7 +45,7 @@ class tpl {
                       $linktarget = wl($data['id'], $data['params'], false, '&');
                   }
       $caption = $lang['btn_' . $data['type']];
-      if(strpos($caption, '%s')) {
+      if(strpos($caption, '%s') !== false) {
                       $caption = sprintf($caption, $data['replacement']);
                   }
 
