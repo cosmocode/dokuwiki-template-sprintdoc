@@ -69,6 +69,8 @@ class Template {
         $event->data['footer'] = 'Footer below the page content';
         $event->data['sidebarfooter'] = 'Footer below the sidebar';
         $event->data['sidebarheader'] = 'Header above the sidebar';
+        $event->data['navtop'] = 'Additional navigation items at the top';
+        $event->data['navbottom'] = 'Additional navigation items at the bottom';
     }
 
     /**
@@ -141,7 +143,10 @@ class Template {
             $nav .= '<script type="application/javascript">
                         document.getElementsByClassName("nav-main")[0].style.visibility = "hidden";
                      </script>';
+
+            $nav .= $this->getInclude('navtop');
             $nav .= tpl_include_page($conf['sidebar'], false, true);
+            $nav .= $this->getInclude('navbottom');
             $nav .= '</nav>';
         }
 
