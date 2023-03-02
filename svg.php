@@ -175,8 +175,8 @@ class SVG {
         $xml = simplexml_load_file($file, SvgNode::class);
 
         $def = hsc((string) $xml->path['d']);
-        $w = hsc($xml['width']);
-        $h = hsc($xml['height']);
+        $w = hsc($xml['width'] ?? '100%');
+        $h = hsc($xml['height'] ?? '100%');
         $v = hsc($xml['viewBox']);
 
         return "<svg width=\"$w\" height=\"$h\" viewBox=\"$v\"><path d=\"$def\" /></svg>";
