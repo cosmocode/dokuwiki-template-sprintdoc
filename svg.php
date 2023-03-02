@@ -179,7 +179,12 @@ class SVG {
         $h = hsc($xml['height'] ?? '100%');
         $v = hsc($xml['viewBox']);
 
-        return "<svg width=\"$w\" height=\"$h\" viewBox=\"$v\"><path d=\"$def\" /></svg>";
+        // if viewbox is not defined, construct it from width and height, if available
+        if (empty($v) && !empty($w) && !empty($h)) {
+            $v = hsc("0 0 $w $h");
+        }
+
+        return "<svg viewBox=\"$v\"><path d=\"$def\" /></svg>";
     }
 
     /**
