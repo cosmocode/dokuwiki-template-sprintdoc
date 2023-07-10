@@ -16,7 +16,7 @@ if ($conf['useacl']): ?>
             try {
                 $item = new Login();
                 if ($item->visibleInContext(AbstractItem::CTX_DESKTOP))
-                    echo '<li class="log">' . $item->asHtmlButton() . '</li>';
+                    echo '<li class="log">' . $item->asHtmlLink() . '</li>';
             } catch (RuntimeException $ignored) {
                 // item not available
             }

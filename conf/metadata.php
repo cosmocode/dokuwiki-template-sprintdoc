@@ -19,3 +19,4 @@ $meta['header_layout'] = array(
                         );
 
 $meta['autocollapse'] = array('onoff');
+$meta['closedwiki'] = array('onoff');

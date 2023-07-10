@@ -113,11 +113,13 @@ $classWideContent = (Template::getInstance())->fullWidthClass();
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="claim main-sidebar">
-                            <div class="menu-togglelink mobile-only">
-                                <a href="#">
-                                    <span class="sr-out"><?php echo tpl_getLang('a11y_sidebartoggle'); ?></span>
-                                </a>
-                            </div>
+                            <?php if(!tpl_getConf('closedwiki') || $INPUT->server->has('REMOTE_USER')) { ?>
+                                <div class="menu-togglelink mobile-only">
+                                    <a href="#">
+                                        <span class="sr-out"><?php echo tpl_getLang('a11y_sidebartoggle'); ?></span>
+                                    </a>
+                                </div>
+                            <?php } ?>
 
                             <?php
 
@@ -190,7 +192,8 @@ $classWideContent = (Template::getInstance())->fullWidthClass();
             <h5 class="sr-only" role="heading" aria-level="1"><?php echo tpl_getLang('nav-area-head') ?></h5>
         </div><!-- .nav-area-head -->
 
-        <div class="tools">
+        <?php if(!tpl_getConf('closedwiki') || $INPUT->server->has('REMOTE_USER')) { ?>
+            <div class="tools">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
@@ -248,7 +251,7 @@ $classWideContent = (Template::getInstance())->fullWidthClass();
                 </div><!-- .row -->
             </div><!-- .container -->
         </div><!-- .tools -->
-
+        <?php } // closed wiki check?>
 
         <div class="top-header">
             <div class="container">
@@ -292,9 +295,11 @@ $classWideContent = (Template::getInstance())->fullWidthClass();
 
                         <div class="breadcrumbs" data-do="<?php echo $ACT?>">
 
+                            <?php if(!tpl_getConf('closedwiki') || $INPUT->server->has('REMOTE_USER')) { ?>
                             <div class="togglelink page_main-content">
                                 <a id="spr__toggle-content" href="#"><span class="sr-out"><?php echo tpl_getLang('a11y_sidebartoggle')?></span></a>
                             </div>
+                            <?php } ?>
 
                             <h6 class="sr-only" role="heading" aria-level="2"><?php echo  tpl_getLang('head_menu_status')  ?></h6>
 
@@ -321,7 +326,9 @@ $classWideContent = (Template::getInstance())->fullWidthClass();
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 /* page tools */
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                                include('tpl/nav-page-tools.php');
+                                if(!tpl_getConf('closedwiki') || $INPUT->server->has('REMOTE_USER')) {
+                                    include('tpl/nav-page-tools.php');
+                                }
                             ?>
 
                         </div>

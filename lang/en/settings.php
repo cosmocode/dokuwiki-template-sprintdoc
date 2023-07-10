@@ -16,3 +16,4 @@ $lang['header_layout_o_default']   = 'generous header layout for long wiki titel
 $lang['header_layout_o_compact']   = 'compact header layout for short wiki title and hidden tagline';
 
 $lang['autocollapse'] = 'Automatically collapse the sidebar when viewing non-content pages for more screen estate.';
+$lang['closedwiki'] = 'This is a closed wiki. Hide most wiki functionality before user has logged in.';
