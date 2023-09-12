@@ -1,42 +1,9 @@
 /**
  * This file provides styles for starred plugin
  */
-
-.page-attributes {
-    li.plugin_starred {
-        .starred {
-            display: block;
-            padding-top: .05rem;
-
-            svg {
-                width: 1.6em;
-                height: 1.6em;
-                font-size: 0.82rem;
-                fill: @ini_nav_menu_hover_color;
-            }
-        }
-
-        a {
-            max-height: @toggle-size;
-        }
-
-        a:hover,
-        a:focus,
-        a:active {
-            .starred svg {
-                fill: @ini_nav_menu_hover_bg;
-            }
-        }
-    }
-}
-
 nav.nav-starred {
     ul {
         list-style: none;
-
-        &#sidebar-menu-starred {
-            margin-left: 0;
-        }
 
         li {
             margin-left: 0;

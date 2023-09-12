@@ -1,78 +1,54 @@
 /**
  * Page Attribute Icons in the breadcrumb bar
  */
-
-/* + + + + +  icons in breadcrumb area  + + + + + */
 .page-attributes {
     list-style: none;
     float: right;
-    display: inline-block;
-    max-width: 30%;
-    margin: -.45em 0 0;
+    margin: -.45em 0 0; // FIXME sourrounding CSS should be fixed so negative margin is not needed
     padding: 0;
-
-    @media @screen_max-xs {
-        max-width: 90%;
-    }
+    display: flex;
+    gap: 0.5rem;
 
     > li {
-        .btn-usertools-wrapper(); // uniform li
-        .btn-usertools-num();
-
+        margin: 0;
+        padding: 0;
+        border: 1px solid @wikiicons-border;
+        border-radius: @ini_default_border_radius;
         position: relative;
-        float: left;
-        display: block;
-        width: auto;
-        min-height: @toggle-size;
-        text-align: center;
-        margin: 0 .25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: @transition background-color, @transition border-color, @transition color;
 
-        strong {
+        // override any plugin element styles
+        * {
+            margin: 0;
+            padding: 0;
+            line-height: normal;
             display: block;
-            min-height: 1.64rem;
-            border: 1px solid @wikiicons-border;
-            border-radius: @ini_default_border_radius;
         }
 
-        a {
-            display: block;
-            width: auto;
-            min-height: 1.64rem;
-            background-color: @ini_nav_menu_hover_bg;
-            border: 1px solid @wikiicons-border;
-            border-radius: @ini_default_border_radius;
-            transition: @transition background-color, @transition border-color, @transition color;
+        // number badge
+        .btn-usertools-num();
 
-            &:hover,
-            &:focus,
-            &:active {
-                background-color: @ini_nav_menu_hover_color;
-                border-color: @ini_nav_menu_hover_color;
-                color: @ini_nav_menu_hover_bg;
+        // icon
+        svg {
+            height: 1.5em;
+            width: 1.5em;
 
-                span {
-                    fill: @ini_nav_menu_hover_bg;
-                    color: @ini_nav_menu_hover_bg;
-                }
+            path {
+                fill: @ini_nav_menu_color;
             }
         }
 
-        .prefix {
-            .btn-prefix(.26rem);
-            .icon-clipboard();
+        // adjust colors on hover
+        &:hover {
+            background-color: @ini_nav_menu_hover_color;
+            border-color: @ini_nav_menu_hover_color;
 
-            display: block;
-            font-size: 1.2rem;
-            line-height: 1;
-        }
-
-        .num {
-            top: -.6em;
-            font-size: @font-size-very-small;
-        }
-
-        &:empty {
-          display: none;
+            svg path {
+                fill: @ini_nav_menu_hover_bg;
+            }
         }
     }
 }

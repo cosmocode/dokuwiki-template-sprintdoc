@@ -39,9 +39,13 @@ if($doPlugin !== null) {
         $class = 'do_late';
         $title = sprintf(tpl_getLang('tasks_page_late'), $count['undone'], $count['late']);
     }
-    $markup = "<li class=\"plugin_do_pagetasks $class\" title=\"$title\"><strong><span class=\"num\">{$count['undone']}</span><span class=\"prefix\">" . tpl_getLang('prefix_tasks_page') . " </span></strong></li>";
 
-    echo $markup;
+    echo '<li class="plugin_do_pagetasks">';
+    echo '<span title="'.$title.'" class="'.$class.'">';
+    echo inlineSVG(DOKU_PLUGIN . 'do/pix/clipboard-text.svg');
+    echo '</span>';
+    echo '<span class="num">' . $count['undone'] . '</span>';
+    echo '</li>';
 }
 
 if($starredPlugin !== null) {
