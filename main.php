@@ -426,16 +426,7 @@ $classWideContent = (Template::getInstance())->fullWidthClass();
                 <div class="col-xs-12">
 
                     <div class="main-footer">
-                        <p>
-                            <?php
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* copyright */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                            tpl_license($img = false, $imgonly = false, $return = false, $wrap = false);
-                            ?>
-                        </p>
+                        <?php include 'tpl/main-footer.php'; ?>
                     </div>
 
                 </div>

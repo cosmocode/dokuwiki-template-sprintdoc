@@ -17,3 +17,4 @@ $lang['header_layout_o_compact']   = 'compact header layout for short wiki title
 
 $lang['autocollapse'] = 'Automatically collapse the sidebar when viewing non-content pages for more screen estate.';
 $lang['closedwiki'] = 'This is a closed wiki. Hide most wiki functionality before user has logged in.';
+$lang['copyright'] = 'Copyright notice. Use %year%, %title%, and %TITLE% as placeholders. May contain HTML. You probably want to disable the default license notice.';
