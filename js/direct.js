@@ -110,11 +110,15 @@
          */
         scrollToTarget = function(target) {
             // scroll to each target
-            $(target).velocity('scroll', {
+            /*$(target).velocity('scroll', {
                 duration: 400,
                 offset: -60,
                 easing: 'ease-in-out'
-            });
+            });*/
+
+            $('html, body').animate({
+                scrollTop: (target.offset().top - 60)
+            }, 400);
         };
 
 
