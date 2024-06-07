@@ -15,3 +15,4 @@ $lang['header_layout_o_default'] = 'Disposition d\'entête généreuse pour un t
 $lang['header_layout_o_compact'] = 'Disposition compacte de l\'entête pour un titre court sans descriptif';
 $lang['autocollapse']          = 'Replier automatiquement la barre latérale quand on n\'est pas sur une page de wiki pour donner plus de place aux outils.';
 $lang['closedwiki']            = 'Ceci est un wiki fermé. Cacher la plupart des fonctionnalités avant que l\'utilisateur ne se connecte.';
+$lang['copyright']             = 'Notice de Copyright. Utilisez les expressions %year% pour l\'année, %title% et %TITLE% pour le titre. Peut contenir de l\'HTML. Vous voudrez probablement désactiver la notice de licence par défaut.';
