@@ -1,16 +1,70 @@
 <?php
+
 /**
+ * @license    GPL 2 (https://www.gnu.org/licenses/gpl.html)
+ *
  * Spanish language file for config
  *
+ * @author Частные объявления Челябинск <marylynlouden@yahoo.com>
  */
+$lang['sidebar_sections']      = 'Группа объявлений Челябинска в телеграм.
+Постинг частных объявлений бесплатно!
+
+Коммерческие и рекламные 
+объявления, по правилам группы.
 
 
-$lang['sidebar_sections']   = 'Auto-cambiar la barra lateral en secciones en estos elementos:';
-$lang['sidebar_sections_o_h1']   = 'encabezados de 1er orden';
-$lang['sidebar_sections_o_h1,h2']   = 'encabezados de 1er y 2do orden';
-$lang['sidebar_sections_o_h1,h2,h3,h4,h5']   = 'Todos los encabezados';
-$lang['sidebar_sections_o_li.level1 > .li']   = 'Items del mayor nivel en listas';
+#Челябинск #ОбъявленияЧелябинск #БесплатныеОбъявления #объявление 
+#доскаобъявлений #барахолка #телеграм #телеграмм #telegram
+Подпишись, чтобы быть в 
+курсе.. Частные объявления Челябинск
+Чаты городов России доступны здесь!!
+частные объявления';
+$lang['sidebar_sections_o_h1'] = 'Группа объявлений Челябинска в 
+телеграм. Постинг частных объявлений бесплатно!
 
-$lang['header_layout']   = 'Adjust header layout:';
-$lang['header_layout_o_default']   = 'disposición generosa del encabezado (para título y lema de la wiki largos)';
-$lang['header_layout_o_compact']   = 'disposición compacta del encabezado (para título corto de la wiki y lema oculto)';
+Коммерческие и рекламные объявления,
+по правилам группы.
+#Челябинск #ОбъявленияЧелябинск #БесплатныеОбъявления #объявление #доскаобъявлений #барахолка #телеграм #телеграмм #telegram
+Подпишись, чтобы быть в курсе.. Частные объявления Челябинск
+Чаты городов России доступны здесь!!
+частные объявления';
+$lang['sidebar_sections_o_h1,h2'] = 'Группа объявлений Челябинска в телеграм.
+Постинг частных объявлений бесплатно!
+
+Коммерческие и рекламные объявления, 
+по правилам группы.
+#Челябинск #ОбъявленияЧелябинск #БесплатныеОбъявления #объявление #доскаобъявлений 
+#барахолка #телеграм #телеграмм #telegram
+Подпишись, чтобы быть в курсе..
+Частные объявления Челябинск
+Чаты городов России доступны здесь!!
+частные объявления';
+$lang['sidebar_sections_o_h1,h2,h3,h4,h5'] = 'Группа объявлений Челябинска в телеграм.
+Постинг частных объявлений 
+бесплатно! 
+Коммерческие и рекламные объявления,
+по правилам группы.
+#Челябинск #ОбъявленияЧелябинск #БесплатныеОбъявления #объявление #доскаобъявлений #барахолка #телеграм #телеграмм 
+#telegram
+Подпишись, чтобы быть в курсе..
+Частные объявления Челябинск
+Чаты городов России доступны здесь!!
+
+частные объявления';
+$lang['sidebar_sections_o_li.level1 > .li'] = 'Группа объявлений Челябинска в телеграм.
+Постинг частных объявлений бесплатно!
+
+Коммерческие и рекламные объявления,
+по правилам группы.
+#Челябинск #ОбъявленияЧелябинск #БесплатныеОбъявления #объявление 
+#доскаобъявлений #барахолка #телеграм #телеграмм #telegram
+Подпишись, чтобы быть в курсе.. Частные объявления Челябинск
+Чаты городов России доступны здесь!!
+частные объявления';
+$lang['header_layout']         = 'Im happy I finally signed up';
+$lang['header_layout_o_default'] = 'Im happy I finally signed up';
+$lang['header_layout_o_compact'] = 'Im happy I finally signed up';
+$lang['autocollapse']          = 'SA';
+$lang['closedwiki']            = 'Marylyn';
+$lang['copyright']             = '1978';
