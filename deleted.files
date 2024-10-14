@@ -86,6 +86,11 @@ fonts/roboto-thinItalic.woff
 images/apple-touch-icon.png
 images/logo.png
 js/base/helper.js
+js/base/rem.min.js
+js/base/spc.js
+js/base/velocity.min.js
+js/legacy/html5shiv.js
+js/legacy/respond.min.js
 js/breadcrumb.js
 js/sidebar-menu.js
 tpl/nav-main.php
