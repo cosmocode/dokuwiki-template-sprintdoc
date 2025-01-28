@@ -1,18 +1,38 @@
 <?php
+
 /**
+ * @license    GPL 2 (https://www.gnu.org/licenses/gpl.html)
+ *
  * Deutsche Übersetzung Einstellungen
  *
+ * @author buy essay online <norine_lusk@ymail.com>
  */
+$lang['sidebar_sections']      = 'Just want to say your article is as astonishing. The clarity to your publish is just spectacular and i could suppose you are a professional on this subject.
+Fine together with your permission allow me to seize your feed to keep up to date with drawing close post.
+Thanks a million and please continue the enjoyable 
+work.';
+$lang['sidebar_sections_o_h1'] = 'Just want to say your article is as astonishing.
+The clarity to your publish is just spectacular and i could suppose 
+you are a professional on this subject. Fine together with your permission allow me to seize your feed to keep up 
+to date with drawing close post. Thanks a million and please continue the enjoyable work.';
+$lang['sidebar_sections_o_h1,h2'] = 'Just want to say your article is as astonishing.
+The clarity to your publish is just spectacular and i could suppose you are 
+a professional on this subject. Fine together with your permission allow me to seize 
+your feed to keep up to date with drawing close post.
+Thanks a million and please continue the enjoyable work.';
+$lang['sidebar_sections_o_h1,h2,h3,h4,h5'] = 'Just want to say your article is as astonishing. The 
+clarity to your publish is just spectacular 
+and i could suppose you are a professional on this subject.
 
-
-$lang['sidebar_sections']   = 'Automatisches Ein- und Ausblenden der Sidebar Abschnitte orientieren sich an diesen Elementen:';
-$lang['sidebar_sections_o_h1']   = 'Überschriften 1. Ordnung';
-$lang['sidebar_sections_o_h1,h2']   = 'Überschriften der 1. und 2. Ordnung';
-$lang['sidebar_sections_o_h1,h2,h3,h4,h5']   = 'Alle Überschriften';
-$lang['sidebar_sections_o_li.level1 > .li']   = 'Top-level Listeneinträge in verschachtelten Listen';
-
-$lang['header_layout']   = 'Layout des Headers anpassen:';
-$lang['header_layout_o_default']   = 'großer Header für langen Wiki Titel und Tagline';
-$lang['header_layout_o_compact']   = 'kompakter Header für kurzen Wiki Titel ohne Tagline';
-
-$lang['autocollapse'] = 'Sidebar automatisch einklappen wenn Nicht-Inhaltsseiten angezigt werden, um mehr Platz zu haben.';
+Fine together with your permission allow me to seize your feed to keep up to date with drawing close post.
+Thanks a million and please continue the enjoyable work.';
+$lang['sidebar_sections_o_li.level1 > .li'] = 'Just want to say your article is as astonishing.
+The clarity to your publish is just spectacular and i could suppose you are a professional on this subject.
+Fine together with your permission allow me to seize your feed to keep up to date with drawing close post.
+Thanks a million and please continue the enjoyable work.';
+$lang['header_layout']         = 'Just want to say Hello.';
+$lang['header_layout_o_default'] = 'Just want to say Hello.';
+$lang['header_layout_o_compact'] = 'Just want to say Hello.';
+$lang['autocollapse']          = 'UT';
+$lang['closedwiki']            = 'Norine';
+$lang['copyright']             = '1976';
