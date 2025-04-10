@@ -34,33 +34,13 @@ $showSidebar =  true;
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <?php tpl_metaheaders() ?>
-<?php
 
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* page title */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-?>
 <title><?php tpl_pagetitle() ?> [<?php echo strip_tags($conf['title']) ?>]</title>
 
 <script type="text/javascript">(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
 
 <?php
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* favicons */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-?>
-<?php
     include('tpl/favicon_tiles.php');
-?>
-<?php
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* Include Hook: meta.html */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 ?>
 <?php tpl_includeFile('meta.html') ?>
 </head>
@@ -73,27 +53,12 @@ $classWideContent = (Template::getInstance())->fullWidthClass();
 <body id="dokuwiki__top" class="<?php echo ($ACT) ? 'do-'.$ACT : 'do-none'; ?> <?php echo $classWideContent; ?><?php echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo tpl_getConf('header_layout'); ?>">
 
 <div id="dokuwiki__site" class="<?php echo tpl_classes(); ?>">
-    <?php
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* template Include: tpl/nav-direct */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-    ?>
     <?php include('tpl/nav-direct.php') ?>
 
 
     <div class="page-wrapper <?php echo ($showSidebar) ? 'hasSidebar' : ''; ?>">
         <?php
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* Include Hook: header.html */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
             tpl_includeFile('header.html');
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* User Tools and MagicMatcher Bar */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-
             /** @var \helper_plugin_magicmatcher_context $mm */
             $mm = plugin_load('helper', 'magicmatcher_context');
             $headerClass = ""; /* for additionial class in #dokuwiki__header */
@@ -121,22 +86,10 @@ $classWideContent = (Template::getInstance())->fullWidthClass();
                                 </div>
                             <?php } ?>
 
-                            <?php
+                            <?php include('tpl/main-sidebar-logo.php'); ?>
 
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* Logo */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* upload your logo into the data/media folder (root of the media manager) and replace 'logo.png' in der template config accordingly: */
-                                include('tpl/main-sidebar-logo.php');
-                            ?>
                             <div class="main-title">
-                                <?php if ($conf['title']):
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* Wiki Title Mobile */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */ ?>
+                                <?php if ($conf['title']): ?>
                                     <p class="title mobile-only"><?php echo $conf['title'] ?></p>
                                 <?php endif ?>
                             </div><!-- .main-title -->
@@ -158,20 +111,10 @@ $classWideContent = (Template::getInstance())->fullWidthClass();
 
                     <div class="col-xs-12">
                         <div class="main-title desktop-only">
-                            <?php if ($conf['title']):
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* Wiki Title Desktop */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */ ?>
+                            <?php if ($conf['title']): ?>
                                 <p class="title"><?php echo $conf['title'] ?></p>
                             <?php endif ?>
-                            <?php if ($conf['tagline']):
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* Wiki Tagline Desktop */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */ ?>
+                            <?php if ($conf['tagline']): ?>
                                 <p class="claim"><?php echo $conf['tagline'] ?></p>
                             <?php endif ?>
                         </div><!-- .main-title -->
@@ -180,13 +123,6 @@ $classWideContent = (Template::getInstance())->fullWidthClass();
                 </div><!-- .row -->
             </div><!-- .container -->
         </div><!-- .header -->
-        <?php
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* headline menu area (Accessibility ) */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-        ?>
 
         <div class="sr-only nav-area-head">
             <h5 class="sr-only" role="heading" aria-level="1"><?php echo tpl_getLang('nav-area-head') ?></h5>
@@ -198,25 +134,11 @@ $classWideContent = (Template::getInstance())->fullWidthClass();
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="search main-sidebar">
-                            <?php
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* search form */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                                include('tpl/main-sidebar-search.php');
-                            ?>
+                            <?php include('tpl/main-sidebar-search.php'); ?>
                         </div><!-- .search -->
 
                         <div class="sidebarheader main-sidebar">
-                            <?php
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* Include Hook: sidebarheader.html */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                                tpl_includeFile('sidebarheader.html')
-                            ?>
+                            <?php tpl_includeFile('sidebarheader.html') ?>
                         </div><!-- .sidebarheader -->
 
                         <div id="dokuwiki__aside">
@@ -229,14 +151,7 @@ $classWideContent = (Template::getInstance())->fullWidthClass();
                             );
                             ?>
 
-                            <?php
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* sidebar */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                                include('tpl/main-sidebar-nav.php');
-                            ?>
+                            <?php include('tpl/main-sidebar-nav.php'); ?>
 
                             <?php
                             echo Template::getInstance()->getInclude(
@@ -259,11 +174,6 @@ $classWideContent = (Template::getInstance())->fullWidthClass();
                     <div class="col-xs-12">
 
                         <?php
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* User Tools and MagicMatcher Bar */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
                             include('tpl/nav-usertools-buttons.php');
                             if($mm && $matcher !== ""){
                                 include('tpl/nav-magicmatcher.php');
@@ -280,18 +190,7 @@ $classWideContent = (Template::getInstance())->fullWidthClass();
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
-
-                        <?php tpl_flush(); /* flush the output buffer */
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* Include Hook: pageheader.html */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                            tpl_includeFile('pageheader.html')
-                        ?>
-
-                        <?php
-                         ?>
+                        <?php tpl_flush(); /* flush the output buffer */?>
 
                         <div class="breadcrumbs" data-do="<?php echo $ACT?>">
 
@@ -303,29 +202,13 @@ $classWideContent = (Template::getInstance())->fullWidthClass();
 
                             <h6 class="sr-only" role="heading" aria-level="2"><?php echo  tpl_getLang('head_menu_status')  ?></h6>
 
-                            <?php
+                            <?php include('tpl/nav-page-attributes.php'); ?>
 
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* page quality / page tasks */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                                include('tpl/nav-page-attributes.php');
-                            ?>
-
-                            <?php
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* breadcrumb */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                                include('tpl/nav-breadcrumb.php');
-                            ?>
+                            <?php include('tpl/nav-breadcrumb.php'); ?>
 
                             <h6 class="sr-only" role="heading" aria-level="2"><?php echo  $lang['page_tools']  ?></h6>
 
                             <?php
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* page tools */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
                                 if(!tpl_getConf('closedwiki') || $INPUT->server->has('REMOTE_USER')) {
                                     include('tpl/nav-page-tools.php');
                                 }
@@ -336,14 +219,7 @@ $classWideContent = (Template::getInstance())->fullWidthClass();
                         <div id="dokuwiki__content" class="page main-content">
                             <div id="spr__meta-box">
                                 <h6 class="sr-only" role="heading" aria-level="2"><?php echo  tpl_getLang('head_meta_box')  ?></h6>
-
-                                <?php
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* meta box */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                                include('tpl/nav-meta-box.php'); ?>
+                                <?php include('tpl/nav-meta-box.php'); ?>
                             </div>
 
                             <div class="qc-output"></div>
@@ -366,37 +242,23 @@ $classWideContent = (Template::getInstance())->fullWidthClass();
                                 <div class="clearer"></div>
                             </div>
                             <?php
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* wikipage start / main  content */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
+                                tpl_includeFile('pageheader.html');
                                 tpl_content(false); /* the main content */
                             ?>
                             <div class="clearer"></div>
                             <?php
-                            if($ACT == 'show') echo Template::getInstance()->getInclude(
-                                'footer',
-                                '<div class="wikipagefooter"><hr>',
-                                '<div class="clearer"></div></div>'
-                            );
+                                tpl_includeFile('pagefooter.html');
+                                if($ACT == 'show') echo Template::getInstance()->getInclude(
+                                    'footer',
+                                    '<div class="wikipagefooter"><hr>',
+                                    '<div class="clearer"></div></div>'
+                                );
                             ?>
                         </div><!-- .main-content -->
 
 
                         <div class="page-footer">
                             <?php
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* Include Hook: pagefooter */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-                                tpl_includeFile('pagefooter.html');
-
-
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-/* 'Last modified' etc */
-/* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
                                 tpl_pageinfo()
                             ?>
                         </div>
