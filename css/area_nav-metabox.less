@@ -29,12 +29,14 @@
         min-height: @page-header_height;
         height: auto;
         border: 0 none;
+
+        width: calc(100% - 13em);
+
     }
 
     &.sticky {
         position: fixed;
         top: 0;
-        width: calc(100% - 13em);
 
         ul.meta-tabs > li > a {
             border-top-color: @ini_background_site;
