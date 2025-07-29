@@ -21,12 +21,25 @@ a:visited {
     text-decoration: underline;
 }
 
-/* lightbox is shown: */ #dokuwiki__top[style="overflow: hidden;"] .page-wrapper,
+a.urlextern:after, a.interwiki:after, a.mail:after {
+    content: "\00a0[" attr(href) "]";
+    font-size: 90%;
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: top;
+}
+
+abbr {
+    text-decoration: none;
+    border-bottom: none;
+}
+
+/* lightbox is shown: */
+#dokuwiki__top[style="overflow: hidden;"] .page-wrapper,
 #spr__direct,
 .top-header,
 .main-footer,
 .menu-togglelink,
-.main-title.desktop-only,
 #spr__meta-box,
 .content .row > .col-xs-12 #dokuwiki__content::before,
 .page-wrapper > .tools,
@@ -48,9 +61,38 @@ a:visited {
     padding: 20pt 20pt 0;
 }
 
-#dokuwiki__header .logo img {
-    height: 4rem;
-    width: auto;
+/* Header and Logo */
+#dokuwiki__header .container .row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    padding-bottom: 10pt;
+    border-bottom: @border-color-print 1px solid;
+
+    .col-xs-12 {
+        width: auto;
+    }
+
+    .logo img {
+            height: 4rem;
+            width: auto;
+
+    }
+
+    div.main-title.desktop-only {
+        display: block;
+
+        p {
+            background-color: @background-print;
+            color: @color-print;
+        }
+
+        p.title {
+            font-size: @font-size-head1;
+            padding-top: 20pt;
+        }
+    }
 }
 
 
