@@ -73,7 +73,7 @@ $classWideContent = (Template::getInstance())->fullWidthClass();
             }
         ?>
 
-        <div id="dokuwiki__header" class="header <?php echo $headerClass; ?> no-print">
+        <div id="dokuwiki__header" class="header <?php echo $headerClass; ?>">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">

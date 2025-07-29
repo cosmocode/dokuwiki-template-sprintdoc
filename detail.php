@@ -87,7 +87,7 @@ include('tpl/favicon_tiles.php');
             tpl_includeFile('header.html');
         ?>
 
-        <div id="dokuwiki__header" class="header no-print">
+        <div id="dokuwiki__header" class="header">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
