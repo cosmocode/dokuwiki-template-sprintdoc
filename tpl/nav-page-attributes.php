@@ -9,6 +9,8 @@ $qcPlugin = plugin_load('helper', 'qc');
 $starredPlugin = plugin_load('action', 'starred');
 /** @var \helper_plugin_quicksubscribe $quickSubPlugin */
 $quickSubPlugin = plugin_load('helper', 'quicksubscribe');
+/** @var \helper_plugin_approve_tpl $approvePlugin */
+$approvePlugin = plugin_load('helper', 'approve_tpl');
 
 if($doPlugin !== null || $qcPlugin !== null || $starredPlugin !== null) {
     echo '<ul class="page-attributes">';
@@ -62,4 +64,9 @@ if($quickSubPlugin !== null) {
 
 if($doPlugin !== null || $qcPlugin !== null || $starredPlugin !== null) {
     echo "</ul>";
+}
+
+if($approvePlugin !== null) {
+    global $ACT;
+    echo $approvePlugin->banner($ACT);
 }
