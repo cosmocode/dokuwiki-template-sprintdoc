@@ -7,4 +7,4 @@
 /* DOKUWIKI:include js/sidebar.js */
 /* DOKUWIKI:include js/direct.js */
 /* DOKUWIKI:include js/anchor.js */
-
+/* DOKUWIKI:include js/copy-code.js */
