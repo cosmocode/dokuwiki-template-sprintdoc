@@ -21,6 +21,7 @@ $lang['head_menu_status']           = 'Seitenstatus';
 $lang['head_breadcrumb_youarehere'] = 'Standortanzeiger';
 $lang['head_menu_trace']            = 'Zuletzt Angesehen';
 $lang['head_meta_box']              = 'Metainformationen zur Seite';
+$lang['head_menu_aclinfo']          = 'Seitenberechtigungen';
 $lang['head_menu_starred']          = 'Gemerkte Seiten';
 $lang['head_menu_tool-select']      = 'Werkzeuge';
 
