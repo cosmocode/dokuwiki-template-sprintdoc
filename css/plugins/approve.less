@@ -1,7 +1,36 @@
 /**
  * This file provides styles for approve plugin
  */
-#plugin__approve {
-    position: static;
-    display: inline;
+
+.page-attributes > li #plugin__approve {
+    display: none;
+}
+
+@media screen {
+    #plugin__approve {
+        display: none; // initial
+        padding: 2rem 1rem;
+        clear: both;
+    }
+
+    span.plugin_approve-icon.plugin__approve_draft {
+        background-color: #fdb1b1;
+        &:hover {
+            background-color: unset;
+        }
+    }
+
+    span.plugin_approve-icon.plugin__approve_ready {
+        background-color: #94bffb;
+        &:hover {
+            background-color: unset;
+        }
+    }
+
+    span.plugin_approve-icon.plugin__approve_approved {
+        background-color: #94fb94;
+        &:hover {
+            background-color: unset;
+        }
+    }
 }

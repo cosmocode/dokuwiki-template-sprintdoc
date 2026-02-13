@@ -12,18 +12,18 @@ $quickSubPlugin = plugin_load('helper', 'quicksubscribe');
 /** @var \helper_plugin_approve_tpl $approvePlugin */
 $approvePlugin = plugin_load('helper', 'approve_tpl');
 
-if($doPlugin !== null || $qcPlugin !== null || $starredPlugin !== null) {
+if ($doPlugin !== null || $qcPlugin !== null || $starredPlugin !== null || $quickSubPlugin !== null || $approvePlugin !== null) {
     echo '<ul class="page-attributes">';
 }
 
 
-if($qcPlugin && $qcPlugin->shouldShow()) {
+if ($qcPlugin && $qcPlugin->shouldShow()) {
     $qcPrefix = tpl_getLang('quality_trigger');
     echo '<li class="plugin_qc"><strong class="sr-out">'.$qcPrefix.':</strong><a href="#"></a></li>'; // filled by javascript
 }
 
 
-if($doPlugin !== null) {
+if ($doPlugin !== null) {
     $count = $doPlugin->getPageTaskCount();
     $num = $count['count'];
     $title = "";
@@ -50,23 +50,28 @@ if($doPlugin !== null) {
     echo '</li>';
 }
 
-if($starredPlugin !== null) {
+if ($starredPlugin !== null) {
     echo '<li class="plugin_starred">';
     $starredPlugin->tpl_starred();
     echo '</li>';
 }
 
-if($quickSubPlugin !== null) {
+if ($quickSubPlugin !== null) {
     echo '<li class="plugin_quicksubscribe">';
     echo $quickSubPlugin->tpl_subscribe();
     echo '</li>';
 }
 
-if($doPlugin !== null || $qcPlugin !== null || $starredPlugin !== null) {
-    echo "</ul>";
-}
-
-if($approvePlugin !== null) {
+if ($approvePlugin !== null && $approvePlugin->shouldDisplay()) {
+    echo '<li class="plugin_approve">';
+    echo '<span class="plugin_approve-icon">' . inlineSVG(DOKU_PLUGIN . 'approve/admin.svg') . '</span>';
+    echo '<div class="plugin_approve-banner-content">';
     global $ACT;
     echo $approvePlugin->banner($ACT);
+    echo '</div>';
+    echo '</li>';
+}
+
+if ($doPlugin !== null || $qcPlugin !== null || $starredPlugin !== null || $quickSubPlugin !== null || $approvePlugin !== null) {
+    echo "</ul>";
 }
