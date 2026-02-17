@@ -1,5 +1,6 @@
 <?php
-if(!defined('DOKU_INC')) die();
+
+if (!defined('DOKU_INC')) die();
 
 /** @var \helper_plugin_do $doPlugin */
 $doPlugin = plugin_load('helper', 'do');
@@ -12,29 +13,28 @@ $quickSubPlugin = plugin_load('helper', 'quicksubscribe');
 /** @var \helper_plugin_approve_tpl $approvePlugin */
 $approvePlugin = plugin_load('helper', 'approve_tpl');
 
-if ($doPlugin !== null || $qcPlugin !== null || $starredPlugin !== null || $quickSubPlugin !== null || $approvePlugin !== null) {
-    echo '<ul class="page-attributes">';
-}
+$items = [];
 
 
 if ($qcPlugin && $qcPlugin->shouldShow()) {
     $qcPrefix = tpl_getLang('quality_trigger');
-    echo '<li class="plugin_qc"><strong class="sr-out">'.$qcPrefix.':</strong><a href="#"></a></li>'; // filled by javascript
+    // filled by javascript
+    $items[] = '<li class="plugin_qc"><strong class="sr-out">' . hsc($qcPrefix) . ':</strong><a href="#"></a></li>';
 }
 
 
 if ($doPlugin !== null) {
     $count = $doPlugin->getPageTaskCount();
-    $num = $count['count'];
-    $title = "";
+    $num = (int) $count['count'];
+    $title = '';
 
-    if($num == 0) { // no tasks - does not exist do in plug-in
-        $class = "do_none";
+    if ($num == 0) { // no tasks - does not exist do in plug-in
+        $class = 'do_none';
         $title = tpl_getLang('tasks_page_none');
-    } elseif($count['undone'] == 0) { // all tasks done
+    } elseif ($count['undone'] == 0) { // all tasks done
         $class = 'do_done';
         $title = $doPlugin->getLang('title_alldone');
-    } elseif($count['late'] == 0) { // open tasks but none late
+    } elseif ($count['late'] == 0) { // open tasks but none late
         $class = 'do_undone';
         $title = sprintf(tpl_getLang('tasks_page_intime'), $count['undone']);
     } else { // late tasks
@@ -42,36 +42,32 @@ if ($doPlugin !== null) {
         $title = sprintf(tpl_getLang('tasks_page_late'), $count['undone'], $count['late']);
     }
 
-    echo '<li class="plugin_do_pagetasks">';
-    echo '<span title="'.$title.'" class="'.$class.'">';
-    echo inlineSVG(DOKU_PLUGIN . 'do/pix/clipboard-text.svg');
-    echo '</span>';
-    echo '<span class="num">' . $count['undone'] . '</span>';
-    echo '</li>';
+    $items[] = '<li class="plugin_do_pagetasks">' .
+        '<span title="' . hsc($title) . '" class="' . $class . '">' .
+        inlineSVG(DOKU_PLUGIN . 'do/pix/clipboard-text.svg') .
+        '</span>' .
+        '<span class="num">' . (int) $count['undone'] . '</span>' .
+        '</li>';
 }
 
 if ($starredPlugin !== null) {
-    echo '<li class="plugin_starred">';
-    $starredPlugin->tpl_starred();
-    echo '</li>';
+    $items[] = '<li class="plugin_starred">' . $starredPlugin->tpl_starred(false, false) . '</li>';
 }
 
 if ($quickSubPlugin !== null) {
-    echo '<li class="plugin_quicksubscribe">';
-    echo $quickSubPlugin->tpl_subscribe();
-    echo '</li>';
+    $items[] = '<li class="plugin_quicksubscribe">' . $quickSubPlugin->tpl_subscribe() . '</li>';
 }
 
 if ($approvePlugin !== null && $approvePlugin->shouldDisplay()) {
-    echo '<li class="plugin_approve">';
-    echo '<span class="plugin_approve-icon">' . inlineSVG(DOKU_PLUGIN . 'approve/admin.svg') . '</span>';
-    echo '<div class="plugin_approve-banner-content">';
     global $ACT;
-    echo $approvePlugin->banner($ACT);
-    echo '</div>';
-    echo '</li>';
+    $items[] = '<li class="plugin_approve">' .
+        '<span class="plugin_approve-icon">' . inlineSVG(DOKU_PLUGIN . 'approve/admin.svg') . '</span>' .
+        '<div class="plugin_approve-banner-content">' .
+        $approvePlugin->banner($ACT) .
+        '</div>' .
+        '</li>';
 }
 
-if ($doPlugin !== null || $qcPlugin !== null || $starredPlugin !== null || $quickSubPlugin !== null || $approvePlugin !== null) {
-    echo "</ul>";
+if (!empty($items)) {
+    echo '<ul class="page-attributes">' . implode('', $items) . '</ul>';
 }
