@@ -15,6 +15,9 @@ if (!defined('DOKU_INC')) die();                        /* must be run from with
 header('X-UA-Compatible: IE=edge,chrome=1');
 
 global $JSINFO;
+global $conf;
+global $lang;
+
 if (empty($JSINFO['template'])) {
     $JSINFO['template'] = array();
 }

@@ -1,3 +1,4 @@
+/* DOKUWIKI:include js/plugins/approve.js */
 /* DOKUWIKI:include js/plugins/do_tasks.js */
 /* DOKUWIKI:include js/plugins/qc.js */
 /* DOKUWIKI:include js/plugins/bookcreator.js */
