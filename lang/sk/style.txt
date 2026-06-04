@@ -1,0 +1,1 @@
+Ak chcete zmeniť favicon, jednoducho cez Správcu médií nahrajte ''favicon.ico'' do menného priestoru ''wiki'' alebo do koreňového a automaticky sa použije. Ak používate uzavretú wiki, odporúča sa nastaviť menný priestor ''wiki'' (alebo koreňový) v ACL nastaveniach ako verejne čitateľný, inak sa favicon odhláseným používateľom nezobrazí.
